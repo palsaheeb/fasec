@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Wed Jul 27 08:32:57 2016
+# Process ID: 3142
+# Current directory: /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.runs/synth_1
+# Command line: vivado -log system_design_wrapper.vds -mode batch -messageDb vivado.pb -notrace -source system_design_wrapper.tcl
+# Log file: /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.runs/synth_1/system_design_wrapper.vds
+# Journal file: /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source system_design_wrapper.tcl -notrace

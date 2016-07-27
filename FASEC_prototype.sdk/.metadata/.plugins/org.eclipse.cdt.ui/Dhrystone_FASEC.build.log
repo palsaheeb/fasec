@@ -1,0 +1,23 @@
+09:32:44 **** Auto Build of configuration Debug for project Dhrystone_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Dhrystone_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Dhrystone_FASEC.elf"  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Dhrystone_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Dhrystone_FASEC.elf  |tee "Dhrystone_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32476	   1152	  21652	  55280	   d7f0	Dhrystone_FASEC.elf
+Finished building: Dhrystone_FASEC.elf.size
+ 
+
+09:32:45 Build Finished (took 237ms)
+
