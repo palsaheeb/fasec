@@ -531,8 +531,13 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 			count++;
 		}
 		#endif
-		EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED_1G);
-		XEmacPs_SetOperatingSpeed(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED_1G);
+		/*
+		 * PVT: 1000Mbit/s needed cause switch configured as such (pull-ups)
+		 * switched back to 100Mbit/s (pull-down force) because frame length mismatch
+		 */
+		print("Gemversion==2 \n\r");
+		EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
+		XEmacPs_SetOperatingSpeed(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
 	}
 	else
 	{
@@ -549,12 +554,14 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 	/*
 	 * Setup the interrupt controller and enable interrupts
 	 */
+	print("EmacPsSetupIntrSystem\n\r");
 	Status = EmacPsSetupIntrSystem(IntcInstancePtr,
 					EmacPsInstancePtr, EmacPsIntrId);
 
 	/*
 	 * Run the EmacPs DMA Single Frame Interrupt example
 	 */
+	print("EmacPsDmaSingleFrameIntrExample\n\r");
 	Status = EmacPsDmaSingleFrameIntrExample(EmacPsInstancePtr);
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
@@ -563,11 +570,13 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 	/*
 	 * Disable the interrupts for the EmacPs device
 	 */
+	print("EmacPsDisableIntrSystem\n\r");
 	EmacPsDisableIntrSystem(IntcInstancePtr, EmacPsIntrId);
 
 	/*
 	 * Stop the device
 	 */
+	print("XEmacPs_Stop\n\r");
 	XEmacPs_Stop(EmacPsInstancePtr);
 
 	return XST_SUCCESS;
@@ -721,6 +730,7 @@ LONG EmacPsDmaSingleFrameIntrExample(XEmacPs *EmacPsInstancePtr)
 	/*
 	 * Wait for transmission to complete
 	 */
+	print("frame transmitted, waiting for completion \n\r");
 	while (!FramesTx);
 
 	/*
@@ -755,6 +765,7 @@ LONG EmacPsDmaSingleFrameIntrExample(XEmacPs *EmacPsInstancePtr)
 	/*
 	 * Wait for Rx indication
 	 */
+	print("frame transmitted, waiting for rx indication \n\r");
 	while (!FramesRx);
 
 	/*
@@ -776,7 +787,7 @@ LONG EmacPsDmaSingleFrameIntrExample(XEmacPs *EmacPsInstancePtr)
 	 * receive lengthi against the transmitted length, then verify
 	 * the data.
 	 */
-	if (GemVersion > 2) {
+	if (GemVersion >2) {
 		/* API to get correct RX frame size - jumbo or otherwise */
 		RxFrLen = XEmacPs_GetRxFrameSize(EmacPsInstancePtr, BdRxPtr);
 	} else {
@@ -784,6 +795,11 @@ LONG EmacPsDmaSingleFrameIntrExample(XEmacPs *EmacPsInstancePtr)
 	}
 	if (RxFrLen != TxFrameLength) {
 		EmacPsUtilErrorTrap("Length mismatch");
+		printf("RxFrLen: %u, TxFrameLength: %u \n\r",RxFrLen,TxFrameLength);
+		u32 Index;
+		for (Index = 0; Index < XEMACPS_HDR_SIZE+16; Index++) {
+			printf("TxFrame byte? %u : %u \n\r", Index, TxFrame[Index]);
+		}
 		return XST_FAILURE;
 	}
 

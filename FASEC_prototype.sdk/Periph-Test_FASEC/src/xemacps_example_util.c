@@ -354,6 +354,7 @@ void EmacPsUtilEnterLocalLoopback(XEmacPs * EmacPsInstancePtr)
 
 #define PHY_ID_MARVELL	0x141
 #define PHY_ID_TI		0x2000
+#define PHY_ID_MICREL	0x22
 
 u32 XEmacPsDetectPHY(XEmacPs * EmacPsInstancePtr)
 {
@@ -662,12 +663,113 @@ LONG EmacPsUtilTiPhyLoopback(XEmacPs * EmacPsInstancePtr,
 	return XST_SUCCESS;
 }
 
+LONG EmacPsUtilMicrelPhyLoopback(XEmacPs * EmacPsInstancePtr,
+									u32 Speed, u32 PhyAddr, u32 PortAddr)
+{
+	// PVT: based (and copied) on Marvell configuration
+	LONG Status;
+	const u16 BASICCON_REG = 0x0;
+	const u16 SPECCON_REG = 0x1f;
+	u16 PhyReg0  = 0x3020;
+	u16 PhyReg1  = 0;
+	u32 RegAddr;
+	u32 i = 0;
+
+	// multiple ports for the KSZ8794CNX possible
+	RegAddr = BASICCON_REG;
+	PhyAddr = PhyAddr + PortAddr;
+
+	/*
+	 * Get default value, setup speed and duplex
+	 * (disabled because if incorrect default value (cuz previous writes), phy reset needed)
+	 */
+	//Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr , &PhyReg0);
+	switch (Speed) {
+	case 10:
+		PhyReg0 |= PHY_REG0_10;			// force full duplex
+		break;
+	case 100:
+		PhyReg0 |= PHY_REG0_100;		// force 100, force full duplex
+		break;
+	case 1000:
+		PhyReg0 |= PHY_REG0_100;		// not supported, hence use default value (i.e. 100)
+		break;
+	default:
+		EmacPsUtilErrorTrap("Error: speed not recognized ");
+		return XST_FAILURE;
+	}
+	/*
+	 * Configure the speed
+	 */
+	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, RegAddr, PhyReg0);
+
+	/*
+	 * Make sure new configuration is in effect
+	 */
+	Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr , &PhyReg0);
+	if (Status != XST_SUCCESS) {
+		EmacPsUtilErrorTrap("Error setup phy speed");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Issue a reset to phy
+	 */
+	PhyReg0 |= 0x8200;			// PHY_REG0_RESET; Restart AN added, otherwise blocked on 2nd run
+	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, RegAddr, PhyReg0);
+	Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr, &PhyReg0);
+	printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+	if (Status != XST_SUCCESS) {
+		EmacPsUtilErrorTrap("Error reset phy");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Enable loopback
+	 */
+	// trying out remote loopback instead of MAC loopback
+//	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, BASICCON_REG, 0x3020|0x8200);	// disable MAC loopback first
+//	RegAddr = SPECCON_REG;
+//	Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr, &PhyReg1);
+//	printf("phy port %u reg 0x1f before write: %#010x \n\r", PortAddr, PhyReg1);
+//	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, RegAddr, PhyReg1|=0x2);
+//	Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr, &PhyReg1);
+//	printf("phy port %u reg 0x1f : %#010x \n\r", PortAddr, PhyReg1);
+
+	// enable MAC loopback for this port
+	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, SPECCON_REG, 0x0);	// disable remote loopback first
+	PhyReg0 |= PHY_REG0_LOOPBACK;
+	Status = XEmacPs_PhyWrite(EmacPsInstancePtr, PhyAddr, RegAddr, PhyReg0);
+	printf("written phy port %u reg 0x0 : %#010x \n\r", i, PhyReg0);
+
+	if (Status != XST_SUCCESS)
+		print("loopback write failed \n\r");
+
+	Status = XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, RegAddr, &PhyReg0);
+	printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+
+	if (Status != XST_SUCCESS) {
+		EmacPsUtilErrorTrap("Error setup phy loopback");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Delay loop
+	 */
+	for(i=0;i<0xfffff;i++);
+	/* FIXME: Sleep doesn't seem to work */
+	//sleep(1);
+
+	return XST_SUCCESS;
+}
+
 
 LONG EmacPsUtilEnterLoopback(XEmacPs * EmacPsInstancePtr, u32 Speed)
 {
 	LONG Status;
 	u16 PhyIdentity;
 	u32 PhyAddr;
+	const u32 PHYPORT = 0x4;
 
 	/*
 	 * Detect the PHY address
@@ -681,14 +783,18 @@ LONG EmacPsUtilEnterLoopback(XEmacPs * EmacPsInstancePtr, u32 Speed)
 	else
 		xil_printf("phy address %u \n\r", PhyAddr);
 
-	XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, PHY_DETECT_REG1, &PhyIdentity);
-//	u32 i;
-//	u32 PHYSTART = 0x17;
-//	for (i=PHYSTART; i<PHYSTART+16;i++){
-//		XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, i, &PhyIdentity);
-//		printf("phy reg %u : %#010x \n\r", i, PhyIdentity);
-//	}
+	// print out register mapping
+	u32 i, j;
+	u32 PHYSTART = 0x0;
+	for (j=1; j<5;j++){
+		for (i=PHYSTART; i<PHYSTART+6;i++){
+			XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr+j, i, &PhyIdentity);
+			printf("phy port %u reg %u : %#010x \n\r",j, i, PhyIdentity);
+		}
+	}
 
+	// read PHY ID bytes
+	XEmacPs_PhyRead(EmacPsInstancePtr, PhyAddr, PHY_DETECT_REG1, &PhyIdentity);
 	if (PhyIdentity == PHY_ID_MARVELL) {
 		Status = EmacPsUtilMarvellPhyLoopback(EmacPsInstancePtr, Speed, PhyAddr);
 	}
@@ -696,6 +802,13 @@ LONG EmacPsUtilEnterLoopback(XEmacPs * EmacPsInstancePtr, u32 Speed)
 	if (PhyIdentity == PHY_ID_TI) {
 		Status = EmacPsUtilTiPhyLoopback(EmacPsInstancePtr, Speed, PhyAddr);
 	}
+
+	if (PhyIdentity == PHY_ID_MICREL) {
+			print("EmacPsUtilMicrelPhyLoopback starting\n\r");
+			// port 0x0 doesn't exist! use 0x4 for PHY to Zynq testing??
+			Status = EmacPsUtilMicrelPhyLoopback(EmacPsInstancePtr, Speed, PhyAddr, PHYPORT);
+			print("EmacPsUtilMicrelPhyLoopback ended\n\r");
+		}
 
 	if (Status != XST_SUCCESS) {
 		EmacPsUtilErrorTrap("Error setup phy loopback");
