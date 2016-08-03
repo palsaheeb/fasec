@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Jul 29 19:27:19 2016">
+<application name="pa" timeStamp="Wed Aug  3 10:16:58 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="afae952362124be19d2885e32ec3a9b1" type="ProjectID"/>
-<property name="ProjectIteration" value="6" type="ProjectIteration"/>
+<property name="ProjectIteration" value="8" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,66 +17,72 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="CoreView" value="1" type="JavaHandler"/>
+<property name="AutoConnectPort" value="4" type="JavaHandler"/>
+<property name="CoreView" value="2" type="JavaHandler"/>
 <property name="CreateBlockDesign" value="2" type="JavaHandler"/>
 <property name="CreateTopHDL" value="1" type="JavaHandler"/>
-<property name="CustomizeCore" value="1" type="JavaHandler"/>
-<property name="CustomizeRSBBlock" value="23" type="JavaHandler"/>
+<property name="CustomizeCore" value="2" type="JavaHandler"/>
+<property name="CustomizeRSBBlock" value="28" type="JavaHandler"/>
+<property name="EditDelete" value="1" type="JavaHandler"/>
+<property name="EditUndo" value="1" type="JavaHandler"/>
 <property name="FileExit" value="5" type="JavaHandler"/>
-<property name="ManageCompositeTargets" value="6" type="JavaHandler"/>
-<property name="NewExportHardware" value="3" type="JavaHandler"/>
+<property name="ManageCompositeTargets" value="8" type="JavaHandler"/>
+<property name="NewExportHardware" value="4" type="JavaHandler"/>
 <property name="NewLaunchHardware" value="3" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="OpenBlockDesign" value="10" type="JavaHandler"/>
+<property name="OpenBlockDesign" value="13" type="JavaHandler"/>
 <property name="OpenProject" value="4" type="JavaHandler"/>
-<property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
-<property name="ProjectSummary" value="4" type="JavaHandler"/>
-<property name="RunBitgen" value="5" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="3" type="JavaHandler"/>
+<property name="ProjectSummary" value="5" type="JavaHandler"/>
+<property name="ReportClockNetworks" value="1" type="JavaHandler"/>
+<property name="ReportTimingSummary" value="1" type="JavaHandler"/>
+<property name="RunBitgen" value="7" type="JavaHandler"/>
 <property name="RunSchematic" value="4" type="JavaHandler"/>
-<property name="RunSynthesis" value="2" type="JavaHandler"/>
-<property name="SaveRSBDesign" value="12" type="JavaHandler"/>
+<property name="RunSynthesis" value="3" type="JavaHandler"/>
+<property name="SaveDesign" value="1" type="JavaHandler"/>
+<property name="SaveRSBDesign" value="13" type="JavaHandler"/>
 <property name="SelectDriverPins" value="1" type="JavaHandler"/>
 <property name="ShowConnectivity" value="3" type="JavaHandler"/>
 <property name="ShowHierarchy" value="1" type="JavaHandler"/>
 <property name="ShowProductGuide" value="1" type="JavaHandler"/>
-<property name="ShowView" value="9" type="JavaHandler"/>
-<property name="ValidateRSBDesign" value="4" type="JavaHandler"/>
-<property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
+<property name="ShowView" value="12" type="JavaHandler"/>
+<property name="ValidateRSBDesign" value="6" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="1" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="3" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="Clock Configuration, Clock Configuration" value="1" type="GuiResourceData"/>
-<property name="OK, OK" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.ClkConfigTreeTablePanel_CLK_CONFIG_TREE_TABLE, IO Peripheral Clocks ; IO Peripheral Clocks ; IO Peripheral Clocks ; IO Peripheral Clocks ; IO Peripheral Clocks ; IO Peripheral Clocks, 1" value="2" type="GuiResourceData"/>
+<property name="Clock Configuration, Clock Configuration" value="2" type="GuiResourceData"/>
+<property name="MIO Configuration, MIO Configuration" value="1" type="GuiResourceData"/>
 <property name="PAResourceAtoD.ClkConfigTreeTablePanel_CLK_CONFIG_TREE_TABLE, PL Fabric Clocks ; PL Fabric Clocks ; PL Fabric Clocks ; PL Fabric Clocks ; PL Fabric Clocks ; PL Fabric Clocks, 2" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, UserIP ;  ;  ;  ; , 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, top_mod_v1_0 ;  ; Production ; Included ; user.org:user:top_mod:1.0, 2" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, top_mod_v1_0 ;  ; Production ; Included ; user.org:user:top_mod:1.0, 2, top_mod_v1_0, 0, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, top_mod_v1_0 ;  ; Production ; Included ; user.org:user:top_mod:1.0, 2, top_mod_v1_0, 0, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CoreTreeTablePanel_CORE_TREE_TABLE, top_mod_v1_0 ;  ; Production ; Included ; user.org:user:top_mod:1.0, 2, top_mod_v1_0, 0, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_EXIT, Exit" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_IP_SETTINGS, IP Settings..." value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SAVE_RSB_DESIGN, save_rsb_design" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager, IP Catalog], 4, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.ClkConfigTreeTablePanel_CLK_CONFIG_TREE_TABLE, Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks, 0" value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.ClkConfigTreeTablePanel_CLK_CONFIG_TREE_TABLE, Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks ; Processor/Memory Clocks, 0, Processor/Memory Clocks, 0, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_EXPORT_HARDWARE, Export Hardware..." value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_PROJECT_SUMMARY, project_summary" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_REPORTS_WINDOW, View Reports" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, fasex_constraints_synth.xdc], 10, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints, constrs_1, fasex_constraints_synth.xdc], 10, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints], 8" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, system_design_wrapper - STRUCTURE (system_design_wrapper.vhd" value="6" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, IP Integrator, Open Block Design], 7, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Synthesis, Open Synthesized Design], 18, true" value="1" type="GuiResourceData"/>
 <property name="PAResourceItoN.MainMenuMgr_EXPORT, Export" value="1" type="GuiResourceData"/>
 <property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
 <property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, Open Recent File" value="1" type="GuiResourceData"/>
 <property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPPage_TABBED_PANE, PAResourceOtoP.ProjectSettingsIPPage_PACKAGER, Packager, 2" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPPage_TABBED_PANE, PAResourceOtoP.ProjectSettingsIPPage_REPOSITORY_MANAGER, Repository Manager, 1" value="3" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPRepositoryPanel_ADD_REPOSITORY, Add Repository" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPRepositoryPanel_REFRESH_ALL, Refresh All" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPRepositoryPanel_REPOSITORY_CHOOSER, /home/pieter/Development/projects/FIDS/FASEC_hwtest, 0, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsIPRepositoryPanel_REPOSITORY_CHOOSER, /home/pieter/Development/projects/FIDS/FASEC_hwtest/FASEC_hwtest.srcs/sources_1/new, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SystemBuilderView_ADD_IP, System_RSB_ADD_IP" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.NewExportHardwareDialog_INCLUDE_BITSTREAM, Include bitstream, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="2" type="GuiResourceData"/>
+<property name="PAResourceTtoZ.TaskBanner_CLOSE, (String" value="1" type="GuiResourceData"/>
 <property name="PS-PL Configuration, PS-PL Configuration" value="1" type="GuiResourceData"/>
-<property name="RDIResource.AbstractCombinedPanel_REMOVE_SELECTED_ELEMENTS, Remove" value="1" type="GuiResourceData"/>
-<property name="RDIResource.AddRepositoryInfoDialog_OK, OK" value="2" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="Peripheral I/O Pins, Peripheral I/O Pins" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="4" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="3" type="GuiResourceData"/>
+<property name="Zynq Block Design, Zynq Block Design" value="2" type="GuiResourceData"/>
+<property name="fasex_constraints_synth.xdc, 162, 265" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="10" type="GuiMode"/>
+<property name="GuiMode" value="12" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="7" type="TclMode"/>
+<property name="TclMode" value="8" type="TclMode"/>
 </item>
 </section>
 </application>

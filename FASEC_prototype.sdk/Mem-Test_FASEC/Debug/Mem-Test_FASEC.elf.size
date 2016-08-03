@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  28500	   1192	  14388	  44080	   ac30	Mem-Test_FASEC.elf
+  28480	   1176	  14388	  44044	   ac0c	Mem-Test_FASEC.elf

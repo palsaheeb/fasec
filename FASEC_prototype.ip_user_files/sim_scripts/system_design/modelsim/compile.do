@@ -37,6 +37,8 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/processing_system
 
 vcom -work xil_defaultlib -64 -93 \
 "../../../bd/system_design/hdl/system_design.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v1_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+"../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
 
 vlog -work xil_defaultlib "glbl.v"
 

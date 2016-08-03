@@ -52,11 +52,17 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.cache/wt [current_project]
   set_property parent.project_path /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.xpr [current_project]
-  set_property ip_repo_paths /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.cache/ip [current_project]
+  set_property ip_repo_paths {
+  /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.cache/ip
+  /home/pieter/Development/projects/FIDS/FASEC_hwtest
+} [current_project]
   set_property ip_output_repo /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.cache/ip [current_project]
   add_files -quiet /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.runs/synth_1/system_design_wrapper.dcp
   read_xdc -ref system_design_processing_system7_0_0 -cells inst /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_processing_system7_0_0/system_design_processing_system7_0_0.xdc
   set_property processing_order EARLY [get_files /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_processing_system7_0_0/system_design_processing_system7_0_0.xdc]
+  read_xdc -ref system_design_fasec_hwtest_0_0 -cells U0 /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_fasec_hwtest_0_0/FASEC_hwtest.srcs/constrs_1/new/hw_ip_constraints.xdc
+  set_property processing_order EARLY [get_files /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_fasec_hwtest_0_0/FASEC_hwtest.srcs/constrs_1/new/hw_ip_constraints.xdc]
+  read_xdc /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/constrs_1/new/fasex_constraints_synth.xdc
   link_design -top system_design_wrapper -part xc7z030ffg676-2
   write_hwdef -file system_design_wrapper.hwdef
   close_msg_db -file init_design.pb

@@ -1,14 +1,22 @@
 {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
+preplace port led_line_en_pl_o -pg 1 -y 60 -defaultsOSRD
 preplace port DDR -pg 1 -y -200 -defaultsOSRD
+preplace port led_line_pl_o -pg 1 -y 80 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y -180 -defaultsOSRD
-preplace inst top_mod_0 -pg 1 -lvl 2 -y 60 -defaultsOSRD
+preplace port pb_gp_i -pg 1 -y 70 -defaultsOSRD
+preplace portBus led_col_pl_o -pg 1 -y 40 -defaultsOSRD
+preplace inst fasec_hwtest_0 -pg 1 -lvl 2 -y 60 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y -160 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 2 NJ -220 500
-preplace netloc processing_system7_0_FIXED_IO 1 1 2 NJ -200 490
+preplace netloc processing_system7_0_DDR 1 1 2 NJ -220 530
+preplace netloc fasec_hwtest_0_led_line_pl_o 1 2 1 N
+preplace netloc fasec_hwtest_0_led_col_pl_o 1 2 1 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 2 NJ -200 520
 preplace netloc processing_system7_0_FCLK_CLK0 1 1 1 290
-levelinfo -pg 1 -30 150 390 520 -top -280 -bot 130
+preplace netloc pb_gp_i_1 1 0 2 N 70 NJ
+preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 2 1 N
+levelinfo -pg 1 -30 150 410 550 -top -280 -bot 130
 ",
 }
 {

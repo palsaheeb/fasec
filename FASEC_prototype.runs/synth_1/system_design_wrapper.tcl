@@ -14,8 +14,10 @@ set_property webtalk.parent_dir /home/pieter/Development/projects/FIDS/FASEC_pro
 set_property parent.project_path /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
+set_property ip_repo_paths /home/pieter/Development/projects/FIDS/FASEC_hwtest [current_project]
 add_files /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/system_design.bd
 set_property used_in_implementation false [get_files -all /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_processing_system7_0_0/system_design_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/ip/system_design_fasec_hwtest_0_0/FASEC_hwtest.srcs/constrs_1/new/hw_ip_constraints.xdc]
 set_property used_in_implementation false [get_files -all /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/system_design_ooc.xdc]
 set_property is_locked true [get_files /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/sources_1/bd/system_design/system_design.bd]
 
@@ -23,6 +25,9 @@ read_vhdl -library xil_defaultlib /home/pieter/Development/projects/FIDS/FASEC_p
 foreach dcp [get_files -quiet -all *.dcp] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/constrs_1/new/fasex_constraints_synth.xdc
+set_property used_in_implementation false [get_files /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.srcs/constrs_1/new/fasex_constraints_synth.xdc]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 

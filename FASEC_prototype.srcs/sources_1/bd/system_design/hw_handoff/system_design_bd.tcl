@@ -157,6 +157,13 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set led_col_pl_o [ create_bd_port -dir O -from 3 -to 0 led_col_pl_o ]
+  set led_line_en_pl_o [ create_bd_port -dir O led_line_en_pl_o ]
+  set led_line_pl_o [ create_bd_port -dir O led_line_pl_o ]
+  set pb_gp_i [ create_bd_port -dir I pb_gp_i ]
+
+  # Create instance: fasec_hwtest_0, and set properties
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:1.0 fasec_hwtest_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -1346,6 +1353,11 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
 
   # Create port connections
+  connect_bd_net -net fasec_hwtest_0_led_col_pl_o [get_bd_ports led_col_pl_o] [get_bd_pins fasec_hwtest_0/led_col_pl_o]
+  connect_bd_net -net fasec_hwtest_0_led_line_en_pl_o [get_bd_ports led_line_en_pl_o] [get_bd_pins fasec_hwtest_0/led_line_en_pl_o]
+  connect_bd_net -net fasec_hwtest_0_led_line_pl_o [get_bd_ports led_line_pl_o] [get_bd_pins fasec_hwtest_0/led_line_pl_o]
+  connect_bd_net -net pb_gp_i_1 [get_bd_ports pb_gp_i] [get_bd_pins fasec_hwtest_0/pb_gp_n_i]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins fasec_hwtest_0/clk_i] [get_bd_pins processing_system7_0/FCLK_CLK0]
 
   # Create address segments
 
@@ -1353,12 +1365,22 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
+preplace port led_line_en_pl_o -pg 1 -y 60 -defaultsOSRD
 preplace port DDR -pg 1 -y -200 -defaultsOSRD
+preplace port led_line_pl_o -pg 1 -y 80 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y -180 -defaultsOSRD
+preplace port pb_gp_i -pg 1 -y 70 -defaultsOSRD
+preplace portBus led_col_pl_o -pg 1 -y 40 -defaultsOSRD
+preplace inst fasec_hwtest_0 -pg 1 -lvl 2 -y 60 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y -160 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 1 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 1 1 NJ
-levelinfo -pg 1 -30 190 430 -top -260 -bot -50
+preplace netloc processing_system7_0_DDR 1 1 2 NJ -220 530
+preplace netloc fasec_hwtest_0_led_line_pl_o 1 2 1 N
+preplace netloc fasec_hwtest_0_led_col_pl_o 1 2 1 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 2 NJ -200 520
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 1 290
+preplace netloc pb_gp_i_1 1 0 2 N 70 NJ
+preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 2 1 N
+levelinfo -pg 1 -30 150 410 550 -top -280 -bot 130
 ",
 }
 

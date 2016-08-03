@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jul 28 09:31:01 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Aug  2 08:37:34 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -25,6 +25,26 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
+    <PORT DIR="I" NAME="pb_gp_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="pb_gp_n_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="led_col_pl_o" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_col_pl_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="led_col_pl_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led_line_en_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_line_en_pl_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="led_line_en_pl_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led_line_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_line_pl_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="led_line_pl_o"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -73,6 +93,41 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="1.0" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="system_design_fasec_hwtest_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pb_gp_n_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="pb_gp_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="led_col_pl_o" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_col_pl_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_col_pl_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_line_en_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_line_en_pl_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_line_en_pl_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_line_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_line_pl_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led_line_pl_o"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE CONFIGURABLE="TRUE" FULLNAME="/processing_system7_0" HWVERSION="5.5" INSTANCE="processing_system7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" IS_PL="FALSE" MODTYPE="processing_system7" VLNV="xilinx.com:ip:processing_system7:5.5">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=processing_system7;v=v5_3;d=pg082-processing-system7.pdf"/>
@@ -1006,7 +1061,11 @@
         <PORT DIR="O" NAME="TTC0_WAVE0_OUT" SIGIS="undef"/>
         <PORT DIR="O" NAME="TTC0_WAVE1_OUT" SIGIS="undef"/>
         <PORT DIR="O" NAME="TTC0_WAVE2_OUT" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="clk_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst"/>
         <PORT DIR="IO" LEFT="53" NAME="MIO" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="IO" NAME="DDR_CAS_n" SIGIS="undef"/>

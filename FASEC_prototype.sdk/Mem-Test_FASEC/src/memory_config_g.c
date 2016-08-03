@@ -8,13 +8,16 @@ struct memory_range_s memory_ranges[] = {
 		0x00100000,
 		1072693248,
 	},
-	/* ps7_ram_0 memory will not be tested since application resides in the same memory */
-	{
-		"ps7_ram_1",
-		"ps7_ram",
-		0xFFFF0000,
-		65024,
-	},
+	/*
+	 * ps7_ram_0 memory will not be tested since application resides in the same memory
+	 * PVT: ps7_ram_1 commented out for full DDR3 test
+	 */
+//	{
+//		"ps7_ram_1",
+//		"ps7_ram",
+//		0xFFFF0000,
+//		65024,
+//	},
 };
 
-int n_memory_ranges = 2;
+int n_memory_ranges = 1;

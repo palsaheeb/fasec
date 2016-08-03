@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Jul 28 09:30:40 2016
+--Date        : Tue Aug  2 08:37:34 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -33,10 +33,14 @@ entity system_design is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    led_line_en_pl_o : out STD_LOGIC;
+    led_line_pl_o : out STD_LOGIC;
+    pb_gp_i : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=1,numReposBlks=1,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=2,numReposBlks=2,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system_design : entity is "system_design.hwdef";
 end system_design;
@@ -72,6 +76,19 @@ architecture STRUCTURE of system_design is
     PS_PORB : inout STD_LOGIC
   );
   end component system_design_processing_system7_0_0;
+  component system_design_fasec_hwtest_0_0 is
+  port (
+    clk_i : in STD_LOGIC;
+    pb_gp_n_i : in STD_LOGIC;
+    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    led_line_en_pl_o : out STD_LOGIC;
+    led_line_pl_o : out STD_LOGIC
+  );
+  end component system_design_fasec_hwtest_0_0;
+  signal fasec_hwtest_0_led_col_pl_o : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal fasec_hwtest_0_led_line_en_pl_o : STD_LOGIC;
+  signal fasec_hwtest_0_led_line_pl_o : STD_LOGIC;
+  signal pb_gp_i_1 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal processing_system7_0_DDR_CAS_N : STD_LOGIC;
@@ -87,18 +104,30 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_DDR_RAS_N : STD_LOGIC;
   signal processing_system7_0_DDR_RESET_N : STD_LOGIC;
   signal processing_system7_0_DDR_WE_N : STD_LOGIC;
+  signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRN : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRP : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_MIO : STD_LOGIC_VECTOR ( 53 downto 0 );
   signal processing_system7_0_FIXED_IO_PS_CLK : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_PORB : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_SRSTB : STD_LOGIC;
-  signal NLW_processing_system7_0_FCLK_CLK0_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_FCLK_RESET0_N_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED : STD_LOGIC;
 begin
+  led_col_pl_o(3 downto 0) <= fasec_hwtest_0_led_col_pl_o(3 downto 0);
+  led_line_en_pl_o <= fasec_hwtest_0_led_line_en_pl_o;
+  led_line_pl_o <= fasec_hwtest_0_led_line_pl_o;
+  pb_gp_i_1 <= pb_gp_i;
+fasec_hwtest_0: component system_design_fasec_hwtest_0_0
+     port map (
+      clk_i => processing_system7_0_FCLK_CLK0,
+      led_col_pl_o(3 downto 0) => fasec_hwtest_0_led_col_pl_o(3 downto 0),
+      led_line_en_pl_o => fasec_hwtest_0_led_line_en_pl_o,
+      led_line_pl_o => fasec_hwtest_0_led_line_pl_o,
+      pb_gp_n_i => pb_gp_i_1
+    );
 processing_system7_0: component system_design_processing_system7_0_0
      port map (
       DDR_Addr(14 downto 0) => DDR_addr(14 downto 0),
@@ -118,7 +147,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       DDR_VRN => FIXED_IO_ddr_vrn,
       DDR_VRP => FIXED_IO_ddr_vrp,
       DDR_WEB => DDR_we_n,
-      FCLK_CLK0 => NLW_processing_system7_0_FCLK_CLK0_UNCONNECTED,
+      FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
       FCLK_RESET0_N => NLW_processing_system7_0_FCLK_RESET0_N_UNCONNECTED,
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       PS_CLK => FIXED_IO_ps_clk,

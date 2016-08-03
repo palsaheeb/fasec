@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Jul 28 09:30:40 2016
+--Date        : Tue Aug  2 08:37:34 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -33,7 +33,11 @@ entity system_design_wrapper is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC
+    FIXED_IO_ps_srstb : inout STD_LOGIC;
+    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    led_line_en_pl_o : out STD_LOGIC;
+    led_line_pl_o : out STD_LOGIC;
+    pb_gp_i : in STD_LOGIC
   );
 end system_design_wrapper;
 
@@ -60,7 +64,11 @@ architecture STRUCTURE of system_design_wrapper is
     FIXED_IO_ddr_vrp : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC
+    FIXED_IO_ps_porb : inout STD_LOGIC;
+    pb_gp_i : in STD_LOGIC;
+    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    led_line_en_pl_o : out STD_LOGIC;
+    led_line_pl_o : out STD_LOGIC
   );
   end component system_design;
 begin
@@ -86,6 +94,10 @@ system_design_i: component system_design
       FIXED_IO_mio(53 downto 0) => FIXED_IO_mio(53 downto 0),
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb
+      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
+      led_col_pl_o(3 downto 0) => led_col_pl_o(3 downto 0),
+      led_line_en_pl_o => led_line_en_pl_o,
+      led_line_pl_o => led_line_pl_o,
+      pb_gp_i => pb_gp_i
     );
 end STRUCTURE;

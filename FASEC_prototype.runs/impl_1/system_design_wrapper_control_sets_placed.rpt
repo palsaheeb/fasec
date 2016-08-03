@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-| Date         : Thu Jul 28 09:32:52 2016
+| Date         : Tue Aug  2 08:39:31 2016
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : report_control_sets -verbose -file system_design_wrapper_control_sets_placed.rpt
 | Design       : system_design_wrapper
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     0 |
-| Unused register locations in slices containing registers |     0 |
+| Number of unique control sets                            |     3 |
+| Unused register locations in slices containing registers |    10 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,9 +33,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | No                     |               5 |            3 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |               0 |            0 |
+| No           | Yes                   | No                     |              33 |            9 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -45,8 +45,12 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+--------------+---------------+------------------+------------------+----------------+
-| Clock Signal | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+--------------+---------------+------------------+------------------+----------------+
++------------------------------------------------------+---------------+------------------------------------------+------------------+----------------+
+|                     Clock Signal                     | Enable Signal |             Set/Reset Signal             | Slice Load Count | Bel Load Count |
++------------------------------------------------------+---------------+------------------------------------------+------------------+----------------+
+|  system_design_i/processing_system7_0/inst/FCLK_CLK0 |               | system_design_i/fasec_hwtest_0/U0/p_0_in |                1 |              1 |
+|  system_design_i/processing_system7_0/inst/FCLK_CLK0 |               |                                          |                3 |              5 |
+|  system_design_i/processing_system7_0/inst/FCLK_CLK0 |               | system_design_i/fasec_hwtest_0/U0/clear  |                8 |             32 |
++------------------------------------------------------+---------------+------------------------------------------+------------------+----------------+
 
 

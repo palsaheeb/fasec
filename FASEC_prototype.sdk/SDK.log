@@ -3816,3 +3816,253 @@ con
 ----------------End of Script----------------
 
 18:18:42 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_periph-test_fasec.elf.tcl'
+19:30:14 INFO  : Disconnected from the channel tcfchan#79.
+19:30:15 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+07:38:55 INFO  : Launching XSDB server: xsdb -n -interactive /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/temp_xsdb_launch_script.tcl
+07:38:56 INFO  : XSDB server has started successfully.
+07:38:57 INFO  : Processing command line option -hwspec /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf.
+07:38:59 INFO  : Checking for hwspec changes in the project system_design_wrapper_hw_platform_0.
+07:39:01 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1470116206000,  Project:1469691224000
+07:39:01 INFO  : The hardware specification for project 'system_design_wrapper_hw_platform_0' is different from /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf.
+07:39:01 INFO  : Copied contents of /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf into /system_design_wrapper_hw_platform_0/system.hdf.
+07:39:08 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+07:39:09 INFO  : 
+07:39:10 INFO  : Updating hardware inferred compiler options for Dhrystone_FASEC.
+07:39:11 INFO  : Updating hardware inferred compiler options for Hello_FASEC.
+07:39:12 INFO  : Updating hardware inferred compiler options for Mem-Test_FASEC.
+07:39:13 INFO  : Updating hardware inferred compiler options for Periph-Test_FASEC.
+07:39:13 INFO  : Clearing existing target manager status.
+07:40:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:40:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:40:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:40:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+07:41:00 INFO  : FPGA configured successfully with bitstream "/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system_design_wrapper.bit"
+07:41:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+07:41:23 INFO  : 'fpga -state' command is executed.
+07:41:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+07:41:23 INFO  : Jtag cable 'Platform Cable USB II 0000150f6b7901' is selected.
+07:41:23 INFO  : 'jtag frequency' command is executed.
+07:41:23 INFO  : Sourcing of '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+07:41:23 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+07:41:24 INFO  : Hardware design information is loaded from '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf'.
+07:41:24 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+07:41:24 INFO  : 'stop' command is executed.
+07:41:25 INFO  : 'ps7_init' command is executed.
+07:41:25 INFO  : 'ps7_post_config' command is executed.
+07:41:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:25 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+07:41:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:27 INFO  : The application '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf' is downloaded to processor 'ps7_cortexa9_0'.
+07:41:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+loadhw /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+dow /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf
+----------------End of Script----------------
+
+07:41:27 INFO  : Memory regions updated for context APU
+07:41:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+07:41:27 INFO  : 'con' command is executed.
+07:41:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+con
+----------------End of Script----------------
+
+07:41:27 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_periph-test_fasec.elf.tcl'
+08:42:55 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1470120015000,  Project:1470116206000
+08:42:55 INFO  : Project system_design_wrapper_hw_platform_0's source hardware specification located at /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+08:42:59 INFO  : Copied contents of /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf into /system_design_wrapper_hw_platform_0/system.hdf.
+08:43:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+08:43:06 INFO  : 
+08:43:07 INFO  : Updating hardware inferred compiler options for Dhrystone_FASEC.
+08:43:08 INFO  : Updating hardware inferred compiler options for Hello_FASEC.
+08:43:09 INFO  : Updating hardware inferred compiler options for Mem-Test_FASEC.
+08:43:09 INFO  : Updating hardware inferred compiler options for Periph-Test_FASEC.
+08:43:09 INFO  : Clearing existing target manager status.
+08:44:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:44:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+08:44:24 INFO  : FPGA configured successfully with bitstream "/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system_design_wrapper.bit"
+08:44:40 INFO  : Disconnected from the channel tcfchan#1.
+08:44:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+08:44:41 INFO  : 'fpga -state' command is executed.
+08:44:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:44:41 INFO  : Jtag cable 'Platform Cable USB II 0000150f6b7901' is selected.
+08:44:41 INFO  : 'jtag frequency' command is executed.
+08:44:41 INFO  : Sourcing of '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:44:41 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+08:44:41 INFO  : Hardware design information is loaded from '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf'.
+08:44:41 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+08:44:41 INFO  : 'stop' command is executed.
+08:44:42 INFO  : 'ps7_init' command is executed.
+08:44:42 INFO  : 'ps7_post_config' command is executed.
+08:44:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:44:42 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:44:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:44:45 INFO  : The application '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:44:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+loadhw /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+dow /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf
+----------------End of Script----------------
+
+08:44:45 INFO  : Memory regions updated for context APU
+08:44:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:44:45 INFO  : 'con' command is executed.
+08:44:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+con
+----------------End of Script----------------
+
+08:44:45 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_periph-test_fasec.elf.tcl'
+08:59:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:59:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+08:59:34 INFO  : FPGA configured successfully with bitstream "/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system_design_wrapper.bit"
+09:01:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:01:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+09:01:33 INFO  : FPGA configured successfully with bitstream "/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system_design_wrapper.bit"
+09:08:58 INFO  : Disconnected from the channel tcfchan#2.
+09:08:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+09:08:58 INFO  : 'fpga -state' command is executed.
+09:08:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:08:58 INFO  : Jtag cable 'Platform Cable USB II 0000150f6b7901' is selected.
+09:08:58 INFO  : 'jtag frequency' command is executed.
+09:08:58 INFO  : Sourcing of '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+09:08:58 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+09:08:58 INFO  : Hardware design information is loaded from '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf'.
+09:08:58 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+09:08:58 INFO  : 'stop' command is executed.
+09:08:59 INFO  : 'ps7_init' command is executed.
+09:08:59 INFO  : 'ps7_post_config' command is executed.
+09:08:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:08:59 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+09:09:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:09:02 INFO  : The application '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf' is downloaded to processor 'ps7_cortexa9_0'.
+09:09:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+loadhw /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+dow /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf
+----------------End of Script----------------
+
+09:09:02 INFO  : Memory regions updated for context APU
+09:09:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:09:02 INFO  : 'con' command is executed.
+09:09:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+con
+----------------End of Script----------------
+
+09:09:02 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_periph-test_fasec.elf.tcl'
+12:02:00 INFO  : Disconnected from the channel tcfchan#3.
+12:02:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+12:02:01 INFO  : 'fpga -state' command is executed.
+12:02:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:02:01 INFO  : Jtag cable 'Platform Cable USB II 0000150f6b7901' is selected.
+12:02:01 INFO  : 'jtag frequency' command is executed.
+12:02:01 INFO  : Sourcing of '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+12:02:02 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+12:02:02 INFO  : Hardware design information is loaded from '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf'.
+12:02:02 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+12:02:02 INFO  : 'stop' command is executed.
+12:02:03 INFO  : 'ps7_init' command is executed.
+12:02:03 INFO  : 'ps7_post_config' command is executed.
+12:02:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:02:03 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+12:02:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:02:04 INFO  : The application '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Mem-Test_FASEC/Debug/Mem-Test_FASEC.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:02:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+loadhw /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+dow /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Mem-Test_FASEC/Debug/Mem-Test_FASEC.elf
+----------------End of Script----------------
+
+12:02:04 INFO  : Memory regions updated for context APU
+12:02:04 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:02:04 INFO  : 'con' command is executed.
+12:02:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+con
+----------------End of Script----------------
+
+12:02:04 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_mem-test_fasec.elf.tcl'
+08:52:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:52:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+08:52:30 INFO  : FPGA configured successfully with bitstream "/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system_design_wrapper.bit"
+08:53:32 INFO  : Disconnected from the channel tcfchan#4.
+08:53:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901" && level==0} -index 1' command is executed.
+08:53:33 INFO  : 'fpga -state' command is executed.
+08:53:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:53:33 INFO  : Jtag cable 'Platform Cable USB II 0000150f6b7901' is selected.
+08:53:33 INFO  : 'jtag frequency' command is executed.
+08:53:33 INFO  : Sourcing of '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+08:53:33 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+08:53:33 INFO  : Hardware design information is loaded from '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf'.
+08:53:33 INFO  : 'targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0' command is executed.
+08:53:33 INFO  : 'stop' command is executed.
+08:53:34 INFO  : 'ps7_init' command is executed.
+08:53:34 INFO  : 'ps7_post_config' command is executed.
+08:53:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:53:34 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+08:53:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:53:37 INFO  : The application '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:53:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+loadhw /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper_hw_platform_0/system.hdf
+targets -set -filter {name =~"APU" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+dow /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/Periph-Test_FASEC/Debug/Periph-Test_FASEC.elf
+----------------End of Script----------------
+
+08:53:37 INFO  : Memory regions updated for context APU
+08:53:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:53:37 INFO  : 'con' command is executed.
+08:53:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Platform Cable USB II 0000150f6b7901"} -index 0
+con
+----------------End of Script----------------
+
+08:53:37 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_periph-test_fasec.elf.tcl'
+10:16:45 INFO  : Disconnected from the channel tcfchan#5.
+10:16:50 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
