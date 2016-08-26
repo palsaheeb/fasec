@@ -1,5 +1,5 @@
-FID_FPGA.cache/**
-FID_FPGA.runs/**
+*cache/**
+*runs/**
 RemoteSystemsTempFiles/**
 *.o
 *.elf

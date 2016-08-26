@@ -1,0 +1,184 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Aug 26 17:54:55 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of system_design_fasec_hwtest_0_0 (user.org:user:fasec_hwtest:1.0 (Rev. 2)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Aug 26 17:54:55 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of system_design_axi_wb_i2c_master_1_0 (user.org:user:axi_wb_i2c_master:2.3 (Rev. 6)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Aug 26 17:54:55 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of system_design_axi_wb_i2c_master_0_0 (user.org:user:axi_wb_i2c_master:2.3 (Rev. 6)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Aug 26 17:47:30 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_1_0 from user.org:user:axi_wb_i2c_master:2.2 (Rev. 5) to user.org:user:axi_wb_i2c_master:2.3 (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Aug 26 17:47:30 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:2.2 (Rev. 5) to user.org:user:axi_wb_i2c_master:2.3 (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Aug 25 17:51:42 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:2.1 (Rev. 4) to user.org:user:axi_wb_i2c_master:2.2 (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Aug 25 16:21:38 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:2.0 (Rev. 3) to user.org:user:axi_wb_i2c_master:2.1 (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Aug 25 08:52:29 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:1.0 (Rev. 2) to user.org:user:axi_wb_i2c_master:2.0 (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_axi_wb_i2c_master_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'i2c_scl_i'
+
+-Upgrade has removed port 'i2c_scl_o'
+
+-Upgrade has removed port 'i2c_sda_i'
+
+-Upgrade has removed port 'i2c_sda_o'
+
+-Upgrade has added port 'i2c_scl_io'
+
+-Upgrade has added port 'i2c_sda_io'
+
+
