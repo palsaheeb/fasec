@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Fri Aug 26 17:55:05 2016
+--Date        : Tue Aug 30 11:33:42 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -34,6 +34,20 @@ entity system_design_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
+    FMC1_CLK0C2M_N_o : out STD_LOGIC;
+    FMC1_CLK0C2M_P_o : out STD_LOGIC;
+    FMC1_CLK0M2C_N_i : in STD_LOGIC;
+    FMC1_CLK0M2C_P_i : in STD_LOGIC;
+    FMC1_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC2_CLK0C2M_N_o : out STD_LOGIC;
+    FMC2_CLK0C2M_P_o : out STD_LOGIC;
+    FMC2_CLK0M2C_N_i : in STD_LOGIC;
+    FMC2_CLK0M2C_P_i : in STD_LOGIC;
+    FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_PRSNTM2C_n_i : in STD_LOGIC;
     eeprom_scl : inout STD_LOGIC;
     eeprom_sda : inout STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
@@ -41,6 +55,7 @@ entity system_design_wrapper is
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
     led_line_pl_o : out STD_LOGIC;
+    osc100_clk_i : in STD_LOGIC;
     pb_gp_i : in STD_LOGIC
   );
 end system_design_wrapper;
@@ -76,7 +91,22 @@ architecture STRUCTURE of system_design_wrapper is
     fmcx_scl : inout STD_LOGIC;
     fmcx_sda : inout STD_LOGIC;
     eeprom_scl : inout STD_LOGIC;
-    eeprom_sda : inout STD_LOGIC
+    eeprom_sda : inout STD_LOGIC;
+    FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC2_CLK0M2C_P_i : in STD_LOGIC;
+    FMC2_CLK0M2C_N_i : in STD_LOGIC;
+    FMC1_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC1_CLK0M2C_P_i : in STD_LOGIC;
+    FMC1_CLK0M2C_N_i : in STD_LOGIC;
+    FMC2_CLK0C2M_P_o : out STD_LOGIC;
+    FMC2_CLK0C2M_N_o : out STD_LOGIC;
+    FMC1_CLK0C2M_P_o : out STD_LOGIC;
+    FMC1_CLK0C2M_N_o : out STD_LOGIC;
+    osc100_clk_i : in STD_LOGIC
   );
   end component system_design;
 begin
@@ -103,6 +133,20 @@ system_design_i: component system_design
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
+      FMC1_CLK0C2M_N_o => FMC1_CLK0C2M_N_o,
+      FMC1_CLK0C2M_P_o => FMC1_CLK0C2M_P_o,
+      FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i,
+      FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i,
+      FMC1_LA_N_b(33 downto 0) => FMC1_LA_N_b(33 downto 0),
+      FMC1_LA_P_b(33 downto 0) => FMC1_LA_P_b(33 downto 0),
+      FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i,
+      FMC2_CLK0C2M_N_o => FMC2_CLK0C2M_N_o,
+      FMC2_CLK0C2M_P_o => FMC2_CLK0C2M_P_o,
+      FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i,
+      FMC2_CLK0M2C_P_i => FMC2_CLK0M2C_P_i,
+      FMC2_LA_N_b(33 downto 0) => FMC2_LA_N_b(33 downto 0),
+      FMC2_LA_P_b(33 downto 0) => FMC2_LA_P_b(33 downto 0),
+      FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i,
       eeprom_scl => eeprom_scl,
       eeprom_sda => eeprom_sda,
       fmcx_scl => fmcx_scl,
@@ -110,6 +154,7 @@ system_design_i: component system_design
       led_col_pl_o(3 downto 0) => led_col_pl_o(3 downto 0),
       led_line_en_pl_o => led_line_en_pl_o,
       led_line_pl_o => led_line_pl_o,
+      osc100_clk_i => osc100_clk_i,
       pb_gp_i => pb_gp_i
     );
 end STRUCTURE;

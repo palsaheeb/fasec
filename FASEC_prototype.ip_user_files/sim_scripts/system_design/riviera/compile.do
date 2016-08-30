@@ -3,6 +3,7 @@ vlib riviera
 
 vlib riviera/processing_system7_bfm_v2_0_5
 vlib riviera/xil_defaultlib
+vlib riviera/xil_pvtmisc
 vlib riviera/lib_cdc_v1_0_2
 vlib riviera/proc_sys_reset_v5_0_9
 vlib riviera/generic_baseblocks_v2_1_0
@@ -15,6 +16,7 @@ vlib riviera/axi_protocol_converter_v2_1_9
 
 vmap processing_system7_bfm_v2_0_5 riviera/processing_system7_bfm_v2_0_5
 vmap xil_defaultlib riviera/xil_defaultlib
+vmap xil_pvtmisc riviera/xil_pvtmisc
 vmap lib_cdc_v1_0_2 riviera/lib_cdc_v1_0_2
 vmap proc_sys_reset_v5_0_9 riviera/proc_sys_reset_v5_0_9
 vmap generic_baseblocks_v2_1_0 riviera/generic_baseblocks_v2_1_0
@@ -55,7 +57,13 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 
 vcom -work xil_defaultlib -93 \
 "../../../bd/system_design/hdl/system_design.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v1_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+
+vcom -work xil_pvtmisc -93 \
+"../../../bd/system_design/ipshared/user.org/libraries/xil_pvtmisc/myPackage.vhd" \
+"../../../bd/system_design/ipshared/user.org/libraries/xil_pvtmisc/axi4lite_slave.vhd" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_1/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
 "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
 "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_3/src/i2c_master_bit_ctrl.vhd" \
 "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_3/src/i2c_master_byte_ctrl.vhd" \
@@ -138,6 +146,10 @@ vlog -work axi_crossbar_v2_1_10 -v2k5 "+incdir+../../../ipstatic/axi_infrastruct
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../bd/system_design/ip/system_design_xbar_0/sim/system_design_xbar_0.v" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/system_design/ipshared/xilinx.com/xlconstant_v1_1/xlconstant.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_0_0/sim/system_design_xlconstant_0_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \

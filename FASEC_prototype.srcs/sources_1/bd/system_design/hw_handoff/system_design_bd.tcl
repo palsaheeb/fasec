@@ -157,6 +157,20 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
+  set FMC1_CLK0C2M_N_o [ create_bd_port -dir O FMC1_CLK0C2M_N_o ]
+  set FMC1_CLK0C2M_P_o [ create_bd_port -dir O FMC1_CLK0C2M_P_o ]
+  set FMC1_CLK0M2C_N_i [ create_bd_port -dir I FMC1_CLK0M2C_N_i ]
+  set FMC1_CLK0M2C_P_i [ create_bd_port -dir I FMC1_CLK0M2C_P_i ]
+  set FMC1_LA_N_b [ create_bd_port -dir IO -from 33 -to 0 FMC1_LA_N_b ]
+  set FMC1_LA_P_b [ create_bd_port -dir IO -from 33 -to 0 FMC1_LA_P_b ]
+  set FMC1_PRSNTM2C_n_i [ create_bd_port -dir I FMC1_PRSNTM2C_n_i ]
+  set FMC2_CLK0C2M_N_o [ create_bd_port -dir O FMC2_CLK0C2M_N_o ]
+  set FMC2_CLK0C2M_P_o [ create_bd_port -dir O FMC2_CLK0C2M_P_o ]
+  set FMC2_CLK0M2C_N_i [ create_bd_port -dir I FMC2_CLK0M2C_N_i ]
+  set FMC2_CLK0M2C_P_i [ create_bd_port -dir I FMC2_CLK0M2C_P_i ]
+  set FMC2_LA_N_b [ create_bd_port -dir IO -from 33 -to 0 FMC2_LA_N_b ]
+  set FMC2_LA_P_b [ create_bd_port -dir IO -from 33 -to 0 FMC2_LA_P_b ]
+  set FMC2_PRSNTM2C_n_i [ create_bd_port -dir I FMC2_PRSNTM2C_n_i ]
   set eeprom_scl [ create_bd_port -dir IO eeprom_scl ]
   set eeprom_sda [ create_bd_port -dir IO eeprom_sda ]
   set fmcx_scl [ create_bd_port -dir IO fmcx_scl ]
@@ -164,6 +178,7 @@ proc create_root_design { parentCell } {
   set led_col_pl_o [ create_bd_port -dir O -from 3 -to 0 led_col_pl_o ]
   set led_line_en_pl_o [ create_bd_port -dir O led_line_en_pl_o ]
   set led_line_pl_o [ create_bd_port -dir O led_line_pl_o ]
+  set osc100_clk_i [ create_bd_port -dir I osc100_clk_i ]
   set pb_gp_i [ create_bd_port -dir I pb_gp_i ]
 
   # Create instance: axi_wb_i2c_master_0, and set properties
@@ -173,7 +188,7 @@ proc create_root_design { parentCell } {
   set axi_wb_i2c_master_1 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.3 axi_wb_i2c_master_1 ]
 
   # Create instance: fasec_hwtest_0, and set properties
-  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:1.0 fasec_hwtest_0 ]
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.1 fasec_hwtest_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -1366,7 +1381,7 @@ CONFIG.PCW_WDT_WDT_IO.VALUE_SRC {DEFAULT} \
   # Create instance: processing_system7_0_axi_periph, and set properties
   set processing_system7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 processing_system7_0_axi_periph ]
   set_property -dict [ list \
-CONFIG.NUM_MI {2} \
+CONFIG.NUM_MI {3} \
  ] $processing_system7_0_axi_periph
 
   # Create instance: rst_processing_system7_0_100M, and set properties
@@ -1378,65 +1393,113 @@ CONFIG.NUM_MI {2} \
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins processing_system7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_wb_i2c_master_0/S00_AXI] [get_bd_intf_pins processing_system7_0_axi_periph/M00_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M01_AXI [get_bd_intf_pins axi_wb_i2c_master_1/S00_AXI] [get_bd_intf_pins processing_system7_0_axi_periph/M01_AXI]
+  connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M02_AXI [get_bd_intf_pins fasec_hwtest_0/S00_AXI] [get_bd_intf_pins processing_system7_0_axi_periph/M02_AXI]
 
   # Create port connections
+  connect_bd_net -net FMC1_CLK0M2C_N_i_1 [get_bd_ports FMC1_CLK0M2C_N_i] [get_bd_pins fasec_hwtest_0/FMC1_CLK0M2C_N_i]
+  connect_bd_net -net FMC1_CLK0M2C_P_i_1 [get_bd_ports FMC1_CLK0M2C_P_i] [get_bd_pins fasec_hwtest_0/FMC1_CLK0M2C_P_i]
+  connect_bd_net -net FMC1_PRSNTM2C_n_i_1 [get_bd_ports FMC1_PRSNTM2C_n_i] [get_bd_pins fasec_hwtest_0/FMC1_PRSNTM2C_n_i]
+  connect_bd_net -net FMC2_CLK0M2C_N_i_1 [get_bd_ports FMC2_CLK0M2C_N_i] [get_bd_pins fasec_hwtest_0/FMC2_CLK0M2C_N_i]
+  connect_bd_net -net FMC2_CLK0M2C_P_i_1 [get_bd_ports FMC2_CLK0M2C_P_i] [get_bd_pins fasec_hwtest_0/FMC2_CLK0M2C_P_i]
+  connect_bd_net -net FMC2_PRSNTM2C_n_i_1 [get_bd_ports FMC2_PRSNTM2C_n_i] [get_bd_pins fasec_hwtest_0/FMC2_PRSNTM2C_n_i]
   connect_bd_net -net Net [get_bd_ports fmcx_scl] [get_bd_pins axi_wb_i2c_master_0/i2c_scl_io]
   connect_bd_net -net Net1 [get_bd_ports fmcx_sda] [get_bd_pins axi_wb_i2c_master_0/i2c_sda_io]
   connect_bd_net -net Net2 [get_bd_ports eeprom_scl] [get_bd_pins axi_wb_i2c_master_1/i2c_scl_io]
   connect_bd_net -net Net3 [get_bd_ports eeprom_sda] [get_bd_pins axi_wb_i2c_master_1/i2c_sda_io]
+  connect_bd_net -net Net4 [get_bd_ports FMC2_LA_P_b] [get_bd_pins fasec_hwtest_0/FMC2_LA_P_b]
+  connect_bd_net -net Net5 [get_bd_ports FMC2_LA_N_b] [get_bd_pins fasec_hwtest_0/FMC2_LA_N_b]
+  connect_bd_net -net Net6 [get_bd_ports FMC1_LA_P_b] [get_bd_pins fasec_hwtest_0/FMC1_LA_P_b]
+  connect_bd_net -net Net7 [get_bd_ports FMC1_LA_N_b] [get_bd_pins fasec_hwtest_0/FMC1_LA_N_b]
+  connect_bd_net -net fasec_hwtest_0_FMC1_CLK0C2M_N_o [get_bd_ports FMC1_CLK0C2M_N_o] [get_bd_pins fasec_hwtest_0/FMC1_CLK0C2M_N_o]
+  connect_bd_net -net fasec_hwtest_0_FMC1_CLK0C2M_P_o [get_bd_ports FMC1_CLK0C2M_P_o] [get_bd_pins fasec_hwtest_0/FMC1_CLK0C2M_P_o]
+  connect_bd_net -net fasec_hwtest_0_FMC2_CLK0C2M_N_o [get_bd_ports FMC2_CLK0C2M_N_o] [get_bd_pins fasec_hwtest_0/FMC2_CLK0C2M_N_o]
+  connect_bd_net -net fasec_hwtest_0_FMC2_CLK0C2M_P_o [get_bd_ports FMC2_CLK0C2M_P_o] [get_bd_pins fasec_hwtest_0/FMC2_CLK0C2M_P_o]
   connect_bd_net -net fasec_hwtest_0_led_col_pl_o [get_bd_ports led_col_pl_o] [get_bd_pins fasec_hwtest_0/led_col_pl_o]
   connect_bd_net -net fasec_hwtest_0_led_line_en_pl_o [get_bd_ports led_line_en_pl_o] [get_bd_pins fasec_hwtest_0/led_line_en_pl_o]
   connect_bd_net -net fasec_hwtest_0_led_line_pl_o [get_bd_ports led_line_pl_o] [get_bd_pins fasec_hwtest_0/led_line_pl_o]
+  connect_bd_net -net osc100_clk_i_1 [get_bd_ports osc100_clk_i] [get_bd_pins fasec_hwtest_0/osc100_clk_i]
   connect_bd_net -net pb_gp_i_1 [get_bd_ports pb_gp_i] [get_bd_pins fasec_hwtest_0/pb_gp_n_i]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_wb_i2c_master_0/s00_axi_aclk] [get_bd_pins axi_wb_i2c_master_1/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/M01_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk]
-  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins fasec_hwtest_0/clk_i] [get_bd_pins processing_system7_0/FCLK_CLK1]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_wb_i2c_master_0/s00_axi_aclk] [get_bd_pins axi_wb_i2c_master_1/s00_axi_aclk] [get_bd_pins fasec_hwtest_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/M01_ACLK] [get_bd_pins processing_system7_0_axi_periph/M02_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins fasec_hwtest_0/ps_clk_i] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_processing_system7_0_100M/ext_reset_in]
   connect_bd_net -net rst_processing_system7_0_100M_interconnect_aresetn [get_bd_pins processing_system7_0_axi_periph/ARESETN] [get_bd_pins rst_processing_system7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins axi_wb_i2c_master_0/s00_axi_aresetn] [get_bd_pins axi_wb_i2c_master_1/s00_axi_aresetn] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M01_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins axi_wb_i2c_master_0/s00_axi_aresetn] [get_bd_pins axi_wb_i2c_master_1/s00_axi_aresetn] [get_bd_pins fasec_hwtest_0/s00_axi_aresetn] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M01_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M02_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_wb_i2c_master_0/S00_AXI/S00_AXI_reg] SEG_axi_wb_i2c_master_0_S00_AXI_reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43C10000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_wb_i2c_master_1/S00_AXI/S00_AXI_reg] SEG_axi_wb_i2c_master_1_S00_AXI_reg
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C20000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs fasec_hwtest_0/S00_AXI/S00_AXI_reg] SEG_fasec_hwtest_0_S00_AXI_reg
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port led_line_en_pl_o -pg 1 -y 300 -defaultsOSRD
-preplace port DDR -pg 1 -y 370 -defaultsOSRD
-preplace port led_line_pl_o -pg 1 -y 320 -defaultsOSRD
-preplace port eeprom_sda -pg 1 -y 180 -defaultsOSRD
-preplace port fmcx_sda -pg 1 -y 60 -defaultsOSRD
-preplace port fmcx_scl -pg 1 -y 40 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 390 -defaultsOSRD
-preplace port eeprom_scl -pg 1 -y 160 -defaultsOSRD
-preplace port pb_gp_i -pg 1 -y 310 -defaultsOSRD
-preplace portBus led_col_pl_o -pg 1 -y 280 -defaultsOSRD
-preplace inst fasec_hwtest_0 -pg 1 -lvl 3 -y 300 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 220 -defaultsOSRD
-preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 3 -y 60 -defaultsOSRD
-preplace inst axi_wb_i2c_master_1 -pg 1 -lvl 3 -y 180 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 150 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 450 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 3 NJ 370 NJ 370 NJ
+preplace port FMC1_CLK0M2C_N_i -pg 1 -y 200 -defaultsOSRD
+preplace port led_line_en_pl_o -pg 1 -y 230 -defaultsOSRD
+preplace port DDR -pg 1 -y 310 -defaultsOSRD
+preplace port led_line_pl_o -pg 1 -y 250 -defaultsOSRD
+preplace port eeprom_sda -pg 1 -y 540 -defaultsOSRD
+preplace port osc100_clk_i -pg 1 -y 80 -defaultsOSRD
+preplace port fmcx_sda -pg 1 -y 420 -defaultsOSRD
+preplace port FMC1_CLK0M2C_P_i -pg 1 -y 180 -defaultsOSRD
+preplace port FMC2_CLK0M2C_N_i -pg 1 -y 140 -defaultsOSRD
+preplace port FMC1_CLK0C2M_P_o -pg 1 -y 170 -defaultsOSRD
+preplace port FMC2_CLK0M2C_P_i -pg 1 -y 120 -defaultsOSRD
+preplace port FMC2_PRSNTM2C_n_i -pg 1 -y 100 -defaultsOSRD
+preplace port FMC1_PRSNTM2C_n_i -pg 1 -y 160 -defaultsOSRD
+preplace port fmcx_scl -pg 1 -y 400 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 330 -defaultsOSRD
+preplace port eeprom_scl -pg 1 -y 520 -defaultsOSRD
+preplace port FMC1_CLK0C2M_N_o -pg 1 -y 190 -defaultsOSRD
+preplace port pb_gp_i -pg 1 -y 520 -defaultsOSRD
+preplace port FMC2_CLK0C2M_N_o -pg 1 -y 150 -defaultsOSRD
+preplace port FMC2_CLK0C2M_P_o -pg 1 -y 130 -defaultsOSRD
+preplace portBus FMC1_LA_P_b -pg 1 -y 90 -defaultsOSRD
+preplace portBus FMC2_LA_N_b -pg 1 -y 70 -defaultsOSRD
+preplace portBus FMC2_LA_P_b -pg 1 -y 50 -defaultsOSRD
+preplace portBus led_col_pl_o -pg 1 -y 210 -defaultsOSRD
+preplace portBus FMC1_LA_N_b -pg 1 -y 110 -defaultsOSRD
+preplace inst fasec_hwtest_0 -pg 1 -lvl 3 -y 150 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 630 -defaultsOSRD
+preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
+preplace inst axi_wb_i2c_master_1 -pg 1 -lvl 3 -y 540 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 520 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y 390 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 1 3 NJ 310 NJ 310 NJ
+preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_N_o 1 3 1 NJ
+preplace netloc Net4 1 3 1 NJ
 preplace netloc fasec_hwtest_0_led_line_pl_o 1 3 1 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 750
+preplace netloc osc100_clk_i_1 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 3 NJ 160 NJ 160 NJ
+preplace netloc Net5 1 3 1 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 770
+preplace netloc Net6 1 3 1 NJ
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 420
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 320 410
+preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 3 NJ 100 NJ 100 NJ
+preplace netloc Net7 1 3 1 NJ
+preplace netloc FMC2_CLK0M2C_N_i_1 1 0 3 NJ 140 NJ 140 NJ
+preplace netloc FMC2_CLK0M2C_P_i_1 1 0 3 NJ 120 NJ 120 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 520 410
 preplace netloc fasec_hwtest_0_led_col_pl_o 1 3 1 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 410 10 760
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 390 NJ 390 NJ
+preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_P_o 1 3 1 NJ
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 1 760
+preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 3 1 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 440 680 790
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 330 NJ 330 NJ
+preplace netloc FMC1_CLK0M2C_P_i_1 1 0 3 NJ 180 NJ 180 NJ
+preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_N_o 1 3 1 NJ
+preplace netloc FMC1_CLK0M2C_N_i_1 1 0 3 NJ 200 NJ 200 NJ
 preplace netloc Net1 1 3 1 NJ
 preplace netloc Net 1 3 1 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 430
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 130 440 290 770
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 540 430 360 780
 preplace netloc Net2 1 3 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK1 1 1 2 450 300 NJ
-preplace netloc pb_gp_i_1 1 0 3 NJ 310 NJ 310 NJ
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 2 NJ 60 N
+preplace netloc pb_gp_i_1 1 0 3 NJ 220 NJ 220 NJ
 preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 N
 preplace netloc Net3 1 3 1 NJ
 preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 3 1 NJ
-levelinfo -pg 1 0 220 600 890 1020 -top 0 -bot 580
+levelinfo -pg 1 -10 220 610 960 1140 -top 0 -bot 720
 ",
 }
 

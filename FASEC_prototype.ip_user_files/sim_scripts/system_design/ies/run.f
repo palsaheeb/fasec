@@ -28,7 +28,13 @@
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/hdl/system_design.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v1_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+-endlib
+-makelib ies/xil_pvtmisc \
+  "../../../bd/system_design/ipshared/user.org/libraries/xil_pvtmisc/myPackage.vhd" \
+  "../../../bd/system_design/ipshared/user.org/libraries/xil_pvtmisc/axi4lite_slave.vhd" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_1/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
   "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_3/src/i2c_master_bit_ctrl.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_3/src/i2c_master_byte_ctrl.vhd" \
@@ -111,6 +117,10 @@
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/ip/system_design_xbar_0/sim/system_design_xbar_0.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/system_design/ipshared/xilinx.com/xlconstant_v1_1/xlconstant.vhd" \
+  "../../../bd/system_design/ip/system_design_xlconstant_0_0/sim/system_design_xlconstant_0_0.vhd" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_9 \
   "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \

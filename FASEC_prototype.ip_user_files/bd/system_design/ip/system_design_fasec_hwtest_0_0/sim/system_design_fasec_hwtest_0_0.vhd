@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:1.0
--- IP Revision: 2
+-- IP VLNV: user.org:user:fasec_hwtest:2.1
+-- IP Revision: 4
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -55,11 +55,47 @@ USE ieee.numeric_std.ALL;
 
 ENTITY system_design_fasec_hwtest_0_0 IS
   PORT (
-    clk_i : IN STD_LOGIC;
+    ps_clk_i : IN STD_LOGIC;
+    osc100_clk_i : IN STD_LOGIC;
+    FMC2_LA_P_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+    FMC2_LA_N_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+    FMC1_LA_P_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+    FMC1_LA_N_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+    FMC2_PRSNTM2C_n_i : IN STD_LOGIC;
+    FMC2_CLK0M2C_P_i : IN STD_LOGIC;
+    FMC2_CLK0M2C_N_i : IN STD_LOGIC;
+    FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
+    FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
+    FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
+    FMC1_CLK0M2C_P_i : IN STD_LOGIC;
+    FMC1_CLK0M2C_N_i : IN STD_LOGIC;
+    FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
+    FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
     pb_gp_n_i : IN STD_LOGIC;
     led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     led_line_en_pl_o : OUT STD_LOGIC;
-    led_line_pl_o : OUT STD_LOGIC
+    led_line_pl_o : OUT STD_LOGIC;
+    s00_axi_aclk : IN STD_LOGIC;
+    s00_axi_aresetn : IN STD_LOGIC;
+    s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    s00_axi_awvalid : IN STD_LOGIC;
+    s00_axi_awready : OUT STD_LOGIC;
+    s00_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s00_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    s00_axi_wvalid : IN STD_LOGIC;
+    s00_axi_wready : OUT STD_LOGIC;
+    s00_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    s00_axi_bvalid : OUT STD_LOGIC;
+    s00_axi_bready : IN STD_LOGIC;
+    s00_axi_araddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s00_axi_arprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+    s00_axi_arvalid : IN STD_LOGIC;
+    s00_axi_arready : OUT STD_LOGIC;
+    s00_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s00_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    s00_axi_rvalid : OUT STD_LOGIC;
+    s00_axi_rready : IN STD_LOGIC
   );
 END system_design_fasec_hwtest_0_0;
 
@@ -67,21 +103,123 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF system_design_fasec_hwtest_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT fasec_hwtest IS
+    GENERIC (
+      g_S00_AXI_DATA_WIDTH : INTEGER;
+      g_S00_AXI_ADDR_WIDTH : INTEGER
+    );
     PORT (
-      clk_i : IN STD_LOGIC;
+      ps_clk_i : IN STD_LOGIC;
+      osc100_clk_i : IN STD_LOGIC;
+      FMC2_LA_P_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+      FMC2_LA_N_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+      FMC1_LA_P_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+      FMC1_LA_N_b : INOUT STD_LOGIC_VECTOR(33 DOWNTO 0);
+      FMC2_PRSNTM2C_n_i : IN STD_LOGIC;
+      FMC2_CLK0M2C_P_i : IN STD_LOGIC;
+      FMC2_CLK0M2C_N_i : IN STD_LOGIC;
+      FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
+      FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
+      FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
+      FMC1_CLK0M2C_P_i : IN STD_LOGIC;
+      FMC1_CLK0M2C_N_i : IN STD_LOGIC;
+      FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
+      FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
       pb_gp_n_i : IN STD_LOGIC;
       led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       led_line_en_pl_o : OUT STD_LOGIC;
-      led_line_pl_o : OUT STD_LOGIC
+      led_line_pl_o : OUT STD_LOGIC;
+      s00_axi_aclk : IN STD_LOGIC;
+      s00_axi_aresetn : IN STD_LOGIC;
+      s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      s00_axi_awvalid : IN STD_LOGIC;
+      s00_axi_awready : OUT STD_LOGIC;
+      s00_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s00_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      s00_axi_wvalid : IN STD_LOGIC;
+      s00_axi_wready : OUT STD_LOGIC;
+      s00_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      s00_axi_bvalid : OUT STD_LOGIC;
+      s00_axi_bready : IN STD_LOGIC;
+      s00_axi_araddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s00_axi_arprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+      s00_axi_arvalid : IN STD_LOGIC;
+      s00_axi_arready : OUT STD_LOGIC;
+      s00_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s00_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      s00_axi_rvalid : OUT STD_LOGIC;
+      s00_axi_rready : IN STD_LOGIC
     );
   END COMPONENT fasec_hwtest;
+  ATTRIBUTE X_INTERFACE_INFO : STRING;
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 s00_axi_aclk CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 s00_axi_aresetn RST";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_wstrb: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI WSTRB";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_wvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI WVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_wready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_bresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_bvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_bready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_arprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI ARPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_arvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI ARVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_arready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_rdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF s00_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S00_AXI RREADY";
 BEGIN
   U0 : fasec_hwtest
+    GENERIC MAP (
+      g_S00_AXI_DATA_WIDTH => 32,
+      g_S00_AXI_ADDR_WIDTH => 32
+    )
     PORT MAP (
-      clk_i => clk_i,
+      ps_clk_i => ps_clk_i,
+      osc100_clk_i => osc100_clk_i,
+      FMC2_LA_P_b => FMC2_LA_P_b,
+      FMC2_LA_N_b => FMC2_LA_N_b,
+      FMC1_LA_P_b => FMC1_LA_P_b,
+      FMC1_LA_N_b => FMC1_LA_N_b,
+      FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i,
+      FMC2_CLK0M2C_P_i => FMC2_CLK0M2C_P_i,
+      FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i,
+      FMC2_CLK0C2M_P_o => FMC2_CLK0C2M_P_o,
+      FMC2_CLK0C2M_N_o => FMC2_CLK0C2M_N_o,
+      FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i,
+      FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i,
+      FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i,
+      FMC1_CLK0C2M_P_o => FMC1_CLK0C2M_P_o,
+      FMC1_CLK0C2M_N_o => FMC1_CLK0C2M_N_o,
       pb_gp_n_i => pb_gp_n_i,
       led_col_pl_o => led_col_pl_o,
       led_line_en_pl_o => led_line_en_pl_o,
-      led_line_pl_o => led_line_pl_o
+      led_line_pl_o => led_line_pl_o,
+      s00_axi_aclk => s00_axi_aclk,
+      s00_axi_aresetn => s00_axi_aresetn,
+      s00_axi_awaddr => s00_axi_awaddr,
+      s00_axi_awprot => s00_axi_awprot,
+      s00_axi_awvalid => s00_axi_awvalid,
+      s00_axi_awready => s00_axi_awready,
+      s00_axi_wdata => s00_axi_wdata,
+      s00_axi_wstrb => s00_axi_wstrb,
+      s00_axi_wvalid => s00_axi_wvalid,
+      s00_axi_wready => s00_axi_wready,
+      s00_axi_bresp => s00_axi_bresp,
+      s00_axi_bvalid => s00_axi_bvalid,
+      s00_axi_bready => s00_axi_bready,
+      s00_axi_araddr => s00_axi_araddr,
+      s00_axi_arprot => s00_axi_arprot,
+      s00_axi_arvalid => s00_axi_arvalid,
+      s00_axi_arready => s00_axi_arready,
+      s00_axi_rdata => s00_axi_rdata,
+      s00_axi_rresp => s00_axi_rresp,
+      s00_axi_rvalid => s00_axi_rvalid,
+      s00_axi_rready => s00_axi_rready
     );
 END system_design_fasec_hwtest_0_0_arch;
