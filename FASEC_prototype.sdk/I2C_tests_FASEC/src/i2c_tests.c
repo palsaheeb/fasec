@@ -53,8 +53,11 @@
 
 #define OCI2CBASEFMC	0x43c00000		// I2C core for FMC1-2 I2C bus
 #define OCI2CBASEFE		0x43c10000		// I2C core for FASEC EEPROM
-#define FHWTEST			0x43c20000		// FASEC HW-TEST base
+#define FHWTEST			0x43c20000		// FASEC HW-TEST core base
+#define OCI2CF1TEST		0x43c30000		// FMC1 TESTER EDA-2327
+#define OCI2CF2TEST		0x43c40000		// FMC2 TESTER EDA-2327
 
+// I2C OC registers
 #define PREL	0x0		// clock prescale low
 #define PREH	0x1		// clock prescale high
 #define CTR		0x2		// control register
@@ -71,14 +74,19 @@
 #define CR_ACK 3
 #define SR_RXACK 7
 #define SR_TIP 1
+
+// FMC Tester addressing
+#define FT_IC2		0x24
+#define FT_IC1		0x27
+
 // misc
 #define TIMEOUT 2000	// high timeout needed because of I2C clock = 100 kHz
 
 u32 readReg(u32 base, u32 addr){
-	return Xil_In32(OCI2CBASEFMC + (addr<<2));
+	return Xil_In32(base + (addr<<2));
 }
 void writeReg(u32 base, u32 addr, u32 val){
-	Xil_Out32(OCI2CBASEFMC + (addr<<2), val);
+	Xil_Out32(base + (addr<<2), val);
 }
 
 int waitTransfer(u32 base){
@@ -115,43 +123,106 @@ int OCI2C_init(u32 base){
 
 u32 readReg_24AA64(u32 base, u8 slave, u8 readAddrH, u8 readAddrL){
 	// send control byte (write)
-		writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
-		writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
-		if (waitTransfer(base)!=0)
-			return 1;
-		// send read-addresses high
+	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// send read-addresses high
 //		print("sending read address high\n\r");
-		if (waitAck(base)!=0)
-			return 2;
-		writeReg(base, TXR, readAddrH);
-		writeReg(base, CR, 1<<CR_WR);
-		if (waitTransfer(base)!=0)
-			return 1;
-		// send read-addresses low
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, readAddrH);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// send read-addresses low
 //		print("sending read address low\n\r");
-		if (waitAck(base)!=0)
-			return 2;
-		writeReg(base, TXR, readAddrL);
-		writeReg(base, CR, 1<<CR_WR);
-		if (waitTransfer(base)!=0)
-			return 1;
-		// send control byte (read)
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, readAddrL);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// send control byte (read)
 //		print("sending control byte for reading\n\r");
-		if (waitAck(base)!=0)
-			return 2;
-		writeReg(base, TXR, slave<<1 | 0x1);	// address & read-bit
-		writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
-		if (waitTransfer(base)!=0)
-			return 1;
-		// send CR byte to prepare read
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, slave<<1 | 0x1);	// address & read-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// send CR byte to prepare read
 //		print("reading ...\n\r");
-		if (waitAck(base)!=0)
-			return 2;
-		writeReg(base, CR, 1<<CR_RD | 1<<CR_ACK | 1<<CR_STO);
-		if (waitTransfer(base)!=0)
-			return 1;
-		// read output
-		return readReg(base, RXR);
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, CR, 1<<CR_RD | 1<<CR_ACK | 1<<CR_STO);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// read output
+	return readReg(base, RXR);
+}
+
+u32 readReg_mcp23017(u32 base, u8 slave, u8 readAddr){
+//		print("sending control byte - write\n\r");
+	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending read address\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, readAddr);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending control byte for reading\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, slave<<1 | 0x1);	// address & read-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("reading ...\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, CR, 1<<CR_RD | 1<<CR_ACK | 1<<CR_STO);
+	if (waitTransfer(base)!=0)
+		return 1;
+	// read output
+	return readReg(base, RXR);
+}
+
+int writeReg_mcp23017(u32 base, u8 slave, u8 writeAddr, u8 val){
+//		print("sending control byte - write\n\r");
+	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending write address\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, writeAddr);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending control byte for writing\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending data byte for write ...\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base,TXR,val);
+	writeReg(base, CR, 1<<CR_STO | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	if (waitAck(base)!=0)
+		return 2;
+	// finished
+	return 0;
 }
 
 int main()
@@ -174,29 +245,79 @@ int main()
 
 	print("FMC1 I2C tests finished \n\r");
 
+	// init all OCI2C cores
+	OCI2C_init(OCI2CBASEFMC);
+	OCI2C_init(OCI2CBASEFE);
+	OCI2C_init(OCI2CF1TEST);
+	OCI2C_init(OCI2CF2TEST);
+
 	slave_addr = 0x50;	// for FMC1 with GA=00
-	print("using keyboard input\n\r");
+	print("Menu enabled, use keyboard input\n\r");
 	// send control byte (write)
 	for (;;){
 		setvbuf(stdin, NULL, _IONBF, 0);	// unbuffered stdin to avoid having to hit enter after char
 		inputChar = getchar();
 		if (inputChar=='r'){
-			// read 12 first bytes
-			readAddrH = 0x0;
-			xil_printf("-----------------------------------\n\r");
-			for (i=0;i<12;i++){
-				readVal = readReg_24AA64(oic_base, slave_addr,readAddrH,(u8)i);
-				printf("EEPROM register %#06x: %#04x \n\r", (unsigned int)(readAddrH<<8 | i), (unsigned int)readVal);
+			// read 12 first bytes when addressing EEPROM
+			if( oic_base!=OCI2CBASEFE && oic_base!=OCI2CBASEFMC ){
+				xil_printf("Incorrect I2C core, canceling...\n\r");
+			} else {
+				readAddrH = 0x0;
+				xil_printf("-----------------------------------\n\r");
+				for (i=0;i<12;i++){
+					readVal = readReg_24AA64(oic_base, slave_addr,readAddrH,(u8)i);
+					printf("EEPROM register %#06x: %#04x \n\r", (unsigned int)(readAddrH<<8 | i), (unsigned int)readVal);
+				}
+				xil_printf("-----------------------------------\n\r");
 			}
-			xil_printf("-----------------------------------\n\r");
 		} else if (inputChar=='s'){
+			oic_base = OCI2CBASEFMC;
 			if (slave_addr==0x50)
 				slave_addr=0x52;
 			else
 				slave_addr=0x50;
-			printf("EEPROM slave address now %#04x \n\r", (unsigned int)slave_addr);
+			printf("OCI2C core set; EEPROM slave address now %#04x \n\r", (unsigned int)slave_addr);
 		}else if (inputChar=='e'){
+			xil_printf("exiting from main..\n\r");
 			return 0;
+		}else if (inputChar=='f'){
+			oic_base = OCI2CBASEFE;
+			slave_addr=0x50;
+			xil_printf("Addressing FASEC EEPROM now\n\r");
+		}else if (inputChar=='t'){
+			// FMC1 slot
+//			oic_base = OCI2CF1TEST;
+//			slave_addr = FT_IC2;
+//			xil_printf("-----------------------------------\n\r");
+//			for (i=0;i<4;i++){
+//				readVal = readReg_mcp23017(oic_base, slave_addr,(u8)i);
+//				printf("FMC1 MCP23017 register %#04x: %#04x \n\r", (unsigned int)i, (unsigned int)readVal);
+//			}
+//			xil_printf("-----------------------------------\n\r");
+			// FMC2 slot
+			oic_base = OCI2CF2TEST;
+			slave_addr = FT_IC2;
+			xil_printf("-----------------------------------\n\r");
+			for (i=0;i<4;i++){
+				readVal = readReg_mcp23017(oic_base, slave_addr,(u8)i);
+				printf("FMC2 MCP23017 register %#04x: %#04x \n\r", (unsigned int)i, (unsigned int)readVal);
+			}
+			xil_printf("-----------------------------------\n\r");
+		}else if (inputChar=='h'){
+			xil_printf("-----------------------------------\n\r");
+			for (i=0; i<8;i++){
+				printf("FASEC HW-TEST core register %#010x: %#010x \n\r", (unsigned int)FHWTEST + (i<<2),
+					(unsigned int)readReg(FHWTEST, i));
+			}
+			xil_printf("-----------------------------------\n\r");
+		} else if(inputChar=='w'){
+			oic_base = OCI2CF2TEST;
+			slave_addr = FT_IC2;
+			// enabling two **LSB** outputs (IODIR**B**)
+			writeReg_mcp23017(oic_base, slave_addr,0x01,0xfc);
+			// writing low to that output (GPIOB)
+			writeReg_mcp23017(oic_base, slave_addr,0x13,0x00);
+			xil_printf("write finished\n\r");
 		}
 		else{
 			xil_printf("Help Menu \n\r");
@@ -204,7 +325,10 @@ int main()
 			xil_printf("r: read first 12 bytes from EEPROM \n\r");
 			xil_printf("e: exit from main() \n\r");
 			xil_printf("s: swap between FMC1-2 EEPROM addresses \n\r");
-//			xil_printf("f: address FASEC's EEPROM \n\r");
+			xil_printf("f: address FASEC's EEPROM \n\r");
+			xil_printf("t: Tester FMCs, read bytes from IC2\n\r");
+			xil_printf("h: Read bytes from FASEC HW-TEST core\n\r");
+			xil_printf("w: write to Tester FMCs\n\r");
 		}
 	}
 

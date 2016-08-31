@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:2.1
--- IP Revision: 4
+-- IP VLNV: user.org:user:fasec_hwtest:2.2.1
+-- IP Revision: 6
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -105,7 +105,9 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
   COMPONENT fasec_hwtest IS
     GENERIC (
       g_S00_AXI_DATA_WIDTH : INTEGER;
-      g_S00_AXI_ADDR_WIDTH : INTEGER
+      g_S00_AXI_ADDR_WIDTH : INTEGER;
+      g_FMC1 : STRING;
+      g_FMC2 : STRING
     );
     PORT (
       ps_clk_i : IN STD_LOGIC;
@@ -177,7 +179,9 @@ BEGIN
   U0 : fasec_hwtest
     GENERIC MAP (
       g_S00_AXI_DATA_WIDTH => 32,
-      g_S00_AXI_ADDR_WIDTH => 32
+      g_S00_AXI_ADDR_WIDTH => 32,
+      g_FMC1 => "EDA-02327",
+      g_FMC2 => "EDA-02327"
     )
     PORT MAP (
       ps_clk_i => ps_clk_i,
