@@ -188,7 +188,7 @@ proc create_root_design { parentCell } {
   set axi_wb_i2c_master_1 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.3 axi_wb_i2c_master_1 ]
 
   # Create instance: fasec_hwtest_0, and set properties
-  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.1 fasec_hwtest_0 ]
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.2.1 fasec_hwtest_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -1459,47 +1459,47 @@ preplace portBus FMC2_LA_N_b -pg 1 -y 70 -defaultsOSRD
 preplace portBus FMC2_LA_P_b -pg 1 -y 50 -defaultsOSRD
 preplace portBus led_col_pl_o -pg 1 -y 210 -defaultsOSRD
 preplace portBus FMC1_LA_N_b -pg 1 -y 110 -defaultsOSRD
-preplace inst fasec_hwtest_0 -pg 1 -lvl 3 -y 150 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 630 -defaultsOSRD
-preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 3 -y 420 -defaultsOSRD
-preplace inst axi_wb_i2c_master_1 -pg 1 -lvl 3 -y 540 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 520 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 390 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 3 NJ 310 NJ 310 NJ
-preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_N_o 1 3 1 NJ
-preplace netloc Net4 1 3 1 NJ
-preplace netloc fasec_hwtest_0_led_line_pl_o 1 3 1 NJ
-preplace netloc osc100_clk_i_1 1 0 3 NJ 80 NJ 80 NJ
-preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 3 NJ 160 NJ 160 NJ
-preplace netloc Net5 1 3 1 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 770
-preplace netloc Net6 1 3 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 420
-preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 3 NJ 100 NJ 100 NJ
-preplace netloc Net7 1 3 1 NJ
-preplace netloc FMC2_CLK0M2C_N_i_1 1 0 3 NJ 140 NJ 140 NJ
-preplace netloc FMC2_CLK0M2C_P_i_1 1 0 3 NJ 120 NJ 120 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 30 520 410
-preplace netloc fasec_hwtest_0_led_col_pl_o 1 3 1 NJ
-preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_P_o 1 3 1 NJ
-preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 1 760
-preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 3 1 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 440 680 790
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 330 NJ 330 NJ
-preplace netloc FMC1_CLK0M2C_P_i_1 1 0 3 NJ 180 NJ 180 NJ
-preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_N_o 1 3 1 NJ
-preplace netloc FMC1_CLK0M2C_N_i_1 1 0 3 NJ 200 NJ 200 NJ
-preplace netloc Net1 1 3 1 NJ
-preplace netloc Net 1 3 1 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 540 430 360 780
-preplace netloc Net2 1 3 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK1 1 1 2 NJ 60 N
-preplace netloc pb_gp_i_1 1 0 3 NJ 220 NJ 220 NJ
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 N
-preplace netloc Net3 1 3 1 NJ
-preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 3 1 NJ
-levelinfo -pg 1 -10 220 610 960 1140 -top 0 -bot 720
+preplace inst fasec_hwtest_0 -pg 1 -lvl 4 -y 150 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 2 -y 630 -defaultsOSRD
+preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 4 -y 420 -defaultsOSRD
+preplace inst axi_wb_i2c_master_1 -pg 1 -lvl 4 -y 540 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 3 -y 520 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -y 390 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 2 3 NJ 310 NJ 310 NJ
+preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_N_o 1 4 1 NJ
+preplace netloc Net4 1 4 1 NJ
+preplace netloc fasec_hwtest_0_led_line_pl_o 1 4 1 NJ
+preplace netloc osc100_clk_i_1 1 0 4 NJ 80 NJ 80 NJ 80 NJ
+preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 4 NJ 160 NJ 160 NJ 160 NJ
+preplace netloc Net5 1 4 1 NJ
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 3 1 980
+preplace netloc Net6 1 4 1 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 1 640
+preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 4 NJ 100 NJ 100 NJ 100 NJ
+preplace netloc Net7 1 4 1 NJ
+preplace netloc FMC2_CLK0M2C_N_i_1 1 0 4 NJ 140 NJ 140 NJ 140 NJ
+preplace netloc FMC2_CLK0M2C_P_i_1 1 0 4 NJ 120 NJ 120 NJ 120 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 2 150 530 640
+preplace netloc fasec_hwtest_0_led_col_pl_o 1 4 1 NJ
+preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_P_o 1 4 1 NJ
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 3 1 970
+preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 4 1 NJ
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 2 2 660 360 1000
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 NJ 330 NJ 330 NJ
+preplace netloc FMC1_CLK0M2C_P_i_1 1 0 4 NJ 180 NJ 180 NJ 180 NJ
+preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_N_o 1 4 1 NJ
+preplace netloc FMC1_CLK0M2C_N_i_1 1 0 4 NJ 200 NJ 200 NJ 200 NJ
+preplace netloc Net1 1 4 1 NJ
+preplace netloc Net 1 4 1 NJ
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 2 1 670
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 3 140 520 650 350 990
+preplace netloc Net2 1 4 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK1 1 2 2 NJ 60 NJ
+preplace netloc pb_gp_i_1 1 0 4 NJ 220 NJ 220 NJ 220 NJ
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 3 1 N
+preplace netloc Net3 1 4 1 NJ
+preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 4 1 NJ
+levelinfo -pg 1 -40 120 440 820 1180 1360 -top -70 -bot 760
 ",
 }
 

@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Tue Aug 30 11:30:58 2016
+--Date        : Wed Aug 31 09:59:55 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -1410,10 +1410,20 @@ entity system_design is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
+    FMC1_CLK0C2M_N_o : out STD_LOGIC;
+    FMC1_CLK0C2M_P_o : out STD_LOGIC;
+    FMC1_CLK0M2C_N_i : in STD_LOGIC;
+    FMC1_CLK0M2C_P_i : in STD_LOGIC;
     FMC1_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC2_CLK0C2M_N_o : out STD_LOGIC;
+    FMC2_CLK0C2M_P_o : out STD_LOGIC;
+    FMC2_CLK0M2C_N_i : in STD_LOGIC;
+    FMC2_CLK0M2C_P_i : in STD_LOGIC;
     FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_PRSNTM2C_n_i : in STD_LOGIC;
     eeprom_scl : inout STD_LOGIC;
     eeprom_sda : inout STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
@@ -1421,10 +1431,11 @@ entity system_design is
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
     led_line_pl_o : out STD_LOGIC;
+    osc100_clk_i : in STD_LOGIC;
     pb_gp_i : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=8,numNonXlnxBlks=3,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_ps7_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=12,numReposBlks=7,numNonXlnxBlks=3,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_ps7_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system_design : entity is "system_design.hwdef";
 end system_design;
@@ -1570,11 +1581,6 @@ architecture STRUCTURE of system_design is
     s00_axi_aresetn : in STD_LOGIC
   );
   end component system_design_axi_wb_i2c_master_1_0;
-  component system_design_xlconstant_0_0 is
-  port (
-    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component system_design_xlconstant_0_0;
   component system_design_fasec_hwtest_0_0 is
   port (
     ps_clk_i : in STD_LOGIC;
@@ -1620,6 +1626,12 @@ architecture STRUCTURE of system_design is
     s00_axi_rready : in STD_LOGIC
   );
   end component system_design_fasec_hwtest_0_0;
+  signal FMC1_CLK0M2C_N_i_1 : STD_LOGIC;
+  signal FMC1_CLK0M2C_P_i_1 : STD_LOGIC;
+  signal FMC1_PRSNTM2C_n_i_1 : STD_LOGIC;
+  signal FMC2_CLK0M2C_N_i_1 : STD_LOGIC;
+  signal FMC2_CLK0M2C_P_i_1 : STD_LOGIC;
+  signal FMC2_PRSNTM2C_n_i_1 : STD_LOGIC;
   signal Net : STD_LOGIC;
   signal Net1 : STD_LOGIC;
   signal Net2 : STD_LOGIC;
@@ -1628,9 +1640,14 @@ architecture STRUCTURE of system_design is
   signal Net5 : STD_LOGIC_VECTOR ( 33 downto 0 );
   signal Net6 : STD_LOGIC_VECTOR ( 33 downto 0 );
   signal Net7 : STD_LOGIC_VECTOR ( 33 downto 0 );
+  signal fasec_hwtest_0_FMC1_CLK0C2M_N_o : STD_LOGIC;
+  signal fasec_hwtest_0_FMC1_CLK0C2M_P_o : STD_LOGIC;
+  signal fasec_hwtest_0_FMC2_CLK0C2M_N_o : STD_LOGIC;
+  signal fasec_hwtest_0_FMC2_CLK0C2M_P_o : STD_LOGIC;
   signal fasec_hwtest_0_led_col_pl_o : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal fasec_hwtest_0_led_line_en_pl_o : STD_LOGIC;
   signal fasec_hwtest_0_led_line_pl_o : STD_LOGIC;
+  signal osc100_clk_i_1 : STD_LOGIC;
   signal pb_gp_i_1 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -1753,13 +1770,8 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_axi_periph_M02_AXI_WVALID : STD_LOGIC;
   signal rst_processing_system7_0_100M_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_processing_system7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_axi_wb_i2c_master_0_axi_int_o_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_1_axi_int_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_fasec_hwtest_0_FMC1_CLK0C2M_N_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_fasec_hwtest_0_FMC1_CLK0C2M_P_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_fasec_hwtest_0_FMC2_CLK0C2M_N_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_fasec_hwtest_0_FMC2_CLK0C2M_P_o_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED : STD_LOGIC;
@@ -1767,9 +1779,20 @@ architecture STRUCTURE of system_design is
   signal NLW_rst_processing_system7_0_100M_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_rst_processing_system7_0_100M_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
 begin
+  FMC1_CLK0C2M_N_o <= fasec_hwtest_0_FMC1_CLK0C2M_N_o;
+  FMC1_CLK0C2M_P_o <= fasec_hwtest_0_FMC1_CLK0C2M_P_o;
+  FMC1_CLK0M2C_N_i_1 <= FMC1_CLK0M2C_N_i;
+  FMC1_CLK0M2C_P_i_1 <= FMC1_CLK0M2C_P_i;
+  FMC1_PRSNTM2C_n_i_1 <= FMC1_PRSNTM2C_n_i;
+  FMC2_CLK0C2M_N_o <= fasec_hwtest_0_FMC2_CLK0C2M_N_o;
+  FMC2_CLK0C2M_P_o <= fasec_hwtest_0_FMC2_CLK0C2M_P_o;
+  FMC2_CLK0M2C_N_i_1 <= FMC2_CLK0M2C_N_i;
+  FMC2_CLK0M2C_P_i_1 <= FMC2_CLK0M2C_P_i;
+  FMC2_PRSNTM2C_n_i_1 <= FMC2_PRSNTM2C_n_i;
   led_col_pl_o(3 downto 0) <= fasec_hwtest_0_led_col_pl_o(3 downto 0);
   led_line_en_pl_o <= fasec_hwtest_0_led_line_en_pl_o;
   led_line_pl_o <= fasec_hwtest_0_led_line_pl_o;
+  osc100_clk_i_1 <= osc100_clk_i;
   pb_gp_i_1 <= pb_gp_i;
 axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
      port map (
@@ -1827,24 +1850,24 @@ axi_wb_i2c_master_1: component system_design_axi_wb_i2c_master_1_0
     );
 fasec_hwtest_0: component system_design_fasec_hwtest_0_0
      port map (
-      FMC1_CLK0C2M_N_o => NLW_fasec_hwtest_0_FMC1_CLK0C2M_N_o_UNCONNECTED,
-      FMC1_CLK0C2M_P_o => NLW_fasec_hwtest_0_FMC1_CLK0C2M_P_o_UNCONNECTED,
-      FMC1_CLK0M2C_N_i => '0',
-      FMC1_CLK0M2C_P_i => '0',
+      FMC1_CLK0C2M_N_o => fasec_hwtest_0_FMC1_CLK0C2M_N_o,
+      FMC1_CLK0C2M_P_o => fasec_hwtest_0_FMC1_CLK0C2M_P_o,
+      FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i_1,
+      FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i_1,
       FMC1_LA_N_b(33 downto 0) => FMC1_LA_N_b(33 downto 0),
       FMC1_LA_P_b(33 downto 0) => FMC1_LA_P_b(33 downto 0),
-      FMC1_PRSNTM2C_n_i => '0',
-      FMC2_CLK0C2M_N_o => NLW_fasec_hwtest_0_FMC2_CLK0C2M_N_o_UNCONNECTED,
-      FMC2_CLK0C2M_P_o => NLW_fasec_hwtest_0_FMC2_CLK0C2M_P_o_UNCONNECTED,
-      FMC2_CLK0M2C_N_i => '0',
-      FMC2_CLK0M2C_P_i => '0',
+      FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i_1,
+      FMC2_CLK0C2M_N_o => fasec_hwtest_0_FMC2_CLK0C2M_N_o,
+      FMC2_CLK0C2M_P_o => fasec_hwtest_0_FMC2_CLK0C2M_P_o,
+      FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i_1,
+      FMC2_CLK0M2C_P_i => FMC2_CLK0M2C_P_i_1,
       FMC2_LA_N_b(33 downto 0) => FMC2_LA_N_b(33 downto 0),
       FMC2_LA_P_b(33 downto 0) => FMC2_LA_P_b(33 downto 0),
-      FMC2_PRSNTM2C_n_i => '0',
+      FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i_1,
       led_col_pl_o(3 downto 0) => fasec_hwtest_0_led_col_pl_o(3 downto 0),
       led_line_en_pl_o => fasec_hwtest_0_led_line_en_pl_o,
       led_line_pl_o => fasec_hwtest_0_led_line_pl_o,
-      osc100_clk_i => xlconstant_0_dout(0),
+      osc100_clk_i => osc100_clk_i_1,
       pb_gp_n_i => pb_gp_i_1,
       ps_clk_i => processing_system7_0_FCLK_CLK1,
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
@@ -2058,9 +2081,5 @@ rst_processing_system7_0_100M: component system_design_rst_processing_system7_0_
       peripheral_aresetn(0) => rst_processing_system7_0_100M_peripheral_aresetn(0),
       peripheral_reset(0) => NLW_rst_processing_system7_0_100M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
-    );
-xlconstant_0: component system_design_xlconstant_0_0
-     port map (
-      dout(0) => xlconstant_0_dout(0)
     );
 end STRUCTURE;

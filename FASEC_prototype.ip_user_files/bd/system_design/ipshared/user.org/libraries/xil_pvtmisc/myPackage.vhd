@@ -25,6 +25,8 @@ use IEEE.NUMERIC_STD.all;
 package myPackage is    
   -- types
   type t_adc_array is array (integer range <>) of unsigned(11 downto 0);
+  type t_data32 is array (integer range <>) of unsigned(31 downto 0);
+  
   -- when using VHDL2008, unsigned can be non-constrained
   type t_axiMemory is array (integer range <>) of unsigned(31 downto 0);
   
