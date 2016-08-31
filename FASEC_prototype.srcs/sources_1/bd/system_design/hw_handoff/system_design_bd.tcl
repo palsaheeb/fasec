@@ -182,13 +182,13 @@ proc create_root_design { parentCell } {
   set pb_gp_i [ create_bd_port -dir I pb_gp_i ]
 
   # Create instance: axi_wb_i2c_master_0, and set properties
-  set axi_wb_i2c_master_0 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.3 axi_wb_i2c_master_0 ]
+  set axi_wb_i2c_master_0 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.5 axi_wb_i2c_master_0 ]
 
   # Create instance: axi_wb_i2c_master_1, and set properties
-  set axi_wb_i2c_master_1 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.3 axi_wb_i2c_master_1 ]
+  set axi_wb_i2c_master_1 [ create_bd_cell -type ip -vlnv user.org:user:axi_wb_i2c_master:2.5 axi_wb_i2c_master_1 ]
 
   # Create instance: fasec_hwtest_0, and set properties
-  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.2.1 fasec_hwtest_0 ]
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.3 fasec_hwtest_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
