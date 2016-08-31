@@ -73,9 +73,10 @@
 #define SR_RXACK 7
 #define SR_TIP 1
 
-// FMC Tester addressing
+// FMC chip addressing
 #define FT_IC2		0x24
 #define FT_IC1		0x27
+#define F10I_IC25	0x20	// when in FMC1 slot
 
 // misc
 #define TIMEOUT 2000	// high timeout needed because of I2C clock = 100 kHz
@@ -161,6 +162,7 @@ u32 readReg_24AA64(u32 base, u8 slave, u8 readAddrH, u8 readAddrL){
 }
 
 u32 readReg_mcp23017(u32 base, u8 slave, u8 readAddr){
+	// compatible with tca6416a as well
 //		print("sending control byte - write\n\r");
 	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
 	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
@@ -191,6 +193,7 @@ u32 readReg_mcp23017(u32 base, u8 slave, u8 readAddr){
 }
 
 int writeReg_mcp23017(u32 base, u8 slave, u8 writeAddr, u8 val){
+	// two cycles (restart) for write operations
 //		print("sending control byte - write\n\r");
 	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
 	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
@@ -219,6 +222,41 @@ int writeReg_mcp23017(u32 base, u8 slave, u8 writeAddr, u8 val){
 		return 1;
 	if (waitAck(base)!=0)
 		return 2;
+	// finished
+	return 0;
+}
+
+int writeReg_tca6416a(u32 base, u8 slave, u8 writeAddr, u8 val0, u8 val1){
+	// only one cycle (no restart) for write operations
+	// the eight registers operate as four register pairs
+//		print("sending control byte - write\n\r");
+	writeReg(base, TXR, slave<<1 | 0x0);	// address & write-bit
+	writeReg(base, CR, 1<<CR_STA | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending write address\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base, TXR, writeAddr);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending data byte 0 for write ...\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base,TXR,val0);
+	writeReg(base, CR, 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+//		print("sending data byte 1 for write ...\n\r");
+	if (waitAck(base)!=0)
+		return 2;
+	writeReg(base,TXR,val1);
+	writeReg(base, CR, 1<<CR_STO | 1<<CR_WR);
+	if (waitTransfer(base)!=0)
+		return 1;
+	if (waitAck(base)!=0)
+			return 2;
 	// finished
 	return 0;
 }
@@ -281,17 +319,17 @@ int main()
 			slave_addr=0x50;
 			xil_printf("Addressing FASEC EEPROM now\n\r");
 		}
-//		else if (inputChar=='t'){
-//			// FMC2 slot
-//			oic_base = OCI2CF2TEST;
-//			slave_addr = FT_IC2;
-//			xil_printf("-----------------------------------\n\r");
-//			for (i=0;i<4;i++){
-//				readVal = readReg_mcp23017(oic_base, slave_addr,(u8)i);
-//				printf("FMC2 MCP23017 register %#04x: %#04x \n\r", (unsigned int)i, (unsigned int)readVal);
-//			}
-//			xil_printf("-----------------------------------\n\r");
-//		}
+		else if (inputChar=='t'){
+			// FMC1 slot
+			oic_base = OCI2CBASEFMC;
+			slave_addr = F10I_IC25;
+			xil_printf("-----------------------------------\n\r");
+			for (i=0;i<8;i++){
+				readVal = readReg_mcp23017(oic_base, slave_addr,(u8)i);
+				printf("FMC1 TCA6416A register %#04x: %#04x \n\r", (unsigned int)i, (unsigned int)readVal);
+			}
+			xil_printf("-----------------------------------\n\r");
+		}
 		else if (inputChar=='h'){
 			xil_printf("-----------------------------------\n\r");
 			for (i=0; i<8;i++){
@@ -300,15 +338,15 @@ int main()
 			}
 			xil_printf("-----------------------------------\n\r");
 		}
-//		else if(inputChar=='w'){
-//			oic_base = OCI2CF2TEST;
-//			slave_addr = FT_IC2;
-//			// enabling two **LSB** outputs (IODIR**B**)
-//			writeReg_mcp23017(oic_base, slave_addr,0x01,0xfc);
-//			// writing low to that output (GPIOB)
-//			writeReg_mcp23017(oic_base, slave_addr,0x13,0x00);
-//			xil_printf("write finished\n\r");
-//		}
+		else if(inputChar=='w'){
+			oic_base = OCI2CBASEFMC;
+			slave_addr = F10I_IC25;
+			// enabling all outputs
+			writeReg_tca6416a(oic_base, slave_addr,0x06,0x00,0x00);
+			// writing low to all outputs (activates LEDs)
+			writeReg_tca6416a(oic_base, slave_addr,0x02,0x00,0x00);
+			xil_printf("write finished\n\r");
+		}
 		else{
 			xil_printf("Help Menu \n\r");
 			xil_printf("--------- \n\r");
@@ -316,9 +354,9 @@ int main()
 			xil_printf("e: exit from main() \n\r");
 			xil_printf("s: swap between FMC1-2 EEPROM addresses \n\r");
 			xil_printf("f: address FASEC's EEPROM \n\r");
-//			xil_printf("t: Tester FMCs, read bytes from IC2\n\r");
 			xil_printf("h: Read bytes from FASEC HW-TEST core\n\r");
-//			xil_printf("w: write to Tester FMCs\n\r");
+			xil_printf("t: EDA03287, read bytes from IC2 mux\n\r");
+			xil_printf("w: EDA03287, write to IC2 mux\n\r");
 		}
 	}
 
