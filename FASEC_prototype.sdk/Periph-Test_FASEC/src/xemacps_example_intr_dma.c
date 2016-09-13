@@ -123,6 +123,7 @@
 /***************************** Include Files ********************************/
 #include "xemacps_example.h"
 #include "xil_exception.h"
+#include "xemacps.h"
 
 #ifndef __MICROBLAZE__
 #include "xil_mmu.h"
@@ -358,6 +359,7 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 	print("eth test starting..\n\r");
 	Config = XEmacPs_LookupConfig(EmacPsDeviceId);
 
+	// PVT: library method changed to _not_ enable MDIO for PHY configuration
 	Status = XEmacPs_CfgInitialize(EmacPsInstancePtr, Config,
 					Config->BaseAddress);
 
@@ -534,9 +536,22 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 		/*
 		 * PVT: 1000Mbit/s needed cause switch configured as such (pull-ups)
 		 * switched back to 100Mbit/s (pull-down force) because frame length mismatch
+		 *
+		 * EmacPsUtilEnterLoopback commented out because set by SPI while trying
+		 * to enable RX (clock ingress) delay for PHY
+		 *
 		 */
 		print("Gemversion==2 \n\r");
-		EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
+		//EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
+		// DMIO bit is not set but still clock-signal is pulled low
+		// disabled: 0x00018189
+		//u32 dr = XEmacPs_ReadReg(Config->BaseAddress,XEMACPS_NWCTRL_OFFSET);
+		//printf("XEmacPs reg NWCTRL: %#010x \n\r", (unsigned int)dr);
+
+		// Write to slcr.MIO_PIN{52:53}
+
+		Status = XEmacPs_CfgInitialize(EmacPsInstancePtr, Config,
+							Config->BaseAddress);
 		XEmacPs_SetOperatingSpeed(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
 	}
 	else

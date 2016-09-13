@@ -3,5 +3,4 @@
 RemoteSystemsTempFiles/**
 *.o
 *.elf
-.metadata/
 *.tmp/

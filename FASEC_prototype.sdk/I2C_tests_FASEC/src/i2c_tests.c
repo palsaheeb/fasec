@@ -269,6 +269,7 @@ int main()
 	char inputChar;
 	u8 slave_addr;
 	u32 oic_base;
+	u8 switchVal = 0x0;
 
 	print("** FMC1 I2C tests starting **\n\r");
     init_platform();
@@ -343,8 +344,12 @@ int main()
 			slave_addr = F10I_IC25;
 			// enabling all outputs
 			writeReg_tca6416a(oic_base, slave_addr,0x06,0x00,0x00);
-			// writing low to all outputs (activates LEDs)
-			writeReg_tca6416a(oic_base, slave_addr,0x02,0x00,0x00);
+			// writing low/high to all outputs (activates LEDs)
+			if(switchVal==0x0)
+				switchVal = 0xff;
+			else
+				switchVal = 0x00;
+			writeReg_tca6416a(oic_base, slave_addr,0x02,switchVal,switchVal);
 			xil_printf("write finished\n\r");
 		}
 		else{

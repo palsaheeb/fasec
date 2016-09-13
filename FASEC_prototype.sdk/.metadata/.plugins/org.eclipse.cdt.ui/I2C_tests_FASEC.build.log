@@ -1,0 +1,28 @@
+18:19:02 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82516	   2584	  23340	 108440	  1a798	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+
+18:19:03 Build Finished (took 429ms)
+
