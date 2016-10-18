@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Aug 31 09:40:12 2016
+--Date        : Mon Oct 17 17:55:49 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -2168,11 +2168,19 @@ architecture STRUCTURE of system_design is
     FMC2_CLK0M2C_N_i : in STD_LOGIC;
     FMC2_CLK0C2M_P_o : out STD_LOGIC;
     FMC2_CLK0C2M_N_o : out STD_LOGIC;
+    FMC2_GP0_b : inout STD_LOGIC;
+    FMC2_GP1_b : inout STD_LOGIC;
+    FMC2_GP2_b : inout STD_LOGIC;
+    FMC2_GP3_b : inout STD_LOGIC;
     FMC1_PRSNTM2C_n_i : in STD_LOGIC;
     FMC1_CLK0M2C_P_i : in STD_LOGIC;
     FMC1_CLK0M2C_N_i : in STD_LOGIC;
     FMC1_CLK0C2M_P_o : out STD_LOGIC;
     FMC1_CLK0C2M_N_o : out STD_LOGIC;
+    FMC1_GP0_b : inout STD_LOGIC;
+    FMC1_GP1_b : inout STD_LOGIC;
+    FMC1_GP2_b : inout STD_LOGIC;
+    FMC1_GP3_b : inout STD_LOGIC;
     pb_gp_n_i : in STD_LOGIC;
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
@@ -2390,6 +2398,14 @@ architecture STRUCTURE of system_design is
   signal NLW_axi_wb_i2c_master_1_axi_int_o_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_2_axi_int_o_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_3_axi_int_o_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC1_GP0_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC1_GP1_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC1_GP2_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC1_GP3_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC2_GP0_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC2_GP1_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC2_GP2_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_fasec_hwtest_0_FMC2_GP3_b_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED : STD_LOGIC;
@@ -2526,6 +2542,10 @@ fasec_hwtest_0: component system_design_fasec_hwtest_0_0
       FMC1_CLK0C2M_P_o => fasec_hwtest_0_FMC1_CLK0C2M_P_o,
       FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i_1,
       FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i_1,
+      FMC1_GP0_b => NLW_fasec_hwtest_0_FMC1_GP0_b_UNCONNECTED,
+      FMC1_GP1_b => NLW_fasec_hwtest_0_FMC1_GP1_b_UNCONNECTED,
+      FMC1_GP2_b => NLW_fasec_hwtest_0_FMC1_GP2_b_UNCONNECTED,
+      FMC1_GP3_b => NLW_fasec_hwtest_0_FMC1_GP3_b_UNCONNECTED,
       FMC1_LA_N_b(33 downto 0) => FMC1_LA_N_b(33 downto 0),
       FMC1_LA_P_b(33 downto 0) => FMC1_LA_P_b(33 downto 0),
       FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i_1,
@@ -2533,6 +2553,10 @@ fasec_hwtest_0: component system_design_fasec_hwtest_0_0
       FMC2_CLK0C2M_P_o => fasec_hwtest_0_FMC2_CLK0C2M_P_o,
       FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i_1,
       FMC2_CLK0M2C_P_i => FMC2_CLK0M2C_P_i_1,
+      FMC2_GP0_b => NLW_fasec_hwtest_0_FMC2_GP0_b_UNCONNECTED,
+      FMC2_GP1_b => NLW_fasec_hwtest_0_FMC2_GP1_b_UNCONNECTED,
+      FMC2_GP2_b => NLW_fasec_hwtest_0_FMC2_GP2_b_UNCONNECTED,
+      FMC2_GP3_b => NLW_fasec_hwtest_0_FMC2_GP3_b_UNCONNECTED,
       FMC2_LA_N_b(33 downto 0) => FMC2_LA_N_b(33 downto 0),
       FMC2_LA_P_b(33 downto 0) => FMC2_LA_P_b(33 downto 0),
       FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i_1,

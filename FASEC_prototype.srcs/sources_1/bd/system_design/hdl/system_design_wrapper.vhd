@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Aug 31 09:40:12 2016
+--Date        : Mon Oct 17 17:55:49 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -112,8 +112,8 @@ architecture STRUCTURE of system_design_wrapper is
     FMC1_CLK0C2M_N_o : out STD_LOGIC;
     osc100_clk_i : in STD_LOGIC;
     fmc1_scl_vadj : inout STD_LOGIC;
-    fmc2_scl_vadj : inout STD_LOGIC;
     fmc1_sda_vadj : inout STD_LOGIC;
+    fmc2_scl_vadj : inout STD_LOGIC;
     fmc2_sda_vadj : inout STD_LOGIC
   );
   end component system_design;

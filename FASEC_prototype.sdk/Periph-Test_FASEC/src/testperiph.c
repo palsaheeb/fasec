@@ -111,7 +111,7 @@ int main()
       print("\r\n Running Interrupt Test  for ps7_ethernet_0...\r\n");
 
       // PVT: commented out cause processor blocked here
-      Status = EmacPsDmaIntrExample(&intc, &ps7_ethernet_0, \
+      //Status = EmacPsDmaIntrExample(&intc, &ps7_ethernet_0, \
                                  XPAR_PS7_ETHERNET_0_DEVICE_ID, \
                                  XPAR_PS7_ETHERNET_0_INTR);
 

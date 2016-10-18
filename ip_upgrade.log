@@ -1,6 +1,352 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 12:44:40 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.3 (Rev. 10) to user.org:user:fasec_hwtest:2.4 (Rev. 11)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_fasec_hwtest_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'FMC1_GP0_b'
+
+-Upgrade has added port 'FMC1_GP1_b'
+
+-Upgrade has added port 'FMC1_GP2_b'
+
+-Upgrade has added port 'FMC1_GP3_b'
+
+-Upgrade has added port 'FMC2_GP0_b'
+
+-Upgrade has added port 'FMC2_GP1_b'
+
+-Upgrade has added port 'FMC2_GP2_b'
+
+-Upgrade has added port 'FMC2_GP3_b'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 07:59:03 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.2.1 (Rev. 6) to user.org:user:fasec_hwtest:2.3 (Rev. 10)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:fasec_hwtest:2.3 -user_name system_design_fasec_hwtest_0_0
+set_property -dict "\
+  CONFIG.Component_Name system_design_fasec_hwtest_0_0 \
+  CONFIG.g_FMC1 EDA-02327 \
+  CONFIG.g_FMC2 EDA-02327 \
+  CONFIG.g_S00_AXI_ADDR_WIDTH 32 \
+  CONFIG.g_S00_AXI_DATA_WIDTH 32 " [get_ips system_design_fasec_hwtest_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 07:59:03 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_3_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_axi_wb_i2c_master_3_0 from user.org:user:axi_wb_i2c_master:2.3 (Rev. 6) to user.org:user:axi_wb_i2c_master:2.5 (Rev. 1)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:axi_wb_i2c_master:2.5 -user_name system_design_axi_wb_i2c_master_3_0
+set_property -dict "\
+  CONFIG.C_S00_AXI_ADDR_WIDTH 32 \
+  CONFIG.C_S00_AXI_BASEADDR 0xFFFFFFFF \
+  CONFIG.C_S00_AXI_DATA_WIDTH 32 \
+  CONFIG.C_S00_AXI_HIGHADDR 0x00000000 \
+  CONFIG.Component_Name system_design_axi_wb_i2c_master_3_0 " [get_ips system_design_axi_wb_i2c_master_3_0]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 07:59:03 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_2_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_axi_wb_i2c_master_2_1 from user.org:user:axi_wb_i2c_master:2.3 (Rev. 6) to user.org:user:axi_wb_i2c_master:2.5 (Rev. 1)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:axi_wb_i2c_master:2.5 -user_name system_design_axi_wb_i2c_master_2_1
+set_property -dict "\
+  CONFIG.C_S00_AXI_ADDR_WIDTH 32 \
+  CONFIG.C_S00_AXI_BASEADDR 0xFFFFFFFF \
+  CONFIG.C_S00_AXI_DATA_WIDTH 32 \
+  CONFIG.C_S00_AXI_HIGHADDR 0x00000000 \
+  CONFIG.Component_Name system_design_axi_wb_i2c_master_2_1 " [get_ips system_design_axi_wb_i2c_master_2_1]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 07:59:03 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_1_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_axi_wb_i2c_master_1_0 from user.org:user:axi_wb_i2c_master:2.3 (Rev. 6) to user.org:user:axi_wb_i2c_master:2.5 (Rev. 1)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:axi_wb_i2c_master:2.5 -user_name system_design_axi_wb_i2c_master_1_0
+set_property -dict "\
+  CONFIG.C_S00_AXI_ADDR_WIDTH 32 \
+  CONFIG.C_S00_AXI_BASEADDR 0xFFFFFFFF \
+  CONFIG.C_S00_AXI_DATA_WIDTH 32 \
+  CONFIG.C_S00_AXI_HIGHADDR 0x00000000 \
+  CONFIG.Component_Name system_design_axi_wb_i2c_master_1_0 " [get_ips system_design_axi_wb_i2c_master_1_0]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Oct 17 07:59:03 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:2.3 (Rev. 6) to user.org:user:axi_wb_i2c_master:2.5 (Rev. 1)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. Note that parameter names and IDs are case sensitive.
+
+
+3. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+The normal upgrade process failed due to validation failures in the given configuration . Attempting partial upgrade.
+This process will attempt to set as many user parameters as possible.Please check the parameters whose values were not applied
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:axi_wb_i2c_master:2.5 -user_name system_design_axi_wb_i2c_master_0_0
+set_property -dict "\
+  CONFIG.C_S00_AXI_ADDR_WIDTH 32 \
+  CONFIG.C_S00_AXI_BASEADDR 0xFFFFFFFF \
+  CONFIG.C_S00_AXI_DATA_WIDTH 32 \
+  CONFIG.C_S00_AXI_HIGHADDR 0x00000000 \
+  CONFIG.Component_Name system_design_axi_wb_i2c_master_0_0 " [get_ips system_design_axi_wb_i2c_master_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Wed Aug 31 09:39:39 2016
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

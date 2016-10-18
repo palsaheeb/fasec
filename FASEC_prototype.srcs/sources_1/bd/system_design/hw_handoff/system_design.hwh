@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 31 09:40:13 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 17 17:56:12 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -145,14 +145,14 @@
         <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="i2c_scl_io"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="fmc2_scl_vadj" SIGIS="undef" SIGNAME="External_Ports_fmc2_scl_vadj">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="i2c_scl_io"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="IO" NAME="fmc1_sda_vadj" SIGIS="undef" SIGNAME="External_Ports_fmc1_sda_vadj">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="i2c_sda_io"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="fmc2_scl_vadj" SIGIS="undef" SIGNAME="External_Ports_fmc2_scl_vadj">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="i2c_scl_io"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" NAME="fmc2_sda_vadj" SIGIS="undef" SIGNAME="External_Ports_fmc2_sda_vadj">
@@ -208,7 +208,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.3" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.3">
+    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -344,11 +344,15 @@
           <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="WIZ_NUM_REG" VALUE="5"/>
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -364,11 +368,7 @@
           <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="s00_axi_awaddr"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="s00_axi_awprot"/>
@@ -393,7 +393,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.3" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.3">
+    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -529,11 +529,15 @@
           <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="WIZ_NUM_REG" VALUE="5"/>
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -549,11 +553,7 @@
           <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="s00_axi_awaddr"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="s00_axi_awprot"/>
@@ -578,7 +578,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.3" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.3">
+    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -714,11 +714,15 @@
           <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="WIZ_NUM_REG" VALUE="5"/>
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -734,11 +738,7 @@
           <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="s00_axi_awaddr"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="s00_axi_awprot"/>
@@ -763,7 +763,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_3" HWVERSION="2.3" INSTANCE="axi_wb_i2c_master_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.3">
+    <MODULE FULLNAME="/axi_wb_i2c_master_3" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -899,11 +899,15 @@
           <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="WIZ_NUM_REG" VALUE="5"/>
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
+          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -919,11 +923,7 @@
           <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="system_design_processing_system7_0_0_FCLK_CLK0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="AWADDR" PHYSICAL="s00_axi_awaddr"/>
             <PORTMAP LOGICAL="AWPROT" PHYSICAL="s00_axi_awprot"/>
@@ -948,7 +948,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.2.1" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.2.1">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.4" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.4">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -1019,6 +1019,10 @@
             <CONNECTION INSTANCE="External_Ports" PORT="FMC2_CLK0C2M_N_o"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="IO" NAME="FMC2_GP0_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP1_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP2_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP3_b" SIGIS="undef"/>
         <PORT DIR="I" NAME="FMC1_PRSNTM2C_n_i" SIGIS="undef" SIGNAME="External_Ports_FMC1_PRSNTM2C_n_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="FMC1_PRSNTM2C_n_i"/>
@@ -1044,6 +1048,10 @@
             <CONNECTION INSTANCE="External_Ports" PORT="FMC1_CLK0C2M_N_o"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="IO" NAME="FMC1_GP0_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP1_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP2_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP3_b" SIGIS="undef"/>
         <PORT DIR="I" NAME="pb_gp_n_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="pb_gp_i"/>
@@ -2356,14 +2364,14 @@
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ACLK"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ACLK"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ACLK"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
@@ -2890,6 +2898,36 @@
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M02_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M03_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M03_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M04_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="M04_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ARVALID"/>
@@ -3270,59 +3308,9 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT DIR="O" NAME="M02_AXI_rready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M02_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M02_AXI_awvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M02_AXI_awready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wstrb">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wstrb"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="M02_AXI_wvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M02_AXI_wready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_bresp"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M02_AXI_bvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_bvalid">
@@ -3335,29 +3323,24 @@
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_araddr">
+        <PORT DIR="I" NAME="M02_AXI_awready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_araddr"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arprot">
+        <PORT DIR="O" NAME="M02_AXI_awvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arprot"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_arvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arvalid">
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arvalid"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_AXI_arready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arready">
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rdata"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="M02_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rresp">
@@ -3365,24 +3348,59 @@
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="2" NAME="M02_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arprot">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arprot"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="M02_AXI_rvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M02_AXI_rready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rready">
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rready"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT DIR="O" LEFT="31" NAME="M02_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
+        <PORT DIR="I" NAME="M02_AXI_arready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="M02_AXI_wready" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M02_AXI_wvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="M02_AXI_arvalid" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="M02_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_wstrb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="M02_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_bresp">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="M02_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_s00_axi_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M03_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_awaddr">
@@ -3478,16 +3496,6 @@
         <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M04_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M04_ARESETN" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M04_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_3_s00_axi_awaddr">
@@ -3677,25 +3685,25 @@
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="processing_system7_0_axi_periph_M02_AXI" DATAWIDTH="32" NAME="M02_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="AWADDR" PHYSICAL="M02_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M02_AXI_awprot"/>
-            <PORTMAP LOGICAL="AWVALID" PHYSICAL="M02_AXI_awvalid"/>
-            <PORTMAP LOGICAL="AWREADY" PHYSICAL="M02_AXI_awready"/>
-            <PORTMAP LOGICAL="WDATA" PHYSICAL="M02_AXI_wdata"/>
-            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M02_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WVALID" PHYSICAL="M02_AXI_wvalid"/>
-            <PORTMAP LOGICAL="WREADY" PHYSICAL="M02_AXI_wready"/>
-            <PORTMAP LOGICAL="BRESP" PHYSICAL="M02_AXI_bresp"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="M02_AXI_rready"/>
             <PORTMAP LOGICAL="BVALID" PHYSICAL="M02_AXI_bvalid"/>
             <PORTMAP LOGICAL="BREADY" PHYSICAL="M02_AXI_bready"/>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="M02_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M02_AXI_arprot"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="M02_AXI_arvalid"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="M02_AXI_arready"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="M02_AXI_rdata"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="M02_AXI_awready"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="M02_AXI_awvalid"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="M02_AXI_awprot"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="M02_AXI_wdata"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="M02_AXI_rresp"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="M02_AXI_arprot"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M02_AXI_rvalid"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="M02_AXI_rready"/>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="M02_AXI_araddr"/>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="M02_AXI_awaddr"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="M02_AXI_arready"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="M02_AXI_wready"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="M02_AXI_wvalid"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="M02_AXI_arvalid"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M02_AXI_wstrb"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="M02_AXI_bresp"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="M02_AXI_rdata"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="processing_system7_0_axi_periph_M03_AXI" DATAWIDTH="32" NAME="M03_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
@@ -3791,13 +3799,13 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ARESETN"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ARESETN"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_3" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>

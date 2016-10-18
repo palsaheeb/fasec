@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:axi_wb_i2c_master:2.3
--- IP Revision: 6
+-- IP VLNV: user.org:user:axi_wb_i2c_master:2.5
+-- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
