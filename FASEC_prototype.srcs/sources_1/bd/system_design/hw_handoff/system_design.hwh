@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 31 17:21:07 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct 19 10:09:28 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -558,7 +558,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.3" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.3">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.5.2" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.5.2">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -566,8 +566,8 @@
       <PARAMETERS>
         <PARAMETER NAME="g_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="g_S00_AXI_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="g_FMC1" VALUE="EDA-0NONE"/>
-        <PARAMETER NAME="g_FMC2" VALUE="EDA-0NONE"/>
+        <PARAMETER NAME="g_FMC1" VALUE="EDA-03287"/>
+        <PARAMETER NAME="g_FMC2" VALUE="EDA-03287"/>
         <PARAMETER NAME="Component_Name" VALUE="system_design_fasec_hwtest_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x43C20000"/>
@@ -629,6 +629,10 @@
             <CONNECTION INSTANCE="External_Ports" PORT="FMC2_CLK0C2M_N_o"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="IO" NAME="FMC2_GP0_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP1_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP2_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC2_GP3_b" SIGIS="undef"/>
         <PORT DIR="I" NAME="FMC1_PRSNTM2C_n_i" SIGIS="undef" SIGNAME="External_Ports_FMC1_PRSNTM2C_n_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="FMC1_PRSNTM2C_n_i"/>
@@ -654,6 +658,10 @@
             <CONNECTION INSTANCE="External_Ports" PORT="FMC1_CLK0C2M_N_o"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="IO" NAME="FMC1_GP0_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP1_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP2_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="FMC1_GP3_b" SIGIS="undef"/>
         <PORT DIR="I" NAME="pb_gp_n_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="pb_gp_i"/>
@@ -1964,13 +1972,13 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ACLK"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
@@ -3135,12 +3143,12 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ARESETN"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>

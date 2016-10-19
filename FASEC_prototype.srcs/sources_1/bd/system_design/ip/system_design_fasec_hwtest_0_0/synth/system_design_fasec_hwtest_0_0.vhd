@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:2.3
--- IP Revision: 10
+-- IP VLNV: user.org:user:fasec_hwtest:2.5.2
+-- IP Revision: 14
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -66,11 +66,19 @@ ENTITY system_design_fasec_hwtest_0_0 IS
     FMC2_CLK0M2C_N_i : IN STD_LOGIC;
     FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
     FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
+    FMC2_GP0_b : INOUT STD_LOGIC;
+    FMC2_GP1_b : INOUT STD_LOGIC;
+    FMC2_GP2_b : INOUT STD_LOGIC;
+    FMC2_GP3_b : INOUT STD_LOGIC;
     FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
     FMC1_CLK0M2C_P_i : IN STD_LOGIC;
     FMC1_CLK0M2C_N_i : IN STD_LOGIC;
     FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
     FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
+    FMC1_GP0_b : INOUT STD_LOGIC;
+    FMC1_GP1_b : INOUT STD_LOGIC;
+    FMC1_GP2_b : INOUT STD_LOGIC;
+    FMC1_GP3_b : INOUT STD_LOGIC;
     pb_gp_n_i : IN STD_LOGIC;
     led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     led_line_en_pl_o : OUT STD_LOGIC;
@@ -121,11 +129,19 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
       FMC2_CLK0M2C_N_i : IN STD_LOGIC;
       FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
       FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
+      FMC2_GP0_b : INOUT STD_LOGIC;
+      FMC2_GP1_b : INOUT STD_LOGIC;
+      FMC2_GP2_b : INOUT STD_LOGIC;
+      FMC2_GP3_b : INOUT STD_LOGIC;
       FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
       FMC1_CLK0M2C_P_i : IN STD_LOGIC;
       FMC1_CLK0M2C_N_i : IN STD_LOGIC;
       FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
       FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
+      FMC1_GP0_b : INOUT STD_LOGIC;
+      FMC1_GP1_b : INOUT STD_LOGIC;
+      FMC1_GP2_b : INOUT STD_LOGIC;
+      FMC1_GP3_b : INOUT STD_LOGIC;
       pb_gp_n_i : IN STD_LOGIC;
       led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       led_line_en_pl_o : OUT STD_LOGIC;
@@ -184,8 +200,8 @@ BEGIN
     GENERIC MAP (
       g_S00_AXI_DATA_WIDTH => 32,
       g_S00_AXI_ADDR_WIDTH => 32,
-      g_FMC1 => "EDA-0NONE",
-      g_FMC2 => "EDA-0NONE"
+      g_FMC1 => "EDA-03287",
+      g_FMC2 => "EDA-03287"
     )
     PORT MAP (
       ps_clk_i => ps_clk_i,
@@ -199,11 +215,19 @@ BEGIN
       FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i,
       FMC2_CLK0C2M_P_o => FMC2_CLK0C2M_P_o,
       FMC2_CLK0C2M_N_o => FMC2_CLK0C2M_N_o,
+      FMC2_GP0_b => FMC2_GP0_b,
+      FMC2_GP1_b => FMC2_GP1_b,
+      FMC2_GP2_b => FMC2_GP2_b,
+      FMC2_GP3_b => FMC2_GP3_b,
       FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i,
       FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i,
       FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i,
       FMC1_CLK0C2M_P_o => FMC1_CLK0C2M_P_o,
       FMC1_CLK0C2M_N_o => FMC1_CLK0C2M_N_o,
+      FMC1_GP0_b => FMC1_GP0_b,
+      FMC1_GP1_b => FMC1_GP1_b,
+      FMC1_GP2_b => FMC1_GP2_b,
+      FMC1_GP3_b => FMC1_GP3_b,
       pb_gp_n_i => pb_gp_n_i,
       led_col_pl_o => led_col_pl_o,
       led_line_en_pl_o => led_line_en_pl_o,

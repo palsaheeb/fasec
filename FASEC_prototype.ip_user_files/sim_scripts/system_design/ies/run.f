@@ -40,8 +40,8 @@
   "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/axi4lite_slave.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_3/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_3/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_5_2/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_5_2/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
   "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_bit_ctrl.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_byte_ctrl.vhd" \

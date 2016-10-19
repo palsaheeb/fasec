@@ -1,6 +1,115 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Wed Oct 19 10:09:22 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.5.1 (Rev. 13) to user.org:user:fasec_hwtest:2.5.2 (Rev. 14)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Wed Oct 19 09:03:50 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.5 (Rev. 12) to user.org:user:fasec_hwtest:2.5.1 (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Wed Oct 19 08:22:08 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.4 (Rev. 11) to user.org:user:fasec_hwtest:2.5 (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Oct 18 18:46:25 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.3 (Rev. 10) to user.org:user:fasec_hwtest:2.4 (Rev. 11)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_fasec_hwtest_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'FMC1_GP0_b'
+
+-Upgrade has added port 'FMC1_GP1_b'
+
+-Upgrade has added port 'FMC1_GP2_b'
+
+-Upgrade has added port 'FMC1_GP3_b'
+
+-Upgrade has added port 'FMC2_GP0_b'
+
+-Upgrade has added port 'FMC2_GP1_b'
+
+-Upgrade has added port 'FMC2_GP2_b'
+
+-Upgrade has added port 'FMC2_GP3_b'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Wed Aug 31 17:21:00 2016
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

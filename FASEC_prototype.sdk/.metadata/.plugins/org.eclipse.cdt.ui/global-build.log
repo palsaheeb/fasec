@@ -17642,3 +17642,1960 @@ make pre-build main-build
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
+08:11:40 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82516	   2584	  23340	 108440	  1a798	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:13:52 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82828	   2584	  23340	 108752	  1a8d0	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:14:08 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82828	   2584	  23340	 108752	  1a8d0	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:17:13 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82796	   2584	  23340	 108720	  1a8b0	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:17:55 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:273:5: warning: unused variable ‘outsVal’ [-Wunused-variable]
+  u8 outsVal = 0x00;
+     ^
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82796	   2584	  23340	 108720	  1a8b0	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:24:14 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+08:25:11 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:77:20: error: expected expression before ‘=’ token
+ #define FHWT_READA = 0x0
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+                    ^
+../src/i2c_tests.c:346:37: note: in expansion of macro ‘FHWT_READA’
+      (unsigned int)readReg(FHWTEST, FHWT_READA+i));
+                                     ^
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+make: *** [src/i2c_tests.o] Error 1
+08:25:30 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+08:25:49 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:77:20: error: expected expression before ‘=’ token
+ #define FHWT_READA = 0x0
+                    ^
+../src/i2c_tests.c:346:37: note: in expansion of macro ‘FHWT_READA’
+      (unsigned int)readReg(FHWTEST, FHWT_READA+i));
+                                     ^
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+make: *** [src/i2c_tests.o] Error 1
+08:26:02 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:77:20: error: expected expression before ‘=’ token
+ #define FHWT_READA = 0x0
+                    ^
+../src/i2c_tests.c:346:38: note: in expansion of macro ‘FHWT_READA’
+      (unsigned int)readReg(FHWTEST, (FHWT_READA+i)));
+                                      ^
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+08:26:19 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:351:21: error: expected expression before ‘)’ token
+    writeReg(FHWTEST,)
+                     ^
+../src/i2c_tests.c:351:4: error: too few arguments to function ‘writeReg’
+    writeReg(FHWTEST,)
+    ^
+../src/i2c_tests.c:91:6: note: declared here
+ void writeReg(u32 base, u32 addr, u32 val){
+      ^
+make: *** [src/i2c_tests.o] Error 1
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+08:29:43 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82980	   2584	  23340	 108904	  1a968	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:30:17 **** Clean-only build of project standalone_bsp_0 ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+08:30:17 **** Clean-only build of configuration Debug for project Dhrystone_FASEC ****
+make clean 
+rm -rf  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o  ./src/dhry_1.d ./src/dhry_2.d ./src/platform.d  Dhrystone_FASEC.elf.size  Dhrystone_FASEC.elf
+ 
+08:30:17 **** Clean-only build of configuration Debug for project Hello_FASEC ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  Hello_FASEC.elf.size  Hello_FASEC.elf
+ 
+08:30:17 **** Build of project standalone_bsp_0 ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling qspips
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ddrps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling sdps
+Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling emacps
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling iicps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ttcps
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling coresightps_dcc
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling standalone
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scutimer
+Finished building libraries
+08:30:25 **** Clean-only build of configuration Debug for project I2C_tests_FASEC ****
+make clean 
+rm -rf  ./src/i2c_tests.o ./src/platform.o  ./src/i2c_tests.d ./src/platform.d  I2C_tests_FASEC.elf.size  I2C_tests_FASEC.elf
+ 
+08:30:25 **** Clean-only build of configuration Debug for project Mem-Test_FASEC ****
+make clean 
+rm -rf  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o  ./src/memory_config_g.d ./src/memorytest.d ./src/platform.d  Mem-Test_FASEC.elf.size  Mem-Test_FASEC.elf
+ 
+08:30:26 **** Clean-only build of configuration Debug for project Periph-Test_FASEC ****
+make clean 
+rm -rf  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o  ./src/testperiph.d ./src/xdevcfg_selftest_example.d ./src/xdmaps_example_w_intr.d ./src/xemacps_example_intr_dma.d ./src/xemacps_example_util.d ./src/xiicps_selftest_example.d ./src/xqspips_selftest_example.d ./src/xscugic_tapp_example.d ./src/xscutimer_intr_example.d ./src/xscutimer_polled_example.d ./src/xscuwdt_intr_example.d ./src/xttcps_tapp_example.d  Periph-Test_FASEC.elf.size  Periph-Test_FASEC.elf
+ 
+08:30:26 **** Build of configuration Debug for project Periph-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/testperiph.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+Finished building: ../src/testperiph.c
+ 
+Building file: ../src/xdevcfg_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdevcfg_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdevcfg_selftest_example.d" -MT"src/xdevcfg_selftest_example.o" -o "src/xdevcfg_selftest_example.o" "../src/xdevcfg_selftest_example.c"
+Finished building: ../src/xdevcfg_selftest_example.c
+ 
+Building file: ../src/xdmaps_example_w_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdmaps_example_w_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdmaps_example_w_intr.d" -MT"src/xdmaps_example_w_intr.o" -o "src/xdmaps_example_w_intr.o" "../src/xdmaps_example_w_intr.c"
+Finished building: ../src/xdmaps_example_w_intr.c
+ 
+Building file: ../src/xemacps_example_intr_dma.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_intr_dma.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_intr_dma.d" -MT"src/xemacps_example_intr_dma.o" -o "src/xemacps_example_intr_dma.o" "../src/xemacps_example_intr_dma.c"
+../src/xemacps_example_intr_dma.c: In function ‘EmacPsDmaSingleFrameIntrExample’:
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+   printf("RxFrLen: %u, TxFrameLength: %u \n\r",RxFrLen,TxFrameLength);
+   ^
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("TxFrame byte? %u : %u \n\r", Index, TxFrame[Index]);
+    ^
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c: In function ‘XEmacPsClkSetup’:
+../src/xemacps_example_intr_dma.c:1321:6: warning: unused variable ‘CrlApbClkCntrl’ [-Wunused-variable]
+  u32 CrlApbClkCntrl;
+      ^
+Finished building: ../src/xemacps_example_intr_dma.c
+ 
+Building file: ../src/xemacps_example_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+../src/xemacps_example_util.c: In function ‘EmacPsUtilMicrelPhyLoopback’:
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("written phy port %u reg 0x0 : %#010x \n\r", i, PhyReg0);
+  ^
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:674:6: warning: unused variable ‘PhyReg1’ [-Wunused-variable]
+  u16 PhyReg1  = 0;
+      ^
+../src/xemacps_example_util.c: In function ‘EmacPsUtilEnterLoopback’:
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("phy port %u reg %u : %#010x \n\r",j, i, PhyIdentity);
+    ^
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+Finished building: ../src/xemacps_example_util.c
+ 
+Building file: ../src/xiicps_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+Finished building: ../src/xiicps_selftest_example.c
+ 
+Building file: ../src/xqspips_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xqspips_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xqspips_selftest_example.d" -MT"src/xqspips_selftest_example.o" -o "src/xqspips_selftest_example.o" "../src/xqspips_selftest_example.c"
+Finished building: ../src/xqspips_selftest_example.c
+ 
+Building file: ../src/xscugic_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscugic_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscugic_tapp_example.d" -MT"src/xscugic_tapp_example.o" -o "src/xscugic_tapp_example.o" "../src/xscugic_tapp_example.c"
+Finished building: ../src/xscugic_tapp_example.c
+ 
+Building file: ../src/xscutimer_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_intr_example.d" -MT"src/xscutimer_intr_example.o" -o "src/xscutimer_intr_example.o" "../src/xscutimer_intr_example.c"
+Finished building: ../src/xscutimer_intr_example.c
+ 
+Building file: ../src/xscutimer_polled_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_polled_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_polled_example.d" -MT"src/xscutimer_polled_example.o" -o "src/xscutimer_polled_example.o" "../src/xscutimer_polled_example.c"
+Finished building: ../src/xscutimer_polled_example.c
+ 
+Building file: ../src/xscuwdt_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscuwdt_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscuwdt_intr_example.d" -MT"src/xscuwdt_intr_example.o" -o "src/xscuwdt_intr_example.o" "../src/xscuwdt_intr_example.c"
+Finished building: ../src/xscuwdt_intr_example.c
+ 
+Building file: ../src/xttcps_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xttcps_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xttcps_tapp_example.d" -MT"src/xttcps_tapp_example.o" -o "src/xttcps_tapp_example.o" "../src/xttcps_tapp_example.c"
+Finished building: ../src/xttcps_tapp_example.c
+ 
+Building target: Periph-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Periph-Test_FASEC.elf"  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Periph-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Periph-Test_FASEC.elf  |tee "Periph-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 130140	   4368	  55376	 189884	  2e5bc	Periph-Test_FASEC.elf
+Finished building: Periph-Test_FASEC.elf.size
+ 
+08:30:28 **** Build of configuration Debug for project Mem-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/memory_config_g.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memory_config_g.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memory_config_g.d" -MT"src/memory_config_g.o" -o "src/memory_config_g.o" "../src/memory_config_g.c"
+Finished building: ../src/memory_config_g.c
+ 
+Building file: ../src/memorytest.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memorytest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.o" -o "src/memorytest.o" "../src/memorytest.c"
+Finished building: ../src/memorytest.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Mem-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Mem-Test_FASEC.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Mem-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Mem-Test_FASEC.elf  |tee "Mem-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28480	   1176	  14388	  44044	   ac0c	Mem-Test_FASEC.elf
+Finished building: Mem-Test_FASEC.elf.size
+ 
+08:30:28 **** Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82980	   2584	  23340	 108904	  1a968	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:30:29 **** Build of configuration Debug for project Hello_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Hello_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Hello_FASEC.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Hello_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Hello_FASEC.elf  |tee "Hello_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22964	   1152	  22580	  46696	   b668	Hello_FASEC.elf
+Finished building: Hello_FASEC.elf.size
+ 
+08:30:29 **** Build of configuration Debug for project Dhrystone_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/dhry_1.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_1.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_1.d" -MT"src/dhry_1.o" -o "src/dhry_1.o" "../src/dhry_1.c"
+../src/dhry_1.c:74:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ main ()
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:115:3: warning: implicit declaration of function ‘xil_printf’ [-Wimplicit-function-declaration]
+   printf ("\n");
+   ^
+../src/dhry_1.c:153:5: warning: implicit declaration of function ‘Proc_5’ [-Wimplicit-function-declaration]
+     Proc_5();
+     ^
+../src/dhry_1.c:154:5: warning: implicit declaration of function ‘Proc_4’ [-Wimplicit-function-declaration]
+     Proc_4();
+     ^
+../src/dhry_1.c:160:5: warning: implicit declaration of function ‘Func_2’ [-Wimplicit-function-declaration]
+     Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+     ^
+../src/dhry_1.c:166:7: warning: implicit declaration of function ‘Proc_7’ [-Wimplicit-function-declaration]
+       Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+       ^
+../src/dhry_1.c:171:5: warning: implicit declaration of function ‘Proc_8’ [-Wimplicit-function-declaration]
+     Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+     ^
+../src/dhry_1.c:173:5: warning: implicit declaration of function ‘Proc_1’ [-Wimplicit-function-declaration]
+     Proc_1 (Ptr_Glob);
+     ^
+../src/dhry_1.c:180:9: warning: implicit declaration of function ‘Proc_6’ [-Wimplicit-function-declaration]
+         Proc_6 (Ident_1, &Enum_Loc);
+         ^
+../src/dhry_1.c:191:5: warning: implicit declaration of function ‘Proc_2’ [-Wimplicit-function-declaration]
+     Proc_2 (&Int_1_Loc);
+     ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:328:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_1 (Ptr_Val_Par)
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:344:3: warning: implicit declaration of function ‘Proc_3’ [-Wimplicit-function-declaration]
+   Proc_3 (&Next_Record->Ptr_Comp);
+   ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:362:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_2 (Int_Par_Ref)
+ ^
+../src/dhry_1.c:385:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_3 (Ptr_Ref_Par)
+ ^
+../src/dhry_1.c:400:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_4 () /* without parameters */
+ ^
+../src/dhry_1.c:412:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_5 () /* without parameters */
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:325:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_1 */
+ ^
+../src/dhry_1.c: In function ‘Proc_2’:
+../src/dhry_1.c:382:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_2 */
+ ^
+../src/dhry_1.c: In function ‘Proc_3’:
+../src/dhry_1.c:397:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_3 */
+ ^
+../src/dhry_1.c: In function ‘Proc_4’:
+../src/dhry_1.c:409:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_4 */
+ ^
+../src/dhry_1.c: In function ‘Proc_5’:
+../src/dhry_1.c:418:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_5 */
+ ^
+Finished building: ../src/dhry_1.c
+ 
+Building file: ../src/dhry_2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_2.d" -MT"src/dhry_2.o" -o "src/dhry_2.o" "../src/dhry_2.c"
+../src/dhry_2.c:30:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_6 (Enum_Val_Par, Enum_Ref_Par)
+ ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:39:3: warning: implicit declaration of function ‘Func_3’ [-Wimplicit-function-declaration]
+   if (! Func_3 (Enum_Val_Par))
+   ^
+../src/dhry_2.c: At top level:
+../src/dhry_2.c:64:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_7 (Int_1_Par_Val, Int_2_Par_Val, Int_Par_Ref)
+ ^
+../src/dhry_2.c:84:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_8 (Arr_1_Par_Ref, Arr_2_Par_Ref, Int_1_Par_Val, Int_2_Par_Val)
+ ^
+../src/dhry_2.c: In function ‘Func_2’:
+../src/dhry_2.c:164:5: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+     if (strcmp (Str_1_Par_Ref, Str_2_Par_Ref) > 0)
+     ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:61:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_6 */
+ ^
+../src/dhry_2.c: In function ‘Proc_7’:
+../src/dhry_2.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_7 */
+ ^
+../src/dhry_2.c: In function ‘Proc_8’:
+../src/dhry_2.c:106:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_8 */
+ ^
+Finished building: ../src/dhry_2.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Dhrystone_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Dhrystone_FASEC.elf"  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Dhrystone_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Dhrystone_FASEC.elf  |tee "Dhrystone_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32476	   1152	  21652	  55280	   d7f0	Dhrystone_FASEC.elf
+Finished building: Dhrystone_FASEC.elf.size
+ 
+08:31:56 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82980	   2584	  23340	 108904	  1a968	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:35:26 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+08:43:16 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82980	   2584	  23340	 108904	  1a968	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:44:17 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82988	   2584	  23340	 108912	  1a970	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:44:22 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+08:49:55 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82988	   2584	  23340	 108912	  1a970	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+08:54:42 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  82988	   2584	  23340	 108912	  1a970	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:08:18 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:300:11: error: void value not ignored as it ought to be
+  fmc_addr =
+           ^
+../src/i2c_tests.c:279:17: warning: variable ‘fmc_addr’ set but not used [-Wunused-but-set-variable]
+  u8 slave_addr, fmc_addr;
+                 ^
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+09:08:47 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:279:17: warning: variable ‘fmc_addr’ set but not used [-Wunused-but-set-variable]
+  u8 slave_addr, fmc_addr;
+                 ^
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83060	   2584	  23340	 108984	  1a9b8	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:10:45 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83156	   2584	  23340	 109080	  1aa18	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:11:25 **** Clean-only build of project standalone_bsp_0 ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+09:11:25 **** Clean-only build of configuration Debug for project Dhrystone_FASEC ****
+make clean 
+rm -rf  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o  ./src/dhry_1.d ./src/dhry_2.d ./src/platform.d  Dhrystone_FASEC.elf.size  Dhrystone_FASEC.elf
+ 
+09:11:25 **** Clean-only build of configuration Debug for project Hello_FASEC ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  Hello_FASEC.elf.size  Hello_FASEC.elf
+ 
+09:11:25 **** Clean-only build of configuration Debug for project I2C_tests_FASEC ****
+make clean 
+rm -rf  ./src/i2c_tests.o ./src/platform.o  ./src/i2c_tests.d ./src/platform.d  I2C_tests_FASEC.elf.size  I2C_tests_FASEC.elf
+ 
+09:11:26 **** Clean-only build of configuration Debug for project Mem-Test_FASEC ****
+make clean 
+rm -rf  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o  ./src/memory_config_g.d ./src/memorytest.d ./src/platform.d  Mem-Test_FASEC.elf.size  Mem-Test_FASEC.elf
+ 
+09:11:26 **** Clean-only build of configuration Debug for project Periph-Test_FASEC ****
+make clean 
+rm -rf  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o  ./src/testperiph.d ./src/xdevcfg_selftest_example.d ./src/xdmaps_example_w_intr.d ./src/xemacps_example_intr_dma.d ./src/xemacps_example_util.d ./src/xiicps_selftest_example.d ./src/xqspips_selftest_example.d ./src/xscugic_tapp_example.d ./src/xscutimer_intr_example.d ./src/xscutimer_polled_example.d ./src/xscuwdt_intr_example.d ./src/xttcps_tapp_example.d  Periph-Test_FASEC.elf.size  Periph-Test_FASEC.elf
+ 
+09:11:26 **** Build of project standalone_bsp_0 ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling qspips
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ddrps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling sdps
+Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling emacps
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling iicps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ttcps
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling coresightps_dcc
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling standalone
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scutimer
+Finished building libraries
+09:11:36 **** Build of configuration Debug for project Periph-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/testperiph.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+Finished building: ../src/testperiph.c
+ 
+Building file: ../src/xdevcfg_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdevcfg_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdevcfg_selftest_example.d" -MT"src/xdevcfg_selftest_example.o" -o "src/xdevcfg_selftest_example.o" "../src/xdevcfg_selftest_example.c"
+Finished building: ../src/xdevcfg_selftest_example.c
+ 
+Building file: ../src/xdmaps_example_w_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdmaps_example_w_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdmaps_example_w_intr.d" -MT"src/xdmaps_example_w_intr.o" -o "src/xdmaps_example_w_intr.o" "../src/xdmaps_example_w_intr.c"
+Finished building: ../src/xdmaps_example_w_intr.c
+ 
+Building file: ../src/xemacps_example_intr_dma.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_intr_dma.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_intr_dma.d" -MT"src/xemacps_example_intr_dma.o" -o "src/xemacps_example_intr_dma.o" "../src/xemacps_example_intr_dma.c"
+../src/xemacps_example_intr_dma.c: In function ‘EmacPsDmaSingleFrameIntrExample’:
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+   printf("RxFrLen: %u, TxFrameLength: %u \n\r",RxFrLen,TxFrameLength);
+   ^
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("TxFrame byte? %u : %u \n\r", Index, TxFrame[Index]);
+    ^
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c: In function ‘XEmacPsClkSetup’:
+../src/xemacps_example_intr_dma.c:1321:6: warning: unused variable ‘CrlApbClkCntrl’ [-Wunused-variable]
+  u32 CrlApbClkCntrl;
+      ^
+Finished building: ../src/xemacps_example_intr_dma.c
+ 
+Building file: ../src/xemacps_example_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+../src/xemacps_example_util.c: In function ‘EmacPsUtilMicrelPhyLoopback’:
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("written phy port %u reg 0x0 : %#010x \n\r", i, PhyReg0);
+  ^
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:674:6: warning: unused variable ‘PhyReg1’ [-Wunused-variable]
+  u16 PhyReg1  = 0;
+      ^
+../src/xemacps_example_util.c: In function ‘EmacPsUtilEnterLoopback’:
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("phy port %u reg %u : %#010x \n\r",j, i, PhyIdentity);
+    ^
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+Finished building: ../src/xemacps_example_util.c
+ 
+Building file: ../src/xiicps_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+Finished building: ../src/xiicps_selftest_example.c
+ 
+Building file: ../src/xqspips_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xqspips_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xqspips_selftest_example.d" -MT"src/xqspips_selftest_example.o" -o "src/xqspips_selftest_example.o" "../src/xqspips_selftest_example.c"
+Finished building: ../src/xqspips_selftest_example.c
+ 
+Building file: ../src/xscugic_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscugic_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscugic_tapp_example.d" -MT"src/xscugic_tapp_example.o" -o "src/xscugic_tapp_example.o" "../src/xscugic_tapp_example.c"
+Finished building: ../src/xscugic_tapp_example.c
+ 
+Building file: ../src/xscutimer_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_intr_example.d" -MT"src/xscutimer_intr_example.o" -o "src/xscutimer_intr_example.o" "../src/xscutimer_intr_example.c"
+Finished building: ../src/xscutimer_intr_example.c
+ 
+Building file: ../src/xscutimer_polled_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_polled_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_polled_example.d" -MT"src/xscutimer_polled_example.o" -o "src/xscutimer_polled_example.o" "../src/xscutimer_polled_example.c"
+Finished building: ../src/xscutimer_polled_example.c
+ 
+Building file: ../src/xscuwdt_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscuwdt_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscuwdt_intr_example.d" -MT"src/xscuwdt_intr_example.o" -o "src/xscuwdt_intr_example.o" "../src/xscuwdt_intr_example.c"
+Finished building: ../src/xscuwdt_intr_example.c
+ 
+Building file: ../src/xttcps_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xttcps_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xttcps_tapp_example.d" -MT"src/xttcps_tapp_example.o" -o "src/xttcps_tapp_example.o" "../src/xttcps_tapp_example.c"
+Finished building: ../src/xttcps_tapp_example.c
+ 
+Building target: Periph-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Periph-Test_FASEC.elf"  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Periph-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Periph-Test_FASEC.elf  |tee "Periph-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 130140	   4368	  55376	 189884	  2e5bc	Periph-Test_FASEC.elf
+Finished building: Periph-Test_FASEC.elf.size
+ 
+09:11:38 **** Build of configuration Debug for project Mem-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/memory_config_g.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memory_config_g.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memory_config_g.d" -MT"src/memory_config_g.o" -o "src/memory_config_g.o" "../src/memory_config_g.c"
+Finished building: ../src/memory_config_g.c
+ 
+Building file: ../src/memorytest.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memorytest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.o" -o "src/memorytest.o" "../src/memorytest.c"
+Finished building: ../src/memorytest.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Mem-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Mem-Test_FASEC.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Mem-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Mem-Test_FASEC.elf  |tee "Mem-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28480	   1176	  14388	  44044	   ac0c	Mem-Test_FASEC.elf
+Finished building: Mem-Test_FASEC.elf.size
+ 
+09:11:39 **** Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83156	   2584	  23340	 109080	  1aa18	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:11:39 **** Build of configuration Debug for project Hello_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Hello_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Hello_FASEC.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Hello_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Hello_FASEC.elf  |tee "Hello_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22964	   1152	  22580	  46696	   b668	Hello_FASEC.elf
+Finished building: Hello_FASEC.elf.size
+ 
+09:11:39 **** Build of configuration Debug for project Dhrystone_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/dhry_1.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_1.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_1.d" -MT"src/dhry_1.o" -o "src/dhry_1.o" "../src/dhry_1.c"
+../src/dhry_1.c:74:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ main ()
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:115:3: warning: implicit declaration of function ‘xil_printf’ [-Wimplicit-function-declaration]
+   printf ("\n");
+   ^
+../src/dhry_1.c:153:5: warning: implicit declaration of function ‘Proc_5’ [-Wimplicit-function-declaration]
+     Proc_5();
+     ^
+../src/dhry_1.c:154:5: warning: implicit declaration of function ‘Proc_4’ [-Wimplicit-function-declaration]
+     Proc_4();
+     ^
+../src/dhry_1.c:160:5: warning: implicit declaration of function ‘Func_2’ [-Wimplicit-function-declaration]
+     Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+     ^
+../src/dhry_1.c:166:7: warning: implicit declaration of function ‘Proc_7’ [-Wimplicit-function-declaration]
+       Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+       ^
+../src/dhry_1.c:171:5: warning: implicit declaration of function ‘Proc_8’ [-Wimplicit-function-declaration]
+     Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+     ^
+../src/dhry_1.c:173:5: warning: implicit declaration of function ‘Proc_1’ [-Wimplicit-function-declaration]
+     Proc_1 (Ptr_Glob);
+     ^
+../src/dhry_1.c:180:9: warning: implicit declaration of function ‘Proc_6’ [-Wimplicit-function-declaration]
+         Proc_6 (Ident_1, &Enum_Loc);
+         ^
+../src/dhry_1.c:191:5: warning: implicit declaration of function ‘Proc_2’ [-Wimplicit-function-declaration]
+     Proc_2 (&Int_1_Loc);
+     ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:328:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_1 (Ptr_Val_Par)
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:344:3: warning: implicit declaration of function ‘Proc_3’ [-Wimplicit-function-declaration]
+   Proc_3 (&Next_Record->Ptr_Comp);
+   ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:362:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_2 (Int_Par_Ref)
+ ^
+../src/dhry_1.c:385:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_3 (Ptr_Ref_Par)
+ ^
+../src/dhry_1.c:400:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_4 () /* without parameters */
+ ^
+../src/dhry_1.c:412:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_5 () /* without parameters */
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:325:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_1 */
+ ^
+../src/dhry_1.c: In function ‘Proc_2’:
+../src/dhry_1.c:382:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_2 */
+ ^
+../src/dhry_1.c: In function ‘Proc_3’:
+../src/dhry_1.c:397:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_3 */
+ ^
+../src/dhry_1.c: In function ‘Proc_4’:
+../src/dhry_1.c:409:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_4 */
+ ^
+../src/dhry_1.c: In function ‘Proc_5’:
+../src/dhry_1.c:418:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_5 */
+ ^
+Finished building: ../src/dhry_1.c
+ 
+Building file: ../src/dhry_2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_2.d" -MT"src/dhry_2.o" -o "src/dhry_2.o" "../src/dhry_2.c"
+../src/dhry_2.c:30:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_6 (Enum_Val_Par, Enum_Ref_Par)
+ ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:39:3: warning: implicit declaration of function ‘Func_3’ [-Wimplicit-function-declaration]
+   if (! Func_3 (Enum_Val_Par))
+   ^
+../src/dhry_2.c: At top level:
+../src/dhry_2.c:64:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_7 (Int_1_Par_Val, Int_2_Par_Val, Int_Par_Ref)
+ ^
+../src/dhry_2.c:84:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_8 (Arr_1_Par_Ref, Arr_2_Par_Ref, Int_1_Par_Val, Int_2_Par_Val)
+ ^
+../src/dhry_2.c: In function ‘Func_2’:
+../src/dhry_2.c:164:5: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+     if (strcmp (Str_1_Par_Ref, Str_2_Par_Ref) > 0)
+     ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:61:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_6 */
+ ^
+../src/dhry_2.c: In function ‘Proc_7’:
+../src/dhry_2.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_7 */
+ ^
+../src/dhry_2.c: In function ‘Proc_8’:
+../src/dhry_2.c:106:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_8 */
+ ^
+Finished building: ../src/dhry_2.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Dhrystone_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Dhrystone_FASEC.elf"  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Dhrystone_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Dhrystone_FASEC.elf  |tee "Dhrystone_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32476	   1152	  21652	  55280	   d7f0	Dhrystone_FASEC.elf
+Finished building: Dhrystone_FASEC.elf.size
+ 
+09:12:48 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+09:37:46 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83156	   2584	  23340	 109080	  1aa18	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:37:49 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+09:42:14 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+09:46:42 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:341:17: error: ‘F10I_IC25’ undeclared (first use in this function)
+    slave_addr = F10I_IC25;
+                 ^
+../src/i2c_tests.c:341:17: note: each undeclared identifier is reported only once for each function it appears in
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+09:50:53 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:341:17: error: ‘F10I_IC25’ undeclared (first use in this function)
+    slave_addr = F10I_IC25;
+                 ^
+../src/i2c_tests.c:341:17: note: each undeclared identifier is reported only once for each function it appears in
+../src/i2c_tests.c:364:25: error: expected expression before ‘?’ token
+    fmc_addr = fmc_addr==?FHWT_FMC2W:FHWT_FMC1W;
+                         ^
+src/subdir.mk:24: recipe for target 'src/i2c_tests.o' failed
+make: *** [src/i2c_tests.o] Error 1
+09:51:21 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83180	   2584	  23340	 109104	  1aa30	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:51:23 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+09:52:04 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83276	   2584	  23340	 109200	  1aa90	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+09:52:06 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:02:29 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83276	   2584	  23340	 109200	  1aa90	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+10:02:31 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:14:19 **** Clean-only build of project standalone_bsp_0 ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+10:14:20 **** Clean-only build of configuration Debug for project Dhrystone_FASEC ****
+make clean 
+rm -rf  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o  ./src/dhry_1.d ./src/dhry_2.d ./src/platform.d  Dhrystone_FASEC.elf.size  Dhrystone_FASEC.elf
+ 
+10:14:20 **** Clean-only build of configuration Debug for project Hello_FASEC ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  Hello_FASEC.elf.size  Hello_FASEC.elf
+ 
+10:14:20 **** Clean-only build of configuration Debug for project I2C_tests_FASEC ****
+make clean 
+rm -rf  ./src/i2c_tests.o ./src/platform.o  ./src/i2c_tests.d ./src/platform.d  I2C_tests_FASEC.elf.size  I2C_tests_FASEC.elf
+ 
+10:14:20 **** Clean-only build of configuration Debug for project Mem-Test_FASEC ****
+make clean 
+rm -rf  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o  ./src/memory_config_g.d ./src/memorytest.d ./src/platform.d  Mem-Test_FASEC.elf.size  Mem-Test_FASEC.elf
+ 
+10:14:20 **** Clean-only build of configuration Debug for project Periph-Test_FASEC ****
+make clean 
+rm -rf  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o  ./src/testperiph.d ./src/xdevcfg_selftest_example.d ./src/xdmaps_example_w_intr.d ./src/xemacps_example_intr_dma.d ./src/xemacps_example_util.d ./src/xiicps_selftest_example.d ./src/xqspips_selftest_example.d ./src/xscugic_tapp_example.d ./src/xscutimer_intr_example.d ./src/xscutimer_polled_example.d ./src/xscuwdt_intr_example.d ./src/xttcps_tapp_example.d  Periph-Test_FASEC.elf.size  Periph-Test_FASEC.elf
+ 
+10:14:20 **** Build of project standalone_bsp_0 ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling qspips
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ddrps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/sdps_v2_8/src
+make -C ps7_cortexa9_0/libsrc/sdps_v2_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling sdps
+Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling emacps
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_3/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/iicps_v3_2/src
+make -C ps7_cortexa9_0/libsrc/iicps_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling iicps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_1/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling ttcps
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling coresightps_dcc
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v5_5/src
+make -C ps7_cortexa9_0/libsrc/standalone_v5_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling standalone
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+Compiling scutimer
+Finished building libraries
+10:14:30 **** Build of configuration Debug for project Periph-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/testperiph.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+Finished building: ../src/testperiph.c
+ 
+Building file: ../src/xdevcfg_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdevcfg_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdevcfg_selftest_example.d" -MT"src/xdevcfg_selftest_example.o" -o "src/xdevcfg_selftest_example.o" "../src/xdevcfg_selftest_example.c"
+Finished building: ../src/xdevcfg_selftest_example.c
+ 
+Building file: ../src/xdmaps_example_w_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdmaps_example_w_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xdmaps_example_w_intr.d" -MT"src/xdmaps_example_w_intr.o" -o "src/xdmaps_example_w_intr.o" "../src/xdmaps_example_w_intr.c"
+Finished building: ../src/xdmaps_example_w_intr.c
+ 
+Building file: ../src/xemacps_example_intr_dma.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_intr_dma.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_intr_dma.d" -MT"src/xemacps_example_intr_dma.o" -o "src/xemacps_example_intr_dma.o" "../src/xemacps_example_intr_dma.c"
+../src/xemacps_example_intr_dma.c: In function ‘EmacPsDmaSingleFrameIntrExample’:
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+   printf("RxFrLen: %u, TxFrameLength: %u \n\r",RxFrLen,TxFrameLength);
+   ^
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:813:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("TxFrame byte? %u : %u \n\r", Index, TxFrame[Index]);
+    ^
+../src/xemacps_example_intr_dma.c:816:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_intr_dma.c: In function ‘XEmacPsClkSetup’:
+../src/xemacps_example_intr_dma.c:1321:6: warning: unused variable ‘CrlApbClkCntrl’ [-Wunused-variable]
+  u32 CrlApbClkCntrl;
+      ^
+Finished building: ../src/xemacps_example_intr_dma.c
+ 
+Building file: ../src/xemacps_example_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+../src/xemacps_example_util.c: In function ‘EmacPsUtilMicrelPhyLoopback’:
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:721:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("written phy port %u reg 0x0 : %#010x \n\r", i, PhyReg0);
+  ^
+../src/xemacps_example_util.c:743:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:749:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:674:6: warning: unused variable ‘PhyReg1’ [-Wunused-variable]
+  u16 PhyReg1  = 0;
+      ^
+../src/xemacps_example_util.c: In function ‘EmacPsUtilEnterLoopback’:
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("phy port %u reg %u : %#010x \n\r",j, i, PhyIdentity);
+    ^
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:792:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+Finished building: ../src/xemacps_example_util.c
+ 
+Building file: ../src/xiicps_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+Finished building: ../src/xiicps_selftest_example.c
+ 
+Building file: ../src/xqspips_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xqspips_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xqspips_selftest_example.d" -MT"src/xqspips_selftest_example.o" -o "src/xqspips_selftest_example.o" "../src/xqspips_selftest_example.c"
+Finished building: ../src/xqspips_selftest_example.c
+ 
+Building file: ../src/xscugic_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscugic_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscugic_tapp_example.d" -MT"src/xscugic_tapp_example.o" -o "src/xscugic_tapp_example.o" "../src/xscugic_tapp_example.c"
+Finished building: ../src/xscugic_tapp_example.c
+ 
+Building file: ../src/xscutimer_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_intr_example.d" -MT"src/xscutimer_intr_example.o" -o "src/xscutimer_intr_example.o" "../src/xscutimer_intr_example.c"
+Finished building: ../src/xscutimer_intr_example.c
+ 
+Building file: ../src/xscutimer_polled_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_polled_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_polled_example.d" -MT"src/xscutimer_polled_example.o" -o "src/xscutimer_polled_example.o" "../src/xscutimer_polled_example.c"
+Finished building: ../src/xscutimer_polled_example.c
+ 
+Building file: ../src/xscuwdt_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscuwdt_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xscuwdt_intr_example.d" -MT"src/xscuwdt_intr_example.o" -o "src/xscuwdt_intr_example.o" "../src/xscuwdt_intr_example.c"
+Finished building: ../src/xscuwdt_intr_example.c
+ 
+Building file: ../src/xttcps_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xttcps_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/xttcps_tapp_example.d" -MT"src/xttcps_tapp_example.o" -o "src/xttcps_tapp_example.o" "../src/xttcps_tapp_example.c"
+Finished building: ../src/xttcps_tapp_example.c
+ 
+Building target: Periph-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Periph-Test_FASEC.elf"  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Periph-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Periph-Test_FASEC.elf  |tee "Periph-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 130140	   4368	  55376	 189884	  2e5bc	Periph-Test_FASEC.elf
+Finished building: Periph-Test_FASEC.elf.size
+ 
+10:14:32 **** Build of configuration Debug for project Mem-Test_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/memory_config_g.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memory_config_g.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memory_config_g.d" -MT"src/memory_config_g.o" -o "src/memory_config_g.o" "../src/memory_config_g.c"
+Finished building: ../src/memory_config_g.c
+ 
+Building file: ../src/memorytest.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/memorytest.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.o" -o "src/memorytest.o" "../src/memorytest.c"
+Finished building: ../src/memorytest.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Mem-Test_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Mem-Test_FASEC.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Mem-Test_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Mem-Test_FASEC.elf  |tee "Mem-Test_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  28480	   1176	  14388	  44044	   ac0c	Mem-Test_FASEC.elf
+Finished building: Mem-Test_FASEC.elf.size
+ 
+10:14:32 **** Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83276	   2584	  23340	 109200	  1aa90	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+10:14:33 **** Build of configuration Debug for project Hello_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Hello_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Hello_FASEC.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Hello_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Hello_FASEC.elf  |tee "Hello_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22964	   1152	  22580	  46696	   b668	Hello_FASEC.elf
+Finished building: Hello_FASEC.elf.size
+ 
+10:14:33 **** Build of configuration Debug for project Dhrystone_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/dhry_1.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_1.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_1.d" -MT"src/dhry_1.o" -o "src/dhry_1.o" "../src/dhry_1.c"
+../src/dhry_1.c:74:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ main ()
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:115:3: warning: implicit declaration of function ‘xil_printf’ [-Wimplicit-function-declaration]
+   printf ("\n");
+   ^
+../src/dhry_1.c:153:5: warning: implicit declaration of function ‘Proc_5’ [-Wimplicit-function-declaration]
+     Proc_5();
+     ^
+../src/dhry_1.c:154:5: warning: implicit declaration of function ‘Proc_4’ [-Wimplicit-function-declaration]
+     Proc_4();
+     ^
+../src/dhry_1.c:160:5: warning: implicit declaration of function ‘Func_2’ [-Wimplicit-function-declaration]
+     Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+     ^
+../src/dhry_1.c:166:7: warning: implicit declaration of function ‘Proc_7’ [-Wimplicit-function-declaration]
+       Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+       ^
+../src/dhry_1.c:171:5: warning: implicit declaration of function ‘Proc_8’ [-Wimplicit-function-declaration]
+     Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+     ^
+../src/dhry_1.c:173:5: warning: implicit declaration of function ‘Proc_1’ [-Wimplicit-function-declaration]
+     Proc_1 (Ptr_Glob);
+     ^
+../src/dhry_1.c:180:9: warning: implicit declaration of function ‘Proc_6’ [-Wimplicit-function-declaration]
+         Proc_6 (Ident_1, &Enum_Loc);
+         ^
+../src/dhry_1.c:191:5: warning: implicit declaration of function ‘Proc_2’ [-Wimplicit-function-declaration]
+     Proc_2 (&Int_1_Loc);
+     ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:328:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_1 (Ptr_Val_Par)
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:344:3: warning: implicit declaration of function ‘Proc_3’ [-Wimplicit-function-declaration]
+   Proc_3 (&Next_Record->Ptr_Comp);
+   ^
+../src/dhry_1.c: At top level:
+../src/dhry_1.c:362:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_2 (Int_Par_Ref)
+ ^
+../src/dhry_1.c:385:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_3 (Ptr_Ref_Par)
+ ^
+../src/dhry_1.c:400:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_4 () /* without parameters */
+ ^
+../src/dhry_1.c:412:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_5 () /* without parameters */
+ ^
+../src/dhry_1.c: In function ‘main’:
+../src/dhry_1.c:325:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/dhry_1.c: In function ‘Proc_1’:
+../src/dhry_1.c:359:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_1 */
+ ^
+../src/dhry_1.c: In function ‘Proc_2’:
+../src/dhry_1.c:382:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_2 */
+ ^
+../src/dhry_1.c: In function ‘Proc_3’:
+../src/dhry_1.c:397:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_3 */
+ ^
+../src/dhry_1.c: In function ‘Proc_4’:
+../src/dhry_1.c:409:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_4 */
+ ^
+../src/dhry_1.c: In function ‘Proc_5’:
+../src/dhry_1.c:418:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_5 */
+ ^
+Finished building: ../src/dhry_1.c
+ 
+Building file: ../src/dhry_2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dhry_2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/dhry_2.d" -MT"src/dhry_2.o" -o "src/dhry_2.o" "../src/dhry_2.c"
+../src/dhry_2.c:30:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_6 (Enum_Val_Par, Enum_Ref_Par)
+ ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:39:3: warning: implicit declaration of function ‘Func_3’ [-Wimplicit-function-declaration]
+   if (! Func_3 (Enum_Val_Par))
+   ^
+../src/dhry_2.c: At top level:
+../src/dhry_2.c:64:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_7 (Int_1_Par_Val, Int_2_Par_Val, Int_Par_Ref)
+ ^
+../src/dhry_2.c:84:1: warning: return type defaults to ‘int’ [-Wreturn-type]
+ Proc_8 (Arr_1_Par_Ref, Arr_2_Par_Ref, Int_1_Par_Val, Int_2_Par_Val)
+ ^
+../src/dhry_2.c: In function ‘Func_2’:
+../src/dhry_2.c:164:5: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+     if (strcmp (Str_1_Par_Ref, Str_2_Par_Ref) > 0)
+     ^
+../src/dhry_2.c: In function ‘Proc_6’:
+../src/dhry_2.c:61:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_6 */
+ ^
+../src/dhry_2.c: In function ‘Proc_7’:
+../src/dhry_2.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_7 */
+ ^
+../src/dhry_2.c: In function ‘Proc_8’:
+../src/dhry_2.c:106:1: warning: control reaches end of non-void function [-Wreturn-type]
+ } /* Proc_8 */
+ ^
+Finished building: ../src/dhry_2.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: Dhrystone_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "Dhrystone_FASEC.elf"  ./src/dhry_1.o ./src/dhry_2.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: Dhrystone_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size Dhrystone_FASEC.elf  |tee "Dhrystone_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32476	   1152	  21652	  55280	   d7f0	Dhrystone_FASEC.elf
+Finished building: Dhrystone_FASEC.elf.size
+ 
+10:16:08 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:36:22 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+15:12:00 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83276	   2584	  23340	 109200	  1aa90	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
+15:17:23 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83276	   2584	  23340	 109200	  1aa90	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
