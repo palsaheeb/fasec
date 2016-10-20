@@ -1,0 +1,15 @@
+/******************************************************************************
+*
+* Copyright (C) CERN, 2016
+* Pieter Van Trappen
+* CERN TE-ABT-EC
+* Licence: GPL v2 or later
+*
+******************************************************************************/
+
+#ifndef SRC_I2C_LIB_H_
+#define SRC_I2C_LIB_H_
+
+
+
+#endif /* SRC_I2C_LIB_H_ */

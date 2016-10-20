@@ -1,4 +1,4 @@
-18:02:33 **** Build of configuration Debug for project Mem-Test_FASEC ****
+18:04:03 **** Build of configuration Debug for project Mem-Test_FASEC ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -29,5 +29,5 @@ arm-none-eabi-size Mem-Test_FASEC.elf  |tee "Mem-Test_FASEC.elf.size"
 Finished building: Mem-Test_FASEC.elf.size
  
 
-18:02:34 Build Finished (took 328ms)
+18:04:03 Build Finished (took 334ms)
 

@@ -1,4 +1,4 @@
-18:02:34 **** Build of configuration Debug for project Dhrystone_FASEC ****
+18:04:03 **** Build of configuration Debug for project Dhrystone_FASEC ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -135,5 +135,5 @@ arm-none-eabi-size Dhrystone_FASEC.elf  |tee "Dhrystone_FASEC.elf.size"
 Finished building: Dhrystone_FASEC.elf.size
  
 
-18:02:35 Build Finished (took 541ms)
+18:04:04 Build Finished (took 319ms)
 

@@ -1,8 +1,30 @@
-17:33:10 **** Incremental Build of configuration Debug for project I2C_tests_FASEC ****
+18:42:47 **** Auto Build of configuration Debug for project I2C_tests_FASEC ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
-make: Nothing to be done for 'main-build'.
+Building file: ../src/i2c_tests.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_tests.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_0/ps7_cortexa9_0/include -MMD -MP -MF"src/i2c_tests.d" -MT"src/i2c_tests.o" -o "src/i2c_tests.o" "../src/i2c_tests.c"
+../src/i2c_tests.c: In function ‘main’:
+../src/i2c_tests.c:154:6: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+      printf("counter value sent (I2C) vs read (FPGA): %u vs %u\n\r", cntr, readReg(FHWTEST, i+1));
+      ^
+../src/i2c_tests.c:154:6: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/i2c_tests.c:154:6: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/i2c_tests.c:154:6: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+Finished building: ../src/i2c_tests.c
+ 
+Building target: I2C_tests_FASEC.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/ps7_cortexa9_0/lib -o "I2C_tests_FASEC.elf"  ./src/i2c_lib.o ./src/i2c_tests.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: I2C_tests_FASEC.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size I2C_tests_FASEC.elf  |tee "I2C_tests_FASEC.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  83236	   2584	  23340	 109160	  1aa68	I2C_tests_FASEC.elf
+Finished building: I2C_tests_FASEC.elf.size
+ 
 
-17:33:10 Build Finished (took 67ms)
+18:42:47 Build Finished (took 267ms)
 

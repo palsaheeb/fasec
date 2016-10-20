@@ -8268,3 +8268,52 @@ con
 
 17:33:20 INFO  : Launch script is exported to file '/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_on_local_i2c_tests_fasec.elf.tcl'
 17:34:02 INFO  : Disconnected from the channel tcfchan#16.
+18:03:29 INFO  : Launching XSDB server: xsdb -n -interactive /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/temp_xsdb_launch_script.tcl
+18:03:31 INFO  : XSDB server has started successfully.
+18:03:31 INFO  : Processing command line option -hwspec /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf.
+18:03:32 INFO  : Checking for hwspec changes in the project system_design_wrapper_hw_platform_0.
+18:03:35 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1476892540000,  Project:1476720055000
+18:03:35 INFO  : The hardware specification for project 'system_design_wrapper_hw_platform_0' is different from /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf.
+18:03:35 INFO  : Copied contents of /home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk/system_design_wrapper.hdf into /system_design_wrapper_hw_platform_0/system.hdf.
+18:03:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/.esd-483"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f6fdbb2e19194308b58963bd22a13eaf-ntpd.service-YHpD0s"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f6fdbb2e19194308b58963bd22a13eaf-colord.service-SBYSOj"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f6fdbb2e19194308b58963bd22a13eaf-rtkit-daemon.service-05N4oo"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-06188aed88844c8ca16e38f612c3d2b2-ntpd.service-GcLfav"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-30baa8a09fe44c7e81d3c4551379caf1-ntpd.service-GlYC5l"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-30baa8a09fe44c7e81d3c4551379caf1-colord.service-OrMFU2"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-30baa8a09fe44c7e81d3c4551379caf1-rtkit-daemon.service-P2BMUk"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-9ddcfc68a0e5432bab5de72ad81270d3-ntpd.service-0uaYVW"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-9ddcfc68a0e5432bab5de72ad81270d3-colord.service-SIeBhJ"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-9ddcfc68a0e5432bab5de72ad81270d3-rtkit-daemon.service-HTwTaV"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f2144cc8ac4c49668bcad2c4fa465d41-ntpd.service-EKQYiB"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f2144cc8ac4c49668bcad2c4fa465d41-colord.service-tGLpSF"
+
+18:03:43 ERROR : (XSDB Server)ERROR: [Hsi 55-1433] Error boost::filesystem::directory_iterator::construct: Permission denied: "/tmp/systemd-private-f2144cc8ac4c49668bcad2c4fa465d41-rtkit-daemon.service-nhbnMH"
+
+18:03:43 ERROR : Failed to call sync_sw_with_hw_change
+Reason: ERROR: [Common 17-39] 'hsi::open_sw_design' failed due to earlier errors.
+
+18:03:43 ERROR : Error updating BSP project MSS files.
+18:03:44 INFO  : Updating hardware inferred compiler options for Dhrystone_FASEC.
+18:03:45 INFO  : Updating hardware inferred compiler options for Hello_FASEC.
+18:03:46 INFO  : Updating hardware inferred compiler options for I2C_tests_FASEC.
+18:03:47 INFO  : Updating hardware inferred compiler options for Mem-Test_FASEC.
+18:03:47 INFO  : Updating hardware inferred compiler options for Periph-Test_FASEC.
+18:03:47 INFO  : Clearing existing target manager status.
+18:03:50 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+18:04:01 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+18:42:56 ERROR : Unexpected error while parsing XMD response ￿: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
