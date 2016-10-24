@@ -360,6 +360,7 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 	Config = XEmacPs_LookupConfig(EmacPsDeviceId);
 
 	// PVT: library method changed to _not_ enable MDIO for PHY configuration
+	// changes undone later on, ok?
 	Status = XEmacPs_CfgInitialize(EmacPsInstancePtr, Config,
 					Config->BaseAddress);
 
@@ -536,13 +537,15 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 		/*
 		 * PVT: 1000Mbit/s needed cause switch configured as such (pull-ups)
 		 * switched back to 100Mbit/s (pull-down force) because frame length mismatch
+		 * 100: EMACPS_LOOPBACK_SPEED
+		 * 1000: EMACPS_LOOPBACK_SPEED_1G
 		 *
-		 * EmacPsUtilEnterLoopback commented out because set by SPI while trying
+		 * EmacPsUtilEnterLoopback can be commented out because set by SPI while trying
 		 * to enable RX (clock ingress) delay for PHY
 		 *
 		 */
 		print("Gemversion==2 \n\r");
-		//EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
+		EmacPsUtilEnterLoopback(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED_1G);
 		// DMIO bit is not set but still clock-signal is pulled low
 		// disabled: 0x00018189
 		//u32 dr = XEmacPs_ReadReg(Config->BaseAddress,XEMACPS_NWCTRL_OFFSET);
@@ -552,7 +555,7 @@ LONG EmacPsDmaIntrExample(INTC * IntcInstancePtr,
 
 		Status = XEmacPs_CfgInitialize(EmacPsInstancePtr, Config,
 							Config->BaseAddress);
-		XEmacPs_SetOperatingSpeed(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED);
+		XEmacPs_SetOperatingSpeed(EmacPsInstancePtr, EMACPS_LOOPBACK_SPEED_1G);
 	}
 	else
 	{
