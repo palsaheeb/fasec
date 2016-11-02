@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="../../standalone_bsp_1/ps7_cortexa9_0/include" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
 		<item value="846" key="DIALOG_WIDTH"/>
 		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>

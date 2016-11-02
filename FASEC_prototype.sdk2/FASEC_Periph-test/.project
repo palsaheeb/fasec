@@ -3,7 +3,7 @@
 	<name>FASEC_Periph-test</name>
 	<comment>Created by SDK v2016.2. standalone_bsp_0 - ps7_cortexa9_0</comment>
 	<projects>
-		<project>standalone_bsp_0</project>
+		<project>standalone_bsp_1</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

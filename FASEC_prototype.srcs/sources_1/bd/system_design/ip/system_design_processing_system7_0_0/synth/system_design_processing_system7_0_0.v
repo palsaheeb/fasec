@@ -52,11 +52,26 @@
 
 (* X_CORE_INFO = "processing_system7_v5_5_processing_system7,Vivado 2016.2" *)
 (* CHECK_LICENSE_TYPE = "system_design_processing_system7_0_0,processing_system7_v5_5_processing_system7,{}" *)
-(* CORE_GENERATION_INFO = "system_design_processing_system7_0_0,processing_system7_v5_5_processing_system7,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=processing_system7,x_ipVersion=5.5,x_ipCoreRevision=3,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_EN_EMIO_PJTAG=0,C_EN_EMIO_ENET0=0,C_EN_EMIO_ENET1=0,C_EN_EMIO_TRACE=0,C_INCLUDE_TRACE_BUFFER=0,C_TRACE_BUFFER_FIFO_SIZE=128,USE_TRACE_DATA_EDGE_DETECTOR=0,C_TRACE_PIPELINE_WIDTH=8,C_TRACE_BUFFER_CLOCK_DELAY=12,C_EMIO_GPIO_WIDTH=64,C_INCLUDE_ACP_TRANS_\
+(* CORE_GENERATION_INFO = "system_design_processing_system7_0_0,processing_system7_v5_5_processing_system7,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=processing_system7,x_ipVersion=5.5,x_ipCoreRevision=3,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_EN_EMIO_PJTAG=0,C_EN_EMIO_ENET0=0,C_EN_EMIO_ENET1=1,C_EN_EMIO_TRACE=0,C_INCLUDE_TRACE_BUFFER=0,C_TRACE_BUFFER_FIFO_SIZE=128,USE_TRACE_DATA_EDGE_DETECTOR=0,C_TRACE_PIPELINE_WIDTH=8,C_TRACE_BUFFER_CLOCK_DELAY=12,C_EMIO_GPIO_WIDTH=64,C_INCLUDE_ACP_TRANS_\
 CHECK=0,C_USE_DEFAULT_ACP_USER_VAL=0,C_S_AXI_ACP_ARUSER_VAL=31,C_S_AXI_ACP_AWUSER_VAL=31,C_M_AXI_GP0_ID_WIDTH=12,C_M_AXI_GP0_ENABLE_STATIC_REMAP=0,C_M_AXI_GP1_ID_WIDTH=12,C_M_AXI_GP1_ENABLE_STATIC_REMAP=0,C_S_AXI_GP0_ID_WIDTH=6,C_S_AXI_GP1_ID_WIDTH=6,C_S_AXI_ACP_ID_WIDTH=3,C_S_AXI_HP0_ID_WIDTH=6,C_S_AXI_HP0_DATA_WIDTH=64,C_S_AXI_HP1_ID_WIDTH=6,C_S_AXI_HP1_DATA_WIDTH=64,C_S_AXI_HP2_ID_WIDTH=6,C_S_AXI_HP2_DATA_WIDTH=64,C_S_AXI_HP3_ID_WIDTH=6,C_S_AXI_HP3_DATA_WIDTH=64,C_M_AXI_GP0_THREAD_ID_WIDTH=12\
-,C_M_AXI_GP1_THREAD_ID_WIDTH=12,C_NUM_F2P_INTR_INPUTS=1,C_IRQ_F2P_MODE=DIRECT,C_DQ_WIDTH=32,C_DQS_WIDTH=4,C_DM_WIDTH=4,C_MIO_PRIMITIVE=54,C_TRACE_INTERNAL_WIDTH=2,C_USE_AXI_NONSECURE=0,C_USE_M_AXI_GP0=1,C_USE_M_AXI_GP1=0,C_USE_S_AXI_GP0=0,C_USE_S_AXI_HP0=0,C_USE_S_AXI_HP1=0,C_USE_S_AXI_HP2=0,C_USE_S_AXI_HP3=0,C_USE_S_AXI_ACP=0,C_PS7_SI_REV=PRODUCTION,C_FCLK_CLK0_BUF=true,C_FCLK_CLK1_BUF=true,C_FCLK_CLK2_BUF=false,C_FCLK_CLK3_BUF=false,C_PACKAGE_NAME=ffg676}" *)
+,C_M_AXI_GP1_THREAD_ID_WIDTH=12,C_NUM_F2P_INTR_INPUTS=1,C_IRQ_F2P_MODE=DIRECT,C_DQ_WIDTH=32,C_DQS_WIDTH=4,C_DM_WIDTH=4,C_MIO_PRIMITIVE=54,C_TRACE_INTERNAL_WIDTH=2,C_USE_AXI_NONSECURE=0,C_USE_M_AXI_GP0=1,C_USE_M_AXI_GP1=0,C_USE_S_AXI_GP0=0,C_USE_S_AXI_HP0=0,C_USE_S_AXI_HP1=0,C_USE_S_AXI_HP2=0,C_USE_S_AXI_HP3=0,C_USE_S_AXI_ACP=0,C_PS7_SI_REV=PRODUCTION,C_FCLK_CLK0_BUF=true,C_FCLK_CLK1_BUF=true,C_FCLK_CLK2_BUF=true,C_FCLK_CLK3_BUF=false,C_PACKAGE_NAME=ffg676}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_design_processing_system7_0_0 (
+  ENET1_GMII_TX_EN,
+  ENET1_GMII_TX_ER,
+  ENET1_MDIO_MDC,
+  ENET1_MDIO_O,
+  ENET1_MDIO_T,
+  ENET1_GMII_TXD,
+  ENET1_GMII_COL,
+  ENET1_GMII_CRS,
+  ENET1_GMII_RX_CLK,
+  ENET1_GMII_RX_DV,
+  ENET1_GMII_RX_ER,
+  ENET1_GMII_TX_CLK,
+  ENET1_MDIO_I,
+  ENET1_EXT_INTIN,
+  ENET1_GMII_RXD,
   TTC0_WAVE0_OUT,
   TTC0_WAVE1_OUT,
   TTC0_WAVE2_OUT,
@@ -101,6 +116,7 @@ module system_design_processing_system7_0_0 (
   M_AXI_GP0_RDATA,
   FCLK_CLK0,
   FCLK_CLK1,
+  FCLK_CLK2,
   FCLK_RESET0_N,
   MIO,
   DDR_CAS_n,
@@ -125,6 +141,36 @@ module system_design_processing_system7_0_0 (
   PS_PORB
 );
 
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 TX_EN" *)
+output wire [0 : 0] ENET1_GMII_TX_EN;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 TX_ER" *)
+output wire [0 : 0] ENET1_GMII_TX_ER;
+(* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_1 MDC" *)
+output wire ENET1_MDIO_MDC;
+(* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_1 MDIO_O" *)
+output wire ENET1_MDIO_O;
+(* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_1 MDIO_T" *)
+output wire ENET1_MDIO_T;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 TXD" *)
+output wire [7 : 0] ENET1_GMII_TXD;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 COL" *)
+input wire ENET1_GMII_COL;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 CRS" *)
+input wire ENET1_GMII_CRS;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 RX_CLK" *)
+input wire ENET1_GMII_RX_CLK;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 RX_DV" *)
+input wire ENET1_GMII_RX_DV;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 RX_ER" *)
+input wire ENET1_GMII_RX_ER;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 TX_CLK" *)
+input wire ENET1_GMII_TX_CLK;
+(* X_INTERFACE_INFO = "xilinx.com:interface:mdio:1.0 MDIO_ETHERNET_1 MDIO_I" *)
+input wire ENET1_MDIO_I;
+(* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 ENET1_EXT_INTIN INTERRUPT" *)
+input wire ENET1_EXT_INTIN;
+(* X_INTERFACE_INFO = "xilinx.com:interface:gmii:1.0 GMII_ETHERNET_1 RXD" *)
+input wire [7 : 0] ENET1_GMII_RXD;
 output wire TTC0_WAVE0_OUT;
 output wire TTC0_WAVE1_OUT;
 output wire TTC0_WAVE2_OUT;
@@ -210,6 +256,8 @@ input wire [31 : 0] M_AXI_GP0_RDATA;
 output wire FCLK_CLK0;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 FCLK_CLK1 CLK" *)
 output wire FCLK_CLK1;
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 FCLK_CLK2 CLK" *)
+output wire FCLK_CLK2;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST" *)
 output wire FCLK_RESET0_N;
 (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO" *)
@@ -258,7 +306,7 @@ inout wire PS_PORB;
   processing_system7_v5_5_processing_system7 #(
     .C_EN_EMIO_PJTAG(0),
     .C_EN_EMIO_ENET0(0),
-    .C_EN_EMIO_ENET1(0),
+    .C_EN_EMIO_ENET1(1),
     .C_EN_EMIO_TRACE(0),
     .C_INCLUDE_TRACE_BUFFER(0),
     .C_TRACE_BUFFER_FIFO_SIZE(128),
@@ -306,7 +354,7 @@ inout wire PS_PORB;
     .C_PS7_SI_REV("PRODUCTION"),
     .C_FCLK_CLK0_BUF("true"),
     .C_FCLK_CLK1_BUF("true"),
-    .C_FCLK_CLK2_BUF("false"),
+    .C_FCLK_CLK2_BUF("true"),
     .C_FCLK_CLK3_BUF("false"),
     .C_PACKAGE_NAME("ffg676")
   ) inst (
@@ -339,11 +387,11 @@ inout wire PS_PORB;
     .ENET0_MDIO_I(1'B0),
     .ENET0_EXT_INTIN(1'B0),
     .ENET0_GMII_RXD(8'B0),
-    .ENET1_GMII_TX_EN(),
-    .ENET1_GMII_TX_ER(),
-    .ENET1_MDIO_MDC(),
-    .ENET1_MDIO_O(),
-    .ENET1_MDIO_T(),
+    .ENET1_GMII_TX_EN(ENET1_GMII_TX_EN),
+    .ENET1_GMII_TX_ER(ENET1_GMII_TX_ER),
+    .ENET1_MDIO_MDC(ENET1_MDIO_MDC),
+    .ENET1_MDIO_O(ENET1_MDIO_O),
+    .ENET1_MDIO_T(ENET1_MDIO_T),
     .ENET1_PTP_DELAY_REQ_RX(),
     .ENET1_PTP_DELAY_REQ_TX(),
     .ENET1_PTP_PDELAY_REQ_RX(),
@@ -354,16 +402,16 @@ inout wire PS_PORB;
     .ENET1_PTP_SYNC_FRAME_TX(),
     .ENET1_SOF_RX(),
     .ENET1_SOF_TX(),
-    .ENET1_GMII_TXD(),
-    .ENET1_GMII_COL(1'B0),
-    .ENET1_GMII_CRS(1'B0),
-    .ENET1_GMII_RX_CLK(1'B0),
-    .ENET1_GMII_RX_DV(1'B0),
-    .ENET1_GMII_RX_ER(1'B0),
-    .ENET1_GMII_TX_CLK(1'B0),
-    .ENET1_MDIO_I(1'B0),
-    .ENET1_EXT_INTIN(1'B0),
-    .ENET1_GMII_RXD(8'B0),
+    .ENET1_GMII_TXD(ENET1_GMII_TXD),
+    .ENET1_GMII_COL(ENET1_GMII_COL),
+    .ENET1_GMII_CRS(ENET1_GMII_CRS),
+    .ENET1_GMII_RX_CLK(ENET1_GMII_RX_CLK),
+    .ENET1_GMII_RX_DV(ENET1_GMII_RX_DV),
+    .ENET1_GMII_RX_ER(ENET1_GMII_RX_ER),
+    .ENET1_GMII_TX_CLK(ENET1_GMII_TX_CLK),
+    .ENET1_MDIO_I(ENET1_MDIO_I),
+    .ENET1_EXT_INTIN(ENET1_EXT_INTIN),
+    .ENET1_GMII_RXD(ENET1_GMII_RXD),
     .GPIO_I(64'B0),
     .GPIO_O(),
     .GPIO_T(),
@@ -923,7 +971,7 @@ inout wire PS_PORB;
     .DMA3_DRTYPE(2'B0),
     .FCLK_CLK0(FCLK_CLK0),
     .FCLK_CLK1(FCLK_CLK1),
-    .FCLK_CLK2(),
+    .FCLK_CLK2(FCLK_CLK2),
     .FCLK_CLK3(),
     .FCLK_CLKTRIG0_N(1'B0),
     .FCLK_CLKTRIG1_N(1'B0),

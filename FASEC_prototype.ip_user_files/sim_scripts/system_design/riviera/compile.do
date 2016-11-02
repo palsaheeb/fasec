@@ -12,6 +12,7 @@ vlib riviera/axi_register_slice_v2_1_9
 vlib riviera/fifo_generator_v13_1_1
 vlib riviera/axi_data_fifo_v2_1_8
 vlib riviera/axi_crossbar_v2_1_10
+vlib riviera/gig_ethernet_pcs_pma_v15_2_1
 vlib riviera/axi_protocol_converter_v2_1_9
 
 vmap processing_system7_bfm_v2_0_5 riviera/processing_system7_bfm_v2_0_5
@@ -25,6 +26,7 @@ vmap axi_register_slice_v2_1_9 riviera/axi_register_slice_v2_1_9
 vmap fifo_generator_v13_1_1 riviera/fifo_generator_v13_1_1
 vmap axi_data_fifo_v2_1_8 riviera/axi_data_fifo_v2_1_8
 vmap axi_crossbar_v2_1_10 riviera/axi_crossbar_v2_1_10
+vmap gig_ethernet_pcs_pma_v15_2_1 riviera/gig_ethernet_pcs_pma_v15_2_1
 vmap axi_protocol_converter_v2_1_9 riviera/axi_protocol_converter_v2_1_9
 
 vlog -work processing_system7_bfm_v2_0_5 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
@@ -54,9 +56,6 @@ vlog -work processing_system7_bfm_v2_0_5 -v2k5 "+incdir+../../../ipstatic/axi_in
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
-
-vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/hdl/system_design.vhd" \
 
 vcom -work xil_pvtmisc -93 \
 "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferEdge.vhd" \
@@ -152,6 +151,46 @@ vlog -work axi_crossbar_v2_1_10 -v2k5 "+incdir+../../../ipstatic/axi_infrastruct
 
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../bd/system_design/ip/system_design_xbar_0/sim/system_design_xbar_0.v" \
+
+vcom -work gig_ethernet_pcs_pma_v15_2_1 -93 \
+"../../../ipstatic/gig_ethernet_pcs_pma_v15_2/hdl/gig_ethernet_pcs_pma_v15_2_rfs.vhd" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_resets.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_clocking.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_support.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_gt_common.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_cpll_railing.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_multi_gt.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_init.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_tx_startup_fsm.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_startup_fsm.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_johnson_cntr.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_reset_sync.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_sync_block.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_reset_wtd_timer.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_transceiver.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_block.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_clk_gen.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_rx_rate_adapt.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_tx_rate_adapt.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_clock_div.vhd" \
+"../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0.vhd" \
+"../../../bd/system_design/ipshared/xilinx.com/xlconstant_v1_1/xlconstant.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_0_0/sim/system_design_xlconstant_0_0.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_1_0/sim/system_design_xlconstant_1_0.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_1_1/sim/system_design_xlconstant_1_1.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_0_1/sim/system_design_xlconstant_0_1.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_3_0/sim/system_design_xlconstant_3_0.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_3_1/sim/system_design_xlconstant_3_1.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_3_2/sim/system_design_xlconstant_3_2.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_0_2/sim/system_design_xlconstant_0_2.vhd" \
+"../../../bd/system_design/hdl/system_design.vhd" \
+"../../../bd/system_design/ip/system_design_axi_wb_i2c_master_2_0/sim/system_design_axi_wb_i2c_master_2_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \

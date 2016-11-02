@@ -1,8 +1,121 @@
-15:04:30 **** Incremental Build of configuration Debug for project FASEC_Periph-test ****
+18:21:03 **** Build of configuration Debug for project FASEC_Periph-test ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
-make: Nothing to be done for 'main-build'.
+Building file: ../src/testperiph.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+Finished building: ../src/testperiph.c
+ 
+Building file: ../src/xdevcfg_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdevcfg_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xdevcfg_selftest_example.d" -MT"src/xdevcfg_selftest_example.o" -o "src/xdevcfg_selftest_example.o" "../src/xdevcfg_selftest_example.c"
+Finished building: ../src/xdevcfg_selftest_example.c
+ 
+Building file: ../src/xdmaps_example_w_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdmaps_example_w_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xdmaps_example_w_intr.d" -MT"src/xdmaps_example_w_intr.o" -o "src/xdmaps_example_w_intr.o" "../src/xdmaps_example_w_intr.c"
+Finished building: ../src/xdmaps_example_w_intr.c
+ 
+Building file: ../src/xemacps_example_intr_dma.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_intr_dma.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_intr_dma.d" -MT"src/xemacps_example_intr_dma.o" -o "src/xemacps_example_intr_dma.o" "../src/xemacps_example_intr_dma.c"
+../src/xemacps_example_intr_dma.c: In function ‘XEmacPsClkSetup’:
+../src/xemacps_example_intr_dma.c:1294:6: warning: unused variable ‘CrlApbClkCntrl’ [-Wunused-variable]
+  u32 CrlApbClkCntrl;
+      ^
+Finished building: ../src/xemacps_example_intr_dma.c
+ 
+Building file: ../src/xemacps_example_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xemacps_example_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xemacps_example_util.d" -MT"src/xemacps_example_util.o" -o "src/xemacps_example_util.o" "../src/xemacps_example_util.c"
+../src/xemacps_example_util.c: In function ‘EmacPsUtilMicrelPhyLoopback’:
+../src/xemacps_example_util.c:708:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u before speed config: %#010x \n\r", PhyAddr, RegAddr, test);
+  ^
+../src/xemacps_example_util.c:708:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:708:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:708:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:726:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u after reset: %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:726:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:726:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:726:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:740:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+   printf("PHY %u reset\n\r", i);
+   ^
+../src/xemacps_example_util.c:740:3: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:761:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("written phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:761:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:761:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:761:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:767:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+  printf("phy port %u reg %u : %#010x \n\r", PhyAddr, RegAddr, PhyReg0);
+  ^
+../src/xemacps_example_util.c:767:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:767:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:767:2: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:676:6: warning: unused variable ‘PhyReg1’ [-Wunused-variable]
+  u16 PhyReg1  = 0;
+      ^
+../src/xemacps_example_util.c: In function ‘EmacPsUtilEnterLoopback’:
+../src/xemacps_example_util.c:814:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+    printf("phy port %u reg %u : %#010x \n\r",j, i, PhyIdentity);
+    ^
+../src/xemacps_example_util.c:814:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:814:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘u32’ [-Wformat=]
+../src/xemacps_example_util.c:814:4: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘u32’ [-Wformat=]
+Finished building: ../src/xemacps_example_util.c
+ 
+Building file: ../src/xiicps_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xiicps_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xiicps_selftest_example.d" -MT"src/xiicps_selftest_example.o" -o "src/xiicps_selftest_example.o" "../src/xiicps_selftest_example.c"
+Finished building: ../src/xiicps_selftest_example.c
+ 
+Building file: ../src/xqspips_selftest_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xqspips_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xqspips_selftest_example.d" -MT"src/xqspips_selftest_example.o" -o "src/xqspips_selftest_example.o" "../src/xqspips_selftest_example.c"
+Finished building: ../src/xqspips_selftest_example.c
+ 
+Building file: ../src/xscugic_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscugic_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xscugic_tapp_example.d" -MT"src/xscugic_tapp_example.o" -o "src/xscugic_tapp_example.o" "../src/xscugic_tapp_example.c"
+Finished building: ../src/xscugic_tapp_example.c
+ 
+Building file: ../src/xscutimer_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_intr_example.d" -MT"src/xscutimer_intr_example.o" -o "src/xscutimer_intr_example.o" "../src/xscutimer_intr_example.c"
+Finished building: ../src/xscutimer_intr_example.c
+ 
+Building file: ../src/xscutimer_polled_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_polled_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xscutimer_polled_example.d" -MT"src/xscutimer_polled_example.o" -o "src/xscutimer_polled_example.o" "../src/xscutimer_polled_example.c"
+Finished building: ../src/xscutimer_polled_example.c
+ 
+Building file: ../src/xscuwdt_intr_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscuwdt_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xscuwdt_intr_example.d" -MT"src/xscuwdt_intr_example.o" -o "src/xscuwdt_intr_example.o" "../src/xscuwdt_intr_example.c"
+Finished building: ../src/xscuwdt_intr_example.c
+ 
+Building file: ../src/xttcps_tapp_example.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xttcps_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../standalone_bsp_1/ps7_cortexa9_0/include -MMD -MP -MF"src/xttcps_tapp_example.d" -MT"src/xttcps_tapp_example.o" -o "src/xttcps_tapp_example.o" "../src/xttcps_tapp_example.c"
+Finished building: ../src/xttcps_tapp_example.c
+ 
+Building target: FASEC_Periph-test.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_1/ps7_cortexa9_0/lib -o "FASEC_Periph-test.elf"  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xemacps_example_intr_dma.o ./src/xemacps_example_util.o ./src/xiicps_selftest_example.o ./src/xqspips_selftest_example.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o ./src/xttcps_tapp_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: FASEC_Periph-test.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size FASEC_Periph-test.elf  |tee "FASEC_Periph-test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 130092	   4376	  55376	 189844	  2e594	FASEC_Periph-test.elf
+Finished building: FASEC_Periph-test.elf.size
+ 
 
-15:04:30 Build Finished (took 65ms)
+18:21:05 Build Finished (took 1s.879ms)
 
