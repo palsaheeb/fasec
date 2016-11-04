@@ -1,4 +1,3 @@
-
 -------------------------------------------------------------------------------
 --   ____  ____
 --  /   /\/   /
@@ -71,7 +70,7 @@ use UNISIM.VCOMPONENTS.ALL;
 
 --***************************** Entity Declaration ****************************
 
-entity system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt is
+entity  system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt is
 generic
 (
 
@@ -79,7 +78,6 @@ generic
     WRAPPER_SIM_GTRESET_SPEEDUP     : string     :=  "FALSE";        -- Set to "TRUE" to speed up sim reset
     RX_DFE_KL_CFG2_IN               : bit_vector :=  X"301148AC";
     PMA_RSV_IN                      : bit_vector :=  x"00018480"
-
 );
 port
 (
@@ -104,8 +102,7 @@ port
     gt0_drpen_in                            : in   std_logic;
     gt0_drprdy_out                          : out  std_logic;
     gt0_drpwe_in                            : in   std_logic;
-    --------------------------- Digital Monitor Ports --------------------------
-    gt0_dmonitorout_out                     : out  std_logic_vector(7 downto 0);
+    gt0_dmonitorout_out                         : out  std_logic_vector(7 downto 0);
     ------------------------------- Loopback Ports -----------------------------
     gt0_loopback_in                         : in   std_logic_vector(2 downto 0);
     ------------------------------ Power-Down Ports ----------------------------
@@ -119,6 +116,8 @@ port
     gt0_eyescantrigger_in                   : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in   std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -188,7 +187,7 @@ port
     gt0_txbufstatus_out                     : out  std_logic_vector(1 downto 0);
     --------------- Transmit Ports - TX Configurable Driver Ports --------------
     gt0_txdiffctrl_in                       : in   std_logic_vector(3 downto 0);
-    gt0_txinhibit_in                        : in   std_logic;
+    gt0_txinhibit_in                        : in   std_logic; 
     ------------------ Transmit Ports - TX Data Path interface -----------------
     gt0_txdata_in                           : in   std_logic_vector(15 downto 0);
     ---------------- Transmit Ports - TX Driver and OOB signaling --------------
@@ -217,9 +216,9 @@ port
 );
 
 
-end system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt;
+end  system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt;
     
-architecture RTL of system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt is
+architecture RTL of  system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_multi_gt is
     attribute DowngradeIPIdentifiedWarnings: string;
     attribute DowngradeIPIdentifiedWarnings of RTL : architecture is "yes";
 
@@ -255,7 +254,7 @@ generic
     PCS_RSVD_ATTR_IN             : bit_vector :=   X"000000000000"
 );
 port 
-( 
+(  
      cpllpd_in : in std_logic;
     --------------------------------- CPLL Ports -------------------------------
     cpllfbclklost_out                       : out  std_logic;
@@ -291,6 +290,8 @@ port
     eyescantrigger_in                       : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     rxcdrhold_in                            : in   std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    rxclkcorcnt_out                         : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     rxusrclk_in                             : in   std_logic;
     rxusrclk2_in                            : in   std_logic;
@@ -413,7 +414,7 @@ begin
     --_________________________________________________________________________
     --GT0  (X0Y0)
 
-    gt0_GTWIZARD_i : system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_GT
+    gt0_GTWIZARD_i :  system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_GT
     generic map
     (
         -- Simulation attributes
@@ -459,6 +460,8 @@ begin
         eyescantrigger_in               =>      gt0_eyescantrigger_in,
         ------------------------- Receive Ports - CDR Ports ------------------------
         rxcdrhold_in                    =>      gt0_rxcdrhold_in,
+        ------------------- Receive Ports - Clock Correction Ports -----------------
+        rxclkcorcnt_out                 =>      gt0_rxclkcorcnt_out,
         ------------------ Receive Ports - FPGA RX Interface Ports -----------------
         rxusrclk_in                     =>      gt0_rxusrclk_in,
         rxusrclk2_in                    =>      gt0_rxusrclk2_in,
@@ -550,6 +553,7 @@ begin
         txprbssel_in                    =>      gt0_txprbssel_in
 
     );
+
 
    cpll_railing0_i : system_design_gig_ethernet_pcs_pma_0_0_cpll_railing 
    port map

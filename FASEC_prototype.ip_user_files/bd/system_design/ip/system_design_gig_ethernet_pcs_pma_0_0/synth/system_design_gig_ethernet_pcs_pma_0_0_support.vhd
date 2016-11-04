@@ -92,8 +92,6 @@ entity system_design_gig_ethernet_pcs_pma_0_0_support is
       independent_clock_bufg   : in std_logic;                 
       -- GMII Interface
       -----------------
-      sgmii_clk_r              : out std_logic;                 
-      sgmii_clk_f              : out std_logic;                 
       gmii_txclk               : out std_logic;                    
       gmii_rxclk               : out std_logic;                    
       gmii_txd                 : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
@@ -162,8 +160,6 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_support is
       pma_reset            : in std_logic;                     -- transceiver PMA reset signal
       -- GMII Interface
       -----------------
-      sgmii_clk_r            : out std_logic;                    -- Clock for client MAC 
-      sgmii_clk_f            : out std_logic;                    -- Clock for client MAC 
       gmii_txclk       : out std_logic;                    -- Clock enable for client MAC
       gmii_rxclk       : out std_logic;                    -- Clock enable for client MAC
       gmii_txd             : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
@@ -292,8 +288,6 @@ begin
       pma_reset           =>    pma_reset,
       -- GMII Interface
       -----------------
-      sgmii_clk_r          => sgmii_clk_r,          
-      sgmii_clk_f          => sgmii_clk_f,          
       gmii_txclk     =>  gmii_txclk,
       gmii_rxclk     =>  gmii_rxclk,
       gmii_txd           =>  gmii_txd    ,       

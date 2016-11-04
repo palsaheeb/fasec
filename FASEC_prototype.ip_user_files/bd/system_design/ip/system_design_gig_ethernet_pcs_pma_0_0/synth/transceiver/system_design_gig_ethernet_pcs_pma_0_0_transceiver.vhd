@@ -74,13 +74,6 @@ generic
    port (
       mmcm_reset          : out   std_logic;
       recclk_mmcm_reset   : out   std_logic;
-      gt0_drpaddr_in      : in   std_logic_vector(8 downto 0);
-      gt0_drpclk_in       : in   std_logic;
-      gt0_drpdi_in        : in   std_logic_vector(15 downto 0);
-      gt0_drpdo_out       : out  std_logic_vector(15 downto 0);
-      gt0_drpen_in        : in   std_logic;
-      gt0_drprdy_out      : out  std_logic;
-      gt0_drpwe_in        : in   std_logic;
       data_valid          : in    std_logic;
       independent_clock   : in    std_logic;
       encommaalign        : in    std_logic;
@@ -113,6 +106,7 @@ generic
       rxp                 : in    std_logic;
       gtrefclk            : in    std_logic;
       gtrefclk_bufg       : in    std_logic;
+     
       pmareset            : in    std_logic;
       mmcm_locked         : in    std_logic;
       resetdone           : out   std_logic;
@@ -120,8 +114,8 @@ generic
         gt0_rxbyterealign_out     : out std_logic;
         gt0_rxcommadet_out        : out std_logic;
         gt0_txpolarity_in         : in  std_logic;
-        gt0_txinhibit_in          : in  std_logic;
         gt0_txdiffctrl_in         : in  std_logic_vector(3 downto 0);
+        gt0_txinhibit_in          : in  std_logic;
         gt0_txpostcursor_in       : in  std_logic_vector(4 downto 0);
         gt0_txprecursor_in        : in  std_logic_vector(4 downto 0);
         gt0_rxpolarity_in         : in  std_logic;
@@ -142,22 +136,28 @@ generic
         gt0_rxcdrhold_in          : in  std_logic;
         gt0_rxmonitorout_out      : out std_logic_vector(6 downto 0);
         gt0_rxmonitorsel_in       : in  std_logic_vector(1 downto 0);
+        gt0_drpaddr_in            : in  std_logic_vector(8 downto 0);
+        gt0_drpclk_in             : in  std_logic;
+        gt0_drpdi_in              : in  std_logic_vector(15 downto 0);
+        gt0_drpdo_out             : out std_logic_vector(15 downto 0);
+        gt0_drpen_in              : in  std_logic;
+        gt0_drprdy_out            : out std_logic;
+        gt0_drpwe_in              : in  std_logic;  
         gt0_txpmareset_in         : in  std_logic;
         gt0_txpcsreset_in         : in  std_logic;
         gt0_rxpmareset_in         : in  std_logic;
         gt0_rxpcsreset_in         : in  std_logic;
         gt0_rxbufreset_in         : in  std_logic;
         gt0_rxbufstatus_out       : out std_logic_vector(2 downto 0);
-        gt0_txbufstatus_out       : out std_logic_vector(1 downto 0);        
-        gt0_dmonitorout_out       : out std_logic_vector(7 downto 0) ;       
-    gt0_qplloutclk                          : in   std_logic;
-    gt0_qplloutrefclk                       : in   std_logic
+        gt0_txbufstatus_out       : out std_logic_vector(1 downto 0);
+        gt0_dmonitorout_out       : out std_logic_vector(7 downto 0);        
+        gt0_qplloutclk            : in  std_logic;
+        gt0_qplloutrefclk         : in  std_logic
    );
 end system_design_gig_ethernet_pcs_pma_0_0_transceiver;
 
 
 architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
-
 
    attribute DowngradeIPIdentifiedWarnings: string;
    attribute DowngradeIPIdentifiedWarnings of wrapper : architecture is "yes";
@@ -180,41 +180,8 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
        reset       : out std_logic
    );
    end component;
-
    -----------------------------------------------------------------------------
-   -- Component Declaration for the Receiver Elastic Buffer
-   -----------------------------------------------------------------------------
-
-  component system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer
-   port (
-      -- Signals received from the Transceiver on RXRECCLK.
-      rxrecclk                  : in  std_logic;
-      rxrecreset                : in  std_logic;
-      rxchariscomma_rec         : in  std_logic_vector(1 downto 0);
-      rxcharisk_rec             : in  std_logic_vector(1 downto 0);
-      rxdisperr_rec             : in  std_logic_vector(1 downto 0);
-      rxnotintable_rec          : in  std_logic_vector(1 downto 0);
-      rxrundisp_rec             : in  std_logic_vector(1 downto 0);
-      rxdata_rec                : in  std_logic_vector(15 downto 0);
-
-      -- Signals reclocked onto RXUSRCLK2.
-      rxusrclk2                 : in  std_logic;
-      rxreset                   : in  std_logic;
-      rxchariscomma_usr         : out std_logic;
-      rxcharisk_usr             : out std_logic;
-      rxdisperr_usr             : out std_logic;
-      rxnotintable_usr          : out std_logic;
-      rxrundisp_usr             : out std_logic;
-      rxclkcorcnt_usr           : out std_logic_vector(2 downto 0);
-      rxbuferr                  : out std_logic;
-      rxdata_usr                : out std_logic_vector(7 downto 0)
-   );
-  end component;
-
-
-
-   -----------------------------------------------------------------------------
-   -- Component declatarion for the Transceiver GT file
+   -- Component declatarion for the system_design_gig_ethernet_pcs_pma_0_0_Transceiver GT file
    -- (generated by the GT Wizard)
    -----------------------------------------------------------------------------
 
@@ -246,6 +213,7 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
     -------------------------- Channel - Clocking Ports ------------------------
     gt0_gtrefclk0_in                        : in   std_logic;
     gt0_gtrefclk0_bufg_in                   : in   std_logic;
+     
     ---------------------------- Channel - DRP Ports  --------------------------
     gt0_drpaddr_in                          : in   std_logic_vector(8 downto 0);
     gt0_drpclk_in                           : in   std_logic;
@@ -267,6 +235,8 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
     gt0_eyescantrigger_in                   : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in  std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -359,7 +329,7 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
     --____________________________COMMON PORTS________________________________
      GT0_QPLLOUTCLK_IN  : in std_logic;
      GT0_QPLLOUTREFCLK_IN : in std_logic
-
+ 
   );
   end component;
 
@@ -376,12 +346,12 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
    end component;
 
 
-   -----------------------------------------------------------------------------
-   -- Signal declarations
-   -----------------------------------------------------------------------------
    signal data_valid_reg2        : std_logic;
    signal wtd_rxpcsreset_in      : std_logic;
    signal rxpcsreset_comb        : std_logic;
+   -----------------------------------------------------------------------------
+   -- Signal declarations
+   -----------------------------------------------------------------------------
 
    signal cplllock               : std_logic;
    signal gt_reset_rx            : std_logic;
@@ -390,16 +360,19 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
    signal resetdone_rx           : std_logic;
    signal pcsreset               : std_logic;
 
+   signal rxbufstatus            : std_logic_vector(2 downto 0);
    signal txbufstatus            : std_logic_vector(1 downto 0);
+   signal rxbufstatus_reg        : std_logic_vector(2 downto 0);
    signal txbufstatus_reg        : std_logic_vector(1 downto 0);
+   signal rxclkcorcnt_int        : std_logic_vector(1 downto 0);
 
     -- signal used to control sampling during bus width conversions
    signal toggle                 : std_logic;
 
    -- signals reclocked onto the 62.5MHz userclk source of the GT transceiver
+   signal encommaalign_int       : std_logic;
    signal txreset_int            : std_logic;
    signal rxreset_int            : std_logic;
-   signal rxreset_rec            : std_logic;
 
    -- Register transmitter signals from the core
    signal txdata_reg            : std_logic_vector (7 downto 0);
@@ -421,13 +394,32 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
    signal txchardispval_int      : std_logic_vector (1 downto 0);
    signal txcharisk_int          : std_logic_vector (1 downto 0);
 
-   -- Signals for GT data reception
-   signal rxchariscomma_rec      : std_logic_vector(1 downto 0);
-   signal rxnotintable_rec       : std_logic_vector(1 downto 0);
-   signal rxcharisk_rec          : std_logic_vector(1 downto 0);
-   signal rxdisperr_rec          : std_logic_vector(1 downto 0);
-   signal rxdata_rec             : std_logic_vector(15 downto 0);
-   signal encommaalign_rec       : std_logic;
+   -- Double width signals output from the GT transceiver on the 62.5MHz clock
+   -- source
+   signal rxchariscomma_int      : std_logic_vector (1 downto 0);
+   signal rxcharisk_int          : std_logic_vector (1 downto 0);
+   signal rxdata_int             : std_logic_vector (15 downto 0);
+   signal rxdisperr_int          : std_logic_vector (1 downto 0);
+   signal rxnotintable_int       : std_logic_vector (1 downto 0);
+   signal rxrundisp_int          : std_logic_vector (1 downto 0);
+
+   -- Double width signals reclocked on the GT's 62.5MHz clock source
+   signal rxchariscomma_reg      : std_logic_vector (1 downto 0);
+   signal rxcharisk_reg          : std_logic_vector (1 downto 0);
+   signal rxdata_reg             : std_logic_vector (15 downto 0);
+   signal rxclkcorcnt_reg        : std_logic_vector (1 downto 0);
+   signal rxdisperr_reg          : std_logic_vector (1 downto 0);
+   signal rxnotintable_reg       : std_logic_vector (1 downto 0);
+   signal rxrundisp_reg          : std_logic_vector (1 downto 0);
+
+   -- Double width signals reclocked onto the 125MHz clock source
+   signal rxchariscomma_double   : std_logic_vector (1 downto 0);
+   signal rxcharisk_double       : std_logic_vector (1 downto 0);
+   signal rxdata_double          : std_logic_vector (15 downto 0);
+   signal rxclkcorcnt_double     : std_logic_vector (1 downto 0);
+   signal rxdisperr_double       : std_logic_vector (1 downto 0);
+   signal rxnotintable_double    : std_logic_vector (1 downto 0);
+   signal rxrundisp_double       : std_logic_vector (1 downto 0);
 
    -- Signals for powerdown
    signal txpowerdown_int        : std_logic_vector(1 downto 0);
@@ -436,12 +428,12 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0_transceiver is
    signal txpowerdown_double     : std_logic := '0';
    signal txpowerdown            : std_logic := '0';
    signal rxpowerdown_reg        : std_logic := '0';
+   signal rxpowerdown_double     : std_logic := '0';
+   signal rxpowerdown            : std_logic := '0';
+
    signal gt0_rxprbssel_in_orded   : std_logic;
    signal wtd_rxpcsreset_in_comb   : std_logic;
-   signal rxbufstatus            : std_logic_vector (2 downto 0);
-
 begin
-   
    sync_block_data_valid : system_design_gig_ethernet_pcs_pma_0_0_sync_block
    port map
           (
@@ -463,8 +455,7 @@ begin
    rxpcsreset_comb        <= wtd_rxpcsreset_in_comb or gt0_rxpcsreset_in;
 
    txpowerdown_int <= txpowerdown & txpowerdown;
-   rxpowerdown_int <= rxpowerdown_reg & rxpowerdown_reg;
-   -- rxpowerdown given on usrclk2 since since recclk stops at powerdown hence there will be an issue in clearing of powerdown
+   rxpowerdown_int <= rxpowerdown & rxpowerdown;
 
    -----------------------------------------------------------------------------
    -- The core works from a 125MHz clock source, the GT transceiver fabric
@@ -476,33 +467,27 @@ begin
    -- Reclock encommaalign
    reclock_encommaalign : system_design_gig_ethernet_pcs_pma_0_0_reset_sync
    port map(
-      clk       => rxusrclk2,
+      clk       => usrclk,
       reset_in  => encommaalign,
-      reset_out => encommaalign_rec
+      reset_out => encommaalign_int
    );
 
 
    -- Reclock txreset
    reclock_txreset : system_design_gig_ethernet_pcs_pma_0_0_reset_sync
    port map(
-      clk       => usrclk,
+      clk       => independent_clock,
       reset_in  => txreset,
       reset_out => txreset_int
    );
-   -- Reclock rxreset
-   reclock_rxreset_ind_clk : system_design_gig_ethernet_pcs_pma_0_0_reset_sync
-   port map(
-      clk       => independent_clock,
-      reset_in  => rxreset,
-      reset_out => rxreset_int
-   );
+
 
    -- Reclock rxreset
    reclock_rxreset : system_design_gig_ethernet_pcs_pma_0_0_reset_sync
    port map(
-      clk       => rxusrclk2,
+      clk       => independent_clock,
       reset_in  => rxreset,
-      reset_out => rxreset_rec
+      reset_out => rxreset_int
    );
 
 
@@ -592,6 +577,98 @@ begin
   end process;
 
 
+
+   -----------------------------------------------------------------------------
+   -- The core works from a 125MHz clock source, the GT transceiver fabric
+   -- interface works from a 62.5MHz clock source.  The following signals
+   -- sourced by the GT transceiver therefore need to converted to half width
+   -----------------------------------------------------------------------------
+
+  -- Sample the double width received data from the GT transsciever on the GT's
+  -- 62.5MHz clock
+  process (usrclk)
+  begin
+    if usrclk'event and usrclk= '1' then
+      rxchariscomma_reg  <= rxchariscomma_int;
+      rxcharisk_reg      <= rxcharisk_int;
+      rxdata_reg         <= rxdata_int;
+      rxclkcorcnt_reg    <= rxclkcorcnt_int;
+      rxdisperr_reg      <= rxdisperr_int;
+      rxnotintable_reg   <= rxnotintable_int;
+      rxrundisp_reg      <= rxrundisp_int;
+      rxbufstatus_reg    <= rxbufstatus;
+      rxpowerdown        <= rxpowerdown_double;
+    end if;
+  end process;
+
+
+  -- Reclock the double width received data from the GT transsciever onto the
+  -- 125MHz clock source.   Both clock domains are frequency related and are
+  -- derived from the same MMCM: the Xilinx tools will accont for this.
+
+  process (usrclk2)
+  begin
+    if usrclk2'event and usrclk2= '1' then
+      if rxreset = '1' then
+        rxchariscomma_double  <= "00";
+        rxcharisk_double      <= "00";
+        rxdata_double         <= X"0000";
+        rxclkcorcnt_double    <= "00";
+        rxdisperr_double      <= "00";
+        rxnotintable_double   <= "00";
+        rxrundisp_double      <= "00";
+        rxpowerdown_double    <= '0';
+      elsif toggle = '1' then
+        rxchariscomma_double  <= rxchariscomma_reg;
+        rxcharisk_double      <= rxcharisk_reg;
+        rxdata_double         <= rxdata_reg;
+        rxclkcorcnt_double    <= rxclkcorcnt_reg;
+        rxdisperr_double      <= rxdisperr_reg;
+        rxnotintable_double   <= rxnotintable_reg;
+        rxrundisp_double      <= rxrundisp_reg;
+        rxpowerdown_double    <= rxpowerdown_reg;
+      end if;
+    end if;
+  end process;
+
+
+  -- Halve the bus width
+  process (usrclk2)
+  begin
+    if usrclk2'event and usrclk2= '1' then
+      if rxreset = '1' then
+        rxchariscomma    <= '0';
+        rxcharisk        <= '0';
+        rxdata           <= X"00";
+        rxclkcorcnt      <= "000";
+        rxdisperr        <= '0';
+        rxnotintable     <= '0';
+        rxrundisp        <= '0';
+        rxpowerdown_reg  <= '0';
+      else
+        if toggle = '0' then
+          rxchariscomma  <= rxchariscomma_double(0);
+          rxcharisk      <= rxcharisk_double(0);
+          rxdata         <= rxdata_double(7 downto 0);
+          rxclkcorcnt <= '0' & rxclkcorcnt_double;
+          rxdisperr      <= rxdisperr_double(0);
+          rxnotintable   <= rxnotintable_double(0);
+          rxrundisp      <= rxrundisp_double(0);
+        else
+          rxchariscomma  <= rxchariscomma_double(1);
+          rxcharisk      <= rxcharisk_double(1);
+          rxdata         <= rxdata_double(15 downto 8);
+          rxclkcorcnt <= '0' & rxclkcorcnt_double;
+          rxdisperr      <= rxdisperr_double(1);
+          rxnotintable   <= rxnotintable_double(1);
+          rxrundisp      <= rxrundisp_double(1);
+        end if;
+        rxpowerdown_reg  <= powerdown;
+      end if;
+    end if;
+  end process;
+
+
    -----------------------------------------------------------------------------
    -- Instantiate the Series-7 GT transceiver
    -----------------------------------------------------------------------------
@@ -644,7 +721,7 @@ begin
         gt0_txpolarity_in               =>      gt0_txpolarity_in,
     ------------------ Transmit Ports - pattern Generator Ports ----------------
         gt0_txprbssel_in                =>      gt0_txprbssel_in,
-    ---------------------------- Channel - DRP Ports  --------------------------
+    ---------------------------- channel - drp ports  --------------------------
        gt0_drpaddr_in                   =>  gt0_drpaddr_in  ,
        gt0_drpclk_in                    =>  gt0_drpclk_in   ,
        gt0_drpdi_in                     =>  gt0_drpdi_in    ,
@@ -652,7 +729,6 @@ begin
        gt0_drpen_in                     =>  gt0_drpen_in    ,
        gt0_drprdy_out                   =>  gt0_drprdy_out  ,
        gt0_drpwe_in                     =>  gt0_drpwe_in    ,
-
 
         sysclk_in                       =>      independent_clock,
         soft_reset_tx_in                =>     pmareset,
@@ -664,6 +740,7 @@ begin
         ------------------------- channel - ref clock ports --------------------
         gt0_gtrefclk0_in                =>      gtrefclk,
         gt0_gtrefclk0_bufg_in           =>      gtrefclk_bufg,
+     
         -------------------------------- channel pll ---------------------------
         gt0_cpllfbclklost_out           =>      open,
         gt0_cplllock_out                =>      cplllock,
@@ -675,23 +752,22 @@ begin
         ------------------------------- receive ports --------------------------
         gt0_rxuserrdy_in                =>      mmcm_locked,
         ----------------------- receive ports - 8b10b decoder ------------------
-        gt0_rxchariscomma_out           =>      rxchariscomma_rec,
-        gt0_rxcharisk_out               =>      rxcharisk_rec,
-        gt0_rxdisperr_out               =>      rxdisperr_rec,
-        gt0_rxnotintable_out            =>      rxnotintable_rec,
+        gt0_rxchariscomma_out           =>      rxchariscomma_int,
+        gt0_rxcharisk_out               =>      rxcharisk_int,
+        gt0_rxdisperr_out               =>      rxdisperr_int,
+        gt0_rxnotintable_out            =>      rxnotintable_int,
+        ------------------- receive ports - clock correction ports -------------
+        gt0_rxclkcorcnt_out             =>      rxclkcorcnt_int,
         --------------- receive ports - comma detection and alignment ----------
-        gt0_rxmcommaalignen_in          =>      encommaalign_rec,
-        gt0_rxpcommaalignen_in          =>      encommaalign_rec,
+        gt0_rxmcommaalignen_in          =>      encommaalign_int,
+        gt0_rxpcommaalignen_in          =>      encommaalign_int,
         ------------------- receive ports - rx data path interface -------------
         gt0_gtrxreset_in                =>      gt_reset_rx,
         gt0_rxpmareset_in               =>      gt0_rxpmareset_in,
---        gt0_gtrxreset_in                =>      rxreset_rec,
-        gt0_rxdata_out                  =>      rxdata_rec,
+        gt0_rxdata_out                  =>      rxdata_int,
         gt0_rxoutclk_out                =>      rxoutclk,
         gt0_rxusrclk_in                 =>      rxusrclk,
--- portmapping rxuserclk2 to rxuserclk because when rx_gmii_clk_src is RXOUTCLK rxuserclk2 of GT should be connected to
--- rxuserclk , in all other modes rxuserclk and rxuserclk2 are essentially same
-        gt0_rxusrclk2_in                =>      rxusrclk,
+        gt0_rxusrclk2_in                =>      rxusrclk2,
         ------- receive ports - rx driver,oob signalling,coupling and eq.,cdr --
         gt0_gtxrxn_in                   =>      rxn,
         gt0_gtxrxp_in                   =>      rxp,
@@ -721,73 +797,27 @@ begin
         gt0_txbufstatus_out             =>      txbufstatus,
         ----------------------- transmit ports - tx pll ports ------------------
         gt0_txresetdone_out             =>      open,
+        ----------------- transmit ports - tx ports for pci express ------------
         gt0_txelecidle_in               =>      txpowerdown,
         --____________________________common ports________________________________
         ---------------------- common block  - ref clock ports ---------------------
- 
-        gt0_txpmareset_in        =>  gt0_txpmareset_in     ,   
-        gt0_txpcsreset_in        =>  gt0_txpcsreset_in     ,   
-        gt0_rxpcsreset_in        =>  rxpcsreset_comb       ,   
-        gt0_dmonitorout_out      =>  gt0_dmonitorout_out   ,   
 
+        gt0_txpmareset_in            =>  gt0_txpmareset_in            ,    
+        gt0_txpcsreset_in            =>  gt0_txpcsreset_in            ,    
+        gt0_rxpcsreset_in            =>  rxpcsreset_comb              ,    
+        gt0_dmonitorout_out          =>  gt0_dmonitorout_out          ,      
+    
         gt0_qplloutclk_in                       =>   gt0_qplloutclk,
         gt0_qplloutrefclk_in                    =>   gt0_qplloutrefclk
         );
 
 
-   -----------------------------------------------------------------------------
-   -- Instantiation of the FPGA Fabric Receiver Elastic Buffer
-   -- connected to the Transceiver
-   -----------------------------------------------------------------------------
-
-  -- Reclock the transceiver signals
-
-  process (usrclk2)
-  begin
-    if usrclk2'event and usrclk2= '1' then
-      if txreset = '1' then
-        rxpowerdown_reg    <=  '0';
-      else
-        rxpowerdown_reg    <= powerdown;
-      end if;
-    end if;
-  end process; 
-
-   -- Instantiate the RX elastic buffer. This performs clock
-   -- correction on the incoming data to cope with differences
-   -- between the user clock and the clock recovered from the data.
-   rx_elastic_buffer_inst : system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer port map (
-
-     -- Signals from the GTX on rxrecclk
-     rxrecclk          => rxusrclk2,
-     rxrecreset        => rxreset_rec,
-     rxchariscomma_rec => rxchariscomma_rec,
-     rxcharisk_rec     => rxcharisk_rec,
-     rxdisperr_rec     => rxdisperr_rec,
-     rxnotintable_rec  => rxnotintable_rec,
-     rxrundisp_rec     => "00",
-     rxdata_rec        => rxdata_rec,
-
-     -- Signals reclocked onto usrclk2
-     rxusrclk2         => usrclk2,
-     rxreset           => rxreset,
-     rxchariscomma_usr => rxchariscomma,
-     rxcharisk_usr     => rxcharisk,
-     rxdisperr_usr     => rxdisperr,
-     rxnotintable_usr  => rxnotintable,
-     rxrundisp_usr     => rxrundisp,
-     rxclkcorcnt_usr   => rxclkcorcnt,
-     rxbuferr          => rxbuferr,
-     rxdata_usr        => rxdata
-   );
-
-
-   gt0_txbufstatus_out  <=      txbufstatus;
+   gt0_rxbufstatus_out  <=  rxbufstatus;
+   gt0_txbufstatus_out  <=  txbufstatus;
    -- Hold the transmitter and receiver paths of the GT transceiver in reset
    -- until the PLL has locked.
    gt_reset_rx <= (rxreset_int and resetdone_rx);
    gt_reset_tx <= (txreset_int and resetdone_tx);
-
    gt0_rxresetdone_out <= resetdone_rx;
    gt0_txresetdone_out <= resetdone_tx;
 
@@ -801,10 +831,15 @@ begin
    -- reset to PCS part of GT
    pcsreset <= not mmcm_locked;
 
+   -- temporary
+   rxrundisp_int <= "00";
+
+
    -- Decode the GT transceiver buffer status signals
    process (usrclk2)
    begin
      if usrclk2'event and usrclk2= '1' then
+       rxbuferr    <= rxbufstatus_reg(2);
        txbuferr    <= txbufstatus_reg(1);
      end if;
    end process;

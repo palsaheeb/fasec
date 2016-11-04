@@ -29,7 +29,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>8a660213</spirit:value>
+            <spirit:value>c9e3c380</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -48,7 +48,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:52 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:31 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -60,7 +60,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>8a660213</spirit:value>
+            <spirit:value>c9e3c380</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -91,7 +91,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5226780d</spirit:value>
+            <spirit:value>717b51ed</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -110,7 +110,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:52 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:31 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -122,7 +122,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5226780d</spirit:value>
+            <spirit:value>717b51ed</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -154,7 +154,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>CONST_VAL</spirit:name>
         <spirit:displayName>Const Val</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CONST_VAL">0011111010100001</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CONST_VAL">1000011010100001</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CONST_WIDTH</spirit:name>
@@ -205,7 +205,7 @@
     <spirit:parameter>
       <spirit:name>CONST_VAL</spirit:name>
       <spirit:displayName>Const Val</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.CONST_VAL" spirit:order="1200">1101100000100001</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.CONST_VAL" spirit:order="1200">100001</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

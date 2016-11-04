@@ -53,39 +53,28 @@
 -- Description: This Core Block Level wrapper connects the core to a  
 --              Series-7 Transceiver.
 --
---              The SGMII adaptation module is provided to convert
---              between 1Gbps and 10/100 Mbps rates.  This is connected
---              to the MAC side of the core to provide a GMII style
---              interface.  When the core is running at 1Gbps speeds,
---              the GMII (8-bitdata pathway) is used at a clock
---              frequency of 125MHz.  When the core is running at
---              100Mbps, a clock frequency of 12.5MHz is used.  When
---              running at 100Mbps speeds, a clock frequency of 1.25MHz
---              is used.
 --
---    ----------------------------------------------------------------
---    |                   Core Block Level Wrapper                   |
---    |                                                              |
---    |                                                              |
---    |                  --------------          --------------      |
---    |                  |    Core    |          | Transceiver|      |
---    |                  |            |          |            |      |
---    |    ---------     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    | SGMII |     |            |          |            |      |
---  ------>| Adapt |---->| GMII       |--------->|        TXP |-------->
---    |    | Module|     | Tx         |          |        TXN |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     | GMII       |          |        RXP |      |
---  <------|       |<----| Rx         |<---------|        RXN |<--------
---    |    |       |     |            |          |            |      |
---    |    ---------     --------------          --------------      |
---    |                                                              |
---    ----------------------------------------------------------------
+--   ------------------------------------------------------------
+--   |                      Core Block wrapper                  |
+--   |                                                          |
+--   |        ------------------          -----------------     |
+--   |        |      Core      |          | Transceiver   |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+-- ---------->| GMII           |--------->|           TXP |-------->
+--   |        | Tx             |          |           TXN |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        | GMII           |          |           RXP |     |
+-- <----------| Rx             |<---------|           RXN |<--------
+--   |        |                |          |               |     |
+--   |        ------------------          -----------------     |
+--   |                                                          |
+--   ------------------------------------------------------------
 --
 --
 
@@ -133,8 +122,6 @@ entity system_design_gig_ethernet_pcs_pma_0_0 is
 
       -- GMII Interface
       -----------------
-      sgmii_clk_r            : out std_logic;              
-      sgmii_clk_f            : out std_logic;              
       gmii_txclk           : out std_logic;                    
       gmii_rxclk           : out std_logic;                    
       gmii_txd             : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
@@ -205,8 +192,6 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0 is
       mmcm_locked_out          : out std_logic;                           -- MMCM Locked
       -- GMII Interface
       -----------------
-      sgmii_clk_r            : out std_logic;                 
-      sgmii_clk_f            : out std_logic;                 
       gmii_txclk            : out std_logic;                    
       gmii_rxclk            : out std_logic;                    
       gmii_txd             : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
@@ -247,7 +232,7 @@ architecture wrapper of system_design_gig_ethernet_pcs_pma_0_0 is
    end component;
 
 ATTRIBUTE CORE_GENERATION_INFO : STRING;
-ATTRIBUTE CORE_GENERATION_INFO OF wrapper : ARCHITECTURE IS "system_design_gig_ethernet_pcs_pma_0_0,gig_ethernet_pcs_pma_v15_2_1,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=gig_ethernet_pcs_pma,x_ipVersion=15.2,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,c_elaboration_transient_dir=.,c_component_name=system_design_gig_ethernet_pcs_pma_0_0,c_family=zynq,c_architecture=zynq,c_is_sgmii=true,c_use_transceiver=true,c_use_tbi=false,c_is_2_5g=false,c_use_lvds=false,c_has_an=true,characterization=false,c_has_mdio=true,c_has_ext_mdio=false,c_sgmii_phy_mode=true,c_dynamic_switching=false,c_sgmii_fabric_buffer=true,c_1588=0,gt_rx_byte_width=1,C_EMAC_IF_TEMAC=false,C_PHYADDR=9,EXAMPLE_SIMULATION=0,c_support_level=true,c_RxNibbleBitslice0Used=false,c_tx_in_upper_nibble=1,c_TxLane0_Placement=DIFF_PAIR_0,c_TxLane1_Placement=DIFF_PAIR_1,c_RxLane0_Placement=DIFF_PAIR_0,c_RxLane1_Placement=DIFF_PAIR_1,c_sub_core_name=system_design_gig_ethernet_pcs_pma_0_0_gt,c_transceiver_type=GTXE2,c_gt_type=GTH,c_rx_gmii_clk_src=TXOUTCLK,c_transceivercontrol=false,c_gtinex=false,c_xdevicefamily=xc7z030,c_gt_dmonitorout_width=8,c_gt_drpaddr_width=9,c_gt_txdiffctrl_width=4,c_gt_rxmonitorout_width=7,c_num_of_lanes=1,c_refclkrate=125,c_drpclkrate=50.0,c_enable_tx_userclk_reset_port=false}";
+ATTRIBUTE CORE_GENERATION_INFO OF wrapper : ARCHITECTURE IS "system_design_gig_ethernet_pcs_pma_0_0,gig_ethernet_pcs_pma_v15_2_1,{x_ipProduct=Vivado 2016.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=gig_ethernet_pcs_pma,x_ipVersion=15.2,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,c_elaboration_transient_dir=.,c_component_name=system_design_gig_ethernet_pcs_pma_0_0,c_family=zynq,c_architecture=zynq,c_is_sgmii=false,c_use_transceiver=true,c_use_tbi=false,c_is_2_5g=false,c_use_lvds=false,c_has_an=true,characterization=false,c_has_mdio=true,c_has_ext_mdio=false,c_sgmii_phy_mode=true,c_dynamic_switching=false,c_sgmii_fabric_buffer=true,c_1588=0,gt_rx_byte_width=1,C_EMAC_IF_TEMAC=false,C_PHYADDR=9,EXAMPLE_SIMULATION=0,c_support_level=true,c_RxNibbleBitslice0Used=false,c_tx_in_upper_nibble=1,c_TxLane0_Placement=DIFF_PAIR_0,c_TxLane1_Placement=DIFF_PAIR_1,c_RxLane0_Placement=DIFF_PAIR_0,c_RxLane1_Placement=DIFF_PAIR_1,c_sub_core_name=system_design_gig_ethernet_pcs_pma_0_0_gt,c_transceiver_type=GTXE2,c_gt_type=GTH,c_rx_gmii_clk_src=TXOUTCLK,c_transceivercontrol=false,c_gtinex=false,c_xdevicefamily=xc7z030,c_gt_dmonitorout_width=8,c_gt_drpaddr_width=9,c_gt_txdiffctrl_width=4,c_gt_rxmonitorout_width=7,c_num_of_lanes=1,c_refclkrate=125,c_drpclkrate=50.0,c_enable_tx_userclk_reset_port=false}";
 ATTRIBUTE X_CORE_INFO : STRING;
 ATTRIBUTE X_CORE_INFO OF wrapper: ARCHITECTURE IS "gig_ethernet_pcs_pma_v15_2_1,Vivado 2016.2";
 
@@ -279,8 +264,6 @@ begin
       mmcm_locked_out          => mmcm_locked_out,
       -- GMII Interface
       -----------------
-      sgmii_clk_r              => sgmii_clk_r,
-      sgmii_clk_f              => sgmii_clk_f,
       gmii_txclk               =>  gmii_txclk,
       gmii_rxclk               =>  gmii_rxclk,
       gmii_txd                 => gmii_txd,

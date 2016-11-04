@@ -262,7 +262,6 @@ set_property IOSTANDARD LVDS_25 [get_ports {FMC1_LA_P_b[1]}]
 set_property IOSTANDARD LVDS_25 [get_ports {FMC1_LA_P_b[0]}]
 
 set_property PACKAGE_PIN U6 [get_ports diff_clock_rtl_clk_p]
-set_property PACKAGE_PIN V4 [get_ports sgmii_rtl_rxp]
 
 set_property PACKAGE_PIN G15 [get_ports {t_wr_txdisable[0]}]
 set_property IOSTANDARD LVCMOS18 [get_ports {t_wr_txdisable[0]}]
@@ -272,3 +271,5 @@ set_property PACKAGE_PIN AB16 [get_ports sfp_moddef1_scl]
 set_property PACKAGE_PIN AB17 [get_ports sfp_moddef2_sda]
 set_property IOSTANDARD LVCMOS25 [get_ports sfp_moddef1_scl]
 set_property IOSTANDARD LVCMOS25 [get_ports sfp_moddef2_sda]
+
+set_property PACKAGE_PIN V4 [get_ports sfp_rtl_rxp]

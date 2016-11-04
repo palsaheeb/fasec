@@ -1,4 +1,3 @@
-
 -------------------------------------------------------------------------------
 --   ____  ____
 --  /   /\/   /
@@ -119,6 +118,8 @@ port
     gt0_eyescantrigger_in                   : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in   std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -209,9 +210,8 @@ port
     gt0_dmonitorout_out                     : out  std_logic_vector(7 downto 0);        
 
     --____________________________COMMON PORTS________________________________
-    GT0_QPLLOUTCLK_IN                       : in   std_logic;
-    GT0_QPLLOUTREFCLK_IN                    : in   std_logic
-
+     GT0_QPLLOUTCLK_IN                      : in   std_logic;
+     GT0_QPLLOUTREFCLK_IN                   : in   std_logic
 
 );
 end system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD;
@@ -229,6 +229,7 @@ generic
     STABLE_CLOCK_PERIOD                     : integer   := 10;  
         -- Set to 1 for simulation
     EXAMPLE_USE_CHIPSCOPE                   : integer   := 0           -- Set to 1 to use Chipscope to drive resets
+
 );
 port
 (
@@ -274,6 +275,8 @@ port
     gt0_eyescantrigger_in                   : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in   std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -362,10 +365,10 @@ port
     gt0_txpcsreset_in                       : in   std_logic;
     gt0_rxpcsreset_in                       : in   std_logic;
     gt0_dmonitorout_out                     : out  std_logic_vector(7 downto 0);        
-
     --____________________________COMMON PORTS________________________________
     GT0_QPLLOUTCLK_IN                       : in   std_logic;
     GT0_QPLLOUTREFCLK_IN                    : in   std_logic
+
 );
 end component;
 
@@ -424,6 +427,8 @@ begin
         gt0_eyescantrigger_in           =>      gt0_eyescantrigger_in,
     ------------------------- Receive Ports - CDR Ports ------------------------
         gt0_rxcdrhold_in                =>      gt0_rxcdrhold_in,
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+        gt0_rxclkcorcnt_out             =>      gt0_rxclkcorcnt_out,
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
         gt0_rxusrclk_in                 =>      gt0_rxusrclk_in,
         gt0_rxusrclk2_in                =>      gt0_rxusrclk2_in,
@@ -508,6 +513,7 @@ begin
     ------------------ Transmit Ports - pattern Generator Ports ----------------
         gt0_txprbssel_in                =>      gt0_txprbssel_in,
 
+
         gt0_txpmareset_in               =>      gt0_txpmareset_in     , 
         gt0_txpcsreset_in               =>      gt0_txpcsreset_in     , 
         gt0_rxpcsreset_in               =>      gt0_rxpcsreset_in     , 
@@ -516,6 +522,7 @@ begin
     --____________________________COMMON PORTS________________________________
         GT0_QPLLOUTCLK_IN               =>      GT0_QPLLOUTCLK_IN,
         GT0_QPLLOUTREFCLK_IN            =>      GT0_QPLLOUTREFCLK_IN 
+
     );
      
 end RTL;

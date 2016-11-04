@@ -1,4 +1,3 @@
-
 -------------------------------------------------------------------------------
 --   ____  ____
 --  /   /\/   /
@@ -73,7 +72,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_design_gig_ethernet_pcs_pma_0_0_GTWIZARD_GT is
 generic
 (
-    -- Simulation attributes
+     -- Simulation attributes
     GT_SIM_GTRESET_SPEEDUP    : string     :=  "FALSE";        -- Set to "TRUE" to speed up sim reset
     RX_DFE_KL_CFG2_IN         : bit_vector :=   X"301148AC";
     PMA_RSV_IN                : bit_vector :=  x"00018480";
@@ -116,6 +115,8 @@ port
     eyescantrigger_in                       : in   std_logic;
     ------------------------- Receive Ports - CDR Ports ------------------------
     rxcdrhold_in                            : in   std_logic;
+    ------------------- Receive Ports - Clock Correction Ports -----------------
+    rxclkcorcnt_out                         : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     rxusrclk_in                             : in   std_logic;
     rxusrclk2_in                            : in   std_logic;
@@ -292,22 +293,22 @@ begin
 
        ------------------------RX Clock Correction Attributes----------------------
         CBCC_DATA_SOURCE_SEL                    =>     ("DECODED"),
-        CLK_COR_SEQ_2_USE                       =>     ("FALSE"),
+        CLK_COR_SEQ_2_USE                       =>     ("TRUE"),
         CLK_COR_KEEP_IDLE                       =>     ("FALSE"),
         CLK_COR_MAX_LAT                         =>     (36),
-        CLK_COR_MIN_LAT                         =>     (32),
+        CLK_COR_MIN_LAT                         =>     (33),
         CLK_COR_PRECEDENCE                      =>     ("TRUE"),
         CLK_COR_REPEAT_WAIT                     =>     (0),
-        CLK_COR_SEQ_LEN                         =>     (1),
+        CLK_COR_SEQ_LEN                         =>     (2),
         CLK_COR_SEQ_1_ENABLE                    =>     ("1111"),
-        CLK_COR_SEQ_1_1                         =>     ("0100000000"),
-        CLK_COR_SEQ_1_2                         =>     ("0000000000"),
+        CLK_COR_SEQ_1_1                         =>     ("0110111100"),
+        CLK_COR_SEQ_1_2                         =>     ("0001010000"),
         CLK_COR_SEQ_1_3                         =>     ("0000000000"),
         CLK_COR_SEQ_1_4                         =>     ("0000000000"),
-        CLK_CORRECT_USE                         =>     ("FALSE"),
+        CLK_CORRECT_USE                         =>     ("TRUE"),
         CLK_COR_SEQ_2_ENABLE                    =>     ("1111"),
-        CLK_COR_SEQ_2_1                         =>     ("0100000000"),
-        CLK_COR_SEQ_2_2                         =>     ("0000000000"),
+        CLK_COR_SEQ_2_1                         =>     ("0110111100"),
+        CLK_COR_SEQ_2_2                         =>     ("0010110101"),
         CLK_COR_SEQ_2_3                         =>     ("0000000000"),
         CLK_COR_SEQ_2_4                         =>     ("0000000000"),
 
@@ -371,7 +372,7 @@ begin
         PCS_RSVD_ATTR                           =>     (PCS_RSVD_ATTR_IN),
 
        -------------RX Buffer Attributes------------
-        RXBUF_ADDR_MODE                         =>     ("FAST"),
+        RXBUF_ADDR_MODE                         =>     ("FULL"),
         RXBUF_EIDLE_HI_CNT                      =>     ("1000"),
         RXBUF_EIDLE_LO_CNT                      =>     ("0000"),
         RXBUF_EN                                =>     ("TRUE"),
@@ -395,6 +396,7 @@ begin
         RX_DEFER_RESET_BUF_EN                   =>     ("TRUE"),
 
        -----------------------CDR Attributes-------------------------
+
        --For Display Port, HBR/RBR- set RXCDR_CFG=72'h0380008bff40200008
 
        --For Display Port, HBR2 -   set RXCDR_CFG=72'h038c008bff20200010
@@ -619,7 +621,7 @@ begin
         RXCDRRESET                      =>      tied_to_ground_i,
         RXCDRRESETRSV                   =>      tied_to_ground_i,
         ------------------- Receive Ports - Clock Correction Ports -----------------
-        RXCLKCORCNT                     =>      open,
+        RXCLKCORCNT                     =>      rxclkcorcnt_out,
         ---------- Receive Ports - FPGA RX Interface Datapath Configuration --------
         RX8B10BEN                       =>      tied_to_vcc_i,
         ------------------ Receive Ports - FPGA RX Interface Ports -----------------

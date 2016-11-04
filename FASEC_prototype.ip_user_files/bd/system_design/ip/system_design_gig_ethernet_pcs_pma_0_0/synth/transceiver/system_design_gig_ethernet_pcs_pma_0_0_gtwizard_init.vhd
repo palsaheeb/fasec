@@ -127,6 +127,7 @@ port
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in   std_logic;
     ------------------- receive ports - clock correction ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -275,6 +276,7 @@ port
     ------------------------- Receive Ports - CDR Ports ------------------------
     gt0_rxcdrhold_in                        : in   std_logic;
     ------------------- Receive Ports - Clock Correction Ports -----------------
+    gt0_rxclkcorcnt_out                     : out  std_logic_vector(1 downto 0);
     ------------------ Receive Ports - FPGA RX Interface Ports -----------------
     gt0_rxusrclk_in                         : in   std_logic;
     gt0_rxusrclk2_in                        : in   std_logic;
@@ -539,8 +541,10 @@ begin
     )
     port map
     (
-        gt0_rxusrclk_in                 =>      gt0_rxusrclk_in,
-        gt0_rxusrclk2_in                =>      gt0_rxusrclk2_in,
+        gt0_rxclkcorcnt_out             =>      gt0_rxclkcorcnt_out,
+        ------------------ Receive Ports - FPGA RX Interface Ports -----------------
+        gt0_rxusrclk_in                 =>      gt0_txusrclk_in,
+        gt0_rxusrclk2_in                =>      gt0_txusrclk_in,
         gt0_gtrxreset_in                =>      gt0_gtrxreset_gt,
         gt0_gttxreset_in                =>      gt0_gttxreset_gt,
   
@@ -749,7 +753,7 @@ gt0_rxresetfsm_i:  system_design_gig_ethernet_pcs_pma_0_0_RX_STARTUP_FSM
              )     
     port map ( 
         STABLE_CLOCK                    =>      sysclk_in,
-        RXUSERCLK                       =>      gt0_rxusrclk_in,
+        RXUSERCLK                       =>      gt0_txusrclk_in,
         SOFT_RESET                      =>      SOFT_RESET_RX_IN,
         DONT_RESET_ON_DATA_ERROR        =>      DONT_RESET_ON_DATA_ERROR_IN,
         QPLLREFCLKLOST                  =>      tied_to_ground_i,

@@ -130,16 +130,13 @@
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_support.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_gt_common.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_cpll_railing.vhd" \
-  "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_multi_gt.vhd" \
+  "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_init.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_tx_startup_fsm.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_startup_fsm.vhd" \
-  "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_johnson_cntr.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_reset_sync.vhd" \
-  "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer.vhd" \
-  "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/system_design_gig_ethernet_pcs_pma_0_0_sync_block.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_reset_wtd_timer.vhd" \
   "../../../bd/system_design/ip/system_design_gig_ethernet_pcs_pma_0_0/synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_transceiver.vhd" \

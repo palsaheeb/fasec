@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Fri Nov  4 14:33:46 2016
+--Date        : Fri Nov  4 15:20:00 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -1778,14 +1778,14 @@ entity system_design is
     pb_gp_i : in STD_LOGIC;
     sfp_moddef1_scl : inout STD_LOGIC;
     sfp_moddef2_sda : inout STD_LOGIC;
-    sgmii_rtl_rxn : in STD_LOGIC;
-    sgmii_rtl_rxp : in STD_LOGIC;
-    sgmii_rtl_txn : out STD_LOGIC;
-    sgmii_rtl_txp : out STD_LOGIC;
+    sfp_rtl_rxn : in STD_LOGIC;
+    sfp_rtl_rxp : in STD_LOGIC;
+    sfp_rtl_txn : out STD_LOGIC;
+    sfp_rtl_txp : out STD_LOGIC;
     t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=17,numNonXlnxBlks=4,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=3,da_ps7_cnt=1,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=17,numNonXlnxBlks=4,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system_design : entity is "system_design.hwdef";
 end system_design;
@@ -2018,8 +2018,6 @@ architecture STRUCTURE of system_design is
     resetdone : out STD_LOGIC;
     pma_reset_out : out STD_LOGIC;
     mmcm_locked_out : out STD_LOGIC;
-    sgmii_clk_r : out STD_LOGIC;
-    sgmii_clk_f : out STD_LOGIC;
     gmii_txclk : out STD_LOGIC;
     gmii_rxclk : out STD_LOGIC;
     gmii_txd : in STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -2117,11 +2115,11 @@ architecture STRUCTURE of system_design is
   signal gig_ethernet_pcs_pma_0_gmii_rx_dv : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_gmii_rx_er : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_gmii_rxd : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal gig_ethernet_pcs_pma_0_sgmii_RXN : STD_LOGIC;
-  signal gig_ethernet_pcs_pma_0_sgmii_RXP : STD_LOGIC;
-  signal gig_ethernet_pcs_pma_0_sgmii_TXN : STD_LOGIC;
-  signal gig_ethernet_pcs_pma_0_sgmii_TXP : STD_LOGIC;
-  signal gig_ethernet_pcs_pma_0_sgmii_clk_r : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_sfp_RXN : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_sfp_RXP : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_sfp_TXN : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_sfp_TXP : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_userclk2_out : STD_LOGIC;
   signal osc100_clk_i_1 : STD_LOGIC;
   signal pb_gp_i_1 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
@@ -2299,8 +2297,6 @@ architecture STRUCTURE of system_design is
   signal NLW_gig_ethernet_pcs_pma_0_resetdone_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_gig_ethernet_pcs_pma_0_sgmii_clk_f_UNCONNECTED : STD_LOGIC;
-  signal NLW_gig_ethernet_pcs_pma_0_userclk2_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_userclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_processing_system7_0_ENET1_MDIO_T_UNCONNECTED : STD_LOGIC;
@@ -2323,15 +2319,15 @@ begin
   FMC2_PRSNTM2C_n_i_1 <= FMC2_PRSNTM2C_n_i;
   diff_clock_rtl_1_CLK_N <= diff_clock_rtl_clk_n;
   diff_clock_rtl_1_CLK_P <= diff_clock_rtl_clk_p;
-  gig_ethernet_pcs_pma_0_sgmii_RXN <= sgmii_rtl_rxn;
-  gig_ethernet_pcs_pma_0_sgmii_RXP <= sgmii_rtl_rxp;
+  gig_ethernet_pcs_pma_0_sfp_RXN <= sfp_rtl_rxn;
+  gig_ethernet_pcs_pma_0_sfp_RXP <= sfp_rtl_rxp;
   led_col_pl_o(3 downto 0) <= fasec_hwtest_0_led_col_pl_o(3 downto 0);
   led_line_en_pl_o <= fasec_hwtest_0_led_line_en_pl_o;
   led_line_pl_o <= fasec_hwtest_0_led_line_pl_o;
   osc100_clk_i_1 <= osc100_clk_i;
   pb_gp_i_1 <= pb_gp_i;
-  sgmii_rtl_txn <= gig_ethernet_pcs_pma_0_sgmii_TXN;
-  sgmii_rtl_txp <= gig_ethernet_pcs_pma_0_sgmii_TXP;
+  sfp_rtl_txn <= gig_ethernet_pcs_pma_0_sfp_TXN;
+  sfp_rtl_txp <= gig_ethernet_pcs_pma_0_sfp_TXP;
   t_wr_txdisable(0) <= drive_constants_dout5(0);
 axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
      port map (
@@ -2507,17 +2503,15 @@ gig_ethernet_pcs_pma_0: component system_design_gig_ethernet_pcs_pma_0_0
       pma_reset_out => NLW_gig_ethernet_pcs_pma_0_pma_reset_out_UNCONNECTED,
       reset => drive_constants_dout3(0),
       resetdone => NLW_gig_ethernet_pcs_pma_0_resetdone_UNCONNECTED,
-      rxn => gig_ethernet_pcs_pma_0_sgmii_RXN,
-      rxp => gig_ethernet_pcs_pma_0_sgmii_RXP,
+      rxn => gig_ethernet_pcs_pma_0_sfp_RXN,
+      rxp => gig_ethernet_pcs_pma_0_sfp_RXP,
       rxuserclk2_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED,
       rxuserclk_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED,
-      sgmii_clk_f => NLW_gig_ethernet_pcs_pma_0_sgmii_clk_f_UNCONNECTED,
-      sgmii_clk_r => gig_ethernet_pcs_pma_0_sgmii_clk_r,
       signal_detect => drive_constants_dout4(0),
       status_vector(15 downto 0) => NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED(15 downto 0),
-      txn => gig_ethernet_pcs_pma_0_sgmii_TXN,
-      txp => gig_ethernet_pcs_pma_0_sgmii_TXP,
-      userclk2_out => NLW_gig_ethernet_pcs_pma_0_userclk2_out_UNCONNECTED,
+      txn => gig_ethernet_pcs_pma_0_sfp_TXN,
+      txp => gig_ethernet_pcs_pma_0_sfp_TXP,
+      userclk2_out => gig_ethernet_pcs_pma_0_userclk2_out,
       userclk_out => NLW_gig_ethernet_pcs_pma_0_userclk_out_UNCONNECTED
     );
 processing_system7_0: component system_design_processing_system7_0_0
@@ -2543,11 +2537,11 @@ processing_system7_0: component system_design_processing_system7_0_0
       ENET1_GMII_COL => xlconstant_4_dout(0),
       ENET1_GMII_CRS => xlconstant_6_dout(0),
       ENET1_GMII_RXD(7 downto 0) => gig_ethernet_pcs_pma_0_gmii_rxd(7 downto 0),
-      ENET1_GMII_RX_CLK => gig_ethernet_pcs_pma_0_sgmii_clk_r,
+      ENET1_GMII_RX_CLK => gig_ethernet_pcs_pma_0_userclk2_out,
       ENET1_GMII_RX_DV => gig_ethernet_pcs_pma_0_gmii_rx_dv,
       ENET1_GMII_RX_ER => gig_ethernet_pcs_pma_0_gmii_rx_er,
       ENET1_GMII_TXD(7 downto 0) => processing_system7_0_ENET1_GMII_TXD(7 downto 0),
-      ENET1_GMII_TX_CLK => gig_ethernet_pcs_pma_0_sgmii_clk_r,
+      ENET1_GMII_TX_CLK => gig_ethernet_pcs_pma_0_userclk2_out,
       ENET1_GMII_TX_EN(0) => processing_system7_0_ENET1_GMII_TX_EN(0),
       ENET1_GMII_TX_ER(0) => processing_system7_0_ENET1_GMII_TX_ER(0),
       ENET1_MDIO_I => processing_system7_0_MDIO_ETHERNET_1_MDIO_O,

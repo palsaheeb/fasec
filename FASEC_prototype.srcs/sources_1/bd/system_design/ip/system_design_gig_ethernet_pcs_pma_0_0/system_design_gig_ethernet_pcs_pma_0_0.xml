@@ -840,7 +840,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.sfp" xilinx:dependency="(not ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_GTINEX&apos;))))) and (not (spirit:decode(id(PARAM_VALUE.Standard))=&quot;SGMII&quot;)) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.sfp" xilinx:dependency="(not ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_GTINEX&apos;))))) and (not (spirit:decode(id(PARAM_VALUE.Standard))=&quot;SGMII&quot;)) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -1060,7 +1060,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.sgmii" xilinx:dependency="(not ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_GTINEX&apos;))))) and (spirit:decode(id(PARAM_VALUE.Standard))=&quot;SGMII&quot;) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.sgmii" xilinx:dependency="(not ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_GTINEX&apos;))))) and (spirit:decode(id(PARAM_VALUE.Standard))=&quot;SGMII&quot;) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -1499,14 +1499,6 @@
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.ASSOCIATED_RESET">pma_reset_out_port</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.FREQ_HZ">200000000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.CLK_DOMAIN">system_design_processing_system7_0_0_FCLK_CLK2</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2210,10 +2202,6 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_IN.FREQ_HZ">100000000</spirit:value>
-        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2411,18 +2399,6 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_gtrefclk_out</spirit:value>
-        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2457,18 +2433,6 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.PHASE">0</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_gtrefclk_bufg_out</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2610,18 +2574,6 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_userclk_out</spirit:value>
-        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2656,18 +2608,6 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.PHASE">0</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_userclk2_out</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2704,18 +2644,6 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_rxuserclk_out</spirit:value>
-        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2750,18 +2678,6 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.PHASE">0</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_rxuserclk2_out</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -4072,7 +3988,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>344c85ca</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4080,7 +3996,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>2ddab149</spirit:value>
+            <spirit:value>daea5f1e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4098,11 +4014,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:50 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:28 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>98a7b5a6</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4110,7 +4026,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>2ddab149</spirit:value>
+            <spirit:value>daea5f1e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4129,11 +4045,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:50 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:29 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>98a7b5a6</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4141,7 +4057,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>2ddab149</spirit:value>
+            <spirit:value>daea5f1e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4159,11 +4075,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:50 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:28 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>98a7b5a6</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4171,7 +4087,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5f30adbc</spirit:value>
+            <spirit:value>4cc137ea</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4190,11 +4106,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:50 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:29 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>98a7b5a6</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4202,7 +4118,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>5f30adbc</spirit:value>
+            <spirit:value>4cc137ea</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4220,11 +4136,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 13:33:52 UTC 2016</spirit:value>
+            <spirit:value>Fri Nov 04 14:19:30 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>98a7b5a6</spirit:value>
+            <spirit:value>ee39a5ab</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4232,7 +4148,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>2ddab149</spirit:value>
+            <spirit:value>daea5f1e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -4962,7 +4878,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sgmii_clk_r" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sgmii_clk_r" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -4982,7 +4898,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sgmii_clk_f" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sgmii_clk_f" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) and (not (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_USE_LVDS&apos;))) and  ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = false() or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_IS_SGMII&apos;))) = true() and (((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;zynquplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;kintexuplus&quot;) or ((spirit:decode(id(&apos;MODELPARAM_VALUE.C_ARCHITECTURE&apos;))) = &quot;virtexuplus&quot;)) )))))">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -14237,7 +14153,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_is_sgmii</spirit:name>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_is_sgmii">true</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.c_is_sgmii">false</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="boolean">
         <spirit:name>c_use_transceiver</spirit:name>
@@ -14445,6 +14361,10 @@
       <spirit:enumeration>Custom</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
+      <spirit:name>choice_pairs_0518389f</spirit:name>
+      <spirit:enumeration spirit:text="Device Specific Transceiver">Transceiver</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_pairs_132eef99</spirit:name>
       <spirit:enumeration spirit:text="1G">1G</spirit:enumeration>
       <spirit:enumeration spirit:text="2 5G">2_5G</spirit:enumeration>
@@ -14474,11 +14394,6 @@
       <spirit:name>choice_pairs_b2abe35f</spirit:name>
       <spirit:enumeration spirit:text="Include Shared Logic in Core">Include_Shared_Logic_in_Core</spirit:enumeration>
       <spirit:enumeration spirit:text="Include Shared Logic in Example Design">Include_Shared_Logic_in_Example_Design</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_pairs_e492f34d</spirit:name>
-      <spirit:enumeration spirit:text="Device Specific Transceiver">Transceiver</spirit:enumeration>
-      <spirit:enumeration spirit:text="LVDS Serial">LVDS</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_pairs_f63af514</spirit:name>
@@ -14533,15 +14448,15 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_multi_gt.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -14557,19 +14472,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_johnson_cntr.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>synth/system_design_gig_ethernet_pcs_pma_0_0_reset_sync.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -14641,15 +14544,15 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_multi_gt.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_gtwizard_gt.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -14665,19 +14568,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_johnson_cntr.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>synth/system_design_gig_ethernet_pcs_pma_0_0_reset_sync.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>synth/transceiver/system_design_gig_ethernet_pcs_pma_0_0_rx_elastic_buffer.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>synth/sgmii_adapt/system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -14751,7 +14642,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Standard</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Standard" spirit:choiceRef="choice_list_59cf7c2a" spirit:order="10000" spirit:configGroups="1 UnGrouped">SGMII</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Standard" spirit:choiceRef="choice_list_59cf7c2a" spirit:order="10000" spirit:configGroups="1 UnGrouped">1000BASEX</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MaxDataRate</spirit:name>
@@ -14759,7 +14650,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Physical_Interface</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Physical_Interface" spirit:choiceRef="choice_pairs_e492f34d" spirit:order="20000" spirit:configGroups="2 UnGrouped">Transceiver</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Physical_Interface" spirit:choiceRef="choice_pairs_0518389f" spirit:order="20000" spirit:configGroups="2 UnGrouped">Transceiver</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Management_Interface</spirit:name>
@@ -14933,22 +14824,19 @@
       <xilinx:displayName>1G/2.5G Ethernet PCS/PMA or SGMII</xilinx:displayName>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:configElementInfos>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_BUFG_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_IN.FREQ_HZ" xilinx:valueSource="user_prop"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.FREQ_HZ" xilinx:valueSource="user_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXOUTCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK2_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.TXOUTCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK2_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.USERCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Auto_Negotiation" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_PHYADDR" xilinx:valueSource="user"/>

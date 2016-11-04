@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Fri Nov  4 14:33:46 2016
+--Date        : Fri Nov  4 15:20:01 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -61,10 +61,10 @@ entity system_design_wrapper is
     pb_gp_i : in STD_LOGIC;
     sfp_moddef1_scl : inout STD_LOGIC;
     sfp_moddef2_sda : inout STD_LOGIC;
-    sgmii_rtl_rxn : in STD_LOGIC;
-    sgmii_rtl_rxp : in STD_LOGIC;
-    sgmii_rtl_txn : out STD_LOGIC;
-    sgmii_rtl_txp : out STD_LOGIC;
+    sfp_rtl_rxn : in STD_LOGIC;
+    sfp_rtl_rxp : in STD_LOGIC;
+    sfp_rtl_txn : out STD_LOGIC;
+    sfp_rtl_txp : out STD_LOGIC;
     t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
 end system_design_wrapper;
@@ -93,10 +93,6 @@ architecture STRUCTURE of system_design_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    sgmii_rtl_rxn : in STD_LOGIC;
-    sgmii_rtl_rxp : in STD_LOGIC;
-    sgmii_rtl_txn : out STD_LOGIC;
-    sgmii_rtl_txp : out STD_LOGIC;
     diff_clock_rtl_clk_n : in STD_LOGIC;
     diff_clock_rtl_clk_p : in STD_LOGIC;
     pb_gp_i : in STD_LOGIC;
@@ -124,7 +120,11 @@ architecture STRUCTURE of system_design_wrapper is
     osc100_clk_i : in STD_LOGIC;
     t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 );
     sfp_moddef1_scl : inout STD_LOGIC;
-    sfp_moddef2_sda : inout STD_LOGIC
+    sfp_moddef2_sda : inout STD_LOGIC;
+    sfp_rtl_rxn : in STD_LOGIC;
+    sfp_rtl_rxp : in STD_LOGIC;
+    sfp_rtl_txn : out STD_LOGIC;
+    sfp_rtl_txp : out STD_LOGIC
   );
   end component system_design;
 begin
@@ -178,10 +178,10 @@ system_design_i: component system_design
       pb_gp_i => pb_gp_i,
       sfp_moddef1_scl => sfp_moddef1_scl,
       sfp_moddef2_sda => sfp_moddef2_sda,
-      sgmii_rtl_rxn => sgmii_rtl_rxn,
-      sgmii_rtl_rxp => sgmii_rtl_rxp,
-      sgmii_rtl_txn => sgmii_rtl_txn,
-      sgmii_rtl_txp => sgmii_rtl_txp,
+      sfp_rtl_rxn => sfp_rtl_rxn,
+      sfp_rtl_rxp => sfp_rtl_rxp,
+      sfp_rtl_txn => sfp_rtl_txn,
+      sfp_rtl_txp => sfp_rtl_txp,
       t_wr_txdisable(0) => t_wr_txdisable(0)
     );
 end STRUCTURE;

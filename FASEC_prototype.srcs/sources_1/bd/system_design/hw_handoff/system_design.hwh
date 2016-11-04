@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  4 14:33:52 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  4 15:20:01 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -25,10 +25,6 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef"/>
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
-    <PORT DIR="I" NAME="sgmii_rtl_rxn" SIGIS="undef"/>
-    <PORT DIR="I" NAME="sgmii_rtl_rxp" SIGIS="undef"/>
-    <PORT DIR="O" NAME="sgmii_rtl_txn" SIGIS="undef"/>
-    <PORT DIR="O" NAME="sgmii_rtl_txp" SIGIS="undef"/>
     <PORT DIR="I" NAME="diff_clock_rtl_clk_n" SIGIS="undef"/>
     <PORT DIR="I" NAME="diff_clock_rtl_clk_p" SIGIS="undef"/>
     <PORT DIR="I" NAME="pb_gp_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
@@ -161,6 +157,10 @@
         <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="i2c_sda_io"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="sfp_rtl_rxn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="sfp_rtl_rxp" SIGIS="undef"/>
+    <PORT DIR="O" NAME="sfp_rtl_txn" SIGIS="undef"/>
+    <PORT DIR="O" NAME="sfp_rtl_txp" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -206,19 +206,19 @@
         <PORTMAP LOGICAL="PS_PORB" PHYSICAL="FIXED_IO_ps_porb"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="gig_ethernet_pcs_pma_0_sgmii" NAME="sgmii_rtl" TYPE="INITIATOR">
-      <PORTMAPS>
-        <PORTMAP LOGICAL="RXN" PHYSICAL="sgmii_rtl_rxn"/>
-        <PORTMAP LOGICAL="RXP" PHYSICAL="sgmii_rtl_rxp"/>
-        <PORTMAP LOGICAL="TXN" PHYSICAL="sgmii_rtl_txn"/>
-        <PORTMAP LOGICAL="TXP" PHYSICAL="sgmii_rtl_txp"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
     <BUSINTERFACE BUSNAME="External_Interface_diff_clock_rtl" NAME="diff_clock_rtl" TYPE="TARGET">
       <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
       <PORTMAPS>
         <PORTMAP LOGICAL="CLK_N" PHYSICAL="diff_clock_rtl_clk_n"/>
         <PORTMAP LOGICAL="CLK_P" PHYSICAL="diff_clock_rtl_clk_p"/>
+      </PORTMAPS>
+    </BUSINTERFACE>
+    <BUSINTERFACE BUSNAME="gig_ethernet_pcs_pma_0_sfp" NAME="sfp_rtl" TYPE="INITIATOR">
+      <PORTMAPS>
+        <PORTMAP LOGICAL="RXN" PHYSICAL="sfp_rtl_rxn"/>
+        <PORTMAP LOGICAL="RXP" PHYSICAL="sfp_rtl_rxp"/>
+        <PORTMAP LOGICAL="TXN" PHYSICAL="sfp_rtl_txn"/>
+        <PORTMAP LOGICAL="TXP" PHYSICAL="sfp_rtl_txp"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
@@ -852,7 +852,7 @@
     <MODULE FULLNAME="/drive_constants/xlconstant_5" HWVERSION="1.1" INSTANCE="drive_constants_xlconstant_5" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CONST_VAL" VALUE="0011111010100001"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="1000011010100001"/>
         <PARAMETER NAME="CONST_WIDTH" VALUE="16"/>
         <PARAMETER NAME="Component_Name" VALUE="system_design_xlconstant_3_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -869,7 +869,7 @@
     <MODULE FULLNAME="/drive_constants/xlconstant_7" HWVERSION="1.1" INSTANCE="drive_constants_xlconstant_7" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CONST_VAL" VALUE="10000"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="00000"/>
         <PARAMETER NAME="CONST_WIDTH" VALUE="5"/>
         <PARAMETER NAME="Component_Name" VALUE="system_design_xlconstant_0_2"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -1174,7 +1174,7 @@
         <PARAMETER NAME="c_component_name" VALUE="system_design_gig_ethernet_pcs_pma_0_0"/>
         <PARAMETER NAME="c_family" VALUE="zynq"/>
         <PARAMETER NAME="c_architecture" VALUE="zynq"/>
-        <PARAMETER NAME="c_is_sgmii" VALUE="true"/>
+        <PARAMETER NAME="c_is_sgmii" VALUE="false"/>
         <PARAMETER NAME="c_use_transceiver" VALUE="true"/>
         <PARAMETER NAME="c_use_tbi" VALUE="false"/>
         <PARAMETER NAME="c_is_2_5g" VALUE="false"/>
@@ -1217,7 +1217,7 @@
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
         <PARAMETER NAME="ETHERNET_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="DIFFCLK_BOARD_INTERFACE" VALUE="Custom"/>
-        <PARAMETER NAME="Standard" VALUE="SGMII"/>
+        <PARAMETER NAME="Standard" VALUE="1000BASEX"/>
         <PARAMETER NAME="MaxDataRate" VALUE="1G"/>
         <PARAMETER NAME="Physical_Interface" VALUE="Transceiver"/>
         <PARAMETER NAME="Management_Interface" VALUE="true"/>
@@ -1262,19 +1262,17 @@
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="62500000" DIR="O" NAME="userclk_out" SIGIS="clk"/>
-        <PORT CLKFREQUENCY="125000000" DIR="O" NAME="userclk2_out" SIGIS="clk"/>
-        <PORT CLKFREQUENCY="62500000" DIR="O" NAME="rxuserclk_out" SIGIS="clk"/>
-        <PORT CLKFREQUENCY="62500000" DIR="O" NAME="rxuserclk2_out" SIGIS="clk"/>
-        <PORT DIR="O" NAME="resetdone" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pma_reset_out" SIGIS="rst"/>
-        <PORT DIR="O" NAME="mmcm_locked_out" SIGIS="undef"/>
-        <PORT DIR="O" NAME="sgmii_clk_r" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_sgmii_clk_r">
+        <PORT CLKFREQUENCY="125000000" DIR="O" NAME="userclk2_out" SIGIS="clk" SIGNAME="gig_ethernet_pcs_pma_0_userclk2_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_CLK"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_CLK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sgmii_clk_f" SIGIS="undef"/>
+        <PORT CLKFREQUENCY="62500000" DIR="O" NAME="rxuserclk_out" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="62500000" DIR="O" NAME="rxuserclk2_out" SIGIS="clk"/>
+        <PORT DIR="O" NAME="resetdone" SIGIS="undef"/>
+        <PORT DIR="O" NAME="pma_reset_out" SIGIS="rst"/>
+        <PORT DIR="O" NAME="mmcm_locked_out" SIGIS="undef"/>
         <PORT DIR="O" NAME="gmii_txclk" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txclk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_CLK"/>
@@ -1409,7 +1407,7 @@
             <PORTMAP LOGICAL="TXD" PHYSICAL="gmii_txd"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="gig_ethernet_pcs_pma_0_sgmii" NAME="sgmii" TYPE="INITIATOR" VLNV="xilinx.com:interface:sfp:1.0">
+        <BUSINTERFACE BUSNAME="gig_ethernet_pcs_pma_0_sfp" NAME="sfp" TYPE="INITIATOR" VLNV="xilinx.com:interface:sfp:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="RXN" PHYSICAL="rxn"/>
             <PORTMAP LOGICAL="RXP" PHYSICAL="rxp"/>
@@ -2402,7 +2400,7 @@
         </PORT>
         <PORT DIR="I" NAME="ENET1_GMII_RX_CLK" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rxclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="sgmii_clk_r"/>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="userclk2_out"/>
           </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rxclk"/>
@@ -2426,7 +2424,7 @@
         </PORT>
         <PORT DIR="I" NAME="ENET1_GMII_TX_CLK" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txclk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="sgmii_clk_r"/>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="userclk2_out"/>
           </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_txclk"/>

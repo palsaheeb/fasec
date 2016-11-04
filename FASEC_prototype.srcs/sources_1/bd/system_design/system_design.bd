@@ -127,12 +127,6 @@
         <spirit:abstractionType spirit:library="display_processing_system7" spirit:name="fixedio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>sgmii_rtl</spirit:name>
-        <spirit:master/>
-        <spirit:busType spirit:library="interface" spirit:name="sgmii" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="sgmii_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>diff_clock_rtl</spirit:name>
         <spirit:slave/>
         <spirit:busType spirit:library="interface" spirit:name="diff_clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -148,6 +142,12 @@
             </spirit:vendorExtensions>
           </spirit:parameter>
         </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>sfp_rtl</spirit:name>
+        <spirit:master/>
+        <spirit:busType spirit:library="interface" spirit:name="sfp" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="sfp_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
@@ -496,7 +496,7 @@
         <spirit:componentRef spirit:library="ip" spirit:name="gig_ethernet_pcs_pma" spirit:vendor="xilinx.com" spirit:version="15.2"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_gig_ethernet_pcs_pma_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Standard">SGMII</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Standard">1000BASEX</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Physical_Interface">Transceiver</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Ext_Management_Interface">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Auto_Negotiation">true</spirit:configurableElementValue>
@@ -821,8 +821,8 @@
         <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_tx_en"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>gig_ethernet_pcs_pma_0_sgmii_clk_r</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="sgmii_clk_r"/>
+        <spirit:name>gig_ethernet_pcs_pma_0_userclk2_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="userclk2_out"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_RX_CLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_TX_CLK"/>
       </spirit:adHocConnection>
@@ -834,11 +834,11 @@
       <spirit:hierConnection spirit:interfaceRef="FIXED_IO/processing_system7_0_FIXED_IO">
         <spirit:activeInterface spirit:busRef="FIXED_IO" spirit:componentRef="processing_system7_0"/>
       </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="sgmii_rtl/gig_ethernet_pcs_pma_0_sgmii">
-        <spirit:activeInterface spirit:busRef="sgmii" spirit:componentRef="gig_ethernet_pcs_pma_0"/>
-      </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="diff_clock_rtl/diff_clock_rtl_1">
         <spirit:activeInterface spirit:busRef="gtrefclk_in" spirit:componentRef="gig_ethernet_pcs_pma_0"/>
+      </spirit:hierConnection>
+      <spirit:hierConnection spirit:interfaceRef="sfp_rtl/gig_ethernet_pcs_pma_0_sfp">
+        <spirit:activeInterface spirit:busRef="sfp" spirit:componentRef="gig_ethernet_pcs_pma_0"/>
       </spirit:hierConnection>
     </spirit:hierConnections>
   </spirit:design>
@@ -933,7 +933,7 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_xlconstant_0_2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CONST_WIDTH">5</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">10000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -950,7 +950,7 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_xlconstant_3_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CONST_WIDTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">1101100000100001</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">100001</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>

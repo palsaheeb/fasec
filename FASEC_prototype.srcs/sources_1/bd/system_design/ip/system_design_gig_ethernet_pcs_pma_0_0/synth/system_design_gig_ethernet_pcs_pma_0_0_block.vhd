@@ -54,39 +54,28 @@
 -- Description: This Core Block Level wrapper connects the core to a
 --              Series-7 Transceiver.
 --
---              The SGMII adaptation module is provided to convert
---              between 1Gbps and 10/100 Mbps rates.  This is connected
---              to the MAC side of the core to provide a GMII style
---              interface.  When the core is running at 1Gbps speeds,
---              the GMII (8-bitdata pathway) is used at a clock
---              frequency of 125MHz.  When the core is running at
---              100Mbps, a clock frequency of 12.5MHz is used.  When
---              running at 100Mbps speeds, a clock frequency of 1.25MHz
---              is used.
 --
---    ----------------------------------------------------------------
---    |                   Core Block Level Wrapper                   |
---    |                                                              |
---    |                                                              |
---    |                  --------------          --------------      |
---    |                  |    Core    |          | Transceiver|      |
---    |                  |            |          |            |      |
---    |    ---------     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    | SGMII |     |            |          |            |      |
---  ------>| Adapt |---->| GMII       |--------->|        TXP |-------->
---    |    | Module|     | Tx         |          |        TXN |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     |            |          |            |      |
---    |    |       |     | GMII       |          |        RXP |      |
---  <------|       |<----| Rx         |<---------|        RXN |<--------
---    |    |       |     |            |          |            |      |
---    |    ---------     --------------          --------------      |
---    |                                                              |
---    ----------------------------------------------------------------
+--   ------------------------------------------------------------
+--   |                      Core Block wrapper                  |
+--   |                                                          |
+--   |        ------------------          -----------------     |
+--   |        |      Core      |          | Transceiver   |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+-- ---------->| GMII           |--------->|           TXP |-------->
+--   |        | Tx             |          |           TXN |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        |                |          |               |     |
+--   |        | GMII           |          |           RXP |     |
+-- <----------| Rx             |<---------|           RXN |<--------
+--   |        |                |          |               |     |
+--   |        ------------------          -----------------     |
+--   |                                                          |
+--   ------------------------------------------------------------
 --
 --
 
@@ -133,9 +122,6 @@ entity system_design_gig_ethernet_pcs_pma_0_0_block is
  
       -- GMII Interface
       -----------------
-      sgmii_clk_r            : out std_logic;                  -- Clock for client MAC
-      sgmii_clk_f            : out std_logic;                  -- Clock for client MAC
-
       gmii_txclk             : out std_logic;                    
       gmii_rxclk             : out std_logic;                    
       gmii_txd               : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
@@ -180,50 +166,6 @@ architecture block_level of system_design_gig_ethernet_pcs_pma_0_0_block is
 
    attribute DowngradeIPIdentifiedWarnings: string;
    attribute DowngradeIPIdentifiedWarnings of block_level : architecture is "yes";
-
-
-   -----------------------------------------------------------------------------
-   -- Component Declaration for the SGMII adaptation module
-   -----------------------------------------------------------------------------
-   component system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt
-      port(
-
-      reset                : in std_logic;                     -- Asynchronous reset for entire core.
-
-      -- Clock derivation
-      -------------------
-
-      clk125m              : in std_logic;                    
-      sgmii_clk_r          : out std_logic;                    -- Clock to client MAC  (to rising edge DDR).
-      sgmii_clk_f          : out std_logic;                    -- Clock to client MAC  (to falling edge DDR).
-
-
-      -- GMII Tx
-      ----------
-      gmii_txd_in          : in std_logic_vector(7 downto 0);  -- Transmit data from client MAC.
-      gmii_tx_en_in        : in std_logic;                     -- Transmit data valid signal from client MAC.
-      gmii_tx_er_in        : in std_logic;                     -- Transmit error signal from client MAC.
-      gmii_rxd_out         : out std_logic_vector(7 downto 0); -- Received Data to client MAC.
-      gmii_rx_dv_out       : out std_logic;                    -- Received data valid signal to client MAC.
-      gmii_rx_er_out       : out std_logic;                    -- Received error signal to client MAC.
-
-      -- GMII Rx
-      ----------
-      gmii_rxd_in          : in std_logic_vector(7 downto 0);  -- Received Data to client MAC.
-      gmii_rx_dv_in        : in std_logic;                     -- Received data valid signal to client MAC.
-      gmii_rx_er_in        : in std_logic;                     -- Received error signal to client MAC.
-      gmii_txd_out         : out std_logic_vector(7 downto 0); -- Transmit data from client MAC.
-      gmii_tx_en_out       : out std_logic;                    -- Transmit data valid signal from client MAC.
-      gmii_tx_er_out       : out std_logic;                    -- Transmit error signal from client MAC.
-
-      -- Speed Control
-      ----------------
-      speed_is_10_100      : in std_logic;                     -- Core should operate at either 10Mbps or 100Mbps speeds
-      speed_is_100         : in std_logic                      -- Core should operate at 100Mbps speed
-
-      );
-   end component;
-
 
 
    -----------------------------------------------------------------------------
@@ -470,32 +412,13 @@ architecture block_level of system_design_gig_ethernet_pcs_pma_0_0_block is
   signal txcharisk         : std_logic;                        -- K character transmitted in TXDATA.
   signal txdata            : std_logic_vector(7 downto 0);     -- Data for 8B/10B encoding.
   signal enablealign       : std_logic;                        -- Allow the transceivers to serially realign to a comma character.
-
-  -- GMII signals routed between core and SGMII Adaptation Module
-  signal gmii_txd_int      : std_logic_vector(7 downto 0);     -- Internal gmii_txd signal (between core and SGMII adaptation module).
-  signal gmii_tx_en_int    : std_logic;                        -- Internal gmii_tx_en signal (between core and SGMII adaptation module).
-  signal gmii_tx_er_int    : std_logic;                        -- Internal gmii_tx_er signal (between core and SGMII adaptation module).
-  signal gmii_rxd_int      : std_logic_vector(7 downto 0);     -- Internal gmii_rxd signal (between core and SGMII adaptation module).
-  signal gmii_rx_dv_int    : std_logic;                        -- Internal gmii_rx_dv signal (between core and SGMII adaptation module).
-  signal gmii_rx_er_int    : std_logic;                        -- Internal gmii_rx_er signal (between core and SGMII adaptation module).
-
-  -- clock generation signals for SGMII clock
   signal status_vector_i   : std_logic_vector(15 downto 0);    -- Internal status vector signal.
 
-  signal speed_is_10_100   : std_logic;
-  signal speed_is_100      : std_logic;
-  signal an_enable         : std_logic;
-  signal speed_selection   : std_logic_vector(1 downto 0);
-  signal speed_mode_aneg   : std_logic_vector(1 downto 0);
-  signal speed_mode_noaneg : std_logic_vector(1 downto 0);
-  signal speed_mode_int    : std_logic_vector(1 downto 0); 
 constant EXAMPLE_SIMULATION    : integer := 0 ;
 
   signal phyaddress : std_logic_vector(4 downto 0);
   signal link_timer_value     : std_logic_vector(9 downto 0);  -- Programmable Auto-Negotiation Link Timer Control
 
-signal sgmii_clk_r_i :std_logic;
-signal sgmii_clk_f_i :std_logic;
 
 signal gt0_txresetdone_out_i : std_logic;
 signal gt0_rxresetdone_out_i : std_logic;
@@ -508,75 +431,16 @@ signal mdio_t_int : std_logic;
 
 begin
 
+gmii_txclk   <= userclk2;
+gmii_rxclk   <= userclk2;
 
-gmii_txclk   <= sgmii_clk_r_i;
-gmii_rxclk   <= sgmii_clk_r_i;
 
-sgmii_clk_r <= sgmii_clk_r_i;
-sgmii_clk_f <= sgmii_clk_f_i;
 
  mdio_o      <=  mdio_o_int;
  mdio_t      <=  mdio_t_int ;
 
 phyaddress <= std_logic_vector(to_unsigned(9, phyaddress'length));
-  link_timer_value <= "0000000100" when EXAMPLE_SIMULATION =1 else "0000110010" ;
-
-  ------------------------------------------------------------------------------
-  -- Component Instantiation for the SGMII adaptation module
-  ------------------------------------------------------------------------------
-  -- GEM is MAC in this configuration. GEM does not give out the line-rate indication signals
-  -- speed_is_10_100 and speed_is_10. These signals are derived.
-
-  -- Speed information when Auto-Negotiation is enabled
-  speed_mode_aneg <= status_vector_i(11 downto 10);
-
-  -- Speed information when Auto-Negotiation is disabled
-  speed_mode_noaneg <= speed_selection;
-
-  -- The correct speed indication is decided based on ANEG enabaled or not
-  speed_mode_int <= speed_mode_aneg when an_enable = '1' else
-                    speed_mode_noaneg;
-
-  speed_decode: process(speed_mode_int)
-  begin  -- process
-    case speed_mode_int(1 downto 0) is
-      when "00"  =>
-        speed_is_10_100 <= '1';
-        speed_is_100    <= '0';
-      when "01"  =>
-        speed_is_10_100 <= '1';
-        speed_is_100    <= '1';
-      when others =>
-        speed_is_10_100 <= '0';
-        speed_is_100    <= '0';
-    end case;
-  end process speed_decode;
-
-
-
-  sgmii_logic : system_design_gig_ethernet_pcs_pma_0_0_sgmii_adapt
-  port map (
-
-     reset                => mgt_tx_reset,
-     clk125m              => userclk2,
-     sgmii_clk_r          => sgmii_clk_r_i,
-     sgmii_clk_f          => sgmii_clk_f_i,
-     gmii_txd_in          => gmii_txd,
-     gmii_tx_en_in        => gmii_tx_en,
-     gmii_tx_er_in        => gmii_tx_er,
-     gmii_rxd_in          => gmii_rxd_int,
-     gmii_rx_dv_in        => gmii_rx_dv_int,
-     gmii_rx_er_in        => gmii_rx_er_int,
-     gmii_rxd_out         => gmii_rxd,
-     gmii_rx_dv_out       => gmii_rx_dv,
-     gmii_rx_er_out       => gmii_rx_er,
-     gmii_txd_out         => gmii_txd_int,
-     gmii_tx_en_out       => gmii_tx_en_int,
-     gmii_tx_er_out       => gmii_tx_er_int,
-     speed_is_10_100      => speed_is_10_100,
-     speed_is_100         => speed_is_100
-     );
-
+  link_timer_value <= "0000000100" when EXAMPLE_SIMULATION =1 else "0100111101" ;
 
   ------------------------------------------------------------------------------
   -- Instantiate the core
@@ -588,7 +452,7 @@ phyaddress <= std_logic_vector(to_unsigned(9, phyaddress'length));
       C_COMPONENT_NAME            => "system_design_gig_ethernet_pcs_pma_0_0",
       C_RX_GMII_CLK               => "TXOUTCLK",
       C_FAMILY                    => "zynq",
-      C_IS_SGMII                  => true,
+      C_IS_SGMII                  => false,
       C_USE_TRANSCEIVER           => true,
       C_HAS_TEMAC                 => false,
       C_USE_TBI                   => false,
@@ -627,12 +491,12 @@ phyaddress <= std_logic_vector(to_unsigned(9, phyaddress'length));
       txdata               => txdata,
       enablealign          => enablealign,
       rxrecclk             => rxuserclk2,
-      gmii_txd             => gmii_txd_int,
-      gmii_tx_en           => gmii_tx_en_int,
-      gmii_tx_er           => gmii_tx_er_int,
-      gmii_rxd             => gmii_rxd_int,
-      gmii_rx_dv           => gmii_rx_dv_int,
-      gmii_rx_er           => gmii_rx_er_int,
+      gmii_txd             => gmii_txd,
+      gmii_tx_en           => gmii_tx_en,
+      gmii_tx_er           => gmii_tx_er,
+      gmii_rxd             => gmii_rxd,
+      gmii_rx_dv           => gmii_rx_dv,
+      gmii_rx_er           => gmii_rx_er,
       gmii_isolate         => gmii_isolate,
       mdc                  => mdc,
       mdio_in              => mdio_i,
@@ -650,8 +514,8 @@ phyaddress <= std_logic_vector(to_unsigned(9, phyaddress'length));
       link_timer_basex     => (others => '0'),
       link_timer_sgmii     => (others => '0'),
       status_vector        => status_vector_i,
-      an_enable            => an_enable,
-      speed_selection      => speed_selection,
+      an_enable            => open,
+      speed_selection      => open,
       reset                => reset,
       signal_detect        => signal_detect,
       -- drp interface used in 1588 mode
