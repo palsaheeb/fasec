@@ -501,7 +501,7 @@
           <spirit:configurableElementValue spirit:referenceId="Ext_Management_Interface">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Auto_Negotiation">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SGMII_Mode">10_100_1000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SGMII_PHY_Mode">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SGMII_PHY_Mode">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="EMAC_IF_TEMAC">GEM</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PHYADDR">9</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SupportLevel">Include_Shared_Logic_in_Core</spirit:configurableElementValue>
@@ -790,6 +790,42 @@
         <spirit:externalPortReference spirit:portRef="sfp_moddef2_sda"/>
         <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="i2c_sda_io"/>
       </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gig_ethernet_pcs_pma_0_gmii_rxd</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_rxd"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_RXD"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gig_ethernet_pcs_pma_0_gmii_rx_er</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_rx_er"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_RX_ER"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gig_ethernet_pcs_pma_0_gmii_rx_dv</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_rx_dv"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_RX_DV"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_ENET1_GMII_TXD</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_TXD"/>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_txd"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_ENET1_GMII_TX_ER</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_TX_ER"/>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_tx_er"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_ENET1_GMII_TX_EN</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_TX_EN"/>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="gmii_tx_en"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gig_ethernet_pcs_pma_0_sgmii_clk_r</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="gig_ethernet_pcs_pma_0" spirit:portRef="sgmii_clk_r"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_RX_CLK"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="ENET1_GMII_TX_CLK"/>
+      </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
       <spirit:hierConnection spirit:interfaceRef="DDR/processing_system7_0_DDR">
@@ -914,7 +950,7 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_xlconstant_3_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CONST_WIDTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">1001010000100001</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">1101100000100001</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>

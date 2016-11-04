@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Tue Nov  1 18:11:29 2016
+--Date        : Fri Nov  4 14:33:46 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -2114,10 +2114,14 @@ architecture STRUCTURE of system_design is
   signal fasec_hwtest_0_led_col_pl_o : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal fasec_hwtest_0_led_line_en_pl_o : STD_LOGIC;
   signal fasec_hwtest_0_led_line_pl_o : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_gmii_rx_dv : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_gmii_rx_er : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_gmii_rxd : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal gig_ethernet_pcs_pma_0_sgmii_RXN : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_sgmii_RXP : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_sgmii_TXN : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_sgmii_TXP : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_sgmii_clk_r : STD_LOGIC;
   signal osc100_clk_i_1 : STD_LOGIC;
   signal pb_gp_i_1 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
@@ -2135,6 +2139,9 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_DDR_RAS_N : STD_LOGIC;
   signal processing_system7_0_DDR_RESET_N : STD_LOGIC;
   signal processing_system7_0_DDR_WE_N : STD_LOGIC;
+  signal processing_system7_0_ENET1_GMII_TXD : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal processing_system7_0_ENET1_GMII_TX_EN : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal processing_system7_0_ENET1_GMII_TX_ER : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK1 : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK2 : STD_LOGIC;
@@ -2145,14 +2152,6 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_FIXED_IO_PS_CLK : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_PORB : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_SRSTB : STD_LOGIC;
-  signal processing_system7_0_GMII_ETHERNET_1_RXD : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal processing_system7_0_GMII_ETHERNET_1_RX_CLK : STD_LOGIC;
-  signal processing_system7_0_GMII_ETHERNET_1_RX_DV : STD_LOGIC;
-  signal processing_system7_0_GMII_ETHERNET_1_RX_ER : STD_LOGIC;
-  signal processing_system7_0_GMII_ETHERNET_1_TXD : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal processing_system7_0_GMII_ETHERNET_1_TX_CLK : STD_LOGIC;
-  signal processing_system7_0_GMII_ETHERNET_1_TX_EN : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal processing_system7_0_GMII_ETHERNET_1_TX_ER : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_MDIO_ETHERNET_1_MDC : STD_LOGIC;
   signal processing_system7_0_MDIO_ETHERNET_1_MDIO_I : STD_LOGIC;
   signal processing_system7_0_MDIO_ETHERNET_1_MDIO_O : STD_LOGIC;
@@ -2288,6 +2287,8 @@ architecture STRUCTURE of system_design is
   signal NLW_fasec_hwtest_0_FMC2_GP3_b_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_an_interrupt_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_gmii_isolate_UNCONNECTED : STD_LOGIC;
+  signal NLW_gig_ethernet_pcs_pma_0_gmii_rxclk_UNCONNECTED : STD_LOGIC;
+  signal NLW_gig_ethernet_pcs_pma_0_gmii_txclk_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_gt0_qplloutclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_gt0_qplloutrefclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_gtrefclk_bufg_out_UNCONNECTED : STD_LOGIC;
@@ -2299,7 +2300,6 @@ architecture STRUCTURE of system_design is
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_sgmii_clk_f_UNCONNECTED : STD_LOGIC;
-  signal NLW_gig_ethernet_pcs_pma_0_sgmii_clk_r_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_userclk2_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_userclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -2484,14 +2484,14 @@ gig_ethernet_pcs_pma_0: component system_design_gig_ethernet_pcs_pma_0_0
       configuration_valid => xlconstant_3_dout(0),
       configuration_vector(4 downto 0) => drive_constants_dout(4 downto 0),
       gmii_isolate => NLW_gig_ethernet_pcs_pma_0_gmii_isolate_UNCONNECTED,
-      gmii_rx_dv => processing_system7_0_GMII_ETHERNET_1_RX_DV,
-      gmii_rx_er => processing_system7_0_GMII_ETHERNET_1_RX_ER,
-      gmii_rxclk => processing_system7_0_GMII_ETHERNET_1_RX_CLK,
-      gmii_rxd(7 downto 0) => processing_system7_0_GMII_ETHERNET_1_RXD(7 downto 0),
-      gmii_tx_en => processing_system7_0_GMII_ETHERNET_1_TX_EN(0),
-      gmii_tx_er => processing_system7_0_GMII_ETHERNET_1_TX_ER(0),
-      gmii_txclk => processing_system7_0_GMII_ETHERNET_1_TX_CLK,
-      gmii_txd(7 downto 0) => processing_system7_0_GMII_ETHERNET_1_TXD(7 downto 0),
+      gmii_rx_dv => gig_ethernet_pcs_pma_0_gmii_rx_dv,
+      gmii_rx_er => gig_ethernet_pcs_pma_0_gmii_rx_er,
+      gmii_rxclk => NLW_gig_ethernet_pcs_pma_0_gmii_rxclk_UNCONNECTED,
+      gmii_rxd(7 downto 0) => gig_ethernet_pcs_pma_0_gmii_rxd(7 downto 0),
+      gmii_tx_en => processing_system7_0_ENET1_GMII_TX_EN(0),
+      gmii_tx_er => processing_system7_0_ENET1_GMII_TX_ER(0),
+      gmii_txclk => NLW_gig_ethernet_pcs_pma_0_gmii_txclk_UNCONNECTED,
+      gmii_txd(7 downto 0) => processing_system7_0_ENET1_GMII_TXD(7 downto 0),
       gt0_qplloutclk_out => NLW_gig_ethernet_pcs_pma_0_gt0_qplloutclk_out_UNCONNECTED,
       gt0_qplloutrefclk_out => NLW_gig_ethernet_pcs_pma_0_gt0_qplloutrefclk_out_UNCONNECTED,
       gtrefclk_bufg_out => NLW_gig_ethernet_pcs_pma_0_gtrefclk_bufg_out_UNCONNECTED,
@@ -2512,7 +2512,7 @@ gig_ethernet_pcs_pma_0: component system_design_gig_ethernet_pcs_pma_0_0
       rxuserclk2_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED,
       rxuserclk_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED,
       sgmii_clk_f => NLW_gig_ethernet_pcs_pma_0_sgmii_clk_f_UNCONNECTED,
-      sgmii_clk_r => NLW_gig_ethernet_pcs_pma_0_sgmii_clk_r_UNCONNECTED,
+      sgmii_clk_r => gig_ethernet_pcs_pma_0_sgmii_clk_r,
       signal_detect => drive_constants_dout4(0),
       status_vector(15 downto 0) => NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED(15 downto 0),
       txn => gig_ethernet_pcs_pma_0_sgmii_TXN,
@@ -2542,14 +2542,14 @@ processing_system7_0: component system_design_processing_system7_0_0
       ENET1_EXT_INTIN => '0',
       ENET1_GMII_COL => xlconstant_4_dout(0),
       ENET1_GMII_CRS => xlconstant_6_dout(0),
-      ENET1_GMII_RXD(7 downto 0) => processing_system7_0_GMII_ETHERNET_1_RXD(7 downto 0),
-      ENET1_GMII_RX_CLK => processing_system7_0_GMII_ETHERNET_1_RX_CLK,
-      ENET1_GMII_RX_DV => processing_system7_0_GMII_ETHERNET_1_RX_DV,
-      ENET1_GMII_RX_ER => processing_system7_0_GMII_ETHERNET_1_RX_ER,
-      ENET1_GMII_TXD(7 downto 0) => processing_system7_0_GMII_ETHERNET_1_TXD(7 downto 0),
-      ENET1_GMII_TX_CLK => processing_system7_0_GMII_ETHERNET_1_TX_CLK,
-      ENET1_GMII_TX_EN(0) => processing_system7_0_GMII_ETHERNET_1_TX_EN(0),
-      ENET1_GMII_TX_ER(0) => processing_system7_0_GMII_ETHERNET_1_TX_ER(0),
+      ENET1_GMII_RXD(7 downto 0) => gig_ethernet_pcs_pma_0_gmii_rxd(7 downto 0),
+      ENET1_GMII_RX_CLK => gig_ethernet_pcs_pma_0_sgmii_clk_r,
+      ENET1_GMII_RX_DV => gig_ethernet_pcs_pma_0_gmii_rx_dv,
+      ENET1_GMII_RX_ER => gig_ethernet_pcs_pma_0_gmii_rx_er,
+      ENET1_GMII_TXD(7 downto 0) => processing_system7_0_ENET1_GMII_TXD(7 downto 0),
+      ENET1_GMII_TX_CLK => gig_ethernet_pcs_pma_0_sgmii_clk_r,
+      ENET1_GMII_TX_EN(0) => processing_system7_0_ENET1_GMII_TX_EN(0),
+      ENET1_GMII_TX_ER(0) => processing_system7_0_ENET1_GMII_TX_ER(0),
       ENET1_MDIO_I => processing_system7_0_MDIO_ETHERNET_1_MDIO_O,
       ENET1_MDIO_MDC => processing_system7_0_MDIO_ETHERNET_1_MDC,
       ENET1_MDIO_O => processing_system7_0_MDIO_ETHERNET_1_MDIO_I,

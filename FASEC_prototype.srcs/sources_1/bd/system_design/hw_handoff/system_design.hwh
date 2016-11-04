@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov  1 18:11:36 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  4 14:33:52 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -852,7 +852,7 @@
     <MODULE FULLNAME="/drive_constants/xlconstant_5" HWVERSION="1.1" INSTANCE="drive_constants_xlconstant_5" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="CONST_VAL" VALUE="1111101010100001"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0011111010100001"/>
         <PARAMETER NAME="CONST_WIDTH" VALUE="16"/>
         <PARAMETER NAME="Component_Name" VALUE="system_design_xlconstant_3_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -1183,7 +1183,7 @@
         <PARAMETER NAME="characterization" VALUE="false"/>
         <PARAMETER NAME="c_has_mdio" VALUE="true"/>
         <PARAMETER NAME="c_has_ext_mdio" VALUE="false"/>
-        <PARAMETER NAME="c_sgmii_phy_mode" VALUE="false"/>
+        <PARAMETER NAME="c_sgmii_phy_mode" VALUE="true"/>
         <PARAMETER NAME="c_dynamic_switching" VALUE="false"/>
         <PARAMETER NAME="c_sgmii_fabric_buffer" VALUE="true"/>
         <PARAMETER NAME="c_1588" VALUE="0"/>
@@ -1225,7 +1225,7 @@
         <PARAMETER NAME="MDIO_BOARD_INTERFACE" VALUE="Custom"/>
         <PARAMETER NAME="Auto_Negotiation" VALUE="true"/>
         <PARAMETER NAME="SGMII_Mode" VALUE="10_100_1000"/>
-        <PARAMETER NAME="SGMII_PHY_Mode" VALUE="false"/>
+        <PARAMETER NAME="SGMII_PHY_Mode" VALUE="true"/>
         <PARAMETER NAME="Enable_1588" VALUE="false"/>
         <PARAMETER NAME="Enable_1588_1step" VALUE="false"/>
         <PARAMETER NAME="Timer_Format" VALUE="Time_of_day"/>
@@ -1268,7 +1268,12 @@
         <PORT DIR="O" NAME="resetdone" SIGIS="undef"/>
         <PORT DIR="O" NAME="pma_reset_out" SIGIS="rst"/>
         <PORT DIR="O" NAME="mmcm_locked_out" SIGIS="undef"/>
-        <PORT DIR="O" NAME="sgmii_clk_r" SIGIS="undef"/>
+        <PORT DIR="O" NAME="sgmii_clk_r" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_sgmii_clk_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_CLK"/>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_CLK"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="sgmii_clk_f" SIGIS="undef"/>
         <PORT DIR="O" NAME="gmii_txclk" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txclk">
           <CONNECTIONS>
@@ -1280,22 +1285,28 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_CLK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="gmii_txd" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txd">
+        <PORT DIR="I" LEFT="7" NAME="gmii_txd" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TXD">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TXD"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TXD"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="gmii_tx_en" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_tx_en">
+        <PORT DIR="I" NAME="gmii_tx_en" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TX_EN">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_EN"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_EN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="gmii_tx_er" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_tx_er">
+        <PORT DIR="I" NAME="gmii_tx_er" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TX_ER">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_ER"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_TX_ER"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="gmii_rxd" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rxd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RXD"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RXD"/>
           </CONNECTIONS>
@@ -1304,8 +1315,14 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_DV"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_DV"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="gmii_rx_er" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rx_er">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_ER"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="ENET1_GMII_RX_ER"/>
           </CONNECTIONS>
@@ -2340,13 +2357,15 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="0" NAME="ENET1_GMII_TX_EN" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_tx_en">
+        <PORT DIR="O" LEFT="0" NAME="ENET1_GMII_TX_EN" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TX_EN">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_tx_en"/>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_tx_en"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="ENET1_GMII_TX_ER" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_tx_er">
+        <PORT DIR="O" LEFT="0" NAME="ENET1_GMII_TX_ER" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TX_ER">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_tx_er"/>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_tx_er"/>
           </CONNECTIONS>
         </PORT>
@@ -2365,8 +2384,9 @@
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="mdio_t"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="ENET1_GMII_TXD" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txd">
+        <PORT DIR="O" LEFT="7" NAME="ENET1_GMII_TXD" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET1_GMII_TXD">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_txd"/>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_txd"/>
           </CONNECTIONS>
         </PORT>
@@ -2382,10 +2402,16 @@
         </PORT>
         <PORT DIR="I" NAME="ENET1_GMII_RX_CLK" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rxclk">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="sgmii_clk_r"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rxclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ENET1_GMII_RX_DV" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rx_dv">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rx_dv"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rx_dv"/>
           </CONNECTIONS>
@@ -2394,8 +2420,14 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rx_er"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rx_er"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ENET1_GMII_TX_CLK" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_txclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="sgmii_clk_r"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_txclk"/>
           </CONNECTIONS>
@@ -2407,6 +2439,9 @@
         </PORT>
         <PORT DIR="I" NAME="ENET1_EXT_INTIN" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
         <PORT DIR="I" LEFT="7" NAME="ENET1_GMII_RXD" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_gmii_rxd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rxd"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="gmii_rxd"/>
           </CONNECTIONS>
