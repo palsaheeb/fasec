@@ -35,13 +35,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="38"/>
-    <Option Name="WTModelSimExportSim" Val="38"/>
-    <Option Name="WTQuestaExportSim" Val="38"/>
-    <Option Name="WTIesExportSim" Val="38"/>
-    <Option Name="WTVcsExportSim" Val="38"/>
-    <Option Name="WTRivieraExportSim" Val="38"/>
-    <Option Name="WTActivehdlExportSim" Val="38"/>
+    <Option Name="WTXSimExportSim" Val="40"/>
+    <Option Name="WTModelSimExportSim" Val="40"/>
+    <Option Name="WTQuestaExportSim" Val="40"/>
+    <Option Name="WTIesExportSim" Val="40"/>
+    <Option Name="WTVcsExportSim" Val="40"/>
+    <Option Name="WTRivieraExportSim" Val="40"/>
+    <Option Name="WTActivehdlExportSim" Val="40"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -52,29 +52,29 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_rst_processing_system7_0_100M_2/system_design_rst_processing_system7_0_100M_2.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_0_0/system_design_axi_wb_i2c_master_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_1_0/system_design_axi_wb_i2c_master_1_0.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xbar_0/system_design_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_processing_system7_0_axi_periph_3/system_design_processing_system7_0_axi_periph_3.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_processing_system7_0_0/system_design_processing_system7_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_fasec_hwtest_0_0/system_design_fasec_hwtest_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_0_0/system_design_axi_wb_i2c_master_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hdl/system_design.hwdef"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="system_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_auto_pc_0/system_design_auto_pc_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_2_0/system_design_axi_wb_i2c_master_2_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hdl/system_design.vhd"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_2/system_design_xlconstant_3_2.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_0_2/system_design_xlconstant_0_2.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_0/system_design_xlconstant_3_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_2/system_design_xlconstant_3_2.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_1/system_design_xlconstant_3_1.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_0/system_design_xlconstant_3_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_0_1/system_design_xlconstant_0_1.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_1_1/system_design_xlconstant_1_1.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_1_0/system_design_xlconstant_1_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_0_0/system_design_xlconstant_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_gig_ethernet_pcs_pma_0_0/system_design_gig_ethernet_pcs_pma_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_processing_system7_0_axi_periph_3/system_design_processing_system7_0_axi_periph_3.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="system_design_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_auto_pc_0/system_design_auto_pc_0.xci"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design.hwh"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hdl/system_design.hwdef"/>
-        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xbar_0/system_design_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_1_0/system_design_axi_wb_i2c_master_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_rst_processing_system7_0_100M_2/system_design_rst_processing_system7_0_100M_2.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_fasec_hwtest_0_0/system_design_fasec_hwtest_0_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/system_design/hdl/system_design_wrapper.vhd">
         <FileInfo>

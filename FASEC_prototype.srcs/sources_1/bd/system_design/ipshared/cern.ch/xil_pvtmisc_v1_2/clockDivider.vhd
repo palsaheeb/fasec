@@ -6,12 +6,9 @@
 -- Design Name:  Clock Divider
 -- Module Name:  ClockDiv - rtl 
 -- Project Name:  /
--- Target Devices: Papilio One 500k + LogicStart Megawing
--- Tool versions: ISE 14.7
--- Tool platform: x86_64 GNU/Linux (Fedora, kernel 3.16.6)
 -- Description: Simple clock divider which has a genereric to specify the dividing factor
---                                                                                      g_FACTOR = freq clk_in / freq clk_out
---                                                                                      e.g. with a 32 MHz clock and g_FACTOR 32 000 000 a 1Hz clock will be generated
+--  g_FACTOR = freq clk_in / freq clk_out
+--  e.g. with a 32 MHz clock and g_FACTOR 32 000 000 a 1Hz clock will be generated
 -- Dependencies: 
 --
 -- Revision: 0.01

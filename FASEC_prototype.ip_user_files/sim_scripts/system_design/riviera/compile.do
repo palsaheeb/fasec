@@ -58,23 +58,25 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
 
 vcom -work xil_pvtmisc -93 \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferEdge.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/clockDivider.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/shiftRegister.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/myPackage.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferVector.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBuffer.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/axis_wbm_bridge.vhd" \
-"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_1/axi4lite_slave.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferEdge.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/clockDivider.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/shiftRegister.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/myPackage.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferVector.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBuffer.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/axis_wbm_bridge.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/axi4lite_slave.vhd" \
+"../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/spi_transceiver.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_5_2/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_5_2/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_6_2/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_6_2/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_6_2/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
 "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
-"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_bit_ctrl.vhd" \
-"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_byte_ctrl.vhd" \
-"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_top.vhd" \
-"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5/src/axis_to_i2c_wbs_v1_0.vhd" \
+"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_bit_ctrl.vhd" \
+"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_byte_ctrl.vhd" \
+"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_top.vhd" \
+"../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/axis_to_i2c_wbs_v1_0.vhd" \
 "../../../bd/system_design/ip/system_design_axi_wb_i2c_master_0_0/sim/system_design_axi_wb_i2c_master_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -93 \

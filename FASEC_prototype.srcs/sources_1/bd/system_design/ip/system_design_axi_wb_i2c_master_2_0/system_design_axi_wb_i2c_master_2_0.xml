@@ -372,7 +372,7 @@
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:synthesis</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_vhdlsynthesis_cern_ch_ip_xil_pvtmisc_1_1__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_vhdlsynthesis_cern_ch_ip_xil_pvtmisc_1_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsynthesis_view_fileset</spirit:localName>
@@ -380,7 +380,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 31 14:54:12 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:48 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -392,7 +392,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9a3bbfec</spirit:value>
+            <spirit:value>b31097e1</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -411,7 +411,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 31 15:01:10 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:53 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -423,7 +423,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9a3bbfec</spirit:value>
+            <spirit:value>b31097e1</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -437,7 +437,7 @@
         <spirit:envIdentifier>vhdlSource:vivado.xilinx.com:simulation</spirit:envIdentifier>
         <spirit:language>vhdl</spirit:language>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_vhdlbehavioralsimulation_cern_ch_ip_xil_pvtmisc_1_1__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_vhdlbehavioralsimulation_cern_ch_ip_xil_pvtmisc_1_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:localName>
@@ -445,7 +445,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 31 14:54:12 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:48 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -457,7 +457,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>8e31efe7</spirit:value>
+            <spirit:value>81df0d0b</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -476,7 +476,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Oct 31 15:01:10 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:53 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -488,7 +488,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>8e31efe7</spirit:value>
+            <spirit:value>81df0d0b</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -875,50 +875,55 @@
   </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
-      <spirit:name>xilinx_vhdlsynthesis_cern_ch_ip_xil_pvtmisc_1_1__ref_view_fileset</spirit:name>
+      <spirit:name>xilinx_vhdlsynthesis_cern_ch_ip_xil_pvtmisc_1_2__ref_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferEdge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferEdge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/clockDivider.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/clockDivider.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/shiftRegister.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/shiftRegister.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/myPackage.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/myPackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferVector.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferVector.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBuffer.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBuffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/axis_wbm_bridge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/axis_wbm_bridge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/axi4lite_slave.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/axi4lite_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/spi_transceiver.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
-          <xilinx:componentRef xilinx:vendor="cern.ch" xilinx:library="ip" xilinx:name="xil_pvtmisc" xilinx:version="1.1" xilinx:isGenerated="true" xilinx:checksum="f73f6e8b">
+          <xilinx:componentRef xilinx:vendor="cern.ch" xilinx:library="ip" xilinx:name="xil_pvtmisc" xilinx:version="1.2" xilinx:isGenerated="true" xilinx:checksum="8cb9f350">
             <xilinx:mode xilinx:name="copy_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -933,19 +938,19 @@
         <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_bit_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_bit_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_byte_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_byte_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_top.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_top.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/axis_to_i2c_wbs_v1_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/axis_to_i2c_wbs_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -958,58 +963,64 @@
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
-      <spirit:name>xilinx_vhdlbehavioralsimulation_cern_ch_ip_xil_pvtmisc_1_1__ref_view_fileset</spirit:name>
+      <spirit:name>xilinx_vhdlbehavioralsimulation_cern_ch_ip_xil_pvtmisc_1_2__ref_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferEdge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferEdge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/clockDivider.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/clockDivider.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/shiftRegister.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/shiftRegister.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/myPackage.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/myPackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBufferVector.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferVector.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/doubleBuffer.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBuffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/axis_wbm_bridge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/axis_wbm_bridge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_1/axi4lite_slave.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/axi4lite_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/xil_pvtmisc_v1_2/spi_transceiver.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_pvtmisc</spirit:logicalName>
       </spirit:file>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
-          <xilinx:componentRef xilinx:vendor="cern.ch" xilinx:library="ip" xilinx:name="xil_pvtmisc" xilinx:version="1.1" xilinx:isGenerated="true" xilinx:checksum="f73f6e8b">
+          <xilinx:componentRef xilinx:vendor="cern.ch" xilinx:library="ip" xilinx:name="xil_pvtmisc" xilinx:version="1.2" xilinx:isGenerated="true" xilinx:checksum="8cb9f350">
             <xilinx:mode xilinx:name="copy_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -1018,19 +1029,19 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_bit_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_bit_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_byte_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_byte_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/i2c_master_top.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_top.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5/src/axis_to_i2c_wbs_v1_0.vhd</spirit:name>
+        <spirit:name>../../ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/axis_to_i2c_wbs_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1115,6 +1126,7 @@
         <xilinx:tag xilinx:name="user.org:user:axi_wb_i2c_master:2.4.2_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master/axi_wb_i2c_master_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="user.org:user:axi_wb_i2c_master:2.4.3_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master/axi_wb_i2c_master_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="user.org:user:axi_wb_i2c_master:2.5_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master/axi_wb_i2c_master_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="user.org:user:axi_wb_i2c_master:2.5.1_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master/axi_wb_i2c_master_1.0</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="user"/>
@@ -1147,7 +1159,7 @@
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8950a4ed"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="493665f4"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f9d1b6ec"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="cdf0ca5a"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="153ab480"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="f8fe2751"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="8227b45c"/>

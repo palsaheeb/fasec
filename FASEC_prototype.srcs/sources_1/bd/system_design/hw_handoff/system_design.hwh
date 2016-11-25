@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  4 15:20:01 2016" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 24 19:51:35 2016" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -27,6 +27,10 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
     <PORT DIR="I" NAME="diff_clock_rtl_clk_n" SIGIS="undef"/>
     <PORT DIR="I" NAME="diff_clock_rtl_clk_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="sfp_rtl_rxn" SIGIS="undef"/>
+    <PORT DIR="I" NAME="sfp_rtl_rxp" SIGIS="undef"/>
+    <PORT DIR="O" NAME="sfp_rtl_txn" SIGIS="undef"/>
+    <PORT DIR="O" NAME="sfp_rtl_txp" SIGIS="undef"/>
     <PORT DIR="I" NAME="pb_gp_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="fasec_hwtest_0" PORT="pb_gp_n_i"/>
@@ -157,10 +161,46 @@
         <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="i2c_sda_io"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="sfp_rtl_rxn" SIGIS="undef"/>
-    <PORT DIR="I" NAME="sfp_rtl_rxp" SIGIS="undef"/>
-    <PORT DIR="O" NAME="sfp_rtl_txn" SIGIS="undef"/>
-    <PORT DIR="O" NAME="sfp_rtl_txp" SIGIS="undef"/>
+    <PORT DIR="O" NAME="watchdog_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_watchdog_pl_o">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="watchdog_pl_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="dig_outs_i" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_outs_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_outs_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dig_out5_n" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out5_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_out5_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="dig_out6_n" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out6_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_out6_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="dig_in1_i" SIGIS="undef" SIGNAME="External_Ports_dig_in1_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in1_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="dig_in2_i" SIGIS="undef" SIGNAME="External_Ports_dig_in2_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in2_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="dig_in3_n_i" SIGIS="undef" SIGNAME="External_Ports_dig_in3_n_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in3_n_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="dig_in4_n_i" SIGIS="undef" SIGNAME="External_Ports_dig_in4_n_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in4_n_i"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -224,7 +264,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
+    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -409,7 +449,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
+    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -594,7 +634,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.5" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5">
+    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -883,7 +923,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.5.2" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.5.2">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.6.2" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.6.2">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -893,15 +933,16 @@
         <PARAMETER NAME="g_S00_AXI_ADDR_WIDTH" VALUE="32"/>
         <PARAMETER NAME="g_FMC1" VALUE="EDA-03287"/>
         <PARAMETER NAME="g_FMC2" VALUE="EDA-03287"/>
+        <PARAMETER NAME="g_USE_GEM_LEDS" VALUE="false"/>
         <PARAMETER NAME="Component_Name" VALUE="system_design_fasec_hwtest_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_BASEADDR" VALUE="0x43C20000"/>
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x43C2FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="ps_clk_i" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK1">
+        <PORT DIR="I" NAME="ps_clk_i" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK1"/>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="osc100_clk_i" SIGIS="undef" SIGNAME="External_Ports_osc100_clk_i">
@@ -1005,6 +1046,51 @@
         <PORT DIR="O" NAME="led_line_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_led_line_pl_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="led_line_pl_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="watchdog_pl_o" SIGIS="undef" SIGNAME="fasec_hwtest_0_watchdog_pl_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="watchdog_pl_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="dig_in1_i" SIGIS="undef" SIGNAME="External_Ports_dig_in1_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_in1_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="dig_in2_i" SIGIS="undef" SIGNAME="External_Ports_dig_in2_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_in2_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="dig_in3_n_i" SIGIS="undef" SIGNAME="External_Ports_dig_in3_n_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_in3_n_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="dig_in4_n_i" SIGIS="undef" SIGNAME="External_Ports_dig_in4_n_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_in4_n_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="dig_outs_i" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_outs_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_outs_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dig_out5_n" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out5_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_out5_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dig_out6_n" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out6_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dig_out6_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="gem_status_vector_i" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_status_vector">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="status_vector"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -1372,7 +1458,11 @@
             <CONNECTION INSTANCE="drive_constants_xlconstant_3" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="15" NAME="status_vector" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="15" NAME="status_vector" RIGHT="0" SIGIS="undef" SIGNAME="gig_ethernet_pcs_pma_0_status_vector">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="gem_status_vector_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="drive_constants_xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="drive_constants_xlconstant_0" PORT="dout"/>
@@ -2648,21 +2738,18 @@
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M02_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M03_ACLK"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
-          <CONNECTIONS>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
           </CONNECTIONS>
         </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
         <PORT CLKFREQUENCY="200000000" DIR="O" NAME="FCLK_CLK2" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="gig_ethernet_pcs_pma_0" PORT="independent_clock_bufg"/>
@@ -3979,8 +4066,8 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M01_ARESETN"/>

@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Fri Nov  4 15:20:00 2016
+--Date        : Thu Nov 24 11:02:02 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -1767,6 +1767,13 @@ entity system_design is
     FMC2_PRSNTM2C_n_i : in STD_LOGIC;
     diff_clock_rtl_clk_n : in STD_LOGIC;
     diff_clock_rtl_clk_p : in STD_LOGIC;
+    dig_in1_i : in STD_LOGIC;
+    dig_in2_i : in STD_LOGIC;
+    dig_in3_n_i : in STD_LOGIC;
+    dig_in4_n_i : in STD_LOGIC;
+    dig_out5_n : out STD_LOGIC;
+    dig_out6_n : out STD_LOGIC;
+    dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
     eeprom_scl : inout STD_LOGIC;
     eeprom_sda : inout STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
@@ -1782,7 +1789,8 @@ entity system_design is
     sfp_rtl_rxp : in STD_LOGIC;
     sfp_rtl_txn : out STD_LOGIC;
     sfp_rtl_txp : out STD_LOGIC;
-    t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 )
+    t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 );
+    watchdog_pl_o : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=17,numNonXlnxBlks=4,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
@@ -1891,6 +1899,60 @@ architecture STRUCTURE of system_design is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component system_design_rst_processing_system7_0_100M_2;
+  component system_design_gig_ethernet_pcs_pma_0_0 is
+  port (
+    gtrefclk_p : in STD_LOGIC;
+    gtrefclk_n : in STD_LOGIC;
+    gtrefclk_out : out STD_LOGIC;
+    gtrefclk_bufg_out : out STD_LOGIC;
+    txn : out STD_LOGIC;
+    txp : out STD_LOGIC;
+    rxn : in STD_LOGIC;
+    rxp : in STD_LOGIC;
+    independent_clock_bufg : in STD_LOGIC;
+    userclk_out : out STD_LOGIC;
+    userclk2_out : out STD_LOGIC;
+    rxuserclk_out : out STD_LOGIC;
+    rxuserclk2_out : out STD_LOGIC;
+    resetdone : out STD_LOGIC;
+    pma_reset_out : out STD_LOGIC;
+    mmcm_locked_out : out STD_LOGIC;
+    gmii_txclk : out STD_LOGIC;
+    gmii_rxclk : out STD_LOGIC;
+    gmii_txd : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    gmii_tx_en : in STD_LOGIC;
+    gmii_tx_er : in STD_LOGIC;
+    gmii_rxd : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    gmii_rx_dv : out STD_LOGIC;
+    gmii_rx_er : out STD_LOGIC;
+    gmii_isolate : out STD_LOGIC;
+    mdc : in STD_LOGIC;
+    mdio_i : in STD_LOGIC;
+    mdio_o : out STD_LOGIC;
+    mdio_t : out STD_LOGIC;
+    configuration_vector : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    configuration_valid : in STD_LOGIC;
+    an_interrupt : out STD_LOGIC;
+    an_adv_config_vector : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    an_adv_config_val : in STD_LOGIC;
+    an_restart_config : in STD_LOGIC;
+    status_vector : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    reset : in STD_LOGIC;
+    signal_detect : in STD_LOGIC;
+    gt0_qplloutclk_out : out STD_LOGIC;
+    gt0_qplloutrefclk_out : out STD_LOGIC
+  );
+  end component system_design_gig_ethernet_pcs_pma_0_0;
+  component system_design_xlconstant_3_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component system_design_xlconstant_3_0;
+  component system_design_xlconstant_3_2 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component system_design_xlconstant_3_2;
   component system_design_axi_wb_i2c_master_0_0 is
   port (
     i2c_scl_io : inout STD_LOGIC;
@@ -1947,6 +2009,34 @@ architecture STRUCTURE of system_design is
     s00_axi_aresetn : in STD_LOGIC
   );
   end component system_design_axi_wb_i2c_master_1_0;
+  component system_design_axi_wb_i2c_master_2_0 is
+  port (
+    i2c_scl_io : inout STD_LOGIC;
+    i2c_sda_io : inout STD_LOGIC;
+    axi_int_o : out STD_LOGIC;
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_awvalid : in STD_LOGIC;
+    s00_axi_awready : out STD_LOGIC;
+    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_wvalid : in STD_LOGIC;
+    s00_axi_wready : out STD_LOGIC;
+    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_bvalid : out STD_LOGIC;
+    s00_axi_bready : in STD_LOGIC;
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_arvalid : in STD_LOGIC;
+    s00_axi_arready : out STD_LOGIC;
+    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_rvalid : out STD_LOGIC;
+    s00_axi_rready : in STD_LOGIC;
+    s00_axi_aclk : in STD_LOGIC;
+    s00_axi_aresetn : in STD_LOGIC
+  );
+  end component system_design_axi_wb_i2c_master_2_0;
   component system_design_fasec_hwtest_0_0 is
   port (
     ps_clk_i : in STD_LOGIC;
@@ -1977,6 +2067,15 @@ architecture STRUCTURE of system_design is
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
     led_line_pl_o : out STD_LOGIC;
+    watchdog_pl_o : out STD_LOGIC;
+    dig_in1_i : in STD_LOGIC;
+    dig_in2_i : in STD_LOGIC;
+    dig_in3_n_i : in STD_LOGIC;
+    dig_in4_n_i : in STD_LOGIC;
+    dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    dig_out5_n : out STD_LOGIC;
+    dig_out6_n : out STD_LOGIC;
+    gem_status_vector_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -2000,88 +2099,6 @@ architecture STRUCTURE of system_design is
     s00_axi_rready : in STD_LOGIC
   );
   end component system_design_fasec_hwtest_0_0;
-  component system_design_gig_ethernet_pcs_pma_0_0 is
-  port (
-    gtrefclk_p : in STD_LOGIC;
-    gtrefclk_n : in STD_LOGIC;
-    gtrefclk_out : out STD_LOGIC;
-    gtrefclk_bufg_out : out STD_LOGIC;
-    txn : out STD_LOGIC;
-    txp : out STD_LOGIC;
-    rxn : in STD_LOGIC;
-    rxp : in STD_LOGIC;
-    independent_clock_bufg : in STD_LOGIC;
-    userclk_out : out STD_LOGIC;
-    userclk2_out : out STD_LOGIC;
-    rxuserclk_out : out STD_LOGIC;
-    rxuserclk2_out : out STD_LOGIC;
-    resetdone : out STD_LOGIC;
-    pma_reset_out : out STD_LOGIC;
-    mmcm_locked_out : out STD_LOGIC;
-    gmii_txclk : out STD_LOGIC;
-    gmii_rxclk : out STD_LOGIC;
-    gmii_txd : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    gmii_tx_en : in STD_LOGIC;
-    gmii_tx_er : in STD_LOGIC;
-    gmii_rxd : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    gmii_rx_dv : out STD_LOGIC;
-    gmii_rx_er : out STD_LOGIC;
-    gmii_isolate : out STD_LOGIC;
-    mdc : in STD_LOGIC;
-    mdio_i : in STD_LOGIC;
-    mdio_o : out STD_LOGIC;
-    mdio_t : out STD_LOGIC;
-    configuration_vector : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    configuration_valid : in STD_LOGIC;
-    an_interrupt : out STD_LOGIC;
-    an_adv_config_vector : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    an_adv_config_val : in STD_LOGIC;
-    an_restart_config : in STD_LOGIC;
-    status_vector : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    reset : in STD_LOGIC;
-    signal_detect : in STD_LOGIC;
-    gt0_qplloutclk_out : out STD_LOGIC;
-    gt0_qplloutrefclk_out : out STD_LOGIC
-  );
-  end component system_design_gig_ethernet_pcs_pma_0_0;
-  component system_design_xlconstant_3_0 is
-  port (
-    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component system_design_xlconstant_3_0;
-  component system_design_xlconstant_3_2 is
-  port (
-    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component system_design_xlconstant_3_2;
-  component system_design_axi_wb_i2c_master_2_0 is
-  port (
-    i2c_scl_io : inout STD_LOGIC;
-    i2c_sda_io : inout STD_LOGIC;
-    axi_int_o : out STD_LOGIC;
-    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_awvalid : in STD_LOGIC;
-    s00_axi_awready : out STD_LOGIC;
-    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_wvalid : in STD_LOGIC;
-    s00_axi_wready : out STD_LOGIC;
-    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_bvalid : out STD_LOGIC;
-    s00_axi_bready : in STD_LOGIC;
-    s00_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_arvalid : in STD_LOGIC;
-    s00_axi_arready : out STD_LOGIC;
-    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_rvalid : out STD_LOGIC;
-    s00_axi_rready : in STD_LOGIC;
-    s00_axi_aclk : in STD_LOGIC;
-    s00_axi_aresetn : in STD_LOGIC
-  );
-  end component system_design_axi_wb_i2c_master_2_0;
   signal FMC1_CLK0M2C_N_i_1 : STD_LOGIC;
   signal FMC1_CLK0M2C_P_i_1 : STD_LOGIC;
   signal FMC1_PRSNTM2C_n_i_1 : STD_LOGIC;
@@ -2100,6 +2117,10 @@ architecture STRUCTURE of system_design is
   signal Net9 : STD_LOGIC;
   signal diff_clock_rtl_1_CLK_N : STD_LOGIC;
   signal diff_clock_rtl_1_CLK_P : STD_LOGIC;
+  signal dig_in1_i_1 : STD_LOGIC;
+  signal dig_in2_i_1 : STD_LOGIC;
+  signal dig_in3_n_i_1 : STD_LOGIC;
+  signal dig_in4_n_i_1 : STD_LOGIC;
   signal drive_constants_dout : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal drive_constants_dout2 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal drive_constants_dout3 : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -2109,9 +2130,13 @@ architecture STRUCTURE of system_design is
   signal fasec_hwtest_0_FMC1_CLK0C2M_P_o : STD_LOGIC;
   signal fasec_hwtest_0_FMC2_CLK0C2M_N_o : STD_LOGIC;
   signal fasec_hwtest_0_FMC2_CLK0C2M_P_o : STD_LOGIC;
+  signal fasec_hwtest_0_dig_out5_n : STD_LOGIC;
+  signal fasec_hwtest_0_dig_out6_n : STD_LOGIC;
+  signal fasec_hwtest_0_dig_outs_i : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal fasec_hwtest_0_led_col_pl_o : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal fasec_hwtest_0_led_line_en_pl_o : STD_LOGIC;
   signal fasec_hwtest_0_led_line_pl_o : STD_LOGIC;
+  signal fasec_hwtest_0_watchdog_pl_o : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_gmii_rx_dv : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_gmii_rx_er : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_gmii_rxd : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -2119,6 +2144,7 @@ architecture STRUCTURE of system_design is
   signal gig_ethernet_pcs_pma_0_sfp_RXP : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_sfp_TXN : STD_LOGIC;
   signal gig_ethernet_pcs_pma_0_sfp_TXP : STD_LOGIC;
+  signal gig_ethernet_pcs_pma_0_status_vector : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal gig_ethernet_pcs_pma_0_userclk2_out : STD_LOGIC;
   signal osc100_clk_i_1 : STD_LOGIC;
   signal pb_gp_i_1 : STD_LOGIC;
@@ -2298,7 +2324,6 @@ architecture STRUCTURE of system_design is
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_userclk_out_UNCONNECTED : STD_LOGIC;
-  signal NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_processing_system7_0_ENET1_MDIO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
@@ -2319,6 +2344,13 @@ begin
   FMC2_PRSNTM2C_n_i_1 <= FMC2_PRSNTM2C_n_i;
   diff_clock_rtl_1_CLK_N <= diff_clock_rtl_clk_n;
   diff_clock_rtl_1_CLK_P <= diff_clock_rtl_clk_p;
+  dig_in1_i_1 <= dig_in1_i;
+  dig_in2_i_1 <= dig_in2_i;
+  dig_in3_n_i_1 <= dig_in3_n_i;
+  dig_in4_n_i_1 <= dig_in4_n_i;
+  dig_out5_n <= fasec_hwtest_0_dig_out5_n;
+  dig_out6_n <= fasec_hwtest_0_dig_out6_n;
+  dig_outs_i(3 downto 0) <= fasec_hwtest_0_dig_outs_i(3 downto 0);
   gig_ethernet_pcs_pma_0_sfp_RXN <= sfp_rtl_rxn;
   gig_ethernet_pcs_pma_0_sfp_RXP <= sfp_rtl_rxp;
   led_col_pl_o(3 downto 0) <= fasec_hwtest_0_led_col_pl_o(3 downto 0);
@@ -2329,6 +2361,7 @@ begin
   sfp_rtl_txn <= gig_ethernet_pcs_pma_0_sfp_TXN;
   sfp_rtl_txp <= gig_ethernet_pcs_pma_0_sfp_TXP;
   t_wr_txdisable(0) <= drive_constants_dout5(0);
+  watchdog_pl_o <= fasec_hwtest_0_watchdog_pl_o;
 axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
      port map (
       axi_int_o => NLW_axi_wb_i2c_master_0_axi_int_o_UNCONNECTED,
@@ -2443,6 +2476,14 @@ fasec_hwtest_0: component system_design_fasec_hwtest_0_0
       FMC2_LA_N_b(33 downto 0) => FMC2_LA_N_b(33 downto 0),
       FMC2_LA_P_b(33 downto 0) => FMC2_LA_P_b(33 downto 0),
       FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i_1,
+      dig_in1_i => dig_in1_i_1,
+      dig_in2_i => dig_in2_i_1,
+      dig_in3_n_i => dig_in3_n_i_1,
+      dig_in4_n_i => dig_in4_n_i_1,
+      dig_out5_n => fasec_hwtest_0_dig_out5_n,
+      dig_out6_n => fasec_hwtest_0_dig_out6_n,
+      dig_outs_i(3 downto 0) => fasec_hwtest_0_dig_outs_i(3 downto 0),
+      gem_status_vector_i(15 downto 0) => gig_ethernet_pcs_pma_0_status_vector(15 downto 0),
       led_col_pl_o(3 downto 0) => fasec_hwtest_0_led_col_pl_o(3 downto 0),
       led_line_en_pl_o => fasec_hwtest_0_led_line_en_pl_o,
       led_line_pl_o => fasec_hwtest_0_led_line_pl_o,
@@ -2469,7 +2510,8 @@ fasec_hwtest_0: component system_design_fasec_hwtest_0_0
       s00_axi_wdata(31 downto 0) => processing_system7_0_axi_periph_M02_AXI_WDATA(31 downto 0),
       s00_axi_wready => processing_system7_0_axi_periph_M02_AXI_WREADY,
       s00_axi_wstrb(3 downto 0) => processing_system7_0_axi_periph_M02_AXI_WSTRB(3 downto 0),
-      s00_axi_wvalid => processing_system7_0_axi_periph_M02_AXI_WVALID
+      s00_axi_wvalid => processing_system7_0_axi_periph_M02_AXI_WVALID,
+      watchdog_pl_o => fasec_hwtest_0_watchdog_pl_o
     );
 gig_ethernet_pcs_pma_0: component system_design_gig_ethernet_pcs_pma_0_0
      port map (
@@ -2508,7 +2550,7 @@ gig_ethernet_pcs_pma_0: component system_design_gig_ethernet_pcs_pma_0_0
       rxuserclk2_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk2_out_UNCONNECTED,
       rxuserclk_out => NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED,
       signal_detect => drive_constants_dout4(0),
-      status_vector(15 downto 0) => NLW_gig_ethernet_pcs_pma_0_status_vector_UNCONNECTED(15 downto 0),
+      status_vector(15 downto 0) => gig_ethernet_pcs_pma_0_status_vector(15 downto 0),
       txn => gig_ethernet_pcs_pma_0_sfp_TXN,
       txp => gig_ethernet_pcs_pma_0_sfp_TXP,
       userclk2_out => gig_ethernet_pcs_pma_0_userclk2_out,

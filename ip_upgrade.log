@@ -1,6 +1,159 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 11:01:57 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.6.1 (Rev. 16) to user.org:user:fasec_hwtest:2.6.2 (Rev. 17)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 10:13:18 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.6 (Rev. 15) to user.org:user:fasec_hwtest:2.6.1 (Rev. 16)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 10:08:43 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.5.2 (Rev. 14) to user.org:user:fasec_hwtest:2.6 (Rev. 15)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_fasec_hwtest_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'dig_in1_i'
+
+-Upgrade has added port 'dig_in2_i'
+
+-Upgrade has added port 'dig_in3_n_i'
+
+-Upgrade has added port 'dig_in4_n_i'
+
+-Upgrade has added port 'dig_out5_n'
+
+-Upgrade has added port 'dig_out6_n'
+
+-Upgrade has added port 'dig_outs_i'
+
+-Upgrade has added port 'gem_status_vector_i'
+
+-Upgrade has added port 'watchdog_pl_o'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 10:08:43 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_2_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_2_0 from user.org:user:axi_wb_i2c_master:2.5 (Rev. 1) to user.org:user:axi_wb_i2c_master:2.5.1 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 10:08:43 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_1_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_1_0 from user.org:user:axi_wb_i2c_master:2.5 (Rev. 1) to user.org:user:axi_wb_i2c_master:2.5.1 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Nov 24 10:08:43 2016
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_0 from user.org:user:axi_wb_i2c_master:2.5 (Rev. 1) to user.org:user:axi_wb_i2c_master:2.5.1 (Rev. 1)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Wed Oct 19 10:09:22 2016
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

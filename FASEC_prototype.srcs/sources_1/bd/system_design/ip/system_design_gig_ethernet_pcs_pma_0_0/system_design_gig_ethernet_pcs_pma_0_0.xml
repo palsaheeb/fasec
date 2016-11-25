@@ -1276,6 +1276,10 @@
           <spirit:name>SENSITIVITY</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.AN_INTERRUPT_PORT.SENSITIVITY">EDGE_RISING</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PortWidth</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.AN_INTERRUPT_PORT.PortWidth">1</spirit:value>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -1500,6 +1504,22 @@
           <spirit:name>ASSOCIATED_RESET</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.ASSOCIATED_RESET">pma_reset_out_port</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.FREQ_HZ">100000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.PHASE">0.000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.CLK_DOMAIN"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLK_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -1530,6 +1550,14 @@
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLOCK_PORT.ASSOCIATED_RESET">pma_reset_port</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLOCK_PORT.FREQ_HZ">200000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.INDEPENDENT_CLOCK_PORT.CLK_DOMAIN">system_design_processing_system7_0_0_FCLK_CLK2</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2202,6 +2230,10 @@
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_IN.FREQ_HZ">100000000</spirit:value>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2399,6 +2431,18 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_gtrefclk_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.ASSOCIATED_RESET"/>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2433,6 +2477,18 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.PHASE">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_gtrefclk_bufg_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.ASSOCIATED_RESET"/>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2574,6 +2630,18 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_userclk_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK_OUT_PORT.ASSOCIATED_RESET"/>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2608,6 +2676,18 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.PHASE">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_userclk2_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.USERCLK2_OUT_PORT.ASSOCIATED_RESET"/>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -2644,6 +2724,18 @@
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.PHASE">0</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_rxuserclk_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK_OUT_PORT.ASSOCIATED_RESET"/>
+        </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
@@ -2678,6 +2770,18 @@
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.PHASE">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.CLK_DOMAIN">system_design_gig_ethernet_pcs_pma_0_0_rxuserclk2_out</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.ASSOCIATED_BUSIF"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.ASSOCIATED_RESET"/>
         </spirit:parameter>
       </spirit:parameters>
       <spirit:vendorExtensions>
@@ -4014,11 +4118,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 14:19:28 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:52 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>ee39a5ab</spirit:value>
+            <spirit:value>21332c53</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4045,11 +4149,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 14:19:29 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:52 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>ee39a5ab</spirit:value>
+            <spirit:value>21332c53</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4075,11 +4179,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 14:19:28 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:52 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>ee39a5ab</spirit:value>
+            <spirit:value>21332c53</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4106,11 +4210,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 14:19:29 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:52 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>ee39a5ab</spirit:value>
+            <spirit:value>21332c53</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -4136,11 +4240,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 04 14:19:30 UTC 2016</spirit:value>
+            <spirit:value>Thu Nov 24 09:13:53 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
-            <spirit:value>ee39a5ab</spirit:value>
+            <spirit:value>21332c53</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRCversion</spirit:name>
@@ -14826,8 +14930,11 @@
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_BUFG_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_BUFG_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_IN.FREQ_HZ" xilinx:valueSource="user_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.GTREFCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.INDEPENDENT_CLOCK_PORT.CLK_DOMAIN" xilinx:valueSource="default_prop"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.INDEPENDENT_CLOCK_PORT.FREQ_HZ" xilinx:valueSource="user_prop"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXOUTCLK_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK2_OUT_PORT.FREQ_HZ" xilinx:valueSource="constant"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RXUSERCLK2_PORT.FREQ_HZ" xilinx:valueSource="constant"/>

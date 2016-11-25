@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-08-31
+-- Last update: 2016-11-22
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'87
 -------------------------------------------------------------------------------
@@ -128,9 +128,9 @@ package myPackage is
       g_MAXREAD          : integer;
       g_MAXWRITE         : integer);
     port (
-      s_axi_dataR      : in     t_axiMemory(0 to g_MAXREAD-1);
-      s_axi_dataW      : buffer t_axiMemory(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others => (others => '0'));
-      s_axi_dataResetW : in     t_axiMemory(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
+      s_axi_dataR      : in     t_data32(0 to g_MAXREAD-1);
+      s_axi_dataW      : buffer t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others => (others => '0'));
+      s_axi_dataResetW : in     t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
       S_AXI_ACLK       : in     std_logic;
       S_AXI_ARESETN    : in     std_logic;
       S_AXI_AWADDR     : in     std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -196,6 +196,23 @@ package myPackage is
       axi_rready_i  : in  std_logic;
       axi_int_o     : out std_logic);
   end component axis_wbm_bridge;
+  component spi_transceiver is
+    generic (
+      g_CLOCK_DIVIDER  : natural;
+      g_ACT_ON_FALLING : std_logic;
+      g_DATA_WIDTH     : natural);
+    port (
+      clk_i      : in  std_logic;
+      reset_i    : in  std_logic;
+      spi_clk_o  : out std_logic;
+      spi_sdi_o  : out std_logic;
+      spi_sdo_i  : in  std_logic;
+      spi_cs_n_o : out std_logic;
+      tx_data_i  : in  std_logic_vector(g_DATA_WIDTH-1 downto 0);
+      rx_data_o  : out std_logic_vector(g_DATA_WIDTH-1 downto 0);
+      start_i    : in  std_logic;
+      done_o     : out std_logic);
+  end component spi_transceiver;
 end myPackage;
 
 package body myPackage is

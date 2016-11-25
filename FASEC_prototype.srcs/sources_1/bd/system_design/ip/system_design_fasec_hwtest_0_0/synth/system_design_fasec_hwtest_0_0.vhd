@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:2.5.2
--- IP Revision: 14
+-- IP VLNV: user.org:user:fasec_hwtest:2.6.2
+-- IP Revision: 17
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -83,6 +83,15 @@ ENTITY system_design_fasec_hwtest_0_0 IS
     led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     led_line_en_pl_o : OUT STD_LOGIC;
     led_line_pl_o : OUT STD_LOGIC;
+    watchdog_pl_o : OUT STD_LOGIC;
+    dig_in1_i : IN STD_LOGIC;
+    dig_in2_i : IN STD_LOGIC;
+    dig_in3_n_i : IN STD_LOGIC;
+    dig_in4_n_i : IN STD_LOGIC;
+    dig_outs_i : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    dig_out5_n : OUT STD_LOGIC;
+    dig_out6_n : OUT STD_LOGIC;
+    gem_status_vector_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     s00_axi_aclk : IN STD_LOGIC;
     s00_axi_aresetn : IN STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -115,7 +124,8 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
       g_S00_AXI_DATA_WIDTH : INTEGER;
       g_S00_AXI_ADDR_WIDTH : INTEGER;
       g_FMC1 : STRING;
-      g_FMC2 : STRING
+      g_FMC2 : STRING;
+      g_USE_GEM_LEDS : BOOLEAN
     );
     PORT (
       ps_clk_i : IN STD_LOGIC;
@@ -146,6 +156,15 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
       led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       led_line_en_pl_o : OUT STD_LOGIC;
       led_line_pl_o : OUT STD_LOGIC;
+      watchdog_pl_o : OUT STD_LOGIC;
+      dig_in1_i : IN STD_LOGIC;
+      dig_in2_i : IN STD_LOGIC;
+      dig_in3_n_i : IN STD_LOGIC;
+      dig_in4_n_i : IN STD_LOGIC;
+      dig_outs_i : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      dig_out5_n : OUT STD_LOGIC;
+      dig_out6_n : OUT STD_LOGIC;
+      gem_status_vector_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       s00_axi_aclk : IN STD_LOGIC;
       s00_axi_aresetn : IN STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -201,7 +220,8 @@ BEGIN
       g_S00_AXI_DATA_WIDTH => 32,
       g_S00_AXI_ADDR_WIDTH => 32,
       g_FMC1 => "EDA-03287",
-      g_FMC2 => "EDA-03287"
+      g_FMC2 => "EDA-03287",
+      g_USE_GEM_LEDS => false
     )
     PORT MAP (
       ps_clk_i => ps_clk_i,
@@ -232,6 +252,15 @@ BEGIN
       led_col_pl_o => led_col_pl_o,
       led_line_en_pl_o => led_line_en_pl_o,
       led_line_pl_o => led_line_pl_o,
+      watchdog_pl_o => watchdog_pl_o,
+      dig_in1_i => dig_in1_i,
+      dig_in2_i => dig_in2_i,
+      dig_in3_n_i => dig_in3_n_i,
+      dig_in4_n_i => dig_in4_n_i,
+      dig_outs_i => dig_outs_i,
+      dig_out5_n => dig_out5_n,
+      dig_out6_n => dig_out6_n,
+      gem_status_vector_i => gem_status_vector_i,
       s00_axi_aclk => s00_axi_aclk,
       s00_axi_aresetn => s00_axi_aresetn,
       s00_axi_awaddr => s00_axi_awaddr,

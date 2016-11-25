@@ -1,18 +1,18 @@
-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Title      : Generic FMC module
--- Project    : FIDS
-------------------------------------------------------------------------------
--- Author     : Pieter Van Trappen
--- Company    : CERN TE-ABT-EC
--- Created    : 2016-08-19
--- Last update: 2016-10-18
--- Platform   : FPGA-generic
--- Standard   : VHDL'93
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : general_fmc.vhd
+-- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
+-- Company    : CERN
+-- Created    : 2016-11-22
+-- Last update: 2016-11-24
+-- Platform   : 
+-- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
 -- Description: A generic FMC module
---
 -------------------------------------------------------------------------------
--- general_fmc.vhd Copyright (c) 2016 CERN
+-- Copyright (c) 2016 CERN
 -------------------------------------------------------------------------------
 -- GNU LESSER GENERAL PUBLIC LICENSE
 -------------------------------------------------------------------------------
@@ -26,11 +26,11 @@
 -- received a copy of the GNU Lesser General Public License along with this
 -- source; if not, download it from http://www.gnu.org/licenses/lgpl-2.1.html
 -------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author          Description
--- 2016-08-29  1.0      pvantrap        Created
 -------------------------------------------------------------------------------
-
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2016-11-22  1.0      pieter  Created
+-------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -45,7 +45,7 @@ use xil_pvtmisc.myPackage.all;
 entity general_fmc is
   generic(
     g_FMC  : string(1 to 9) := "EDA-0NONE";
-    g_DMAX : natural        := 8); 
+    g_DMAX : natural        := 8);
   port (
     clk_i            : in    std_logic;
     rst_i            : in    std_logic;
@@ -69,20 +69,45 @@ entity general_fmc is
 end general_fmc;
 
 architecture rtl of general_fmc is
-  constant c_DWIDTH      : positive := 32;
-  constant c_COMP        : positive := 20;  -- 20 comparators on EDA-03287
-  constant c_DOUTS       : positive := 8;
-  constant c_OUTFBD      : positive := 4;
+  constant c_DWIDTH     : positive := 32;
+  -- EDA-03287 constants
+  constant c_COMP       : positive := 20;  -- 20 comparators on EDA-03287
+  constant c_DOUTS      : positive := 8;   -- 8 outputs
+  constant c_OUTFBD     : positive := 4;   -- of which 4 with feedback
+  constant c_NODAC      : positive := 5;
+  constant c_NOCHANNELS : positive := 4;
+
   --- signals
   signal s_comparators_i : std_logic_vector(c_COMP-1 downto 0);
   signal s_diffouts_o    : std_logic_vector(c_DOUTS-1 downto 0);
   signal s_outsfeedbak_i : std_logic_vector(c_OUTFBD-1 downto 0);
+  signal s_dac_cntr      : unsigned(31 downto 0) := x"00000006";  -- 6 for autostart
+  signal s_spi_sclk      : std_logic;
+  signal s_spi_mosi      : std_logic;
+  signal s_spi_miso      : std_logic;
+  signal s_spi_cs_n      : std_logic;
+  -- components
+  component dac7716_spi is
+    generic (
+      g_NODAC      : natural;
+      g_NOCHANNELS : natural);
+    port (
+      clk_i      : in     std_logic;
+      reset_i    : in     std_logic;
+      spi_clk_o  : out    std_logic;
+      spi_sdi_o  : out    std_logic;
+      spi_sdo_i  : in     std_logic;
+      spi_cs_n_o : out    std_logic;
+      dac_cntr_b : buffer unsigned(31 downto 0);
+      dac_ch_i   : in     t_data32(0 to g_NODAC*g_NOCHANNELS-1);
+      dac_ch_o   : out    t_data32(0 to g_NODAC*g_NOCHANNELS-1));
+  end component dac7716_spi;
 begin
   --=============================================================================
   -- EDA-03287: DIO 10i 8o FMC
   --=============================================================================
   fmc_03287_ibufds : for I in 0 to c_COMP-1 generate
-    ins : if g_FMC = "EDA-03287" generate
+    gen_ins : if g_FMC = "EDA-03287" generate
       cmp_IBUFDS_fmc : IBUFDS
         generic map (
           DIFF_TERM    => true,         -- Differential Termination 
@@ -92,10 +117,10 @@ begin
           O  => s_comparators_i(I),     -- Buffer output
           I  => FMC_LA_P_b(I),  -- Diff_p buffer input (connect directly to top-level port)
           IB => FMC_LA_N_b(I));  -- Diff_n buffer input (connect directly to top-level port)
-    end generate ins;
+    end generate gen_ins;
   end generate fmc_03287_ibufds;
   fmc_03287_obufds : for I in 0 to c_DOUTS-1 generate
-    outs : if g_FMC = "EDA-03287" generate
+    gen_outs : if g_FMC = "EDA-03287" generate
       cmp_OBUFDS_fmc : OBUFDS
         generic map (
 --          IOSTANDARD => "LVDS_25",      -- Specify the output I/O standard
@@ -104,8 +129,54 @@ begin
           O  => FMC_LA_P_b(c_COMP+I),  -- Diff_p output (connect directly to top-level port)
           OB => FMC_LA_N_b(c_COMP+I),  -- Diff_n output (connect directly to top-level port)
           I  => s_diffouts_o(I));       -- Buffer input
-    end generate outs;
+    end generate gen_outs;
   end generate fmc_03287_obufds;
+  gen_spi : if g_FMC = "EDA-03287" generate
+    cmp_dac7716_spi : dac7716_spi
+      generic map (
+        g_NODAC      => c_NODAC,
+        g_NOCHANNELS => c_NOCHANNELS)
+      port map (
+        clk_i      => clk_i,
+        reset_i    => rst_i,
+        spi_clk_o  => s_spi_sclk,
+        spi_sdi_o  => s_spi_mosi,
+        spi_sdo_i  => s_spi_miso,
+        spi_cs_n_o => s_spi_cs_n,
+        dac_cntr_b => s_dac_cntr,
+        dac_ch_i   => data_i(8 to 27),
+        dac_ch_o   => data_o(8 to 27));
+    -- explicit declaration of this IOBUF needed (with Z) to simulate/synth as
+    -- an input
+    cmp_spi_miso_iobuf : IOBUF
+      port map (
+        O  => s_spi_miso,               -- 1-bit output: Buffer output
+        I  => '0',                      -- 1-bit input: Buffer input
+        IO => FMC_LA_P_b(29),  -- 1-bit inout: Buffer inout (connect directly to top-level port)
+        T  => '1'                       -- 1-bit input: 3-state enable input
+        );
+    cmp_spi_mosi_iobuf : IOBUF
+      port map (
+        O  => open,                     -- 1-bit output: Buffer output
+        I  => s_spi_mosi,               -- 1-bit input: Buffer input
+        IO => FMC_LA_N_b(28),  -- 1-bit inout: Buffer inout (connect directly to top-level port)
+        T  => '0'                       -- 1-bit input: 3-state enable input
+        );
+    cmp_spi_sclk_iobuf : IOBUF
+      port map (
+        O  => open,                     -- 1-bit output: Buffer output
+        I  => s_spi_sclk,               -- 1-bit input: Buffer input
+        IO => FMC_LA_P_b(28),  -- 1-bit inout: Buffer inout (connect directly to top-level port)
+        T  => '0'                       -- 1-bit input: 3-state enable input
+        );
+    cmp_spi_cs_n_iobuf : IOBUF
+      port map (
+        O  => open,                     -- 1-bit output: Buffer output
+        I  => s_spi_cs_n,               -- 1-bit input: Buffer input
+        IO => FMC_LA_N_b(29),  -- 1-bit inout: Buffer inout (connect directly to top-level port)
+        T  => '0'                       -- 1-bit input: 3-state enable input
+        );
+  end generate gen_spi;
 
   p_fmc_03287_io : process(clk_i)
     variable v_cmp  : std_logic_vector(c_COMP-1 downto 0);
@@ -268,5 +339,5 @@ begin
           T  => '1');
     end generate outs;
   end generate fmc_out_highz;
-  
+
 end rtl;

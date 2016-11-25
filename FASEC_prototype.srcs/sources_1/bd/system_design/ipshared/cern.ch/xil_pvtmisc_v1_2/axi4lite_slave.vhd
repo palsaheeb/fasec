@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-08-29
+-- Last update: 2016-11-23
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'87
 -------------------------------------------------------------------------------
@@ -51,11 +51,11 @@ entity axi4lite_slave is
     g_MAXWRITE : integer := 8);
   port (
     -- read data
-    s_axi_dataR : in t_axiMemory(0 to g_MAXREAD-1);
+    s_axi_dataR : in t_data32(0 to g_MAXREAD-1);
     -- write data
-    s_axi_dataW : buffer t_axiMemory(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others=> (others=>'0'));
+    s_axi_dataW : buffer t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others=> (others=>'0'));
     -- write data default/reset values
-    s_axi_dataResetW : in t_axiMemory(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
+    s_axi_dataResetW : in t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
     
     -- Global Clock Signal
     S_AXI_ACLK    : in  std_logic;
@@ -150,8 +150,8 @@ architecture rtl of axi4lite_slave is
   signal slv_reg_wren        : std_logic;
   signal reg_data_out        : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
   signal byte_index          : integer range 0 to (C_S_AXI_DATA_WIDTH/8-1);
-  signal s_dataRt       : t_axiMemory(0 to g_MAXREAD-1); -- memory to clock in the slave read data
-  signal s_dataR        : t_axiMemory(0 to g_MAXREAD-1); -- memory to clock in the slave read data
+  signal s_dataRt       : t_data32(0 to g_MAXREAD-1); -- memory to clock in the slave read data
+  signal s_dataR        : t_data32(0 to g_MAXREAD-1); -- memory to clock in the slave read data
 
 
 begin
@@ -319,7 +319,7 @@ begin
     if rising_edge(S_AXI_ACLK) then
       if S_AXI_ARESETN = '0' then
         axi_arready <= '0';
-        axi_araddr  <= (others => '1');
+        axi_araddr  <= (others => '0');
       else
         if (axi_arready = '0' and S_AXI_ARVALID = '1') then
           -- indicates that the slave has acceped the valid read address

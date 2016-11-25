@@ -273,3 +273,45 @@ set_property IOSTANDARD LVCMOS25 [get_ports sfp_moddef1_scl]
 set_property IOSTANDARD LVCMOS25 [get_ports sfp_moddef2_sda]
 
 set_property PACKAGE_PIN V4 [get_ports sfp_rtl_rxp]
+
+set_property PACKAGE_PIN V18 [get_ports dig_in1_i]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_in1_i]
+set_property PACKAGE_PIN AA18 [get_ports {dig_outs_i[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {dig_outs_i[1]}]
+set_property PACKAGE_PIN AB19 [get_ports {dig_outs_i[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {dig_outs_i[2]}]
+set_property PACKAGE_PIN AA24 [get_ports {dig_outs_i[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {dig_outs_i[0]}]
+set_property PACKAGE_PIN AC24 [get_ports {dig_outs_i[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {dig_outs_i[3]}]
+set_property PACKAGE_PIN W14 [get_ports dig_out5_n]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_out5_n]
+set_property PACKAGE_PIN W17 [get_ports dig_out6_n]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_out6_n]
+set_property PACKAGE_PIN W16 [get_ports dig_in2_i]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_in2_i]
+set_property PACKAGE_PIN AE20 [get_ports dig_in3_n_i]
+set_property PACKAGE_PIN AE21 [get_ports dig_in4_n_i]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_in3_n_i]
+set_property IOSTANDARD LVCMOS25 [get_ports dig_in4_n_i]
+
+set_property PACKAGE_PIN AA19 [get_ports watchdog_pl_o]
+set_property IOSTANDARD LVCMOS25 [get_ports watchdog_pl_o]
+
+create_clock -period 8.000 -name eth_clock -waveform {0.000 4.000} [get_ports diff_clock_rtl_clk_p]
+set_clock_groups -name FCLKCLK0 -logically_exclusive -group [get_clocks axi_aclk] -group [get_clocks clk_fpga_0] -group [get_clocks clock_axi]
+
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/MR_REMOTE_FAULT_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][13]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/MR_LP_ADV_ABILITY_INT_reg[8]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][14]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/MR_LP_ADV_ABILITY_INT_reg[9]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][15]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/STATUS_VECTOR_reg[1]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][1]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/STATUS_VECTOR_reg[0]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][0]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/STATUS_VECTOR_reg[12]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][12]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/RX_GMII_AT_TXOUTCLK.RECEIVER_TXOUTCLK/RUDI_C_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][2]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/RX_GMII_AT_TXOUTCLK.RECEIVER_TXOUTCLK/RUDI_I_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][3]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/RUDI_INVALID_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][4]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/BASEX_REMOTE_FAULT_reg[0]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][8]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/HAS_AUTO_NEG.AN_RX_GMII_AT_TXOUTCLK.AUTO_NEGOTIATION/BASEX_REMOTE_FAULT_reg[1]/C}] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][9]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/DELAY_ERROR_TXOUTCLK.RXDISPERR_REG_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][5]/D}] 2.000
+set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/DELAY_ERROR_TXOUTCLK.RXNOTINTABLE_REG_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/s_dataR_reg[2][6]/D}] 2.000
+create_generated_clock -name axi_aclk_U0 -source [get_pins system_design_i/axi_wb_i2c_master_2/s00_axi_aclk] -multiply_by 1 -add -master_clock axi_aclk [get_pins system_design_i/axi_wb_i2c_master_0/s00_axi_aclk]
