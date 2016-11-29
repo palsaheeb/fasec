@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-11-24
+-- Last update: 2016-11-29
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -135,46 +135,28 @@ architecture rtl of fasec_hwtest is
       FMC_GP1_b        : inout std_logic;
       FMC_GP2_b        : inout std_logic;
       FMC_GP3_b        : inout std_logic;
-      data_i           : in    t_data32(0 to g_DMAX-1);
+      data_rw_i        : in    t_data32(0 to g_DMAX-1);
       data_o           : out   t_data32(0 to g_DMAX-1));
   end component general_fmc;
 
   -- constants and signals
-  -- memory mapping (TODO: get rid of read/write split):
-  --  0x00: FASEC
-  --    0x00: FMC generic ASCII
-  --    0x01: b0-b5: digital ins
-  --    0x01: b0-b15: GEM AN status vector
-  --  0x08: FMC1
-  --  0x10: FMC1 DAC channels
-  --  0x24: FMC2
-  --  0x2C: FMC2 DAC channels
-  --  0x40: READMEM end, start WRITEMEM FASEC
-  --    0x40: output control: b0 @1 all outs connected to dig_in1; b1 @1 all outs
-  --            connected to s_tick frequency
-  --  (see above)
-  --  0x80: WRITEMEM end
-  constant c_FLASH                  : positive                                      := 40000000;  -- 400 ms @ 100 MHz
-  constant c_FASEC_MEM              : positive                                      := 8;
-  constant c_FMC_DMAX               : natural                                       := 8+20;
-  constant c_SLAVE_MAXREAD          : positive                                      := c_FASEC_MEM + (c_FMC_DMAX*2);
-  constant c_SLAVE_MAXWRITE         : positive                                      := c_SLAVE_MAXREAD;
-  constant c_SLAVE_MAXMEM           : positive                                      := c_SLAVE_MAXREAD + c_SLAVE_MAXWRITE;
-  -- AXI slave signals
-  signal s_sAxi_dataR               : t_data32(0 to c_SLAVE_MAXREAD-1)              := (others => (others => '0'));
-  signal s_sAxi_dataW               : t_data32(c_SLAVE_MAXREAD to c_SLAVE_MAXMEM-1) := (others => (others => '0'));  -- also put to zero in the slave AXI module (cuz buffer)
-  signal s_sAxi_dataResetW          : t_data32(c_SLAVE_MAXREAD to c_SLAVE_MAXMEM-1) := (others => (others => '0'));
+  constant c_FLASH    : positive                   := 40000000;  -- 400 ms @ 100 MHz  
+  -- (memory mapping constantst in xil_pvtmisc.myPackage)
+  signal s_data       : t_data32(0 to c_MEMMAX-1)  := (others => (others => '0'));
+  signal s_data_rw    : t_data32(0 to c_MEMMAX-1)  := (others => (others => '0'));
+  constant c_FASECMEM : t_iomem32(0 to c_MEMMAX-1) := fill_mem_fasec(c_MEMMAX-1);
+
   -- FMC1-2 signals
-  signal s_tick                     : std_logic;
-  signal s_fmc1_datai, s_fmc1_datao : t_data32(0 to c_FMC_DMAX-1);
-  signal s_fmc2_datai, s_fmc2_datao : t_data32(0 to c_FMC_DMAX-1);
+  signal s_tick       : std_logic;
+  signal s_datao_fmc1 : t_data32(0 to c_FMC_DMAX-1);
+  signal s_datao_fmc2 : t_data32(0 to c_FMC_DMAX-1);
   -- misc.
-  signal s_leds                     : std_logic_vector(3 downto 0)                  := (others => '0');
-  signal s_led_line                 : std_logic                                     := '1';
-  signal s_gem_leds                 : std_logic_vector(3 downto 0);
-  signal s_reset                    : std_logic;
-  signal s_ins                      : std_logic_vector(3 downto 0)                  := (others => '0');
-  signal s_outs                     : std_logic_vector(5 downto 0)                  := (others => '0');
+  signal s_leds       : std_logic_vector(3 downto 0) := (others => '0');
+  signal s_led_line   : std_logic                    := '1';
+  signal s_gem_leds   : std_logic_vector(3 downto 0);
+  signal s_reset      : std_logic;
+  signal s_ins        : std_logic_vector(3 downto 0) := (others => '0');
+  signal s_outs       : std_logic_vector(5 downto 0) := (others => '0');
 begin
   -- reset, ModelSim doesn't like the not(..) in a port instantiation
   s_reset <= not s00_axi_aresetn;
@@ -199,8 +181,8 @@ begin
       FMC_GP1_b        => FMC1_GP1_b,
       FMC_GP2_b        => FMC1_GP2_b,
       FMC_GP3_b        => FMC1_GP3_b,
-      data_i           => s_fmc1_datai(0 to c_FMC_DMAX-1),
-      data_o           => s_fmc1_datao(0 to c_FMC_DMAX-1));
+      data_rw_i        => s_data(c_FASEC_DMAX to c_FASEC_DMAX+c_FMC_DMAX-1),
+      data_o           => s_datao_fmc1(0 to c_FMC_DMAX-1));
 
   --=============================================================================
   -- FMC2 component
@@ -223,49 +205,57 @@ begin
       FMC_GP1_b        => FMC2_GP1_b,
       FMC_GP2_b        => FMC2_GP2_b,
       FMC_GP3_b        => FMC2_GP3_b,
-      data_i           => s_fmc2_datai(0 to c_FMC_DMAX-1),
-      data_o           => s_fmc2_datao(0 to c_FMC_DMAX-1));
+      data_rw_i        => s_data(c_FASEC_DMAX+c_FMC_DMAX to c_FASEC_DMAX+(2*c_FMC_DMAX)-1),
+      data_o           => s_datao_fmc2(0 to c_FMC_DMAX-1));
 
   --=============================================================================
-  -- IP memory mapping, see above for memory map
+  -- FASEC IP memory mapping, see above for memory map
+  -- by default all data is read-only
   --=============================================================================
   --TODO: add synthesis timestamp (from top project!), FASEC IO control, FMC
-  --IOs and DAC channels
   -- PS read data
-  s_sAxi_dataR(0)                                                    <= (others => '0');  -- TODO: generic FMC string
-  s_sAxi_dataR(1) <= resize(unsigned(s_ins), g_S00_AXI_DATA_WIDTH);
-  s_sAxi_dataR(2) <= resize(unsigned(gem_status_vector_i), g_S00_AXI_DATA_WIDTH);
-  s_sAxi_dataR(7)                                                    <= x"DEADBEEF";
-  s_sAxi_dataR(c_FASEC_MEM to c_FASEC_MEM+c_FMC_DMAX-1)              <= s_fmc1_datao(0 to c_FMC_DMAX-1);
-  s_sAxi_dataR(c_FASEC_MEM+c_FMC_DMAX to c_FASEC_MEM+2*c_FMC_DMAX-1) <= s_fmc2_datao(0 to c_FMC_DMAX-1);
-  -- PS write data
-  -- s_sAxi_dataW(c_SLAVE_MAXREAD) used in p_fasec_dio
-  s_fmc1_datai(0 to c_FMC_DMAX-1)                                    <= s_sAxi_dataW(c_SLAVE_MAXREAD+c_FASEC_MEM to c_SLAVE_MAXREAD+c_FASEC_MEM+c_FMC_DMAX-1);
-  s_fmc2_datai(0 to c_FMC_DMAX-1)                                    <= s_sAxi_dataW(c_SLAVE_MAXREAD+c_FASEC_MEM+c_FMC_DMAX to c_SLAVE_MAXMEM-1);
+  s_data(c_FASEC_BASE+0) <= (others => '0');  -- TODO: generic FMC string
+  s_data(c_FASEC_BASE+1) <= resize(unsigned(s_ins), g_S00_AXI_DATA_WIDTH);
+  s_data(c_FASEC_BASE+2) <= resize(unsigned(gem_status_vector_i), g_S00_AXI_DATA_WIDTH);
+  -- s_data(c_FASEC_BASE+3).data used in p_fasec_dio
+  s_data(c_FASEC_BASE+7) <= x"DEADBEEF";
+  -- copy in rw data
+  gen_data_readwrite : for i in 0 to c_MEMMAX-1 generate
+    gen_fasec : if i < c_FASEC_DMAX and c_FASECMEM(i).ro = '0' generate
+      s_data(i) <= s_data_rw(i)(g_S00_AXI_DATA_WIDTH-1 downto 0);
+    end generate gen_fasec;
+    gen_fmc1 : if i > c_FASEC_DMAX and i < c_FASEC_DMAX+c_FMC_DMAX and c_FASECMEM(i).ro = '1' generate
+      s_data(i) <= s_datao_fmc1(i-c_FASEC_DMAX);
+    end generate gen_fmc1;
+    gen_fmc2 : if i > c_FASEC_DMAX+c_FMC_DMAX and i < c_FASEC_DMAX+2*c_FMC_DMAX and c_FASECMEM(i).ro = '1' generate
+      s_data(i) <= s_datao_fmc2(i-(c_FASEC_DMAX+c_FMC_DMAX));
+    end generate gen_fmc2;
+  end generate gen_data_readwrite;
 
   --=============================================================================
   -- FASEC digital IOs
   --=============================================================================
-  p_fasec_dio : process(ps_clk_i)
+  p_fasec_dio : process(ps_clk_i, s_data, s_ins, s_tick)
     variable v_ins      : std_logic_vector(3 downto 0) := (others => '0');
     variable v_out_cntr : std_logic_vector(g_S00_AXI_DATA_WIDTH-1 downto 0);
   begin
+    -- inputs, clocked
     if rising_edge(ps_clk_i) then
       -- ins
-      s_ins      <= v_ins(3 downto 0);
-      v_ins(0)   := dig_in1_i;
-      v_ins(1)   := dig_in2_i;
-      v_ins(2)   := not dig_in3_n_i;
-      v_ins(3)   := not dig_in4_n_i;
-      -- outs
-      v_out_cntr := std_logic_vector(s_sAxi_dataW(c_SLAVE_MAXREAD)(g_S00_AXI_DATA_WIDTH-1 downto 0));
-      if v_out_cntr(0) = '1' then
-        s_outs(5 downto 0) <= (others => s_ins(0));
-      elsif v_out_cntr(1) = '1' then
-        s_outs(5 downto 0) <= (others => s_tick);
-      else
-        s_outs(5 downto 0) <= (others => '0');
-      end if;
+      s_ins    <= v_ins(3 downto 0);
+      v_ins(0) := dig_in1_i;
+      v_ins(1) := dig_in2_i;
+      v_ins(2) := not dig_in3_n_i;
+      v_ins(3) := not dig_in4_n_i;
+    end if;
+    -- outputs, not reclocked
+    v_out_cntr := std_logic_vector(s_data(c_FASEC_BASE+3)(g_S00_AXI_DATA_WIDTH-1 downto 0));
+    if v_out_cntr(0) = '1' then
+      s_outs(5 downto 0) <= (others => s_ins(0));
+    elsif v_out_cntr(1) = '1' then
+      s_outs(5 downto 0) <= (others => s_tick);
+    else
+      s_outs(5 downto 0) <= (others => '0');
     end if;
   end process p_fasec_dio;
   dig_outs_i(3 downto 0) <= s_outs(3 downto 0);
@@ -356,31 +346,31 @@ begin
     generic map (
       C_S_AXI_DATA_WIDTH => g_S00_AXI_DATA_WIDTH,
       C_S_AXI_ADDR_WIDTH => g_S00_AXI_ADDR_WIDTH,
-      g_MAXREAD          => c_SLAVE_MAXREAD,
-      g_MAXWRITE         => c_SLAVE_MAXWRITE)
+      g_MAXMEM           => c_MEMMAX,
+      g_CLOCKMEM         => '0',        -- FIXME: for vhdl validation, '0'
+      g_IOMEM            => c_FASECMEM)
     port map (
-      s_axi_dataR      => s_sAxi_dataR,
-      s_axi_dataW      => s_sAxi_dataW,
-      s_axi_dataResetW => s_sAxi_dataResetW,
-      S_AXI_ACLK       => s00_axi_aclk,
-      S_AXI_ARESETN    => s00_axi_aresetn,
-      S_AXI_AWADDR     => s00_axi_awaddr,
-      S_AXI_AWPROT     => s00_axi_awprot,
-      S_AXI_AWVALID    => s00_axi_awvalid,
-      S_AXI_AWREADY    => s00_axi_awready,
-      S_AXI_WDATA      => s00_axi_wdata,
-      S_AXI_WSTRB      => s00_axi_wstrb,
-      S_AXI_WVALID     => s00_axi_wvalid,
-      S_AXI_WREADY     => s00_axi_wready,
-      S_AXI_BRESP      => s00_axi_bresp,
-      S_AXI_BVALID     => s00_axi_bvalid,
-      S_AXI_BREADY     => s00_axi_bready,
-      S_AXI_ARADDR     => s00_axi_araddr,
-      S_AXI_ARPROT     => s00_axi_arprot,
-      S_AXI_ARVALID    => s00_axi_arvalid,
-      S_AXI_ARREADY    => s00_axi_arready,
-      S_AXI_RDATA      => s00_axi_rdata,
-      S_AXI_RRESP      => s00_axi_rresp,
-      S_AXI_RVALID     => s00_axi_rvalid,
-      S_AXI_RREADY     => s00_axi_rready);
+      data_i        => s_data,
+      data_rw_o     => s_data_rw,
+      S_AXI_ACLK    => s00_axi_aclk,
+      S_AXI_ARESETN => s00_axi_aresetn,
+      S_AXI_AWADDR  => s00_axi_awaddr,
+      S_AXI_AWPROT  => s00_axi_awprot,
+      S_AXI_AWVALID => s00_axi_awvalid,
+      S_AXI_AWREADY => s00_axi_awready,
+      S_AXI_WDATA   => s00_axi_wdata,
+      S_AXI_WSTRB   => s00_axi_wstrb,
+      S_AXI_WVALID  => s00_axi_wvalid,
+      S_AXI_WREADY  => s00_axi_wready,
+      S_AXI_BRESP   => s00_axi_bresp,
+      S_AXI_BVALID  => s00_axi_bvalid,
+      S_AXI_BREADY  => s00_axi_bready,
+      S_AXI_ARADDR  => s00_axi_araddr,
+      S_AXI_ARPROT  => s00_axi_arprot,
+      S_AXI_ARVALID => s00_axi_arvalid,
+      S_AXI_ARREADY => s00_axi_arready,
+      S_AXI_RDATA   => s00_axi_rdata,
+      S_AXI_RRESP   => s00_axi_rresp,
+      S_AXI_RVALID  => s00_axi_rvalid,
+      S_AXI_RREADY  => s00_axi_rready);
 end rtl;

@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Nov 24 19:51:34 2016
+--Date        : Tue Nov 29 16:07:49 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -1792,10 +1792,10 @@ entity system_design is
     t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 );
     watchdog_pl_o : out STD_LOGIC
   );
-  attribute core_generation_info : string;
-  attribute core_generation_info of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=17,numNonXlnxBlks=4,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
-  attribute hw_handoff : string;
-  attribute hw_handoff of system_design : entity is "system_design.hwdef";
+  attribute CORE_GENERATION_INFO : string;
+  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=24,numReposBlks=17,numNonXlnxBlks=4,numHierBlks=7,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
+  attribute HW_HANDOFF : string;
+  attribute HW_HANDOFF of system_design : entity is "system_design.hwdef";
 end system_design;
 
 architecture STRUCTURE of system_design is

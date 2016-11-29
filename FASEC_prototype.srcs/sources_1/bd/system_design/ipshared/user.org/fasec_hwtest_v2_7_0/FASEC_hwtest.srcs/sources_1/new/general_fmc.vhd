@@ -6,7 +6,7 @@
 -- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
 -- Company    : CERN
 -- Created    : 2016-11-22
--- Last update: 2016-11-24
+-- Last update: 2016-11-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ use xil_pvtmisc.myPackage.all;
 
 entity general_fmc is
   generic(
-    g_FMC  : string(1 to 9) := "EDA-0NONE";
-    g_DMAX : natural        := 8);
+    g_FMC   : string(1 to 9) := "EDA-0NONE";
+    g_DMAX  : natural        := 8);
   port (
     clk_i            : in    std_logic;
     rst_i            : in    std_logic;
@@ -64,7 +64,9 @@ entity general_fmc is
     FMC_GP2_b        : inout std_logic;
     FMC_GP3_b        : inout std_logic;
     -- generic registers for passing data to top module
-    data_i           : in    t_data32(0 to g_DMAX-1);
+    -- rw data, modified by master
+    data_rw_i        : in    t_data32(0 to g_DMAX-1);
+    -- output data, modified by this module
     data_o           : out   t_data32(0 to g_DMAX-1));
 end general_fmc;
 
@@ -72,10 +74,11 @@ architecture rtl of general_fmc is
   constant c_DWIDTH     : positive := 32;
   -- EDA-03287 constants
   constant c_COMP       : positive := 20;  -- 20 comparators on EDA-03287
-  constant c_DOUTS      : positive := 8;   -- 8 outputs
-  constant c_OUTFBD     : positive := 4;   -- of which 4 with feedback
+  constant c_DOUTS      : positive := 8;  -- 8 outputs
+  constant c_OUTFBD     : positive := 4;  -- of which 4 with feedback
   constant c_NODAC      : positive := 5;
   constant c_NOCHANNELS : positive := 4;
+  constant c_GPMEM      : positive := 8;  -- length of GP memory (starting at 0x00)
 
   --- signals
   signal s_comparators_i : std_logic_vector(c_COMP-1 downto 0);
@@ -99,7 +102,7 @@ architecture rtl of general_fmc is
       spi_sdo_i  : in     std_logic;
       spi_cs_n_o : out    std_logic;
       dac_cntr_b : buffer unsigned(31 downto 0);
-      dac_ch_i   : in     t_data32(0 to g_NODAC*g_NOCHANNELS-1);
+      dac_ch_i   : in    t_data32(0 to g_NODAC*g_NOCHANNELS-1);
       dac_ch_o   : out    t_data32(0 to g_NODAC*g_NOCHANNELS-1));
   end component dac7716_spi;
 begin
@@ -144,8 +147,8 @@ begin
         spi_sdo_i  => s_spi_miso,
         spi_cs_n_o => s_spi_cs_n,
         dac_cntr_b => s_dac_cntr,
-        dac_ch_i   => data_i(8 to 27),
-        dac_ch_o   => data_o(8 to 27));
+        dac_ch_i   => data_rw_i(c_GPMEM to c_GPMEM+(c_NODAC*c_NOCHANNELS)-1),
+        dac_ch_o   => data_o(c_GPMEM+(c_NODAC*c_NOCHANNELS) to c_GPMEM+2*(c_NODAC*c_NOCHANNELS)-1));  
     -- explicit declaration of this IOBUF needed (with Z) to simulate/synth as
     -- an input
     cmp_spi_miso_iobuf : IOBUF
@@ -185,15 +188,23 @@ begin
   begin
     if g_FMC = "EDA-03287" and rising_edge(clk_i) then
       -- in/outputs
-      data_o(0)                        <= resize(unsigned(v_cmp(c_COMP-1 downto 0)), data_o(0)'length);
-      data_o(1)                        <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
+      data_o(0)                   <= resize(unsigned(v_cmp(c_COMP-1 downto 0)), data_o(0)'length);
+      data_o(1)                   <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
       s_diffouts_o(c_DOUTS-1 downto 0) <= v_dout(c_DOUTS-1 downto 0);
       -- using the variables to clock-in/out data
-      v_dout(c_DOUTS-1 downto 0)       := std_logic_vector(data_i(0)(c_DOUTS-1 downto 0));
+      v_dout(c_DOUTS-1 downto 0)       := std_logic_vector(data_rw_i(2)(c_DOUTS-1 downto 0));
       v_cmp                            := s_comparators_i;
       v_fbd                            := FMC_LA_P_b(31) & FMC_LA_N_b(31) & FMC_LA_P_b(32) & FMC_LA_N_b(32);
     end if;
   end process p_fmc_03287_io;
+  -- memory mapping EDA-03287:
+  -- 0x00 : General Purpose
+  --  0x00 ro : bit19-0 comparator status
+  --  0x01 ro : bit3-0 output feedback status
+  --  0x02 rw : bit7-0 output request 
+  -- 0x08 rw : 20x channel write request
+  -- 0x1C ro : 20x channel read request
+  -- 0x30 : end
 
   --=============================================================================
   -- EDA-02327: FMC user lines - clock in for AXI register read by Zynq PS
@@ -212,9 +223,9 @@ begin
     if g_FMC = "EDA-02327" and rising_edge(clk_i) then
       -- for testing purposes, read-in FMC inputs
       -- 68 lines, hence doesn't fit into 2x32-bit AXI registers
-      data_o(0)      <= unsigned(v_fmc_reg0(c_DWIDTH-1 downto 0));
-      data_o(1)      <= unsigned(v_fmc_reg1(c_DWIDTH-1 downto 0));
-      data_o(2)      <= unsigned(v_fmc_reg2(c_DWIDTH-1 downto 0));
+      data_o(0) <= unsigned(v_fmc_reg0(c_DWIDTH-1 downto 0));
+      data_o(0) <= unsigned(v_fmc_reg1(c_DWIDTH-1 downto 0));
+      data_o(2) <= unsigned(v_fmc_reg2(c_DWIDTH-1 downto 0));
       -- single user lines, auto-gen from .ods file
       -- ** word 1
       v_fmc_reg0(0)  := FMC_LA_N_b(17);

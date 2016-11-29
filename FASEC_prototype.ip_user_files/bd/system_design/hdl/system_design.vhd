@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Nov 24 11:02:02 2016
+--Date        : Tue Nov 29 16:07:49 2016
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -2167,7 +2167,6 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_ENET1_GMII_TX_EN : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_ENET1_GMII_TX_ER : STD_LOGIC_VECTOR ( 0 to 0 );
   signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
-  signal processing_system7_0_FCLK_CLK1 : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK2 : STD_LOGIC;
   signal processing_system7_0_FCLK_RESET0_N : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRN : STD_LOGIC;
@@ -2325,6 +2324,7 @@ architecture STRUCTURE of system_design is
   signal NLW_gig_ethernet_pcs_pma_0_rxuserclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_gig_ethernet_pcs_pma_0_userclk_out_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_ENET1_MDIO_T_UNCONNECTED : STD_LOGIC;
+  signal NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED : STD_LOGIC;
@@ -2489,7 +2489,7 @@ fasec_hwtest_0: component system_design_fasec_hwtest_0_0
       led_line_pl_o => fasec_hwtest_0_led_line_pl_o,
       osc100_clk_i => osc100_clk_i_1,
       pb_gp_n_i => pb_gp_i_1,
-      ps_clk_i => processing_system7_0_FCLK_CLK1,
+      ps_clk_i => processing_system7_0_FCLK_CLK0,
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
       s00_axi_araddr(31 downto 0) => processing_system7_0_axi_periph_M02_AXI_ARADDR(31 downto 0),
       s00_axi_aresetn => rst_processing_system7_0_100M_peripheral_aresetn(0),
@@ -2591,7 +2591,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       ENET1_MDIO_O => processing_system7_0_MDIO_ETHERNET_1_MDIO_I,
       ENET1_MDIO_T => NLW_processing_system7_0_ENET1_MDIO_T_UNCONNECTED,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
-      FCLK_CLK1 => processing_system7_0_FCLK_CLK1,
+      FCLK_CLK1 => NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED,
       FCLK_CLK2 => processing_system7_0_FCLK_CLK2,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),

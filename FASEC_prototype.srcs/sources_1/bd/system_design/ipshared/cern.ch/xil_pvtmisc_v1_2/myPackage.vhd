@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-11-22
+-- Last update: 2016-11-29
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'87
 -------------------------------------------------------------------------------
@@ -34,25 +34,51 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-package myPackage is    
+package myPackage is
   -- types
   type t_adc_array is array (integer range <>) of unsigned(11 downto 0);
   type t_data32 is array (integer range <>) of unsigned(31 downto 0);
-  
+  type t_memrec32 is record
+    resetval : unsigned(31 downto 0);
+    -- if ro='1', no writes allowed
+    ro       : std_logic;
+  end record;
+  type t_iomem32 is array (integer range <>) of t_memrec32;
+
+  -- FASEC memory mapping
+  ------------------------------------
+  -- memory mapping, using EDA-03287:
+  ------------------------------------
+  --  0x00: FASEC
+  --    0x00: FMC generic ASCII
+  --    0x01: b0-b5: digital ins
+  --    0x02: b0-b15: GEM AN status vector
+  --    0x03: output control: b0 @1 all outs connected to dig_in1; b1 @1 all outs
+  --          connected to s_tick frequency
+  --  0x08: FMC1 (see general_fmc.vhd)
+  --  0x38: FMC2 (see general_fmc.vhd)
+  --  0x68:  end
+  ------------------------------------
+  constant c_FASEC_BASE : natural  := 0;
+  constant c_FASEC_DMAX : positive := 8;
+  constant c_FMC_DMAX   : positive := 48;
+  constant c_MEMMAX     : positive := c_FASEC_DMAX + 2*c_FMC_DMAX;
+
   -- when using VHDL2008, unsigned can be non-constrained
   type t_axiMemory is array (integer range <>) of unsigned(31 downto 0);
-  
+
   -- constants
-  constant BCD_D             : integer := 4;   -- BCD digits for the to_bcd function
-  constant BCD_WIDTH         : integer := 16;  -- width of the input unsigned for the to_bcd function
+  constant BCD_D     : integer := 4;    -- BCD digits for the to_bcd function
+  constant BCD_WIDTH : integer := 16;  -- width of the input unsigned for the to_bcd function
 
   -- functions
-  function to_bcd (bin       : unsigned(BCD_WIDTH-1 downto 0)) return unsigned;
-  function xadc_to_axi (xadc : integer; length : natural) return unsigned;
-  function clogb2 (bit_depth : integer) return integer;
- 
+  function to_bcd (bin            : unsigned(BCD_WIDTH-1 downto 0)) return unsigned;
+  function xadc_to_axi (xadc      : integer; length : natural) return unsigned;
+  function clogb2 (bit_depth      : integer) return integer;
+  function fill_mem_fasec (length : integer) return t_iomem32;
+
   -- components
-  component clockDivider is                                                                  -- see clockDivider.vhd
+  component clockDivider is             -- see clockDivider.vhd
     generic (
       g_FACTOR      : integer range 0 to integer'high;
       g_START_LEVEL : std_logic := '0');
@@ -62,7 +88,7 @@ package myPackage is
       clk_div_o    : out std_logic
       );
   end component clockDivider;
-  component shiftRegister is                                                                 -- see shiftRegsiter.vhd
+  component shiftRegister is            -- see shiftRegsiter.vhd
     generic(
       g_DATA_WIDTH : natural range 1 to 32 := 8;
       g_DEFAULT    : std_logic             := '0'
@@ -125,33 +151,33 @@ package myPackage is
     generic (
       C_S_AXI_DATA_WIDTH : integer;
       C_S_AXI_ADDR_WIDTH : integer;
-      g_MAXREAD          : integer;
-      g_MAXWRITE         : integer);
+      g_MAXMEM           : integer;
+      g_CLOCKMEM         : std_logic;
+      g_IOMEM            : t_iomem32);
     port (
-      s_axi_dataR      : in     t_data32(0 to g_MAXREAD-1);
-      s_axi_dataW      : buffer t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others => (others => '0'));
-      s_axi_dataResetW : in     t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
-      S_AXI_ACLK       : in     std_logic;
-      S_AXI_ARESETN    : in     std_logic;
-      S_AXI_AWADDR     : in     std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
-      S_AXI_AWPROT     : in     std_logic_vector(2 downto 0);
-      S_AXI_AWVALID    : in     std_logic;
-      S_AXI_AWREADY    : out    std_logic;
-      S_AXI_WDATA      : in     std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-      S_AXI_WSTRB      : in     std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
-      S_AXI_WVALID     : in     std_logic;
-      S_AXI_WREADY     : out    std_logic;
-      S_AXI_BRESP      : out    std_logic_vector(1 downto 0);
-      S_AXI_BVALID     : out    std_logic;
-      S_AXI_BREADY     : in     std_logic;
-      S_AXI_ARADDR     : in     std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
-      S_AXI_ARPROT     : in     std_logic_vector(2 downto 0);
-      S_AXI_ARVALID    : in     std_logic;
-      S_AXI_ARREADY    : out    std_logic;
-      S_AXI_RDATA      : out    std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-      S_AXI_RRESP      : out    std_logic_vector(1 downto 0);
-      S_AXI_RVALID     : out    std_logic;
-      S_AXI_RREADY     : in     std_logic);
+      data_i        : in  t_data32(0 to g_MAXMEM-1);
+      data_rw_o     : out t_data32(0 to g_MAXMEM-1);
+      S_AXI_ACLK    : in  std_logic;
+      S_AXI_ARESETN : in  std_logic;
+      S_AXI_AWADDR  : in  std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+      S_AXI_AWPROT  : in  std_logic_vector(2 downto 0);
+      S_AXI_AWVALID : in  std_logic;
+      S_AXI_AWREADY : out std_logic;
+      S_AXI_WDATA   : in  std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+      S_AXI_WSTRB   : in  std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
+      S_AXI_WVALID  : in  std_logic;
+      S_AXI_WREADY  : out std_logic;
+      S_AXI_BRESP   : out std_logic_vector(1 downto 0);
+      S_AXI_BVALID  : out std_logic;
+      S_AXI_BREADY  : in  std_logic;
+      S_AXI_ARADDR  : in  std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+      S_AXI_ARPROT  : in  std_logic_vector(2 downto 0);
+      S_AXI_ARVALID : in  std_logic;
+      S_AXI_ARREADY : out std_logic;
+      S_AXI_RDATA   : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+      S_AXI_RRESP   : out std_logic_vector(1 downto 0);
+      S_AXI_RVALID  : out std_logic;
+      S_AXI_RREADY  : in  std_logic);
   end component axi4lite_slave;
   component axis_wbm_bridge is
     generic (
@@ -216,6 +242,28 @@ package myPackage is
 end myPackage;
 
 package body myPackage is
+  function fill_mem_fasec(length : integer) return t_iomem32 is
+    variable m : t_iomem32(0 to length);
+  begin
+    for i in 0 to length loop
+      m(i).resetval := (others => '0');
+      case i is
+        when 3 =>
+          m(i).ro       := '0';
+          m(i).resetval := x"00000001";
+        when c_FASEC_DMAX+2 | c_FASEC_DMAX+c_FMC_DMAX+2 =>
+          m(i).ro := '0';
+        when c_FASEC_DMAX+8 to c_FASEC_DMAX+27 =>
+          m(i).ro := '0';
+        when c_FASEC_DMAX+c_FMC_DMAX+8 to c_FASEC_DMAX+c_FMC_DMAX+27 =>
+          m(i).ro := '0';
+        when others =>
+          m(i).resetval := (others => '0');
+          m(i).ro       := '1';
+      end case;
+    end loop;
+    return m;
+  end;
 
   -- function called clogb2 that returns an integer which has the
   -- value of the ceiling of the log base 2
@@ -254,7 +302,7 @@ package body myPackage is
     variable bcd  : unsigned((4*BCD_D)-1 downto 0) := (others => '0');
     variable bint : unsigned(BCD_WIDTH-1 downto 0) := bin;
   begin
-    for i in 0 to BCD_WIDTH-1 loop                                  -- repeating for the length of the binair input
+    for i in 0 to BCD_WIDTH-1 loop  -- repeating for the length of the binair input
       bcd((4*BCD_D)-1 downto 1)  := bcd((4*BCD_D)-2 downto 0);  --shifting the bits.
       bcd(0)                     := bint(BCD_WIDTH-1);
       bint(BCD_WIDTH-1 downto 1) := bint(BCD_WIDTH-2 downto 0);

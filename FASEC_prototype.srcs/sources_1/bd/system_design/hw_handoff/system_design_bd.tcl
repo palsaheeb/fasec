@@ -304,7 +304,7 @@ CONFIG.FREQ_HZ {100000000} \
   create_hier_cell_drive_constants [current_bd_instance .] drive_constants
 
   # Create instance: fasec_hwtest_0, and set properties
-  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.6.2 fasec_hwtest_0 ]
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:2.7.0 fasec_hwtest_0 ]
   set_property -dict [ list \
 CONFIG.g_FMC1 {EDA-03287} \
 CONFIG.g_FMC2 {EDA-03287} \
@@ -1733,7 +1733,7 @@ preplace netloc xlconstant_3_dout 1 2 1 1010
 preplace netloc processing_system7_0_FCLK_CLK2 1 1 2 NJ 220 980
 preplace netloc Net3 1 3 1 NJ
 preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 3 1 NJ
-levelinfo -pg 1 -20 280 800 1280 1480 -top 0 -bot 1500
+levelinfo -pg 1 -20 280 800 1280 1490 -top 0 -bot 1500
 ",
 }
 

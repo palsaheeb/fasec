@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-11-23
+-- Last update: 2016-11-29
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'87
 -------------------------------------------------------------------------------
@@ -37,98 +37,95 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 library xil_pvtmisc;
-use xil_pvtmisc.myPackage.ALL;
+use xil_pvtmisc.myPackage.all;
 
 entity axi4lite_slave is
   generic (
     -- Width of S_AXI data bus, only 32 or 64 allowed
-    C_S_AXI_DATA_WIDTH : integer := 32;
+    C_S_AXI_DATA_WIDTH : integer   := 32;
     -- Width of S_AXI address bus
-    C_S_AXI_ADDR_WIDTH : integer := 32;
-    -- max amount of read values
-    g_MAXREAD : integer := 8;
-    -- max amount of write values, AFTER the read values in the memory mapping
-    g_MAXWRITE : integer := 8);
+    C_S_AXI_ADDR_WIDTH : integer   := 32;
+    -- max memory words for this slave
+    g_MAXMEM           : integer   := 8;
+    -- if one, all data will be clocked in by a double buffer
+    g_CLOCKMEM         : std_logic := '1';
+    -- record with reset-values and ro info
+    g_IOMEM : t_iomem32);
   port (
-    -- read data
-    s_axi_dataR : in t_data32(0 to g_MAXREAD-1);
-    -- write data
-    s_axi_dataW : buffer t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1) := (others=> (others=>'0'));
-    -- write data default/reset values
-    s_axi_dataResetW : in t_data32(g_MAXREAD to g_MAXREAD+g_MAXWRITE-1);
-    
+    -- memory-mapped data
+    data_i        : in t_data32(0 to g_MAXMEM-1);
+    data_rw_o     : out    t_data32(0 to g_MAXMEM-1);
     -- Global Clock Signal
-    S_AXI_ACLK    : in  std_logic;
+    S_AXI_ACLK    : in     std_logic;
     -- Global Reset Signal. This Signal is Active LOW
-    S_AXI_ARESETN : in  std_logic;
+    S_AXI_ARESETN : in     std_logic;
     -- Write address (issued by master, acceped by Slave)
-    S_AXI_AWADDR  : in  std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+    S_AXI_AWADDR  : in     std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
     -- Write channel Protection type. This signal indicates the
     -- privilege and security level of the transaction, and whether
     -- the transaction is a data access or an instruction access.
-    S_AXI_AWPROT  : in  std_logic_vector(2 downto 0);
+    S_AXI_AWPROT  : in     std_logic_vector(2 downto 0);
     -- Write address valid. This signal indicates that the master signaling
     -- valid write address and control information.
-    S_AXI_AWVALID : in  std_logic;
+    S_AXI_AWVALID : in     std_logic;
     -- Write address ready. This signal indicates that the slave is ready
     -- to accept an address and associated control signals.
-    S_AXI_AWREADY : out std_logic;
+    S_AXI_AWREADY : out    std_logic;
     -- Write data (issued by master, acceped by Slave) 
-    S_AXI_WDATA   : in  std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+    S_AXI_WDATA   : in     std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     -- Write strobes. This signal indicates which byte lanes hold
     -- valid data. There is one write strobe bit for each eight
     -- bits of the write data bus.    
-    S_AXI_WSTRB   : in  std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
+    S_AXI_WSTRB   : in     std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
     -- Write valid. This signal indicates that valid write
     -- data and strobes are available.
-    S_AXI_WVALID  : in  std_logic;
+    S_AXI_WVALID  : in     std_logic;
     -- Write ready. This signal indicates that the slave
     -- can accept the write data.
-    S_AXI_WREADY  : out std_logic;
+    S_AXI_WREADY  : out    std_logic;
     -- Write response. This signal indicates the status
     -- of the write transaction.
-    S_AXI_BRESP   : out std_logic_vector(1 downto 0);
+    S_AXI_BRESP   : out    std_logic_vector(1 downto 0);
     -- Write response valid. This signal indicates that the channel
     -- is signaling a valid write response.
-    S_AXI_BVALID  : out std_logic;
+    S_AXI_BVALID  : out    std_logic;
     -- Response ready. This signal indicates that the master
     -- can accept a write response.
-    S_AXI_BREADY  : in  std_logic;
+    S_AXI_BREADY  : in     std_logic;
     -- Read address (issued by master, acceped by Slave)
-    S_AXI_ARADDR  : in  std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+    S_AXI_ARADDR  : in     std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
     -- Protection type. This signal indicates the privilege
     -- and security level of the transaction, and whether the
     -- transaction is a data access or an instruction access.
-    S_AXI_ARPROT  : in  std_logic_vector(2 downto 0);
+    S_AXI_ARPROT  : in     std_logic_vector(2 downto 0);
     -- Read address valid. This signal indicates that the channel
     -- is signaling valid read address and control information.
-    S_AXI_ARVALID : in  std_logic;
+    S_AXI_ARVALID : in     std_logic;
     -- Read address ready. This signal indicates that the slave is
     -- ready to accept an address and associated control signals.
-    S_AXI_ARREADY : out std_logic;
+    S_AXI_ARREADY : out    std_logic;
     -- Read data (issued by slave)
-    S_AXI_RDATA   : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+    S_AXI_RDATA   : out    std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     -- Read response. This signal indicates the status of the
     -- read transfer.
-    S_AXI_RRESP   : out std_logic_vector(1 downto 0);
+    S_AXI_RRESP   : out    std_logic_vector(1 downto 0);
     -- Read valid. This signal indicates that the channel is
     -- signaling the required read data.
-    S_AXI_RVALID  : out std_logic;
+    S_AXI_RVALID  : out    std_logic;
     -- Read ready. This signal indicates that the master can
     -- accept the read data and response information.
-    S_AXI_RREADY : in  std_logic
+    S_AXI_RREADY  : in     std_logic
     );
 end axi4lite_slave;
 
 architecture rtl of axi4lite_slave is
-  constant c_MAXMEM : natural := g_MAXREAD+g_MAXWRITE;
   -- AXI4LITE signals
-  signal axi_awaddr  : std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0) := (others=>'0');
+  signal axi_awaddr  : std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0) := (others => '0');
   signal axi_awready : std_logic;
   signal axi_wready  : std_logic;
   signal axi_bresp   : std_logic_vector(1 downto 0);
   signal axi_bvalid  : std_logic;
-  signal axi_araddr  : std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0) := (others=>'0');
+  signal axi_araddr  : std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0) := (others => '0');
   signal axi_arready : std_logic;
   signal axi_rdata   : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
   signal axi_rresp   : std_logic_vector(1 downto 0);
@@ -141,7 +138,7 @@ architecture rtl of axi4lite_slave is
   -- ADDR_LSB = 2 for 32 bits (n downto 2)      
   -- ADDR_LSB = 3 for 64 bits (n downto 3)
   constant ADDR_LSB          : integer := (C_S_AXI_DATA_WIDTH/32)+1;
-  constant c_MEM_ADDR_SPACE  : natural := c_MAXMEM;
+  constant c_MEM_ADDR_SPACE  : natural := g_MAXMEM;
   constant OPT_MEM_ADDR_BITS : integer := clogb2(c_MEM_ADDR_SPACE);
   ------------------------------------------------
   ---- Signals for user logic register space
@@ -150,9 +147,7 @@ architecture rtl of axi4lite_slave is
   signal slv_reg_wren        : std_logic;
   signal reg_data_out        : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
   signal byte_index          : integer range 0 to (C_S_AXI_DATA_WIDTH/8-1);
-  signal s_dataRt       : t_data32(0 to g_MAXREAD-1); -- memory to clock in the slave read data
-  signal s_dataR        : t_data32(0 to g_MAXREAD-1); -- memory to clock in the slave read data
-
+  signal s_data              : t_data32(0 to g_MAXMEM-1);
 
 begin
   -- I/O Connections assignments
@@ -166,20 +161,28 @@ begin
   S_AXI_RVALID  <= axi_rvalid;
 
   -- Clock-in the slave's read data which might come from a different clock-domain
-  p_dataRBuffer: process (S_AXI_ACLK)
-  begin
-    if rising_edge(S_AXI_ACLK) then
-      if S_AXI_ARESETN = '0' then
-        s_dataRt <= (others=> (others=>'0'));
-        s_dataR  <= (others=> (others=>'0'));
-      else
-        s_dataR <= s_axi_dataR;
-        --s_dataR  <= s_dataRt;         -- buffer removed because already clocked once in
-        --higher module
+  gen_buffreg1 : if g_CLOCKMEM = '1' generate
+    p_dataRBuffer : process (S_AXI_ACLK)
+      variable v_buf : t_data32(0 to g_MAXMEM-1);
+    begin
+      if rising_edge(S_AXI_ACLK) then
+        if S_AXI_ARESETN = '1' then
+          s_data <= v_buf(0 to g_MAXMEM-1);
+          v_buf  := data_i(0 to g_MAXMEM-1);
+        -- for i in 0 to g_MAXMEM-1 loop
+        --   if data_i(i).ro='1' then
+        --     s_data(i) <= v_buf(i);
+        --     v_buf(i) := data_i(i);
+        --   end if;
+        -- end loop;
+        end if;
       end if;
-    end if;
-  end process p_dataRBuffer;
-                
+    end process p_dataRBuffer;
+  end generate gen_buffreg1;
+  gen_buffreg0 : if g_CLOCKMEM = '0' generate
+    s_data <= data_i(0 to g_MAXMEM-1);
+  end generate gen_buffreg0;
+
   -- Implement axi_awready generation
   -- axi_awready is asserted for one S_AXI_ACLK clock cycle when both
   -- S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_awready is
@@ -224,8 +227,8 @@ begin
   -- axi_wready is asserted for one S_AXI_ACLK clock cycle when both
   -- S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is 
   -- de-asserted when reset is low. 
-  p_axi_wready: process (S_AXI_ACLK)
-    --variable loc_addr : unsigned(OPT_MEM_ADDR_BITS downto 0);
+  p_axi_wready : process (S_AXI_ACLK)
+  --variable loc_addr : unsigned(OPT_MEM_ADDR_BITS downto 0);
   begin
     if rising_edge(S_AXI_ACLK) then
       if S_AXI_ARESETN = '0' then
@@ -238,11 +241,11 @@ begin
           -- expects no outstanding transactions.
           --loc_addr := unsigned(axi_awaddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB));
           -- write-data is AFTER the read-data in the memory mapping, makes axi_wready assertion easier    
-          --if to_integer(loc_addr) > g_MAXREAD-1 then
-            axi_wready <= '1';
-          --else
-          --  axi_wready <= '0';
-          --end if;
+          --if to_integer(loc_addr) > g_MAXMEM-1 then
+          axi_wready <= '1';
+        --else
+        --  axi_wready <= '0';
+        --end if;
         else
           axi_wready <= '0';
         end if;
@@ -258,21 +261,28 @@ begin
   -- Slave register write enable is asserted when valid address and data are available
   -- and the slave is ready to accept the write address and write data.
   slv_reg_wren <= axi_wready and S_AXI_WVALID and axi_awready and S_AXI_AWVALID;
-  p_axi_write: process (S_AXI_ACLK)
+  p_axi_write : process (S_AXI_ACLK)
     variable loc_addr : natural range 0 to c_MEM_ADDR_SPACE;
   begin
     if rising_edge(S_AXI_ACLK) then
       if S_AXI_ARESETN = '0' then
-        s_axi_dataW(g_MAXREAD to c_MAXMEM-1) <= s_axi_dataResetW(g_MAXREAD to c_MAXMEM-1);
+        for i in 0 to g_MAXMEM-1 loop
+          if g_IOMEM(i).ro = '0' then
+            data_rw_o(i) <= g_IOMEM(i).resetval(C_S_AXI_DATA_WIDTH-1 downto 0);
+          end if;
+        end loop;
       else
         loc_addr := to_integer(unsigned(axi_awaddr((ADDR_LSB+OPT_MEM_ADDR_BITS) downto ADDR_LSB)));
-        if (slv_reg_wren = '1') and (loc_addr>g_MAXREAD-1) and (loc_addr<c_MAXMEM)  then
-          for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
-            if (S_AXI_WSTRB(byte_index) = '1') then
-              -- Respective byte enables are asserted as per write strobes
-              s_axi_dataW(loc_addr)(byte_index*8+7 downto byte_index*8) <= unsigned(S_AXI_WDATA(byte_index*8+7 downto byte_index*8));
-            end if;
-          end loop;
+        if (slv_reg_wren = '1') and (loc_addr < g_MAXMEM) then
+          -- only accept writes when indicated by ro bit
+          if g_IOMEM(loc_addr).ro = '0' then
+            for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
+              if (S_AXI_WSTRB(byte_index) = '1') then
+                -- Respective byte enables are asserted as per write strobes
+                data_rw_o(loc_addr)(byte_index*8+7 downto byte_index*8) <= unsigned(S_AXI_WDATA(byte_index*8+7 downto byte_index*8));
+              end if;
+            end loop;
+          end if;
         end if;
       end if;
     end if;
@@ -283,7 +293,7 @@ begin
   -- when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
   -- This marks the acceptance of address and indicates the status of 
   -- write transaction.
-  p_axi_bvalid: process (S_AXI_ACLK)
+  p_axi_bvalid : process (S_AXI_ACLK)
     variable loc_addr : natural range 0 to c_MEM_ADDR_SPACE;
   begin
     if rising_edge(S_AXI_ACLK) then
@@ -293,7 +303,7 @@ begin
       else
         loc_addr := to_integer(unsigned(axi_awaddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB)));
         if (axi_awready = '1' and S_AXI_AWVALID = '1' and axi_wready = '1' and S_AXI_WVALID = '1' and axi_bvalid = '0') then
-          if (loc_addr>g_MAXREAD-1) and (loc_addr<c_MAXMEM)  then
+          if (loc_addr < g_MAXMEM) then
             axi_bvalid <= '1';
             axi_bresp  <= "00";         --OKAY
           else
@@ -301,8 +311,8 @@ begin
             axi_bresp  <= "10";         --SLVERR
           end if;
         elsif (S_AXI_BREADY = '1' and axi_bvalid = '1') then  --check if bready is asserted while bvalid is high)
-          axi_bvalid <= '0';                                  -- (there is a possibility that bready is always asserted high)
-          axi_bresp  <= "00";         --OKAY
+          axi_bvalid <= '0';  -- (there is a possibility that bready is always asserted high)
+          axi_bresp  <= "00";           --OKAY
         end if;
       end if;
     end if;
@@ -314,7 +324,7 @@ begin
   -- de-asserted when reset (active low) is asserted. 
   -- The read address is also latched when S_AXI_ARVALID is 
   -- asserted. axi_araddr is reset to zero on reset assertion.
-  p_axi_arready: process (S_AXI_ACLK)
+  p_axi_arready : process (S_AXI_ACLK)
   begin
     if rising_edge(S_AXI_ACLK) then
       if S_AXI_ARESETN = '0' then
@@ -341,7 +351,7 @@ begin
   -- bus and axi_rresp indicates the status of read transaction.axi_rvalid 
   -- is deasserted on reset (active low). axi_rresp and axi_rdata are 
   -- cleared to zero on reset (active low).  
-  p_axi_rresponse: process (S_AXI_ACLK)
+  p_axi_rresponse : process (S_AXI_ACLK)
     variable loc_addr : unsigned(OPT_MEM_ADDR_BITS downto 0);
   begin
     if rising_edge(S_AXI_ACLK) then
@@ -351,14 +361,14 @@ begin
       else
         loc_addr := unsigned(axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB));
         if (axi_arready = '1' and S_AXI_ARVALID = '1' and axi_rvalid = '0') then
-          if to_integer(loc_addr)<(c_MAXMEM) then
+          if to_integer(loc_addr) < g_MAXMEM then
             -- Valid read data is available at the read data bus
             axi_rvalid <= '1';
-            axi_rresp  <= "00";           -- 'OKAY' response
+            axi_rresp  <= "00";         -- 'OKAY' response
           else
             -- Invalid read address requested
             axi_rvalid <= '1';
-            axi_rresp  <= "10";           -- 'SLVERR' response
+            axi_rresp  <= "10";         -- 'SLVERR' response
           end if;
         elsif (axi_rvalid = '1' and S_AXI_RREADY = '1') then
           -- Read data is accepted by the master
@@ -374,17 +384,15 @@ begin
   -- and the slave is ready to accept the read address.
   slv_reg_rden <= axi_arready and S_AXI_ARVALID and (not axi_rvalid);
 
-  process (s_dataR,s_axi_dataW,axi_araddr,S_AXI_ARESETN,slv_reg_rden)
+  process (s_data, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
     variable v_loc_addr : natural range 0 to c_MEM_ADDR_SPACE;
   begin
     -- Address decoding for reading registers
     v_loc_addr := to_integer(unsigned(axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB)));
-    if v_loc_addr < g_MAXREAD then
-      reg_data_out(C_S_AXI_DATA_WIDTH-1 downto 0) <= std_logic_vector(s_dataR(v_loc_addr)(C_S_AXI_DATA_WIDTH-1 downto 0));
-    elsif v_loc_addr < c_MAXMEM then
-      reg_data_out(C_S_AXI_DATA_WIDTH-1 downto 0) <= std_logic_vector(s_axi_dataW(v_loc_addr)(C_S_AXI_DATA_WIDTH-1 downto 0));
+    if v_loc_addr < g_MAXMEM then
+      reg_data_out(C_S_AXI_DATA_WIDTH-1 downto 0) <= std_logic_vector(s_data(v_loc_addr)(C_S_AXI_DATA_WIDTH-1 downto 0));
     else
-      reg_data_out <= (others=>'0');
+      reg_data_out <= (others => '0');
     end if;
   end process;
 
@@ -400,7 +408,7 @@ begin
           -- acceptance of read address by the slave (axi_arready), 
           -- output the read dada 
           -- Read address mux
-          axi_rdata(C_S_AXI_DATA_WIDTH-1 downto 0) <= reg_data_out(C_S_AXI_DATA_WIDTH-1 downto 0);    -- register read data
+          axi_rdata(C_S_AXI_DATA_WIDTH-1 downto 0) <= reg_data_out(C_S_AXI_DATA_WIDTH-1 downto 0);  -- register read data
         end if;
       end if;
     end if;
