@@ -219,9 +219,10 @@ begin
   s_data(c_FASEC_BASE+2) <= resize(unsigned(gem_status_vector_i), g_S00_AXI_DATA_WIDTH);
   -- s_data(c_FASEC_BASE+3).data used in p_fasec_dio
   s_data(c_FASEC_BASE+7) <= x"DEADBEEF";
-  -- copy in rw data
+  -- copy in rw data, for generate only possible with constants!
   gen_data_readwrite : for i in 0 to c_MEMMAX-1 generate
-    gen_fasec : if i < c_FASEC_DMAX and c_FASECMEM(i).ro = '0' generate
+    gen_fasec : if c_FASECMEM(i).ro = '0' generate
+      -- no check for i because rw access possible for whole memory range
       s_data(i) <= s_data_rw(i)(g_S00_AXI_DATA_WIDTH-1 downto 0);
     end generate gen_fasec;
     gen_fmc1 : if i > c_FASEC_DMAX and i < c_FASEC_DMAX+c_FMC_DMAX and c_FASECMEM(i).ro = '1' generate

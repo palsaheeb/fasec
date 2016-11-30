@@ -38,9 +38,9 @@
   "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/spi_transceiver.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_0/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_0/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_1/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_1/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_7_1/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
   "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_bit_ctrl.vhd" \
   "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_byte_ctrl.vhd" \
@@ -158,6 +158,7 @@
   "../../../bd/system_design/ip/system_design_xlconstant_3_2/sim/system_design_xlconstant_3_2.vhd" \
   "../../../bd/system_design/ip/system_design_xlconstant_0_2/sim/system_design_xlconstant_0_2.vhd" \
   "../../../bd/system_design/ip/system_design_axi_wb_i2c_master_2_0/sim/system_design_axi_wb_i2c_master_2_0.vhd" \
+  "../../../bd/system_design/hdl/system_design.vhd" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_9 \
   "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
@@ -182,9 +183,6 @@
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/ip/system_design_auto_pc_0/sim/system_design_auto_pc_0.v" \
--endlib
--makelib ies/xil_defaultlib \
-  "../../../bd/system_design/hdl/system_design.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
   glbl.v
