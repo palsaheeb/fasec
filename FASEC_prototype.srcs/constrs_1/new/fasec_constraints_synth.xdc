@@ -315,3 +315,17 @@ set_max_delay -datapath_only -from [get_pins {system_design_i/gig_ethernet_pcs_p
 set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/DELAY_ERROR_TXOUTCLK.RXDISPERR_REG_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/axi_rdata_reg[5]/D}] 2.000
 set_max_delay -datapath_only -from [get_pins system_design_i/gig_ethernet_pcs_pma_0/U0/pcs_pma_block_i/system_design_gig_ethernet_pcs_pma_0_0_core/gpcs_pma_inst/DELAY_ERROR_TXOUTCLK.RXNOTINTABLE_REG_reg/C] -to [get_pins {system_design_i/fasec_hwtest_0/U0/axi4lite_slave/axi_rdata_reg[6]/D}] 2.000
 create_generated_clock -name axi_aclk_U0 -source [get_pins system_design_i/axi_wb_i2c_master_2/s00_axi_aclk] -multiply_by 1 -add -master_clock axi_aclk [get_pins system_design_i/axi_wb_i2c_master_0/s00_axi_aclk]
+
+set_property PACKAGE_PIN P13 [get_ports Vp_Vn_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux0_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux1_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux1_v_p]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux0_v_p]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux2_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux8_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux2_v_p]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux9_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux8_v_p]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux9_v_p]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux10_v_n]
+set_property IOSTANDARD LVCMOS18 [get_ports Vaux10_v_p]

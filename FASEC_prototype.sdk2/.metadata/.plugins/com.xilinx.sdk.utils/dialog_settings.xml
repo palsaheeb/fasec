@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk2/system_design_wrapper_hw_platform_0" key="program_fpga_view_bit_bmm_browse_key"/>
-	<item value="/home/pieter/Development/projects/FIDS/FASEC_prototype/FASEC_prototype.sdk2/system_design_wrapper_hw_platform_0" key="last_stored_selection"/>
+	<item value="/home/pieter/Development/projects/FIDS/petalinux/FASEC_petalinux_sfp/images/linux" key="zynq_flash_files_selection"/>
+	<item value="/home/pieter/Development/projects/FIDS/petalinux/FASEC_petalinux_sfp/images/linux" key="last_stored_selection"/>
 </section>

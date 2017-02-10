@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Dec 14 13:21:06 2016
+--Date        : Wed Feb  8 18:16:38 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -48,6 +48,20 @@ entity system_design_wrapper is
     FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC2_PRSNTM2C_n_i : in STD_LOGIC;
+    Vaux0_v_n : in STD_LOGIC;
+    Vaux0_v_p : in STD_LOGIC;
+    Vaux10_v_n : in STD_LOGIC;
+    Vaux10_v_p : in STD_LOGIC;
+    Vaux1_v_n : in STD_LOGIC;
+    Vaux1_v_p : in STD_LOGIC;
+    Vaux2_v_n : in STD_LOGIC;
+    Vaux2_v_p : in STD_LOGIC;
+    Vaux8_v_n : in STD_LOGIC;
+    Vaux8_v_p : in STD_LOGIC;
+    Vaux9_v_n : in STD_LOGIC;
+    Vaux9_v_p : in STD_LOGIC;
+    Vp_Vn_v_n : in STD_LOGIC;
+    Vp_Vn_v_p : in STD_LOGIC;
     diff_clock_rtl_clk_n : in STD_LOGIC;
     diff_clock_rtl_clk_p : in STD_LOGIC;
     dig_in1_i : in STD_LOGIC;
@@ -140,7 +154,21 @@ architecture STRUCTURE of system_design_wrapper is
     dig_in1_i : in STD_LOGIC;
     dig_in2_i : in STD_LOGIC;
     dig_in3_n_i : in STD_LOGIC;
-    dig_in4_n_i : in STD_LOGIC
+    dig_in4_n_i : in STD_LOGIC;
+    Vp_Vn_v_n : in STD_LOGIC;
+    Vp_Vn_v_p : in STD_LOGIC;
+    Vaux0_v_n : in STD_LOGIC;
+    Vaux0_v_p : in STD_LOGIC;
+    Vaux1_v_n : in STD_LOGIC;
+    Vaux1_v_p : in STD_LOGIC;
+    Vaux2_v_n : in STD_LOGIC;
+    Vaux2_v_p : in STD_LOGIC;
+    Vaux8_v_n : in STD_LOGIC;
+    Vaux8_v_p : in STD_LOGIC;
+    Vaux9_v_n : in STD_LOGIC;
+    Vaux9_v_p : in STD_LOGIC;
+    Vaux10_v_n : in STD_LOGIC;
+    Vaux10_v_p : in STD_LOGIC
   );
   end component system_design;
 begin
@@ -181,6 +209,20 @@ system_design_i: component system_design
       FMC2_LA_N_b(33 downto 0) => FMC2_LA_N_b(33 downto 0),
       FMC2_LA_P_b(33 downto 0) => FMC2_LA_P_b(33 downto 0),
       FMC2_PRSNTM2C_n_i => FMC2_PRSNTM2C_n_i,
+      Vaux0_v_n => Vaux0_v_n,
+      Vaux0_v_p => Vaux0_v_p,
+      Vaux10_v_n => Vaux10_v_n,
+      Vaux10_v_p => Vaux10_v_p,
+      Vaux1_v_n => Vaux1_v_n,
+      Vaux1_v_p => Vaux1_v_p,
+      Vaux2_v_n => Vaux2_v_n,
+      Vaux2_v_p => Vaux2_v_p,
+      Vaux8_v_n => Vaux8_v_n,
+      Vaux8_v_p => Vaux8_v_p,
+      Vaux9_v_n => Vaux9_v_n,
+      Vaux9_v_p => Vaux9_v_p,
+      Vp_Vn_v_n => Vp_Vn_v_n,
+      Vp_Vn_v_p => Vp_Vn_v_p,
       diff_clock_rtl_clk_n => diff_clock_rtl_clk_n,
       diff_clock_rtl_clk_p => diff_clock_rtl_clk_p,
       dig_in1_i => dig_in1_i,

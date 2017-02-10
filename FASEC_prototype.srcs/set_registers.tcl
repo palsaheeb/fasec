@@ -1,7 +1,7 @@
 # this scripts queries some variables and put them
 # in a VHDL file for use during synthesis
 # start manually as follows:
-# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/set_registers.tcl; reset_run synth_1; launch_runs synth_1 -to_step write_bitstream -jobs 2
+# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/set_registers.tcl; reset_run synth_1; launch_runs impl_1 -to_step write_bitstream -jobs 2
 # launch_runs synth_1 -jobs 2
 
 # xilinc tcl info:
@@ -25,10 +25,12 @@ cd $projd
 set dateCode [format %08X [clock seconds]]
 set gitCode [string range [exec $git log --format=%H -n 1] 0 7]
 
+# create backup file if it doesn't exist to preserve the DEADBEE. strings
 if [file exists $topfile$backupext]==0 {
-    # copy needed because we'll modify the DEADBEE. strings
     file copy -force $topfile $topfile$backupext
 }
+# replace the strings from the backupfile, then write to output file
+# backupfile will remain unmodified
 set fr [open $topfile$backupext r]
 set fw [open $topfile r+]
 set cont [regsub -all {DEADBEE1} [read $fr] $dateCode]

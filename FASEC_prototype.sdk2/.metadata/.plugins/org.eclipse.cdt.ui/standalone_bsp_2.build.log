@@ -1,0 +1,6 @@
+14:54:04 **** Clean-only build of project standalone_bsp_2 ****
+make -k clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+
+14:54:05 Build Finished (took 60ms)
+
