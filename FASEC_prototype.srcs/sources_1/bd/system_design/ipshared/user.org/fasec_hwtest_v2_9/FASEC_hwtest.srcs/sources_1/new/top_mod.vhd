@@ -5,12 +5,15 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-12-15
+-- Last update: 2017-02-16
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: A generic design for an FMC slot, supporting a different set
--- of FMC card (set by top level gneeric)
+-- Description:
+-- A top-level design for testing the FASEC hardware, incorperating
+-- most of the hardware directly linked to the PL banks: 2 FMC slots, LEDs,
+-- digital IOs and the SFP IP GEM status vector.
+-- Excludes the i2c signals which are handled by seperate IPs.
 -------------------------------------------------------------------------------
 -- top_mod.vhd Copyright (c) 2016 CERN
 -------------------------------------------------------------------------------
@@ -150,25 +153,36 @@ architecture rtl of fasec_hwtest is
   --    0x03: output control: b0 @1 all outs connected to dig_in1; b1 @1 all outs
   --          connected to s_tick frequency
   --  0x08: FMC1 (see general_fmc.vhd)
-  --  0x38: FMC2 (see general_fmc.vhd)
-  --  0x68:  end
+  --  0x4C: FMC2 (see general_fmc.vhd)
+  --  0x90: end
+  ------------------------------------
+  -- TODO: make constants for each register (in a seperate package cause
+  -- needed in multiple files?). Especially for the below function and
+  -- gen_data_readwrite process (x*c_FMC_DMAX etc.)!
   ------------------------------------
   constant c_FASEC_BASE : natural                    := 0;
   constant c_FASEC_DMAX : positive                   := 8;
-  constant c_FMC_DMAX   : positive                   := 48;
+  constant c_FMC_DMAX   : positive                   := 68;
   constant c_MEMMAX     : positive                   := c_FASEC_DMAX + 2*c_FMC_DMAX;
+  constant c_REG_OUTCTRL : positive := 3;
   
   function fill_mem_fasec(length : integer) return t_iomem32 is
     variable m : t_iomem32(0 to length);
   begin
     for i in 0 to length loop
       m(i).resetval := (others => '0');
+      -- .ro is by default initialised to '1'
       case i is
-        when 3 =>
+        when c_REG_OUTCTRL =>
           m(i).ro       := '0';
           m(i).resetval := x"00000001";
         when c_FASEC_DMAX+2 | c_FASEC_DMAX+c_FMC_DMAX+2 =>
+          -- FMC output request
           m(i).ro := '0';
+        when c_FASEC_DMAX+3 | c_FASEC_DMAX+c_FMC_DMAX+3 =>
+          -- FMC DAC control
+          m(i).ro := '0';
+          m(i).resetval := x"00000002";         --0x2 for autostart
         when c_FASEC_DMAX+8 to c_FASEC_DMAX+27 =>
           -- FMC1 20x channel write requests 
           m(i).ro       := '0';
@@ -263,12 +277,12 @@ begin
   s_data(c_FASEC_BASE+1) <= resize(unsigned(s_ins), g_S00_AXI_DATA_WIDTH);
   s_data(c_FASEC_BASE+2) <= resize(unsigned(gem_status_vector_i), g_S00_AXI_DATA_WIDTH);
   -- s_data(c_FASEC_BASE+3).data used in p_fasec_dio
-  s_data(c_FASEC_BASE+6) <= x"589C2352";  -- tcl-script will put unix build time
-  s_data(c_FASEC_BASE+7) <= x"3c4a7523";  -- tcl-script will put git commit id
-  -- copy in rw data, for generate only possible with constants!
+  s_data(c_FASEC_BASE+6) <= x"DEADBEE1";  -- tcl-script will put unix build time
+  s_data(c_FASEC_BASE+7) <= x"DEADBEE2";  -- tcl-script will put git commit id
+  -- copy in rw data, 'for generate' only possible with constants!
   gen_data_readwrite : for i in 0 to c_MEMMAX-1 generate
     gen_fasec : if c_FASECMEM(i).ro = '0' generate
-      -- no check for i because rw access possible for whole memory range
+      -- no check for i because rw access possible for 'general' FASEC memory range
       s_data(i) <= s_data_rw(i)(g_S00_AXI_DATA_WIDTH-1 downto 0);
     end generate gen_fasec;
     gen_fmc1 : if i >= c_FASEC_DMAX and i < c_FASEC_DMAX+c_FMC_DMAX and c_FASECMEM(i).ro = '1' generate
@@ -296,7 +310,7 @@ begin
       v_ins(3) := not dig_in4_n_i;
     end if;
     -- outputs, not reclocked
-    v_out_cntr := std_logic_vector(s_data(c_FASEC_BASE+3)(g_S00_AXI_DATA_WIDTH-1 downto 0));
+    v_out_cntr := std_logic_vector(s_data(c_FASEC_BASE+c_REG_OUTCTRL)(g_S00_AXI_DATA_WIDTH-1 downto 0));
     if v_out_cntr(0) = '1' then
       s_outs(5 downto 0) <= (others => s_ins(0));
     elsif v_out_cntr(1) = '1' then
@@ -421,5 +435,3 @@ begin
       S_AXI_RVALID  => s00_axi_rvalid,
       S_AXI_RREADY  => s00_axi_rready);
 end rtl;
-
-

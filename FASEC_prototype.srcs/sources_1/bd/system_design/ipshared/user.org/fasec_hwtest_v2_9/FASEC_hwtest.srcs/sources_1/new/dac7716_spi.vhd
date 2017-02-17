@@ -6,7 +6,7 @@
 -- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
 -- Company    : 
 -- Created    : 2016-11-22
--- Last update: 2016-12-15
+-- Last update: 2017-02-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -34,14 +34,13 @@
 -- 2016-11-22  1.0      pvantrap        Created
 -------------------------------------------------------------------------------
 -- Regiser description :
--- dac_cntr, 32 bits, WO:
---      bit0 : when high, use only dac_ch_i(0) as reference for all channels
---      bit1 : when high, update depending on bit2; low, update on change
---      bit2 : update channels on rising edge if bit1=1
---      (bit3 : update processed if bit1=1)     -- changed to WO
+-- dac_cntr, 32 bits, RW?:
+--  bit0: request DAC-update --FIXME:implement
+--  bit1: send continuously
+--  bit2: all channels update from ch0
+--  bit3:
+--  bit4: DAC-update done --FIXME:implement
 -------------------------------------------------------------------------------
--- TODO:
--- * make a record of (u32, bit) to indicate changed register
 -------------------------------------------------------------------------------
 
 library IEEE;
@@ -80,18 +79,48 @@ end dac7716_spi;
 --============================================================================
 architecture rtl of dac7716_spi is
   -- design signals and constants
-  type t_state is (idle, writestart, writing);
-  signal s_state : t_state;
-
-  -- 24 for test, should be 120
   constant c_SPIWIDTH : positive := 24;
   constant c_CMDWIDTH : positive := c_SPIWIDTH*g_NODAC;
   constant c_REGS     : positive := g_NODAC*g_NOCHANNELS;
+  constant c_REQDEPTH : positive := 12;
+
+  type t_state is (idle, checkcond, writestart, writing);
+  type t_req is record
+    value   : unsigned(c_REQDEPTH-1 downto 0);
+    changed : std_logic;
+  end record;
+  type t_reqarray is array (0 to c_REGS-1) of t_req;
+  signal s_state      : t_state;
+  signal s_reqs       : t_reqarray := (others => ((others => '0'), '0'));
   signal s_tx_data    : std_logic_vector(c_CMDWIDTH-1 downto 0);
   signal s_rx_data    : std_logic_vector(c_CMDWIDTH-1 downto 0);
   signal s_start      : std_logic;
   signal s_done       : std_logic;
+  signal s_flag_reset : std_logic_vector(g_NOCHANNELS-1 downto 0);
 -- (spi_transceiver component in xil_pvtmisc.myPackage)
+
+  -- functions etc.
+  impure function fill_dac_vector(ch_address : integer; only_ch0 : std_logic) return std_logic_vector is
+    -- impure cause of s_reqs signal
+    variable v_cmddac    : std_logic_vector(c_SPIWIDTH-1 downto 0);
+    variable v_ret       : std_logic_vector(c_CMDWIDTH-1 downto 0);
+    constant c_DACOFFSET : natural := 4;
+    variable v_ch        : integer range 0 to c_REGS-1;
+  begin
+    -- create vector for all DAC devices (daisy-chained)
+    for i in 0 to g_NODAC-1 loop
+      if only_ch0 = '1' then
+        v_ch := 0;
+      else
+        v_ch := (g_NOCHANNELS*i)+ch_address;
+      end if;
+      v_cmddac := B"0000" & std_logic_vector(to_unsigned(ch_address+c_DACOFFSET, 4))
+                  & std_logic_vector(s_reqs(v_ch).value) & "0000";
+      v_ret(((i+1)*v_cmddac'length)-1 downto i*v_cmddac'length) := v_cmddac;
+    end loop;
+    -- v_ret consists of a sequence of g_NODAC * v_cmddac
+    return v_ret;
+  end;
 begin
   --=============================================================================
   -- components
@@ -115,54 +144,90 @@ begin
       done_o     => s_done);
 
   --=============================================================================
-  -- state machine transitions and outputs together
+  -- channel request change detection
+  --=============================================================================
+  p_req_change : process(clk_i)
+    variable v_ch : integer range 0 to c_REGS-1;
+  begin
+    for i in 0 to g_NODAC-1 loop
+      for j in 0 to g_NOCHANNELS-1 loop
+        v_ch := (i*g_NOCHANNELS)+j;
+        if rising_edge(clk_i) then
+          -- set/reset changed flag
+          if s_flag_reset(j) = '1' then
+            s_reqs(v_ch).changed <= '0';
+          elsif s_reqs(v_ch).value(c_REQDEPTH-1 downto 0) /= dac_ch_i(v_ch)(c_REQDEPTH-1 downto 0) then
+            s_reqs(v_ch).changed <= '1';
+          end if;
+          -- register channel requests
+          s_reqs(v_ch).value <= dac_ch_i(v_ch)(c_REQDEPTH-1 downto 0);
+        end if;
+      end loop;
+    end loop;
+  end process p_req_change;
+
+  --=============================================================================
+  -- state machine to control DAC channel requests to spi_transceiver
+  -- (transitions and outputs together)
   --=============================================================================
   p_state_moore : process(clk_i)
-    variable v_cmddac      : std_logic_vector(c_SPIWIDTH-1 downto 0);
-    variable v_ch0         : unsigned(31 downto 0);
-    variable v_ch0_latched : unsigned(31 downto 0);
-    variable v_dac_address : unsigned(3 downto 0);
-    constant c_DACMAX      : positive := 4;  -- max number of DAC channels
-    constant c_DACOFFSET   : natural := 4;
+    variable v_ch0        : unsigned(31 downto 0);
+    variable v_ch_address : integer range 0 to g_NOCHANNELS-1;
+    variable v_changed    : std_logic_vector(g_NODAC-1 downto 0);
+    constant c_ZEROS      : std_logic_vector(g_NODAC-1 downto 0) := (others => '0');
   begin
     if rising_edge(clk_i) then
       if reset_i = '1' then
-        s_state <= idle;
-        s_start <= '0';
+        s_state      <= idle;
+        s_start      <= '0';
+        s_flag_reset <= (others => '0');
       else
         dac_cntr_o(3) <= '0';
         case s_state is
-          when idle =>
+          when idle =>                  -- idle, wait for start
             dac_cntr_o(3) <= '1';
             s_start       <= '0';
-            v_dac_address := (others => '0');
-            if s_done = '1' and (v_ch0 /= dac_ch_i(0) or dac_cntr_i(2 downto 1) = "11") then
-              s_state       <= writestart;
-              v_ch0_latched := dac_ch_i(0)(31 downto 0);
+            v_ch_address  := 0;
+            if s_done = '1' then
+              s_state <= checkcond;
             end if;
-          when writestart =>
-            -- FIXME, only one channel and no functions yet
-            v_cmddac  := B"0000" & std_logic_vector(v_dac_address+c_DACOFFSET)
-                         & std_logic_vector(v_ch0_latched(11 downto 0)) & "0000";
-            s_tx_data <= v_cmddac & v_cmddac & v_cmddac & v_cmddac & v_cmddac;
-            s_start   <= '1';
+          when checkcond =>             -- check start conditions
+            for i in 0 to g_NODAC-1 loop
+              v_changed(i) := s_reqs(i+v_ch_address).changed;
+            end loop;
+            if (v_changed /= c_ZEROS or dac_cntr_i(1) = '1') then
+              s_state <= writestart;
+            elsif v_ch_address < g_NOCHANNELS-1 then
+              -- no req changes so let's check next channel series
+              v_ch_address := v_ch_address+1;
+            else
+              -- all channel series checked, back to idle
+              s_state <= idle;
+            end if;
+          when writestart =>            -- create vector and start comm
+            -- reset changed flags when writing according channels
+            s_tx_data                  <= fill_dac_vector(v_ch_address, dac_cntr_i(2));
+            s_flag_reset(v_ch_address) <= '1';
+            -- request comm start
+            s_start                    <= '1';
             if s_done = '0' then
               s_state <= writing;
             end if;
-          when writing =>
+          when writing =>     -- wait until comm done, send more or finish
+            s_flag_reset(v_ch_address) <= '0';
             if s_done = '1' then
-              if v_dac_address < c_DACMAX-1 then
-                v_dac_address := v_dac_address+1;
-                s_state <= writestart;
+              -- iterate over all DAC channels
+              if v_ch_address < g_NOCHANNELS-1 then
+                v_ch_address := v_ch_address+1;
+                s_state      <= checkcond;
               else
                 s_state     <= idle;
                 -- FIXME, first NOP should be sent and then 120-bit reponse split
-                -- in channels
+                -- in channels for proper response reading
                 dac_ch_o(0) <= resize(unsigned(s_rx_data), 32);
               end if;
             end if;
         end case;
-        v_ch0 := dac_ch_i(0)(31 downto 0);
       end if;
     end if;
   end process p_state_moore;

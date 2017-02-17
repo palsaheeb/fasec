@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Feb  8 18:16:40 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 17 10:12:15 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -31,6 +31,20 @@
     <PORT DIR="I" NAME="sfp_rtl_rxp" SIGIS="undef"/>
     <PORT DIR="O" NAME="sfp_rtl_txn" SIGIS="undef"/>
     <PORT DIR="O" NAME="sfp_rtl_txp" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vp_Vn_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vp_Vn_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux0_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux0_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux1_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux1_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux2_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux2_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux8_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux8_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux9_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux9_v_p" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux10_v_n" SIGIS="undef"/>
+    <PORT DIR="I" NAME="Vaux10_v_p" SIGIS="undef"/>
     <PORT DIR="I" NAME="pb_gp_i" SIGIS="undef" SIGNAME="External_Ports_pb_gp_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="fasec_hwtest_0" PORT="pb_gp_n_i"/>
@@ -201,20 +215,6 @@
         <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in4_n_i"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="Vp_Vn_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vp_Vn_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux0_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux0_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux1_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux1_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux2_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux2_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux8_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux8_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux9_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux9_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux10_v_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="Vaux10_v_p" SIGIS="undef"/>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -2217,7 +2217,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
+    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="2.5.2" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.2">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -2402,7 +2402,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
+    <MODULE FULLNAME="/axi_wb_i2c_master_1" HWVERSION="2.5.2" INSTANCE="axi_wb_i2c_master_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.2">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -2587,7 +2587,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.5.1" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.1">
+    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="2.5.2" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="user.org:user:axi_wb_i2c_master:2.5.2">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -2876,7 +2876,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.8.1" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.8.1">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="2.9" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:2.9">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -4891,9 +4891,6 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="S_AXI_ACLK"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_aclk"/>
@@ -4902,8 +4899,6 @@
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="M_AXIS_ACLK"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axis_aclk"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ACLK"/>
@@ -4916,6 +4911,11 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
@@ -5676,12 +5676,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M03_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_awvalid">
+        <PORT DIR="O" NAME="M03_AXI_awvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_awready">
+        <PORT DIR="I" NAME="M03_AXI_awready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_awready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_awready"/>
           </CONNECTIONS>
@@ -5696,12 +5696,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M03_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_wvalid">
+        <PORT DIR="O" NAME="M03_AXI_wvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_wready">
+        <PORT DIR="I" NAME="M03_AXI_wready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_wready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_wready"/>
           </CONNECTIONS>
@@ -5711,12 +5711,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_bvalid">
+        <PORT DIR="I" NAME="M03_AXI_bvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_bvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M03_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_bready">
+        <PORT DIR="O" NAME="M03_AXI_bready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_bready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_bready"/>
           </CONNECTIONS>
@@ -5731,12 +5731,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M03_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_arvalid">
+        <PORT DIR="O" NAME="M03_AXI_arvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_arready">
+        <PORT DIR="I" NAME="M03_AXI_arready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_arready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_arready"/>
           </CONNECTIONS>
@@ -5751,12 +5751,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M03_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_rvalid">
+        <PORT DIR="I" NAME="M03_AXI_rvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M03_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_rready">
+        <PORT DIR="O" NAME="M03_AXI_rready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_2_s00_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_rready"/>
           </CONNECTIONS>
@@ -6141,12 +6141,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_awvalid">
+        <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_awready">
+        <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_awready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_awready"/>
           </CONNECTIONS>
@@ -6161,12 +6161,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_wvalid">
+        <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_wready">
+        <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_wready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_wready"/>
           </CONNECTIONS>
@@ -6176,12 +6176,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_bvalid">
+        <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_bvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_bready">
+        <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_bready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_bready"/>
           </CONNECTIONS>
@@ -6196,12 +6196,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_arvalid">
+        <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_arready">
+        <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_arready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_arready"/>
           </CONNECTIONS>
@@ -6216,12 +6216,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_rvalid">
+        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_rready">
+        <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_1_s00_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_rready"/>
           </CONNECTIONS>
@@ -6321,12 +6321,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_awvalid">
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_awready">
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_awready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_awready"/>
           </CONNECTIONS>
@@ -6341,12 +6341,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_wvalid">
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_wready">
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_wready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_wready"/>
           </CONNECTIONS>
@@ -6356,12 +6356,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_bvalid">
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_bvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_bready">
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_bready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_bready"/>
           </CONNECTIONS>
@@ -6376,12 +6376,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_arvalid">
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_arready">
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_arready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_arready"/>
           </CONNECTIONS>
@@ -6396,12 +6396,12 @@
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_rvalid">
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_rready">
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="axi_wb_i2c_master_0_s00_axi_rready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_rready"/>
           </CONNECTIONS>
@@ -6649,14 +6649,10 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_processing_system7_0_100M_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="S_AXI_ARESETN"/>
             <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="AXIS_RESET_N"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M05_ARESETN"/>
@@ -6668,6 +6664,10 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_1" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

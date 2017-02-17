@@ -62,89 +62,89 @@ preplace inst axi_interconnect_0 -pg 1 -lvl 6 -y 1250 -defaultsOSRD
 preplace inst gig_ethernet_pcs_pma_0 -pg 1 -lvl 8 -y 260 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 1170 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 7 -y 330 -defaultsOSRD
-preplace netloc xlconstant_4_dout 1 7 1 2520
-preplace netloc osc100_clk_i_1 1 0 8 NJ 1710 NJ 1710 NJ 1710 NJ 1710 NJ 1710 NJ 1710 NJ 1710 NJ
-preplace netloc drive_constants_dout 1 7 1 2660
+preplace netloc xlconstant_4_dout 1 7 1 2570
+preplace netloc osc100_clk_i_1 1 0 8 NJ 1510 NJ 1510 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ
+preplace netloc drive_constants_dout 1 7 1 2690
 preplace netloc fasec_hwtest_0_led_col_pl_o 1 8 1 NJ
-preplace netloc processing_system7_0_ENET1_GMII_TX_ER 1 7 1 2540
-preplace netloc dig_in4_n_i_1 1 0 8 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ 1700 NJ
+preplace netloc processing_system7_0_ENET1_GMII_TX_ER 1 7 1 2590
+preplace netloc dig_in4_n_i_1 1 0 8 NJ 1500 NJ 1500 NJ 1360 NJ 1380 NJ 1380 NJ 1510 NJ 1390 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 7 2 NJ 500 NJ
 preplace netloc fasec_hwtest_0_dig_outs_i 1 8 1 NJ
-preplace netloc xlconstant_3_dout 1 7 1 2670
-preplace netloc dig_in3_n_i_1 1 0 8 NJ 1680 NJ 1680 NJ 1690 NJ 1690 NJ 1690 NJ 1690 NJ 1690 NJ
-preplace netloc gig_ethernet_pcs_pma_0_gmii_rxd 1 7 1 2600
-preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 8 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ 920 NJ
-preplace netloc dig_in1_i_1 1 0 8 NJ 1440 NJ 1440 NJ 1360 NJ 1460 NJ 1460 NJ 1500 NJ 1500 NJ
+preplace netloc xlconstant_3_dout 1 7 1 2700
+preplace netloc dig_in3_n_i_1 1 0 8 NJ 1680 NJ 1680 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ 1040 NJ
+preplace netloc gig_ethernet_pcs_pma_0_gmii_rxd 1 7 1 2650
+preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 8 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ
+preplace netloc dig_in1_i_1 1 0 8 NJ 1460 NJ 1460 NJ 1350 NJ 1370 NJ 1370 NJ 1370 NJ 1330 NJ
 preplace netloc diff_clock_rtl_1 1 0 8 NJ 590 NJ 590 NJ 590 NJ 590 NJ 590 NJ 590 NJ 590 NJ
-preplace netloc xlconcat_0_dout 1 6 1 2060
+preplace netloc xlconcat_0_dout 1 6 1 2090
 preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 8 1 NJ
-preplace netloc pb_gp_i_1 1 0 8 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ 1720 NJ
+preplace netloc pb_gp_i_1 1 0 8 NJ 1520 NJ 1520 NJ 1380 NJ 1390 NJ 1390 NJ 1380 NJ 1310 NJ
 preplace netloc fasec_hwtest_0_led_line_pl_o 1 8 1 NJ
-preplace netloc drive_constants_dout2 1 7 1 2680
-preplace netloc processing_system7_0_MDIO_ETHERNET_1 1 7 1 2580
-preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 3 NJ 1230 NJ 1350 1350
+preplace netloc drive_constants_dout2 1 7 1 2710
+preplace netloc processing_system7_0_MDIO_ETHERNET_1 1 7 1 2630
+preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 3 NJ 1130 NJ 1130 1380
 preplace netloc processing_system7_0_DDR 1 7 2 NJ 480 NJ
-preplace netloc drive_constants_dout3 1 7 1 2690
-preplace netloc FMC1_CLK0M2C_N_i_1 1 0 8 NJ 1240 NJ 1410 NJ 1340 NJ 1380 NJ 1380 NJ 1370 NJ 1370 NJ
-preplace netloc drive_constants_dout4 1 7 1 2700
+preplace netloc drive_constants_dout3 1 7 1 2720
+preplace netloc FMC1_CLK0M2C_N_i_1 1 0 8 NJ 1240 NJ 1410 NJ 1340 NJ 1350 NJ 1350 NJ 1500 NJ 1290 NJ
+preplace netloc drive_constants_dout4 1 7 1 2730
 preplace netloc drive_constants_dout5 1 7 2 NJ 750 NJ
 preplace netloc gig_ethernet_pcs_pma_0_sfp 1 8 1 NJ
-preplace netloc FMC2_CLK0M2C_N_i_1 1 0 8 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 940 NJ
-preplace netloc processing_system7_0_axi_periph_M05_AXI 1 2 2 NJ 1210 1070
-preplace netloc gig_ethernet_pcs_pma_0_gmii_rx_dv 1 7 1 2560
+preplace netloc FMC2_CLK0M2C_N_i_1 1 0 8 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ
+preplace netloc processing_system7_0_axi_periph_M05_AXI 1 2 2 NJ 1180 N
+preplace netloc gig_ethernet_pcs_pma_0_gmii_rx_dv 1 7 1 2610
 preplace netloc fasec_hwtest_0_dig_out6_n 1 8 1 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 30 1260 NJ 1420 NJ 1350 NJ 1390 NJ 1390 NJ 1380 NJ 1380 2500
-preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 8 NJ 870 NJ 890 NJ 890 NJ 890 NJ 890 NJ 890 NJ 900 NJ
-preplace netloc xadc_wiz_0_M_AXIS 1 3 1 1080
-preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 6 NJ 1130 NJ 1130 NJ 1130 NJ 1130 NJ 1130 N
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 30 1530 NJ 1530 NJ 1370 NJ 1400 NJ 1400 NJ 1520 NJ 1520 2550
+preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 8 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 NJ 860 NJ 940 NJ
+preplace netloc xadc_wiz_0_M_AXIS 1 3 1 1120
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 6 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 2660
 preplace netloc xadc_axis_fifo_adapter_0_M_AXIS 1 4 1 N
-preplace netloc processing_system7_0_axi_periph_M03_AXI 1 2 6 700 1970 NJ 1970 NJ 1970 NJ 1970 NJ 1970 NJ
+preplace netloc processing_system7_0_axi_periph_M03_AXI 1 2 6 720 1120 NJ 1120 NJ 1120 NJ 1120 NJ 1120 NJ
 preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_N_o 1 8 1 NJ
-preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 1680
+preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 1740
 preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_P_o 1 8 1 NJ
-preplace netloc Vaux2_1 1 0 3 NJ 1510 NJ 1510 NJ
+preplace netloc Vaux2_1 1 0 3 NJ 1480 NJ 1480 NJ
 preplace netloc Vp_Vn_1 1 0 3 NJ 1450 NJ 1450 NJ
 preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_N_o 1 8 1 NJ
 preplace netloc fasec_hwtest_0_watchdog_pl_o 1 8 1 NJ
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 6 720 1730 NJ 1730 NJ 1730 NJ 1730 NJ 1730 NJ
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 6 710 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ
 preplace netloc fasec_hwtest_0_dig_out5_n 1 8 1 NJ
-preplace netloc FMC1_CLK0M2C_P_i_1 1 0 8 NJ 890 NJ 900 NJ 900 NJ 900 NJ 900 NJ 900 NJ 910 NJ
-preplace netloc Vaux0_1 1 0 3 NJ 1470 NJ 1470 NJ
+preplace netloc FMC1_CLK0M2C_P_i_1 1 0 8 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 920 NJ
+preplace netloc Vaux0_1 1 0 3 NJ 1440 NJ 1440 NJ
 preplace netloc Net 1 8 1 NJ
-preplace netloc processing_system7_0_ENET1_GMII_TXD 1 7 1 2590
+preplace netloc processing_system7_0_ENET1_GMII_TXD 1 7 1 2640
 preplace netloc Net1 1 8 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 8 20 1250 370 1580 790 1380 1090 1360 1340 1160 1710 580 2080 890 2630
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 8 -40 1260 370 1420 830 1280 1150 1110 1390 1110 1760 870 2120 880 2650
 preplace netloc Net2 1 8 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK2 1 7 1 2620
+preplace netloc processing_system7_0_FCLK_CLK2 1 7 1 2680
 preplace netloc Net3 1 8 1 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 380
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 6 740 1850 NJ 1850 NJ 1850 NJ 1850 NJ 1850 NJ
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 350
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 6 690 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ
 preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 8 1 NJ
 preplace netloc Net4 1 8 1 NJ
-preplace netloc Vaux8_1 1 0 3 NJ 1530 NJ 1530 NJ
+preplace netloc Vaux8_1 1 0 3 NJ 1490 NJ 1490 NJ
 preplace netloc processing_system7_0_GMII_ETHERNET_1 1 7 1 N
 preplace netloc Net5 1 8 1 NJ
-preplace netloc xadc_wiz_0_ip2intc_irpt 1 3 3 1050 1450 NJ 1450 NJ
-preplace netloc gig_ethernet_pcs_pma_0_gmii_rx_er 1 7 1 2570
+preplace netloc xadc_wiz_0_ip2intc_irpt 1 3 3 1130 1450 NJ 1450 NJ
+preplace netloc gig_ethernet_pcs_pma_0_gmii_rx_er 1 7 1 2620
 preplace netloc Net6 1 8 1 NJ
-preplace netloc xlconstant_6_dout 1 7 1 2520
+preplace netloc xlconstant_6_dout 1 7 1 2570
 preplace netloc Net7 1 8 1 NJ
 preplace netloc Net8 1 8 1 NJ
-preplace netloc dig_in2_i_1 1 0 8 NJ 1660 NJ 1660 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ 1680 NJ
+preplace netloc dig_in2_i_1 1 0 8 NJ 1660 NJ 1660 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ
 preplace netloc Net9 1 8 1 NJ
 preplace netloc Vaux10_1 1 0 3 NJ 1570 NJ 1570 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 7 390 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 2510
-preplace netloc Vaux1_1 1 0 3 NJ 1490 NJ 1490 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 7 350 890 NJ 890 NJ 890 NJ 890 NJ 890 NJ 890 2560
+preplace netloc Vaux1_1 1 0 3 NJ 1470 NJ 1470 NJ
 preplace netloc Vaux9_1 1 0 3 NJ 1550 NJ 1550 NJ
-preplace netloc gig_ethernet_pcs_pma_0_userclk2_out 1 7 2 2530 50 3050
-preplace netloc axi_dma_0_s2mm_introut 1 5 1 1680
-preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 780
-preplace netloc gig_ethernet_pcs_pma_0_status_vector 1 7 2 2710 470 3050
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 7 390 1430 770 1370 1120 1370 1360 1350 1700 1740 NJ 1740 2710
-preplace netloc processing_system7_0_ENET1_GMII_TX_EN 1 7 1 2550
-preplace netloc FMC2_CLK0M2C_P_i_1 1 0 8 NJ 920 NJ 920 NJ 920 NJ 920 NJ 920 NJ 920 NJ 930 NJ
-preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2030
-levelinfo -pg 1 0 190 540 920 1230 1520 1860 2290 2880 3070 -top 0 -bot 2060
+preplace netloc gig_ethernet_pcs_pma_0_userclk2_out 1 7 2 2580 50 3080
+preplace netloc axi_dma_0_s2mm_introut 1 5 1 1740
+preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 800
+preplace netloc gig_ethernet_pcs_pma_0_status_vector 1 7 2 2740 470 3080
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 7 380 1430 780 1320 1160 1360 1380 1340 1750 1130 NJ 1130 2560
+preplace netloc processing_system7_0_ENET1_GMII_TX_EN 1 7 1 2600
+preplace netloc FMC2_CLK0M2C_P_i_1 1 0 8 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ
+preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2060
+levelinfo -pg 1 -60 190 540 970 1270 1550 1910 2340 2910 3100 -top 0 -bot 2060
 ",
 }
 {

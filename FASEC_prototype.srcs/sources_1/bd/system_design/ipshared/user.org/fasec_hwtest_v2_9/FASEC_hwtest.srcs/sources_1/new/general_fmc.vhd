@@ -6,11 +6,17 @@
 -- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
 -- Company    : CERN
 -- Created    : 2016-11-22
--- Last update: 2016-12-14
+-- Last update: 2017-02-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
--- Description: A generic FMC module
+-- Description:
+-- A generic FMC module, allowing for different FMCards configuration through
+-- synthesis (the g_FMC generic). Hence no live FMCard swapping possible!
+-- Supported for now:
+--  EDA-0NONE: all user-IO high-Z
+--  EDA-03287: FMC DIO 10i 8o
+--  EDA-02327: FMC Carrier Tester
 -------------------------------------------------------------------------------
 -- Copyright (c) 2016 CERN
 -------------------------------------------------------------------------------
@@ -44,8 +50,8 @@ use xil_pvtmisc.myPackage.all;
 
 entity general_fmc is
   generic(
-    g_FMC   : string(1 to 9) := "EDA-0NONE";
-    g_DMAX  : natural        := 8);
+    g_FMC  : string(1 to 9) := "EDA-0NONE";
+    g_DMAX : natural        := 8);
   port (
     clk_i            : in    std_logic;
     rst_i            : in    std_logic;
@@ -71,20 +77,36 @@ entity general_fmc is
 end general_fmc;
 
 architecture rtl of general_fmc is
-  constant c_DWIDTH     : positive := 32;
+  constant c_DWIDTH          : positive := 32;
   -- EDA-03287 constants
-  constant c_COMP       : positive := 20;  -- 20 comparators on EDA-03287
-  constant c_DOUTS      : positive := 8;  -- 8 outputs
-  constant c_OUTFBD     : positive := 4;  -- of which 4 with feedback
-  constant c_NODAC      : positive := 5;
-  constant c_NOCHANNELS : positive := 4;
-  constant c_GPMEM      : positive := 8;  -- length of GP memory (starting at 0x00)
+  constant c_COMP            : positive := 20;  -- 20 comparators on EDA-03287
+  constant c_DOUTS           : positive := 8;  -- 8 outputs
+  constant c_OUTFBD          : positive := 4;  -- of which 4 with feedback
+  constant c_NODAC           : positive := 5;
+  constant c_NOCHANNELS      : positive := 4;
+  constant c_GPMEM           : positive := 8;  -- length of GP memory (starting at 0x00)
+  -- FIXME: copied as from FID_FPGA for now, check below constants
+  constant c_COUNTERWIDTH    : positive := 24;
+  constant c_LEDCOUNTERWIDTH : positive := 32;
+  -- memory mapping EDA-03287:
+  -- 0x00 : General Purpose
+  --  0x00 ro : bit19-0 comparator status
+  --  0x01 ro : bit3-0 output feedback status
+  --  0x02 rw : bit7-0 output request
+  --  0x03 rw : DAC control (see dac7716_spi.vhd)
+  -- 0x08 rw : 20x channel write request
+  -- 0x1C ro : 20x channel read values
+  -- 0x30 ro : 20x pulse length counter (assserted pulse)
+  -- 0x44 : end (g_DMAX)
 
   --- signals
+  signal s_reset_n       : std_logic;
   signal s_comparators_i : std_logic_vector(c_COMP-1 downto 0);
+  signal s_cmp_pulse     : std_logic_vector(c_COMP-1 downto 0);
+  type t_cmplengths is array (0 to c_COMP-1) of std_logic_vector(c_COUNTERWIDTH-1 downto 0);
+  signal s_cmp_lengths   : t_cmplengths;
   signal s_diffouts_o    : std_logic_vector(c_DOUTS-1 downto 0);
   signal s_outsfeedbak_i : std_logic_vector(c_OUTFBD-1 downto 0);
-  signal s_dac_cntr      : unsigned(31 downto 0) := x"00000006";  -- 6 for autostart
   signal s_spi_sclk      : std_logic;
   signal s_spi_mosi      : std_logic;
   signal s_spi_miso      : std_logic;
@@ -95,23 +117,42 @@ architecture rtl of general_fmc is
       g_NODAC      : natural;
       g_NOCHANNELS : natural);
     port (
-      clk_i      : in     std_logic;
-      reset_i    : in     std_logic;
-      spi_clk_o  : out    std_logic;
-      spi_sdi_o  : out    std_logic;
-      spi_sdo_i  : in     std_logic;
-      spi_cs_n_o : out    std_logic;
-      dac_cntr_i : in unsigned(31 downto 0);
+      clk_i      : in  std_logic;
+      reset_i    : in  std_logic;
+      spi_clk_o  : out std_logic;
+      spi_sdi_o  : out std_logic;
+      spi_sdo_i  : in  std_logic;
+      spi_cs_n_o : out std_logic;
+      dac_cntr_i : in  unsigned(31 downto 0);
       dac_cntr_o : out unsigned(31 downto 0);
-      dac_ch_i   : in    t_data32(0 to g_NODAC*g_NOCHANNELS-1);
-      dac_ch_o   : out    t_data32(0 to g_NODAC*g_NOCHANNELS-1));
+      dac_ch_i   : in  t_data32(0 to g_NODAC*g_NOCHANNELS-1);
+      dac_ch_o   : out t_data32(0 to g_NODAC*g_NOCHANNELS-1));
   end component dac7716_spi;
+  component pulseMeasure is
+    generic (
+      g_COUNTERWIDTH    : positive;
+      g_LEDCOUNTERWIDTH : natural;
+      g_LEDWAIT         : natural;
+      g_MISSINGCDC      : boolean);
+    port (
+      clk_dsp_i       : in  std_logic;
+      reset_n_i       : in  std_logic;
+      pulse_i         : in  std_logic;
+      missingWindow_i : in  unsigned(g_LEDCOUNTERWIDTH-1 downto 0);
+      pulse_o         : out std_logic;
+      edgeDetected_o  : out std_logic;
+      usrLed_o        : out std_logic;
+      window_o        : out std_logic;
+      pulseLength_o   : out std_logic_vector (g_COUNTERWIDTH-1 downto 0);
+      LedCount_o      : out std_logic_vector(g_LEDCOUNTERWIDTH-1 downto 0));
+  end component pulseMeasure;
 begin
   --=============================================================================
   -- EDA-03287: DIO 10i 8o FMC
   --=============================================================================
-  fmc_03287_ibufds : for I in 0 to c_COMP-1 generate
-    gen_ins : if g_FMC = "EDA-03287" generate
+  s_reset_n <= not rst_i;
+  fmc_03287_channels : for I in 0 to c_COMP-1 generate
+    gen_chs : if g_FMC = "EDA-03287" generate
       cmp_IBUFDS_fmc : IBUFDS
         generic map (
           DIFF_TERM    => true,         -- Differential Termination 
@@ -121,8 +162,27 @@ begin
           O  => s_comparators_i(I),     -- Buffer output
           I  => FMC_LA_P_b(I),  -- Diff_p buffer input (connect directly to top-level port)
           IB => FMC_LA_N_b(I));  -- Diff_n buffer input (connect directly to top-level port)
-    end generate gen_ins;
-  end generate fmc_03287_ibufds;
+      cmp_ch_pulseMeasure : pulseMeasure
+        generic map (
+          g_COUNTERWIDTH    => c_COUNTERWIDTH,
+          g_LEDCOUNTERWIDTH => c_LEDCOUNTERWIDTH,
+          g_LEDWAIT         => 62500000,    -- 250ms when 4ns clock
+          g_MISSINGCDC      => false)
+        port map (
+          clk_dsp_i       => clk_i,
+          reset_n_i       => s_reset_n,
+          pulse_i         => s_comparators_i(I),
+          missingWindow_i => to_unsigned(0, c_LEDCOUNTERWIDTH),
+          pulse_o         => s_cmp_pulse(I),
+          edgeDetected_o  => open,
+          usrLed_o        => open,
+          window_o        => open,
+          pulseLength_o   => s_cmp_lengths(I)(c_COUNTERWIDTH-1 downto 0),
+          LedCount_o      => open);
+      data_o(I+c_GPMEM+2*(c_NODAC*c_NOCHANNELS)) <=
+        resize(unsigned(s_cmp_lengths(I)(s_cmp_lengths(0)'high downto 0)), data_o(0)'length);
+    end generate gen_chs;
+  end generate fmc_03287_channels;
   fmc_03287_obufds : for I in 0 to c_DOUTS-1 generate
     gen_outs : if g_FMC = "EDA-03287" generate
       cmp_OBUFDS_fmc : OBUFDS
@@ -147,9 +207,10 @@ begin
         spi_sdi_o  => s_spi_mosi,
         spi_sdo_i  => s_spi_miso,
         spi_cs_n_o => s_spi_cs_n,
-        dac_cntr_i => s_dac_cntr,
+        dac_cntr_i => data_rw_i(3),
+        dac_cntr_o => open,
         dac_ch_i   => data_rw_i(c_GPMEM to c_GPMEM+(c_NODAC*c_NOCHANNELS)-1),
-        dac_ch_o   => data_o(c_GPMEM+(c_NODAC*c_NOCHANNELS) to c_GPMEM+2*(c_NODAC*c_NOCHANNELS)-1));  
+        dac_ch_o   => data_o(c_GPMEM+(c_NODAC*c_NOCHANNELS) to c_GPMEM+2*(c_NODAC*c_NOCHANNELS)-1));
     -- explicit declaration of this IOBUF needed (with Z) to simulate/synth as
     -- an input
     cmp_spi_miso_iobuf : IOBUF
@@ -189,23 +250,15 @@ begin
   begin
     if g_FMC = "EDA-03287" and rising_edge(clk_i) then
       -- in/outputs
-      data_o(0)                   <= resize(unsigned(v_cmp(c_COMP-1 downto 0)), data_o(0)'length);
-      data_o(1)                   <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
+      data_o(1)                        <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
       s_diffouts_o(c_DOUTS-1 downto 0) <= v_dout(c_DOUTS-1 downto 0);
       -- using the variables to clock-in/out data
       v_dout(c_DOUTS-1 downto 0)       := std_logic_vector(data_rw_i(2)(c_DOUTS-1 downto 0));
-      v_cmp                            := s_comparators_i;
       v_fbd                            := FMC_LA_P_b(31) & FMC_LA_N_b(31) & FMC_LA_P_b(32) & FMC_LA_N_b(32);
     end if;
   end process p_fmc_03287_io;
-  -- memory mapping EDA-03287:
-  -- 0x00 : General Purpose
-  --  0x00 ro : bit19-0 comparator status
-  --  0x01 ro : bit3-0 output feedback status
-  --  0x02 rw : bit7-0 output request 
-  -- 0x08 rw : 20x channel write request
-  -- 0x1C ro : 20x channel read request
-  -- 0x30 : end
+  -- no additional clocking of comparators
+  data_o(0) <= resize(unsigned(s_cmp_pulse), data_o(0)'length);
 
   --=============================================================================
   -- EDA-02327: FMC user lines - clock in for AXI register read by Zynq PS
@@ -224,9 +277,9 @@ begin
     if g_FMC = "EDA-02327" and rising_edge(clk_i) then
       -- for testing purposes, read-in FMC inputs
       -- 68 lines, hence doesn't fit into 2x32-bit AXI registers
-      data_o(0) <= unsigned(v_fmc_reg0(c_DWIDTH-1 downto 0));
-      data_o(0) <= unsigned(v_fmc_reg1(c_DWIDTH-1 downto 0));
-      data_o(2) <= unsigned(v_fmc_reg2(c_DWIDTH-1 downto 0));
+      data_o(0)      <= unsigned(v_fmc_reg0(c_DWIDTH-1 downto 0));
+      data_o(0)      <= unsigned(v_fmc_reg1(c_DWIDTH-1 downto 0));
+      data_o(2)      <= unsigned(v_fmc_reg2(c_DWIDTH-1 downto 0));
       -- single user lines, auto-gen from .ods file
       -- ** word 1
       v_fmc_reg0(0)  := FMC_LA_N_b(17);

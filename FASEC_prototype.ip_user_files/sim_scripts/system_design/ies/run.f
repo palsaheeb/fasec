@@ -40,25 +40,27 @@
   "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
 -endlib
 -makelib ies/xil_pvtmisc \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferEdge.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/clockDivider.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/shiftRegister.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/myPackage.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBufferVector.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/doubleBuffer.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/axis_wbm_bridge.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/axi4lite_slave.vhd" \
-  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_2/spi_transceiver.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/doubleBufferEdge.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/clockDivider.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/shiftRegister.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/myPackage.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/doubleBufferVector.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/doubleBuffer.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/axis_wbm_bridge.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/axi4lite_slave.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/spi_transceiver.vhd" \
+  "../../../../FASEC_prototype.srcs/sources_1/bd/system_design/ipshared/cern.ch/xil_pvtmisc_v1_3/counterUpDown.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_8_1/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_8_1/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_8_1/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_9/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_9/FASEC_hwtest.srcs/sources_1/new/pulseMeasure.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_9/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+  "../../../bd/system_design/ipshared/user.org/fasec_hwtest_v2_9/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
   "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
-  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_bit_ctrl.vhd" \
-  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_byte_ctrl.vhd" \
-  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/i2c_master_top.vhd" \
-  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_1/src/axis_to_i2c_wbs_v1_0.vhd" \
+  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_2/src/i2c_master_bit_ctrl.vhd" \
+  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_2/src/i2c_master_byte_ctrl.vhd" \
+  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_2/src/i2c_master_top.vhd" \
+  "../../../bd/system_design/ipshared/user.org/axi_wb_i2c_master_v2_5_2/src/axis_to_i2c_wbs_v1_0.vhd" \
   "../../../bd/system_design/ip/system_design_axi_wb_i2c_master_0_0/sim/system_design_axi_wb_i2c_master_0_0.vhd" \
 -endlib
 -makelib ies/lib_cdc_v1_0_2 \
@@ -328,6 +330,7 @@
   "../../../bd/system_design/ip/system_design_axi_dma_0_0/sim/system_design_axi_dma_0_0.vhd" \
   "../../../bd/system_design/ipshared/xilinx.com/xlconcat_v2_1/xlconcat.vhd" \
   "../../../bd/system_design/ip/system_design_xlconcat_0_0/sim/system_design_xlconcat_0_0.vhd" \
+  "../../../bd/system_design/hdl/system_design.vhd" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_9 \
   "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
@@ -353,9 +356,6 @@
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/ip/system_design_auto_pc_0/sim/system_design_auto_pc_0.v" \
   "../../../bd/system_design/ip/system_design_auto_pc_1/sim/system_design_auto_pc_1.v" \
--endlib
--makelib ies/xil_defaultlib \
-  "../../../bd/system_design/hdl/system_design.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
   glbl.v

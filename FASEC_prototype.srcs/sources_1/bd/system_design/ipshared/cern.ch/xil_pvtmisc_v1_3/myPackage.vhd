@@ -5,7 +5,7 @@
 -- Author     : Pieter Van Trappen
 -- Company    : CERN TE-ABT-EC
 -- Created    : 2016-08-19
--- Last update: 2016-12-15
+-- Last update: 2017-02-16
 -- Platform   : FPGA-generic
 -- Standard   : VHDL'87
 -------------------------------------------------------------------------------
@@ -117,16 +117,6 @@ package myPackage is
       output_o  : out std_logic_vector(g_DATA_WIDTH-1 downto 0)
       );
   end component dubbleBufferVector;
-  component counterUpDown is
-    generic (
-      g_WIDTH : natural);
-    port (
-      clk_i     : in  std_logic;
-      reset_n_i : in  std_logic;
-      countUp_i : in  std_logic;
-      enable_i  : in  std_logic;
-      count_o   : out std_logic_vector(g_WIDTH-1 downto 0));
-  end component counterUpDown;
   component axi4lite_slave is
     generic (
       C_S_AXI_DATA_WIDTH : integer;
@@ -219,6 +209,16 @@ package myPackage is
       start_i    : in  std_logic;
       done_o     : out std_logic);
   end component spi_transceiver;
+  component counterUpDown is
+    generic (
+      g_WIDTH : natural);
+    port (
+      clk_i     : in  std_logic;
+      reset_n_i : in  std_logic;
+      countUp_i : in  std_logic;
+      enable_i  : in  std_logic;
+      count_o   : out std_logic_vector(g_WIDTH-1 downto 0));
+  end component counterUpDown;
 end myPackage;
 
 package body myPackage is

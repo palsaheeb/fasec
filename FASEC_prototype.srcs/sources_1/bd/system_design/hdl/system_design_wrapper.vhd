@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Feb  8 18:16:38 2017
+--Date        : Fri Feb 17 10:12:14 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -121,6 +121,20 @@ architecture STRUCTURE of system_design_wrapper is
     sfp_rtl_rxp : in STD_LOGIC;
     sfp_rtl_txn : out STD_LOGIC;
     sfp_rtl_txp : out STD_LOGIC;
+    Vp_Vn_v_n : in STD_LOGIC;
+    Vp_Vn_v_p : in STD_LOGIC;
+    Vaux0_v_n : in STD_LOGIC;
+    Vaux0_v_p : in STD_LOGIC;
+    Vaux1_v_n : in STD_LOGIC;
+    Vaux1_v_p : in STD_LOGIC;
+    Vaux2_v_n : in STD_LOGIC;
+    Vaux2_v_p : in STD_LOGIC;
+    Vaux8_v_n : in STD_LOGIC;
+    Vaux8_v_p : in STD_LOGIC;
+    Vaux9_v_n : in STD_LOGIC;
+    Vaux9_v_p : in STD_LOGIC;
+    Vaux10_v_n : in STD_LOGIC;
+    Vaux10_v_p : in STD_LOGIC;
     pb_gp_i : in STD_LOGIC;
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
@@ -154,21 +168,7 @@ architecture STRUCTURE of system_design_wrapper is
     dig_in1_i : in STD_LOGIC;
     dig_in2_i : in STD_LOGIC;
     dig_in3_n_i : in STD_LOGIC;
-    dig_in4_n_i : in STD_LOGIC;
-    Vp_Vn_v_n : in STD_LOGIC;
-    Vp_Vn_v_p : in STD_LOGIC;
-    Vaux0_v_n : in STD_LOGIC;
-    Vaux0_v_p : in STD_LOGIC;
-    Vaux1_v_n : in STD_LOGIC;
-    Vaux1_v_p : in STD_LOGIC;
-    Vaux2_v_n : in STD_LOGIC;
-    Vaux2_v_p : in STD_LOGIC;
-    Vaux8_v_n : in STD_LOGIC;
-    Vaux8_v_p : in STD_LOGIC;
-    Vaux9_v_n : in STD_LOGIC;
-    Vaux9_v_p : in STD_LOGIC;
-    Vaux10_v_n : in STD_LOGIC;
-    Vaux10_v_p : in STD_LOGIC
+    dig_in4_n_i : in STD_LOGIC
   );
   end component system_design;
 begin

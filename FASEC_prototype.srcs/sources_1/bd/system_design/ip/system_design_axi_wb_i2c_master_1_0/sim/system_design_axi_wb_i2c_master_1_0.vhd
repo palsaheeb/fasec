@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2016 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -46,7 +46,7 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:axi_wb_i2c_master:2.5.1
+-- IP VLNV: user.org:user:axi_wb_i2c_master:2.5.2
 -- IP Revision: 1
 
 LIBRARY ieee;
