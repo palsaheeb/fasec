@@ -55,6 +55,9 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="system_design_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_auto_pc_1/system_design_auto_pc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_auto_pc_0/system_design_auto_pc_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_1/system_design_xlconstant_3_1.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xlconstant_3_2/system_design_xlconstant_3_2.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hdl/system_design.vhd"/>
@@ -78,17 +81,13 @@
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_processing_system7_0_axi_periph_3/system_design_processing_system7_0_axi_periph_3.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_xbar_0/system_design_xbar_0.xci"/>
         <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="ip/system_design_axi_wb_i2c_master_1_0/system_design_axi_wb_i2c_master_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hdl/system_design.hwdef"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design.hwh"/>
+        <CompFileExtendedInfo CompFileName="system_design.bd" FileRelPathName="hw_handoff/system_design_bd.tcl"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/system_design/hdl/system_design_wrapper.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/set_registers.tcl">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -165,7 +164,7 @@
         <Step Id="phys_opt_design"/>
         <Step Id="route_design"/>
         <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
+        <Step Id="write_bitstream" PostStepTclHook="$PSRCDIR/tcl/copy_bitstream.tcl"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
