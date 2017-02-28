@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Fri Feb 17 10:12:14 2017
+--Date        : Tue Feb 28 14:27:01 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -2980,7 +2980,7 @@ architecture STRUCTURE of system_design is
     S_AXI_GP0_ARID : in STD_LOGIC_VECTOR ( 5 downto 0 );
     S_AXI_GP0_AWID : in STD_LOGIC_VECTOR ( 5 downto 0 );
     S_AXI_GP0_WID : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    IRQ_F2P : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    IRQ_F2P : in STD_LOGIC_VECTOR ( 3 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
     FCLK_CLK1 : out STD_LOGIC;
     FCLK_CLK2 : out STD_LOGIC;
@@ -3213,7 +3213,9 @@ architecture STRUCTURE of system_design is
   port (
     In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    In2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In3 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component system_design_xlconcat_0_0;
   component system_design_axi_wb_i2c_master_0_0 is
@@ -3427,6 +3429,8 @@ architecture STRUCTURE of system_design is
   signal axi_interconnect_0_M00_AXI_WREADY : STD_LOGIC;
   signal axi_interconnect_0_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_interconnect_0_M00_AXI_WVALID : STD_LOGIC;
+  signal axi_wb_i2c_master_0_axi_int_o : STD_LOGIC;
+  signal axi_wb_i2c_master_1_axi_int_o : STD_LOGIC;
   signal diff_clock_rtl_1_CLK_N : STD_LOGIC;
   signal diff_clock_rtl_1_CLK_P : STD_LOGIC;
   signal dig_in1_i_1 : STD_LOGIC;
@@ -3665,13 +3669,11 @@ architecture STRUCTURE of system_design is
   signal xadc_wiz_0_M_AXIS_TREADY : STD_LOGIC;
   signal xadc_wiz_0_M_AXIS_TVALID : STD_LOGIC;
   signal xadc_wiz_0_ip2intc_irpt : STD_LOGIC;
-  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal xlconstant_3_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconstant_4_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconstant_6_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_axi_wb_i2c_master_0_axi_int_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_axi_wb_i2c_master_1_axi_int_o_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_2_axi_int_o_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP0_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP1_b_UNCONNECTED : STD_LOGIC;
@@ -3856,7 +3858,7 @@ axi_interconnect_0: entity work.system_design_axi_interconnect_0_0
     );
 axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
      port map (
-      axi_int_o => NLW_axi_wb_i2c_master_0_axi_int_o_UNCONNECTED,
+      axi_int_o => axi_wb_i2c_master_0_axi_int_o,
       i2c_scl_io => fmcx_scl,
       i2c_sda_io => fmcx_sda,
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
@@ -3883,7 +3885,7 @@ axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
     );
 axi_wb_i2c_master_1: component system_design_axi_wb_i2c_master_1_0
      port map (
-      axi_int_o => NLW_axi_wb_i2c_master_1_axi_int_o_UNCONNECTED,
+      axi_int_o => axi_wb_i2c_master_1_axi_int_o,
       i2c_scl_io => eeprom_scl,
       i2c_sda_io => eeprom_sda,
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
@@ -4086,7 +4088,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       FCLK_CLK1 => NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED,
       FCLK_CLK2 => processing_system7_0_FCLK_CLK2,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
-      IRQ_F2P(1 downto 0) => xlconcat_0_dout(1 downto 0),
+      IRQ_F2P(3 downto 0) => xlconcat_0_dout(3 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
       M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
@@ -4460,7 +4462,9 @@ xlconcat_0: component system_design_xlconcat_0_0
      port map (
       In0(0) => axi_dma_0_s2mm_introut,
       In1(0) => xadc_wiz_0_ip2intc_irpt,
-      dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
+      In2(0) => axi_wb_i2c_master_0_axi_int_o,
+      In3(0) => axi_wb_i2c_master_1_axi_int_o,
+      dout(3 downto 0) => xlconcat_0_dout(3 downto 0)
     );
 xlconstant_4: component system_design_xlconstant_3_0
      port map (

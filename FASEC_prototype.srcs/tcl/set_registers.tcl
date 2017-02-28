@@ -1,8 +1,9 @@
 # this scripts queries some variables and put them
 # in a VHDL file for use during synthesis
 # start manually as follows:
-# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl; launch_runs synth_1 -force -jobs 2; launch_runs impl_1 -to_step write_bitstream -jobs 2
-# reset_run synth_1
+# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl; [COMMIT TO GIT]
+# launch_runs synth_1 -force -jobs 2; launch_runs impl_1 -to_step write_bitstream -jobs 2
+#(reset_run synth_1)
 
 # xilinc tcl info:
 # each class can have many properties, to list them:

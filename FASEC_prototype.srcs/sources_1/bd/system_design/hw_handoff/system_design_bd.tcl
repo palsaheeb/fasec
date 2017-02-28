@@ -1610,6 +1610,9 @@ CONFIG.VCCDDRO_ALARM_LOWER.VALUE_SRC {DEFAULT} \
 
   # Create instance: xlconcat_0, and set properties
   set xlconcat_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0 ]
+  set_property -dict [ list \
+CONFIG.NUM_PORTS {4} \
+ ] $xlconcat_0
 
   # Create instance: xlconstant_4, and set properties
   set xlconstant_4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_4 ]
@@ -1668,6 +1671,8 @@ CONFIG.CONST_VAL {1} \
   connect_bd_net -net Net8 [get_bd_ports sfp_moddef1_scl] [get_bd_pins axi_wb_i2c_master_2/i2c_scl_io]
   connect_bd_net -net Net9 [get_bd_ports sfp_moddef2_sda] [get_bd_pins axi_wb_i2c_master_2/i2c_sda_io]
   connect_bd_net -net axi_dma_0_s2mm_introut [get_bd_pins axi_dma_0/s2mm_introut] [get_bd_pins xlconcat_0/In0]
+  connect_bd_net -net axi_wb_i2c_master_0_axi_int_o [get_bd_pins axi_wb_i2c_master_0/axi_int_o] [get_bd_pins xlconcat_0/In2]
+  connect_bd_net -net axi_wb_i2c_master_1_axi_int_o [get_bd_pins axi_wb_i2c_master_1/axi_int_o] [get_bd_pins xlconcat_0/In3]
   connect_bd_net -net dig_in1_i_1 [get_bd_ports dig_in1_i] [get_bd_pins fasec_hwtest_0/dig_in1_i]
   connect_bd_net -net dig_in2_i_1 [get_bd_ports dig_in2_i] [get_bd_pins fasec_hwtest_0/dig_in2_i]
   connect_bd_net -net dig_in3_n_i_1 [get_bd_ports dig_in3_n_i] [get_bd_pins fasec_hwtest_0/dig_in3_n_i]
