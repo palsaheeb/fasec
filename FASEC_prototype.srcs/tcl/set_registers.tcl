@@ -1,9 +1,7 @@
 # this scripts queries some variables and put them
 # in a VHDL file for use during synthesis
 # start manually as follows:
-# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl; [COMMIT TO GIT]
-# launch_runs synth_1 -force -jobs 2; launch_runs impl_1 -to_step write_bitstream -jobs 2
-#(reset_run synth_1)
+# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl; reset_run synth_1; launch_runs synth_1 -force -jobs 2; launch_runs impl_1 -to_step write_bitstream -jobs 2
 
 # xilinc tcl info:
 # each class can have many properties, to list them:
@@ -34,6 +32,10 @@ if [file exists $topfile$backupext]==0 {
 # backupfile will remain unmodified
 set fr [open $topfile$backupext r]
 set fw [open $topfile r+]
+if [string first DEADBEE1 [read $fr]]==-1 {
+    return -1 error "ERROR: specific string sequence not found in backupfile!"
+}
+seek $fr 0; # back to beginning for reading
 set cont [regsub -all {DEADBEE1} [read $fr] $dateCode]
 set cont [regsub -all {DEADBEE2} $cont $gitCode]
 seek $fw 0; # go to beginning of file to overwrite
@@ -41,5 +43,5 @@ puts $fw $cont
 close $fw
 close $fr
 
-puts done
+puts "SUCCESS: done"
 
