@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Tue Feb 28 14:27:01 2017
+--Date        : Tue Mar 14 18:04:46 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -62,8 +62,13 @@ entity system_design_wrapper is
     Vaux9_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
-    diff_clock_rtl_clk_n : in STD_LOGIC;
-    diff_clock_rtl_clk_p : in STD_LOGIC;
+    clk_25m_vcxo_i : in STD_LOGIC;
+    clk_aux_i_clk_n : in STD_LOGIC;
+    clk_aux_i_clk_p : in STD_LOGIC;
+    dac_cs1_n_o : out STD_LOGIC;
+    dac_cs2_n_o : out STD_LOGIC;
+    dac_din_o : out STD_LOGIC;
+    dac_sclk_o : out STD_LOGIC;
     dig_in1_i : in STD_LOGIC;
     dig_in2_i : in STD_LOGIC;
     dig_in3_n_i : in STD_LOGIC;
@@ -75,18 +80,25 @@ entity system_design_wrapper is
     eeprom_sda : inout STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
     fmcx_sda : inout STD_LOGIC;
+    gtp0_rate_select_b : inout STD_LOGIC;
+    gtp_dedicated_clk_i_clk_n : in STD_LOGIC;
+    gtp_dedicated_clk_i_clk_p : in STD_LOGIC;
+    gtp_wr_mod_abs : in STD_LOGIC;
+    gtp_wr_rx_los : in STD_LOGIC;
+    gtp_wr_rxn : in STD_LOGIC;
+    gtp_wr_rxp : in STD_LOGIC;
+    gtp_wr_scl : inout STD_LOGIC;
+    gtp_wr_sda : inout STD_LOGIC;
+    gtp_wr_tx_disable : out STD_LOGIC;
+    gtp_wr_tx_fault : in STD_LOGIC;
+    gtp_wr_txn : out STD_LOGIC;
+    gtp_wr_txp : out STD_LOGIC;
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
     led_line_pl_o : out STD_LOGIC;
     osc100_clk_i : in STD_LOGIC;
     pb_gp_i : in STD_LOGIC;
-    sfp_moddef1_scl : inout STD_LOGIC;
-    sfp_moddef2_sda : inout STD_LOGIC;
-    sfp_rtl_rxn : in STD_LOGIC;
-    sfp_rtl_rxp : in STD_LOGIC;
-    sfp_rtl_txn : out STD_LOGIC;
-    sfp_rtl_txp : out STD_LOGIC;
-    t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 );
+    thermo_id : inout STD_LOGIC;
     watchdog_pl_o : out STD_LOGIC
   );
 end system_design_wrapper;
@@ -115,12 +127,6 @@ architecture STRUCTURE of system_design_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    diff_clock_rtl_clk_n : in STD_LOGIC;
-    diff_clock_rtl_clk_p : in STD_LOGIC;
-    sfp_rtl_rxn : in STD_LOGIC;
-    sfp_rtl_rxp : in STD_LOGIC;
-    sfp_rtl_txn : out STD_LOGIC;
-    sfp_rtl_txp : out STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     Vaux0_v_n : in STD_LOGIC;
@@ -135,6 +141,20 @@ architecture STRUCTURE of system_design_wrapper is
     Vaux9_v_p : in STD_LOGIC;
     Vaux10_v_n : in STD_LOGIC;
     Vaux10_v_p : in STD_LOGIC;
+    clk_aux_i_clk_p : in STD_LOGIC;
+    clk_aux_i_clk_n : in STD_LOGIC;
+    gtp_dedicated_clk_i_clk_p : in STD_LOGIC;
+    gtp_dedicated_clk_i_clk_n : in STD_LOGIC;
+    gtp_wr_sda : inout STD_LOGIC;
+    gtp_wr_tx_disable : out STD_LOGIC;
+    gtp_wr_rx_los : in STD_LOGIC;
+    gtp_wr_rxn : in STD_LOGIC;
+    gtp_wr_txn : out STD_LOGIC;
+    gtp_wr_rxp : in STD_LOGIC;
+    gtp_wr_tx_fault : in STD_LOGIC;
+    gtp_wr_mod_abs : in STD_LOGIC;
+    gtp_wr_txp : out STD_LOGIC;
+    gtp_wr_scl : inout STD_LOGIC;
     pb_gp_i : in STD_LOGIC;
     led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     led_line_en_pl_o : out STD_LOGIC;
@@ -158,9 +178,6 @@ architecture STRUCTURE of system_design_wrapper is
     FMC1_CLK0C2M_P_o : out STD_LOGIC;
     FMC1_CLK0C2M_N_o : out STD_LOGIC;
     osc100_clk_i : in STD_LOGIC;
-    t_wr_txdisable : out STD_LOGIC_VECTOR ( 0 to 0 );
-    sfp_moddef1_scl : inout STD_LOGIC;
-    sfp_moddef2_sda : inout STD_LOGIC;
     watchdog_pl_o : out STD_LOGIC;
     dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
     dig_out5_n : out STD_LOGIC;
@@ -168,7 +185,14 @@ architecture STRUCTURE of system_design_wrapper is
     dig_in1_i : in STD_LOGIC;
     dig_in2_i : in STD_LOGIC;
     dig_in3_n_i : in STD_LOGIC;
-    dig_in4_n_i : in STD_LOGIC
+    dig_in4_n_i : in STD_LOGIC;
+    clk_25m_vcxo_i : in STD_LOGIC;
+    dac_sclk_o : out STD_LOGIC;
+    dac_din_o : out STD_LOGIC;
+    dac_cs1_n_o : out STD_LOGIC;
+    dac_cs2_n_o : out STD_LOGIC;
+    thermo_id : inout STD_LOGIC;
+    gtp0_rate_select_b : inout STD_LOGIC
   );
   end component system_design;
 begin
@@ -223,8 +247,13 @@ system_design_i: component system_design
       Vaux9_v_p => Vaux9_v_p,
       Vp_Vn_v_n => Vp_Vn_v_n,
       Vp_Vn_v_p => Vp_Vn_v_p,
-      diff_clock_rtl_clk_n => diff_clock_rtl_clk_n,
-      diff_clock_rtl_clk_p => diff_clock_rtl_clk_p,
+      clk_25m_vcxo_i => clk_25m_vcxo_i,
+      clk_aux_i_clk_n => clk_aux_i_clk_n,
+      clk_aux_i_clk_p => clk_aux_i_clk_p,
+      dac_cs1_n_o => dac_cs1_n_o,
+      dac_cs2_n_o => dac_cs2_n_o,
+      dac_din_o => dac_din_o,
+      dac_sclk_o => dac_sclk_o,
       dig_in1_i => dig_in1_i,
       dig_in2_i => dig_in2_i,
       dig_in3_n_i => dig_in3_n_i,
@@ -236,18 +265,25 @@ system_design_i: component system_design
       eeprom_sda => eeprom_sda,
       fmcx_scl => fmcx_scl,
       fmcx_sda => fmcx_sda,
+      gtp0_rate_select_b => gtp0_rate_select_b,
+      gtp_dedicated_clk_i_clk_n => gtp_dedicated_clk_i_clk_n,
+      gtp_dedicated_clk_i_clk_p => gtp_dedicated_clk_i_clk_p,
+      gtp_wr_mod_abs => gtp_wr_mod_abs,
+      gtp_wr_rx_los => gtp_wr_rx_los,
+      gtp_wr_rxn => gtp_wr_rxn,
+      gtp_wr_rxp => gtp_wr_rxp,
+      gtp_wr_scl => gtp_wr_scl,
+      gtp_wr_sda => gtp_wr_sda,
+      gtp_wr_tx_disable => gtp_wr_tx_disable,
+      gtp_wr_tx_fault => gtp_wr_tx_fault,
+      gtp_wr_txn => gtp_wr_txn,
+      gtp_wr_txp => gtp_wr_txp,
       led_col_pl_o(3 downto 0) => led_col_pl_o(3 downto 0),
       led_line_en_pl_o => led_line_en_pl_o,
       led_line_pl_o => led_line_pl_o,
       osc100_clk_i => osc100_clk_i,
       pb_gp_i => pb_gp_i,
-      sfp_moddef1_scl => sfp_moddef1_scl,
-      sfp_moddef2_sda => sfp_moddef2_sda,
-      sfp_rtl_rxn => sfp_rtl_rxn,
-      sfp_rtl_rxp => sfp_rtl_rxp,
-      sfp_rtl_txn => sfp_rtl_txn,
-      sfp_rtl_txp => sfp_rtl_txp,
-      t_wr_txdisable(0) => t_wr_txdisable(0),
+      thermo_id => thermo_id,
       watchdog_pl_o => watchdog_pl_o
     );
 end STRUCTURE;

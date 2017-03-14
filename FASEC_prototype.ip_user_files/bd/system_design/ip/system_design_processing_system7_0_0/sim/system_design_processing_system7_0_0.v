@@ -56,21 +56,6 @@
 `timescale 1ns/1ps
 
 module system_design_processing_system7_0_0 (
-ENET1_GMII_TX_EN, 
-ENET1_GMII_TX_ER, 
-ENET1_MDIO_MDC, 
-ENET1_MDIO_O, 
-ENET1_MDIO_T, 
-ENET1_GMII_TXD, 
-ENET1_GMII_COL, 
-ENET1_GMII_CRS, 
-ENET1_GMII_RX_CLK, 
-ENET1_GMII_RX_DV, 
-ENET1_GMII_RX_ER, 
-ENET1_GMII_TX_CLK, 
-ENET1_MDIO_I, 
-ENET1_EXT_INTIN, 
-ENET1_GMII_RXD, 
 TTC0_WAVE0_OUT, 
 TTC0_WAVE1_OUT, 
 TTC0_WAVE2_OUT, 
@@ -179,21 +164,6 @@ PS_SRSTB,
 PS_CLK, 
 PS_PORB 
 );
-output [0 : 0] ENET1_GMII_TX_EN;
-output [0 : 0] ENET1_GMII_TX_ER;
-output ENET1_MDIO_MDC;
-output ENET1_MDIO_O;
-output ENET1_MDIO_T;
-output [7 : 0] ENET1_GMII_TXD;
-input ENET1_GMII_COL;
-input ENET1_GMII_CRS;
-input ENET1_GMII_RX_CLK;
-input ENET1_GMII_RX_DV;
-input ENET1_GMII_RX_ER;
-input ENET1_GMII_TX_CLK;
-input ENET1_MDIO_I;
-input ENET1_EXT_INTIN;
-input [7 : 0] ENET1_GMII_RXD;
 output TTC0_WAVE0_OUT;
 output TTC0_WAVE1_OUT;
 output TTC0_WAVE2_OUT;
@@ -275,7 +245,7 @@ input [3 : 0] S_AXI_GP0_WSTRB;
 input [5 : 0] S_AXI_GP0_ARID;
 input [5 : 0] S_AXI_GP0_AWID;
 input [5 : 0] S_AXI_GP0_WID;
-input [3 : 0] IRQ_F2P;
+input [4 : 0] IRQ_F2P;
 output FCLK_CLK0;
 output FCLK_CLK1;
 output FCLK_CLK2;

@@ -1828,17 +1828,6 @@ IO PLL
 </TR>
 <TR valign="top">
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>ENET1 Freq (MHz)</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-External
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-125.000000
-</TD>
-</TR>
-<TR valign="top">
-<TD width=10% BGCOLOR=#FBF5EF>
 <B>SDIO Freq (MHz)</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
@@ -5558,28 +5547,6 @@ GEM0_RCLK_CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_RCLK_CTRL">
-GEM1_RCLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>GigE 1 Rx Clock and Rx Signals Select</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
 <A href="#GEM0_CLK_CTRL">
 GEM0_CLK_CTRL
 </A>
@@ -5598,28 +5565,6 @@ GEM0_CLK_CTRL
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>GigE 0 Ref Clock Control</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_CLK_CTRL">
-GEM1_CLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>GigE 1 Ref Clock Control</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -6249,133 +6194,6 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
-<H2><a name="GEM1_RCLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_RCLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_RCLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Ethernet Controller 1 Rx Clock control 0: disable, 1: enable</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>4:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Select the source of the Rx clock, control and data signals: 0: MIO 1: EMIO</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_RCLK_CTRL@0XF800013C</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>GigE 1 Rx Clock and Rx Signals Select</B>
-</TD>
-</TR>
-</TABLE>
-<P>
 <H2><a name="GEM0_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM0_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -6539,173 +6357,6 @@ SLCR_LOCK
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>GigE 0 Ref Clock Control</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<H2><a name="GEM1_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_CLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_CLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Ethernet Controller 1 Reference Clock control 0: disable, 1: enable</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>6:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>70</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>4</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>40</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Selects the source to generate the reference clock 00x: IO PLL. 010: ARM PLL. 011: DDR PLL 1xx: Ethernet controller 1 EMIO clock</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>13:8</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>First divisor for Ethernet controller 1 source clock.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>25:20</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00000</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Second divisor for Ethernet controller 1 source clock.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_CLK_CTRL@0XF8000144</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>3f03f71</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>100141</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>GigE 1 Ref Clock Control</B>
 </TD>
 </TR>
 </TABLE>
@@ -8043,10 +7694,10 @@ SLCR_LOCK
 <B>80</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>80</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Gigabit Ethernet 1 AMBA Clock control 0: disable, 1: enable</B>
@@ -8326,7 +7977,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec04cd</B>
+<B>1ec044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>
@@ -51031,28 +50682,6 @@ GEM0_RCLK_CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_RCLK_CTRL">
-GEM1_RCLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>GigE 1 Rx Clock Control</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
 <A href="#GEM0_CLK_CTRL">
 GEM0_CLK_CTRL
 </A>
@@ -51071,28 +50700,6 @@ GEM0_CLK_CTRL
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>GigE 0 Ref Clock Control</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_CLK_CTRL">
-GEM1_CLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>GigE 1 Ref Clock Control</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -51722,133 +51329,6 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
-<H2><a name="GEM1_RCLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_RCLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_RCLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Ethernet Controller 1 Rx Clock control 0: disable, 1: enable</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>4:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Select the source to generate the Rx clock: 0: MIO Rx clock, 1: EMIO Rx clock</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_RCLK_CTRL@0XF800013C</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>GigE 1 Rx Clock Control</B>
-</TD>
-</TR>
-</TABLE>
-<P>
 <H2><a name="GEM0_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM0_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -52012,173 +51492,6 @@ SLCR_LOCK
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>GigE 0 Ref Clock Control</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<H2><a name="GEM1_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_CLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_CLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Ethernet Controller 1 Reference Clock control 0: disable, 1: enable</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>6:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>70</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>4</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>40</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Selects the source to generate the reference clock 00x: IO PLL. 010: ARM PLL. 011: DDR PLL 1xx: Ethernet controller 1 EMIO clock</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>13:8</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>First divisor for Ethernet controller 1 source clock.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>25:20</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00000</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Second divisor for Ethernet controller 1 source clock.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_CLK_CTRL@0XF8000144</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>3f03f71</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>100141</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>GigE 1 Ref Clock Control</B>
 </TD>
 </TR>
 </TABLE>
@@ -53516,10 +52829,10 @@ SLCR_LOCK
 <B>80</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>80</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Gigabit Ethernet 1 AMBA Clock control 0: disable, 1: enable</B>
@@ -53799,7 +53112,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec04cd</B>
+<B>1ec044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>
@@ -97632,28 +96945,6 @@ GEM0_RCLK_CTRL
 </TR>
 <TR valign="top">
 <TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_RCLK_CTRL">
-GEM1_RCLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Gigabit Ethernet MAC 1 RX Clock Control</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
 <A href="#GEM0_CLK_CTRL">
 GEM0_CLK_CTRL
 </A>
@@ -97672,28 +96963,6 @@ GEM0_CLK_CTRL
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Gigabit Ethernet MAC 0 Ref Clock Control</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<A href="#GEM1_CLK_CTRL">
-GEM1_CLK_CTRL
-</A>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>RW</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Gigabit Ethernet MAC 1 Ref Clock Control</B>
 </TD>
 </TR>
 <TR valign="top">
@@ -98323,133 +97592,6 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
-<H2><a name="GEM1_RCLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_RCLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_RCLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF800013C</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>4:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>10</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Selects the source used to generate the clock. 0 - Source for generated clock is GEM 0 MIO RX clock. 1 - Source for generated clock is GEM 0 FMIO RX clock.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_RCLK_CTRL@0XF800013C</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>11</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>Gigabit Ethernet MAC 1 RX Clock Control</B>
-</TD>
-</TR>
-</TABLE>
-<P>
 <H2><a name="GEM0_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM0_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -98613,173 +97755,6 @@ SLCR_LOCK
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>Gigabit Ethernet MAC 0 Ref Clock Control</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<H2><a name="GEM1_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)GEM1_CLK_CTRL</a></H2>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Register Name</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Address</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Width</B>
-</TD>
-<TD width=10% BGCOLOR=#FFFF00>
-<B>Type</B>
-</TD>
-<TD width=15% BGCOLOR=#FFFF00>
-<B>Reset Value</B>
-</TD>
-<TD width=35% BGCOLOR=#FFFF00>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>GEM1_CLK_CTRL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0XF8000144</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>32</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>rw</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0x00000000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>--</B>
-</TD>
-</TR>
-</TABLE>
-<P>
-<TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Field Name</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Bits</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Mask</B>
-</TD>
-<TD width=10% BGCOLOR=#C0FFC0>
-<B>Value</B>
-</TD>
-<TD width=15% BGCOLOR=#C0FFC0>
-<B>Shifted Value</B>
-</TD>
-<TD width=35% BGCOLOR=#C0FFC0>
-<B>Description</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>CLKACT</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>0:0</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>SRCSEL</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>6:4</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>70</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>4</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>40</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Selects the source used to generate the clock. 1xx - Source for generated clock is Ethernet 0 FMIO clock. 00x - Source for generated clock is IO PLL. 010 - Source for generated clock is ARM PLL. 011 - Source for generated clock is DDR PLL</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>13:8</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>DIVISOR1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>25:20</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>3f00000</B>
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
-</TD>
-<TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
-</TD>
-<TD width=35% BGCOLOR=#FBF5EF>
-<B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
-</TD>
-</TR>
-<TR valign="top">
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>GEM1_CLK_CTRL@0XF8000144</B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>31:0</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B>3f03f71</B>
-</TD>
-<TD width=10% BGCOLOR=#C0C0C0>
-<B></B>
-</TD>
-<TD width=15% BGCOLOR=#C0C0C0>
-<B>100141</B>
-</TD>
-<TD width=35% BGCOLOR=#C0C0C0>
-<B>Gigabit Ethernet MAC 1 Ref Clock Control</B>
 </TD>
 </TR>
 </TABLE>
@@ -100117,10 +99092,10 @@ SLCR_LOCK
 <B>80</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>80</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Gigabit Ethernet MAC 1 AMBA Clock active. 0 - Clock is disabled. 1 - Clock is enabled.</B>
@@ -100400,7 +99375,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>1ec04cd</B>
+<B>1ec044d</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>AMBA Peripheral Clock Control</B>

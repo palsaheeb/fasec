@@ -62,7 +62,8 @@ ENTITY system_design_xlconcat_0_0 IS
     In1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     In2 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     In3 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    dout : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    In4 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    dout : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
   );
 END system_design_xlconcat_0_0;
 
@@ -139,7 +140,7 @@ ARCHITECTURE system_design_xlconcat_0_0_arch OF system_design_xlconcat_0_0 IS
       In29 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       In30 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       In31 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      dout : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+      dout : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
     );
   END COMPONENT xlconcat;
 BEGIN
@@ -177,15 +178,15 @@ BEGIN
       IN29_WIDTH => 1,
       IN30_WIDTH => 1,
       IN31_WIDTH => 1,
-      dout_width => 4,
-      NUM_PORTS => 4
+      dout_width => 5,
+      NUM_PORTS => 5
     )
     PORT MAP (
       In0 => In0,
       In1 => In1,
       In2 => In2,
       In3 => In3,
-      In4 => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
+      In4 => In4,
       In5 => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       In6 => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       In7 => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
