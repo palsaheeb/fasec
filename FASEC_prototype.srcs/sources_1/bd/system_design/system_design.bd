@@ -169,40 +169,6 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="diff_analog_io_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>clk_aux_i</spirit:name>
-        <spirit:slave/>
-        <spirit:busType spirit:library="interface" spirit:name="diff_clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="diff_clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>gtp_dedicated_clk_i</spirit:name>
-        <spirit:slave/>
-        <spirit:busType spirit:library="interface" spirit:name="diff_clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="diff_clock_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>FREQ_HZ</spirit:name>
-            <spirit:value>100000000</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="default"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>gtp_wr</spirit:name>
         <spirit:master/>
         <spirit:busType spirit:library="interface" spirit:name="sfp" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -254,18 +220,6 @@
         </spirit:port>
         <spirit:port>
           <spirit:name>fmcx_sda</spirit:name>
-          <spirit:wire>
-            <spirit:direction>inout</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>eeprom_scl</spirit:name>
-          <spirit:wire>
-            <spirit:direction>inout</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>eeprom_sda</spirit:name>
           <spirit:wire>
             <spirit:direction>inout</spirit:direction>
           </spirit:wire>
@@ -470,6 +424,42 @@
             <spirit:direction>inout</spirit:direction>
           </spirit:wire>
         </spirit:port>
+        <spirit:port>
+          <spirit:name>eeprom_scl</spirit:name>
+          <spirit:wire>
+            <spirit:direction>inout</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>eeprom_sda</spirit:name>
+          <spirit:wire>
+            <spirit:direction>inout</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>clk_aux_p_i</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>clk_aux_n_i</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>gtp_dedicated_clk_p_i</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>gtp_dedicated_clk_n_i</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
       </spirit:ports>
     </spirit:model>
   </spirit:component>
@@ -496,7 +486,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_QSPI_PERIPHERAL_FREQMHZ">125</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_SDIO_PERIPHERAL_FREQMHZ">25</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_FPGA0_PERIPHERAL_FREQMHZ">100</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_FPGA1_PERIPHERAL_FREQMHZ">100</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_FPGA1_PERIPHERAL_FREQMHZ">10</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_FPGA2_PERIPHERAL_FREQMHZ">200</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_FPGA3_PERIPHERAL_FREQMHZ">125</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USE_M_AXI_GP0">1</spirit:configurableElementValue>
@@ -505,7 +495,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_USE_FABRIC_INTERRUPT">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_CLK0_PORT">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_CLK1_PORT">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_EN_CLK2_PORT">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_EN_CLK2_PORT">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_CLK3_PORT">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_IRQ_F2P_INTR">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_PRESET_BANK0_VOLTAGE">LVCMOS 3.3V</spirit:configurableElementValue>
@@ -718,9 +708,18 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>wrc_1p_kintex7_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="1.3"/>
+        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="1.4"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_wrc_1p_kintex7_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>xlconstant_7</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="xlconstant" spirit:vendor="xilinx.com" spirit:version="1.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_xlconstant_6_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONST_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CONST_VAL">0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -1089,6 +1088,36 @@
         <spirit:externalPortReference spirit:portRef="eeprom_sda"/>
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="fpga_sda_b"/>
       </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>clk_aux_p_i_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="clk_aux_p_i"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_aux_p_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>clk_aux_n_i_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="clk_aux_n_i"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_aux_n_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gtp_dedicated_clk_p_i_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="gtp_dedicated_clk_p_i"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="gtp_dedicated_clk_p_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>gtp_dedicated_clk_n_i_1</spirit:name>
+        <spirit:externalPortReference spirit:portRef="gtp_dedicated_clk_n_i"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="gtp_dedicated_clk_n_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>xlconstant_7_dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="xlconstant_7" spirit:portRef="dout"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="pps_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK1"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="ext_clk_i"/>
+      </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
       <spirit:hierConnection spirit:interfaceRef="DDR/processing_system7_0_DDR">
@@ -1117,12 +1146,6 @@
       </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="Vaux10/Vaux10_1">
         <spirit:activeInterface spirit:busRef="Vaux10" spirit:componentRef="xadc_wiz_0"/>
-      </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="clk_aux_i/clk_aux_i_1">
-        <spirit:activeInterface spirit:busRef="clk_aux_i" spirit:componentRef="wrc_1p_kintex7_0"/>
-      </spirit:hierConnection>
-      <spirit:hierConnection spirit:interfaceRef="gtp_dedicated_clk_i/gtp_dedicated_clk_i_1">
-        <spirit:activeInterface spirit:busRef="gtp_dedicated_clk_i" spirit:componentRef="wrc_1p_kintex7_0"/>
       </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="gtp_wr/wrc_1p_kintex7_0_gtp_wr">
         <spirit:activeInterface spirit:busRef="gtp_wr" spirit:componentRef="wrc_1p_kintex7_0"/>

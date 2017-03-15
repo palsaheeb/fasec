@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Tue Mar 14 18:04:46 2017
+--Date        : Wed Mar 15 14:58:14 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -63,8 +63,8 @@ entity system_design_wrapper is
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     clk_25m_vcxo_i : in STD_LOGIC;
-    clk_aux_i_clk_n : in STD_LOGIC;
-    clk_aux_i_clk_p : in STD_LOGIC;
+    clk_aux_n_i : in STD_LOGIC;
+    clk_aux_p_i : in STD_LOGIC;
     dac_cs1_n_o : out STD_LOGIC;
     dac_cs2_n_o : out STD_LOGIC;
     dac_din_o : out STD_LOGIC;
@@ -81,8 +81,8 @@ entity system_design_wrapper is
     fmcx_scl : inout STD_LOGIC;
     fmcx_sda : inout STD_LOGIC;
     gtp0_rate_select_b : inout STD_LOGIC;
-    gtp_dedicated_clk_i_clk_n : in STD_LOGIC;
-    gtp_dedicated_clk_i_clk_p : in STD_LOGIC;
+    gtp_dedicated_clk_n_i : in STD_LOGIC;
+    gtp_dedicated_clk_p_i : in STD_LOGIC;
     gtp_wr_mod_abs : in STD_LOGIC;
     gtp_wr_rx_los : in STD_LOGIC;
     gtp_wr_rxn : in STD_LOGIC;
@@ -141,10 +141,6 @@ architecture STRUCTURE of system_design_wrapper is
     Vaux9_v_p : in STD_LOGIC;
     Vaux10_v_n : in STD_LOGIC;
     Vaux10_v_p : in STD_LOGIC;
-    clk_aux_i_clk_p : in STD_LOGIC;
-    clk_aux_i_clk_n : in STD_LOGIC;
-    gtp_dedicated_clk_i_clk_p : in STD_LOGIC;
-    gtp_dedicated_clk_i_clk_n : in STD_LOGIC;
     gtp_wr_sda : inout STD_LOGIC;
     gtp_wr_tx_disable : out STD_LOGIC;
     gtp_wr_rx_los : in STD_LOGIC;
@@ -161,8 +157,6 @@ architecture STRUCTURE of system_design_wrapper is
     led_line_pl_o : out STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
     fmcx_sda : inout STD_LOGIC;
-    eeprom_scl : inout STD_LOGIC;
-    eeprom_sda : inout STD_LOGIC;
     FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
     FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
@@ -192,7 +186,13 @@ architecture STRUCTURE of system_design_wrapper is
     dac_cs1_n_o : out STD_LOGIC;
     dac_cs2_n_o : out STD_LOGIC;
     thermo_id : inout STD_LOGIC;
-    gtp0_rate_select_b : inout STD_LOGIC
+    gtp0_rate_select_b : inout STD_LOGIC;
+    eeprom_scl : inout STD_LOGIC;
+    eeprom_sda : inout STD_LOGIC;
+    clk_aux_p_i : in STD_LOGIC;
+    clk_aux_n_i : in STD_LOGIC;
+    gtp_dedicated_clk_p_i : in STD_LOGIC;
+    gtp_dedicated_clk_n_i : in STD_LOGIC
   );
   end component system_design;
 begin
@@ -248,8 +248,8 @@ system_design_i: component system_design
       Vp_Vn_v_n => Vp_Vn_v_n,
       Vp_Vn_v_p => Vp_Vn_v_p,
       clk_25m_vcxo_i => clk_25m_vcxo_i,
-      clk_aux_i_clk_n => clk_aux_i_clk_n,
-      clk_aux_i_clk_p => clk_aux_i_clk_p,
+      clk_aux_n_i => clk_aux_n_i,
+      clk_aux_p_i => clk_aux_p_i,
       dac_cs1_n_o => dac_cs1_n_o,
       dac_cs2_n_o => dac_cs2_n_o,
       dac_din_o => dac_din_o,
@@ -266,8 +266,8 @@ system_design_i: component system_design
       fmcx_scl => fmcx_scl,
       fmcx_sda => fmcx_sda,
       gtp0_rate_select_b => gtp0_rate_select_b,
-      gtp_dedicated_clk_i_clk_n => gtp_dedicated_clk_i_clk_n,
-      gtp_dedicated_clk_i_clk_p => gtp_dedicated_clk_i_clk_p,
+      gtp_dedicated_clk_n_i => gtp_dedicated_clk_n_i,
+      gtp_dedicated_clk_p_i => gtp_dedicated_clk_p_i,
       gtp_wr_mod_abs => gtp_wr_mod_abs,
       gtp_wr_rx_los => gtp_wr_rx_los,
       gtp_wr_rxn => gtp_wr_rxn,

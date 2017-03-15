@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: CERN:wrc:wrc_1p_kintex7:1.3
--- IP Revision: 5
+-- IP VLNV: CERN:wrc:wrc_1p_kintex7:1.4
+-- IP Revision: 7
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -60,7 +60,6 @@ ENTITY system_design_wrc_1p_kintex7_0_0 IS
     clk_aux_n_i : IN STD_LOGIC;
     gtp_dedicated_clk_p_i : IN STD_LOGIC;
     gtp_dedicated_clk_n_i : IN STD_LOGIC;
-    clk_100mhz_i : IN STD_LOGIC;
     gtp0_activity_led_o : OUT STD_LOGIC;
     gtp0_synced_led_o : OUT STD_LOGIC;
     gtp0_link_led_o : OUT STD_LOGIC;
@@ -86,15 +85,6 @@ ENTITY system_design_wrc_1p_kintex7_0_0 IS
     gtp0_los_i : IN STD_LOGIC;
     uart_rxd_i : IN STD_LOGIC;
     uart_txd_o : OUT STD_LOGIC;
-    pll_cs_n_o : OUT STD_LOGIC;
-    pll_sck_o : OUT STD_LOGIC;
-    pll_sdi_o : OUT STD_LOGIC;
-    pll_sdo_i : IN STD_LOGIC;
-    pll_reset_n_o : OUT STD_LOGIC;
-    pll_status_i : IN STD_LOGIC;
-    pll_sync_n_o : OUT STD_LOGIC;
-    pll_refsel_o : OUT STD_LOGIC;
-    pll_ld_i : IN STD_LOGIC;
     ext_clk_i : IN STD_LOGIC;
     pps_i : IN STD_LOGIC;
     pps_ctrl_o : OUT STD_LOGIC;
@@ -116,7 +106,6 @@ ARCHITECTURE system_design_wrc_1p_kintex7_0_0_arch OF system_design_wrc_1p_kinte
       clk_aux_n_i : IN STD_LOGIC;
       gtp_dedicated_clk_p_i : IN STD_LOGIC;
       gtp_dedicated_clk_n_i : IN STD_LOGIC;
-      clk_100mhz_i : IN STD_LOGIC;
       gtp0_activity_led_o : OUT STD_LOGIC;
       gtp0_synced_led_o : OUT STD_LOGIC;
       gtp0_link_led_o : OUT STD_LOGIC;
@@ -142,15 +131,6 @@ ARCHITECTURE system_design_wrc_1p_kintex7_0_0_arch OF system_design_wrc_1p_kinte
       gtp0_los_i : IN STD_LOGIC;
       uart_rxd_i : IN STD_LOGIC;
       uart_txd_o : OUT STD_LOGIC;
-      pll_cs_n_o : OUT STD_LOGIC;
-      pll_sck_o : OUT STD_LOGIC;
-      pll_sdi_o : OUT STD_LOGIC;
-      pll_sdo_i : IN STD_LOGIC;
-      pll_reset_n_o : OUT STD_LOGIC;
-      pll_status_i : IN STD_LOGIC;
-      pll_sync_n_o : OUT STD_LOGIC;
-      pll_refsel_o : OUT STD_LOGIC;
-      pll_ld_i : IN STD_LOGIC;
       ext_clk_i : IN STD_LOGIC;
       pps_i : IN STD_LOGIC;
       pps_ctrl_o : OUT STD_LOGIC;
@@ -163,10 +143,6 @@ ARCHITECTURE system_design_wrc_1p_kintex7_0_0_arch OF system_design_wrc_1p_kinte
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF system_design_wrc_1p_kintex7_0_0_arch : ARCHITECTURE IS "system_design_wrc_1p_kintex7_0_0,wrc_1p_kintex7,{}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF clk_aux_p_i: SIGNAL IS "xilinx.com:interface:diff_clock:1.0 clk_aux_i CLK_P";
-  ATTRIBUTE X_INTERFACE_INFO OF clk_aux_n_i: SIGNAL IS "xilinx.com:interface:diff_clock:1.0 clk_aux_i CLK_N";
-  ATTRIBUTE X_INTERFACE_INFO OF gtp_dedicated_clk_p_i: SIGNAL IS "xilinx.com:interface:diff_clock:1.0 gtp_dedicated_clk_i CLK_P";
-  ATTRIBUTE X_INTERFACE_INFO OF gtp_dedicated_clk_n_i: SIGNAL IS "xilinx.com:interface:diff_clock:1.0 gtp_dedicated_clk_i CLK_N";
   ATTRIBUTE X_INTERFACE_INFO OF gtp0_txp_o: SIGNAL IS "xilinx.com:interface:sfp:1.0 gtp_wr TXP";
   ATTRIBUTE X_INTERFACE_INFO OF gtp0_txn_o: SIGNAL IS "xilinx.com:interface:sfp:1.0 gtp_wr TXN";
   ATTRIBUTE X_INTERFACE_INFO OF gtp0_rxp_i: SIGNAL IS "xilinx.com:interface:sfp:1.0 gtp_wr RXP";
@@ -190,7 +166,6 @@ BEGIN
       clk_aux_n_i => clk_aux_n_i,
       gtp_dedicated_clk_p_i => gtp_dedicated_clk_p_i,
       gtp_dedicated_clk_n_i => gtp_dedicated_clk_n_i,
-      clk_100mhz_i => clk_100mhz_i,
       gtp0_activity_led_o => gtp0_activity_led_o,
       gtp0_synced_led_o => gtp0_synced_led_o,
       gtp0_link_led_o => gtp0_link_led_o,
@@ -216,15 +191,6 @@ BEGIN
       gtp0_los_i => gtp0_los_i,
       uart_rxd_i => uart_rxd_i,
       uart_txd_o => uart_txd_o,
-      pll_cs_n_o => pll_cs_n_o,
-      pll_sck_o => pll_sck_o,
-      pll_sdi_o => pll_sdi_o,
-      pll_sdo_i => pll_sdo_i,
-      pll_reset_n_o => pll_reset_n_o,
-      pll_status_i => pll_status_i,
-      pll_sync_n_o => pll_sync_n_o,
-      pll_refsel_o => pll_refsel_o,
-      pll_ld_i => pll_ld_i,
       ext_clk_i => ext_clk_i,
       pps_i => pps_i,
       pps_ctrl_o => pps_ctrl_o,

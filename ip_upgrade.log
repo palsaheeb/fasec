@@ -1,6 +1,88 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Wed Mar 15 14:40:57 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:1.3.1 (Rev. 6) to CERN:wrc:wrc_1p_kintex7:1.4 (Rev. 7)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_wrc_1p_kintex7_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'clk_100mhz_i'
+
+-Upgrade has removed port 'pll_cs_n_o'
+
+-Upgrade has removed port 'pll_ld_i'
+
+-Upgrade has removed port 'pll_refsel_o'
+
+-Upgrade has removed port 'pll_reset_n_o'
+
+-Upgrade has removed port 'pll_sck_o'
+
+-Upgrade has removed port 'pll_sdi_o'
+
+-Upgrade has removed port 'pll_sdo_i'
+
+-Upgrade has removed port 'pll_status_i'
+
+-Upgrade has removed port 'pll_sync_n_o'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Wed Mar 15 11:00:55 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:1.3 (Rev. 5) to CERN:wrc:wrc_1p_kintex7:1.3.1 (Rev. 6)
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'system_design_wrc_1p_kintex7_0_0'.
+
+
+-Upgrade has removed interface 'clk_aux_i'
+
+-Upgrade has removed interface 'gtp_dedicated_clk_i'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Tue Mar 14 17:45:10 2017
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

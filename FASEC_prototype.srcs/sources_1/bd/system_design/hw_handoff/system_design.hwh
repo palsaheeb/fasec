@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 14 18:04:47 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 15 14:58:39 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -39,10 +39,6 @@
     <PORT DIR="I" NAME="Vaux9_v_p" SIGIS="undef"/>
     <PORT DIR="I" NAME="Vaux10_v_n" SIGIS="undef"/>
     <PORT DIR="I" NAME="Vaux10_v_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="clk_aux_i_clk_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="clk_aux_i_clk_n" SIGIS="undef"/>
-    <PORT DIR="I" NAME="gtp_dedicated_clk_i_clk_p" SIGIS="undef"/>
-    <PORT DIR="I" NAME="gtp_dedicated_clk_i_clk_n" SIGIS="undef"/>
     <PORT DIR="IO" NAME="gtp_wr_sda" SIGIS="undef"/>
     <PORT DIR="O" NAME="gtp_wr_tx_disable" SIGIS="undef"/>
     <PORT DIR="I" NAME="gtp_wr_rx_los" SIGIS="undef"/>
@@ -82,16 +78,6 @@
     <PORT DIR="IO" NAME="fmcx_sda" SIGIS="undef" SIGNAME="External_Ports_fmcx_sda">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="i2c_sda_io"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="eeprom_scl" SIGIS="undef" SIGNAME="External_Ports_eeprom_scl">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="fpga_scl_b"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="eeprom_sda" SIGIS="undef" SIGNAME="External_Ports_eeprom_sda">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="fpga_sda_b"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" LEFT="33" NAME="FMC2_LA_P_b" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FMC2_LA_P_b">
@@ -244,6 +230,36 @@
         <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="gtp0_rate_select_b"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="IO" NAME="eeprom_scl" SIGIS="undef" SIGNAME="External_Ports_eeprom_scl">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="fpga_scl_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="eeprom_sda" SIGIS="undef" SIGNAME="External_Ports_eeprom_sda">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="fpga_sda_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="clk_aux_p_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_p_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_aux_p_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="clk_aux_n_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_n_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_aux_n_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="gtp_dedicated_clk_p_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_p_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="gtp_dedicated_clk_p_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="gtp_dedicated_clk_n_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_n_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="gtp_dedicated_clk_n_i"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -329,20 +345,6 @@
       <PORTMAPS>
         <PORTMAP LOGICAL="V_N" PHYSICAL="Vaux10_v_n"/>
         <PORTMAP LOGICAL="V_P" PHYSICAL="Vaux10_v_p"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="External_Interface_clk_aux_i" NAME="clk_aux_i" TYPE="TARGET">
-      <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-      <PORTMAPS>
-        <PORTMAP LOGICAL="CLK_P" PHYSICAL="clk_aux_i_clk_p"/>
-        <PORTMAP LOGICAL="CLK_N" PHYSICAL="clk_aux_i_clk_n"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="External_Interface_gtp_dedicated_clk_i" NAME="gtp_dedicated_clk_i" TYPE="TARGET">
-      <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-      <PORTMAPS>
-        <PORTMAP LOGICAL="CLK_P" PHYSICAL="gtp_dedicated_clk_i_clk_p"/>
-        <PORTMAP LOGICAL="CLK_N" PHYSICAL="gtp_dedicated_clk_i_clk_n"/>
       </PORTMAPS>
     </BUSINTERFACE>
     <BUSINTERFACE BUSNAME="wrc_1p_kintex7_0_gtp_wr" NAME="gtp_wr" TYPE="INITIATOR">
@@ -3378,7 +3380,7 @@
         <PARAMETER NAME="C_PS7_SI_REV" VALUE="PRODUCTION"/>
         <PARAMETER NAME="C_FCLK_CLK0_BUF" VALUE="true"/>
         <PARAMETER NAME="C_FCLK_CLK1_BUF" VALUE="true"/>
-        <PARAMETER NAME="C_FCLK_CLK2_BUF" VALUE="true"/>
+        <PARAMETER NAME="C_FCLK_CLK2_BUF" VALUE="false"/>
         <PARAMETER NAME="C_FCLK_CLK3_BUF" VALUE="false"/>
         <PARAMETER NAME="C_PACKAGE_NAME" VALUE="ffg676"/>
         <PARAMETER NAME="PCW_DDR_RAM_BASEADDR" VALUE="0x00100000"/>
@@ -3419,7 +3421,7 @@
         <PARAMETER NAME="PCW_TTC1_HIGHADDR" VALUE="0xE0105fff"/>
         <PARAMETER NAME="PCW_FCLK_CLK0_BUF" VALUE="true"/>
         <PARAMETER NAME="PCW_FCLK_CLK1_BUF" VALUE="true"/>
-        <PARAMETER NAME="PCW_FCLK_CLK2_BUF" VALUE="true"/>
+        <PARAMETER NAME="PCW_FCLK_CLK2_BUF" VALUE="false"/>
         <PARAMETER NAME="PCW_FCLK_CLK3_BUF" VALUE="false"/>
         <PARAMETER NAME="PCW_UIPARAM_DDR_FREQ_MHZ" VALUE="533.333333"/>
         <PARAMETER NAME="PCW_UIPARAM_DDR_BANK_ADDR_COUNT" VALUE="3"/>
@@ -3511,7 +3513,7 @@
         <PARAMETER NAME="PCW_PCAP_PERIPHERAL_FREQMHZ" VALUE="200"/>
         <PARAMETER NAME="PCW_TPIU_PERIPHERAL_FREQMHZ" VALUE="200"/>
         <PARAMETER NAME="PCW_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100"/>
-        <PARAMETER NAME="PCW_FPGA1_PERIPHERAL_FREQMHZ" VALUE="100"/>
+        <PARAMETER NAME="PCW_FPGA1_PERIPHERAL_FREQMHZ" VALUE="10"/>
         <PARAMETER NAME="PCW_FPGA2_PERIPHERAL_FREQMHZ" VALUE="200"/>
         <PARAMETER NAME="PCW_FPGA3_PERIPHERAL_FREQMHZ" VALUE="125"/>
         <PARAMETER NAME="PCW_ACT_APU_PERIPHERAL_FREQMHZ" VALUE="666.666687"/>
@@ -3535,8 +3537,8 @@
         <PARAMETER NAME="PCW_ACT_PCAP_PERIPHERAL_FREQMHZ" VALUE="200.000000"/>
         <PARAMETER NAME="PCW_ACT_TPIU_PERIPHERAL_FREQMHZ" VALUE="200.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
-        <PARAMETER NAME="PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ" VALUE="100.000000"/>
-        <PARAMETER NAME="PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ" VALUE="200.000000"/>
+        <PARAMETER NAME="PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
+        <PARAMETER NAME="PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
         <PARAMETER NAME="PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ" VALUE="10.000000"/>
         <PARAMETER NAME="PCW_ACT_TTC0_CLK0_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_ACT_TTC0_CLK1_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
@@ -3545,8 +3547,8 @@
         <PARAMETER NAME="PCW_ACT_TTC1_CLK1_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_ACT_TTC1_CLK2_PERIPHERAL_FREQMHZ" VALUE="111.111115"/>
         <PARAMETER NAME="PCW_CLK0_FREQ" VALUE="100000000"/>
-        <PARAMETER NAME="PCW_CLK1_FREQ" VALUE="100000000"/>
-        <PARAMETER NAME="PCW_CLK2_FREQ" VALUE="200000000"/>
+        <PARAMETER NAME="PCW_CLK1_FREQ" VALUE="10000000"/>
+        <PARAMETER NAME="PCW_CLK2_FREQ" VALUE="10000000"/>
         <PARAMETER NAME="PCW_CLK3_FREQ" VALUE="10000000"/>
         <PARAMETER NAME="PCW_OVERRIDE_BASIC_CLOCK" VALUE="0"/>
         <PARAMETER NAME="PCW_CPU_PERIPHERAL_DIVISOR0" VALUE="2"/>
@@ -3559,11 +3561,11 @@
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_CAN_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR0" VALUE="5"/>
-        <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR0" VALUE="5"/>
-        <PARAMETER NAME="PCW_FCLK2_PERIPHERAL_DIVISOR0" VALUE="5"/>
+        <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR0" VALUE="10"/>
+        <PARAMETER NAME="PCW_FCLK2_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK3_PERIPHERAL_DIVISOR0" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK0_PERIPHERAL_DIVISOR1" VALUE="2"/>
-        <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR1" VALUE="2"/>
+        <PARAMETER NAME="PCW_FCLK1_PERIPHERAL_DIVISOR1" VALUE="10"/>
         <PARAMETER NAME="PCW_FCLK2_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_FCLK3_PERIPHERAL_DIVISOR1" VALUE="1"/>
         <PARAMETER NAME="PCW_ENET0_PERIPHERAL_DIVISOR0" VALUE="8"/>
@@ -3727,7 +3729,7 @@
         <PARAMETER NAME="PCW_MIO_PRIMITIVE" VALUE="54"/>
         <PARAMETER NAME="PCW_EN_CLK0_PORT" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_CLK1_PORT" VALUE="1"/>
-        <PARAMETER NAME="PCW_EN_CLK2_PORT" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_CLK2_PORT" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_CLK3_PORT" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_RST0_PORT" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_RST1_PORT" VALUE="0"/>
@@ -4203,7 +4205,7 @@
         <PARAMETER NAME="PCW_PS7_SI_REV" VALUE="PRODUCTION"/>
         <PARAMETER NAME="PCW_FPGA_FCLK0_ENABLE" VALUE="1"/>
         <PARAMETER NAME="PCW_FPGA_FCLK1_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_FPGA_FCLK2_ENABLE" VALUE="1"/>
+        <PARAMETER NAME="PCW_FPGA_FCLK2_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_FPGA_FCLK3_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_NOR_SRAM_CS0_T_TR" VALUE="1"/>
         <PARAMETER NAME="PCW_NOR_SRAM_CS0_T_PC" VALUE="1"/>
@@ -4685,8 +4687,11 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_ACLK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk"/>
-        <PORT CLKFREQUENCY="200000000" DIR="O" NAME="FCLK_CLK2" SIGIS="clk"/>
+        <PORT CLKFREQUENCY="10000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="ext_clk_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_processing_system7_0_100M" PORT="ext_reset_in"/>
@@ -6454,7 +6459,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="1.3" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:1.3">
+    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="1.4" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:1.4">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="TAR_ADDR_WDTH" VALUE="13"/>
@@ -6467,11 +6472,26 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_25m_vcxo_i"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="clk_aux_p_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="clk_aux_n_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="gtp_dedicated_clk_p_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="gtp_dedicated_clk_n_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="clk_100mhz_i" SIGIS="undef"/>
+        <PORT DIR="I" NAME="clk_aux_p_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_p_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_aux_p_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_aux_n_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_n_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_aux_n_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="gtp_dedicated_clk_p_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_p_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="gtp_dedicated_clk_p_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="gtp_dedicated_clk_n_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_n_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="gtp_dedicated_clk_n_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="gtp0_activity_led_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_synced_led_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_link_led_o" SIGIS="undef"/>
@@ -6541,40 +6561,25 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="pll_cs_n_o" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pll_sck_o" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pll_sdi_o" SIGIS="undef"/>
-        <PORT DIR="I" NAME="pll_sdo_i" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pll_reset_n_o" SIGIS="undef"/>
-        <PORT DIR="I" NAME="pll_status_i" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pll_sync_n_o" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pll_refsel_o" SIGIS="undef"/>
-        <PORT DIR="I" NAME="pll_ld_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="ext_clk_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="pps_i" SIGIS="undef"/>
+        <PORT DIR="I" NAME="ext_clk_i" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pps_i" SIGIS="undef" SIGNAME="xlconstant_7_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_7" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="pps_ctrl_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="term_en_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="pps_o" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="External_Interface_clk_aux_i" NAME="clk_aux_i" TYPE="TARGET" VLNV="xilinx.com:interface:diff_clock:1.0">
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="CLK_P" PHYSICAL="clk_aux_p_i"/>
-            <PORTMAP LOGICAL="CLK_N" PHYSICAL="clk_aux_n_i"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="External_Interface_gtp_dedicated_clk_i" NAME="gtp_dedicated_clk_i" TYPE="TARGET" VLNV="xilinx.com:interface:diff_clock:1.0">
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="CLK_P" PHYSICAL="gtp_dedicated_clk_p_i"/>
-            <PORTMAP LOGICAL="CLK_N" PHYSICAL="gtp_dedicated_clk_n_i"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="uart_wr" TYPE="INITIATOR" VLNV="xilinx.com:interface:uart:1.0">
           <PORTMAPS>
-            <PORTMAP LOGICAL="TxD" PHYSICAL="uart_txd_o"/>
             <PORTMAP LOGICAL="RxD" PHYSICAL="uart_rxd_i"/>
+            <PORTMAP LOGICAL="TxD" PHYSICAL="uart_txd_o"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="wrc_1p_kintex7_0_gtp_wr" NAME="gtp_wr" TYPE="INITIATOR" VLNV="xilinx.com:interface:sfp:1.0">
@@ -7453,6 +7458,23 @@
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_6_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="gem_status_vector_i"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/xlconstant_7" HWVERSION="1.1" INSTANCE="xlconstant_7" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_VAL" VALUE="0"/>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="system_design_xlconstant_6_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_7_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="pps_i"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

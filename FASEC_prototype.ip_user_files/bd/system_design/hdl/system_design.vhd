@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Tue Mar 14 17:54:56 2017
+--Date        : Wed Mar 15 14:41:07 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -3030,10 +3030,9 @@ entity system_design is
     Vaux9_v_p : in STD_LOGIC;
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
-    clk_100mhz_i : in STD_LOGIC;
     clk_25m_vcxo_i : in STD_LOGIC;
-    clk_aux_i_clk_n : in STD_LOGIC;
-    clk_aux_i_clk_p : in STD_LOGIC;
+    clk_aux_n_i : in STD_LOGIC;
+    clk_aux_p_i : in STD_LOGIC;
     dac_cs1_n_o : out STD_LOGIC;
     dac_cs2_n_o : out STD_LOGIC;
     dac_din_o : out STD_LOGIC;
@@ -3049,11 +3048,9 @@ entity system_design is
     eeprom_sda : inout STD_LOGIC;
     fmcx_scl : inout STD_LOGIC;
     fmcx_sda : inout STD_LOGIC;
-    fpga_scl_b : inout STD_LOGIC;
-    fpga_sda_b : inout STD_LOGIC;
     gtp0_rate_select_b : inout STD_LOGIC;
-    gtp_dedicated_clk_i_clk_n : in STD_LOGIC;
-    gtp_dedicated_clk_i_clk_p : in STD_LOGIC;
+    gtp_dedicated_clk_n_i : in STD_LOGIC;
+    gtp_dedicated_clk_p_i : in STD_LOGIC;
     gtp_wr_mod_abs : in STD_LOGIC;
     gtp_wr_rx_los : in STD_LOGIC;
     gtp_wr_rxn : in STD_LOGIC;
@@ -3503,7 +3500,6 @@ architecture STRUCTURE of system_design is
     clk_aux_n_i : in STD_LOGIC;
     gtp_dedicated_clk_p_i : in STD_LOGIC;
     gtp_dedicated_clk_n_i : in STD_LOGIC;
-    clk_100mhz_i : in STD_LOGIC;
     gtp0_activity_led_o : out STD_LOGIC;
     gtp0_synced_led_o : out STD_LOGIC;
     gtp0_link_led_o : out STD_LOGIC;
@@ -3529,15 +3525,6 @@ architecture STRUCTURE of system_design is
     gtp0_los_i : in STD_LOGIC;
     uart_rxd_i : in STD_LOGIC;
     uart_txd_o : out STD_LOGIC;
-    pll_cs_n_o : out STD_LOGIC;
-    pll_sck_o : out STD_LOGIC;
-    pll_sdi_o : out STD_LOGIC;
-    pll_sdo_i : in STD_LOGIC;
-    pll_reset_n_o : out STD_LOGIC;
-    pll_status_i : in STD_LOGIC;
-    pll_sync_n_o : out STD_LOGIC;
-    pll_refsel_o : out STD_LOGIC;
-    pll_ld_i : in STD_LOGIC;
     ext_clk_i : in STD_LOGIC;
     pps_i : in STD_LOGIC;
     pps_ctrl_o : out STD_LOGIC;
@@ -3561,8 +3548,6 @@ architecture STRUCTURE of system_design is
   signal Net5 : STD_LOGIC_VECTOR ( 33 downto 0 );
   signal Net6 : STD_LOGIC_VECTOR ( 33 downto 0 );
   signal Net7 : STD_LOGIC_VECTOR ( 33 downto 0 );
-  signal Net8 : STD_LOGIC;
-  signal Net9 : STD_LOGIC;
   signal Vaux0_1_V_N : STD_LOGIC;
   signal Vaux0_1_V_P : STD_LOGIC;
   signal Vaux10_1_V_N : STD_LOGIC;
@@ -3616,10 +3601,9 @@ architecture STRUCTURE of system_design is
   signal axi_uartlite_0_tx : STD_LOGIC;
   signal axi_wb_i2c_master_0_axi_int_o : STD_LOGIC;
   signal axi_wb_i2c_master_1_axi_int_o : STD_LOGIC;
-  signal clk_100mhz_i_1 : STD_LOGIC;
   signal clk_25m_vcxo_i_1 : STD_LOGIC;
-  signal clk_aux_i_1_CLK_N : STD_LOGIC;
-  signal clk_aux_i_1_CLK_P : STD_LOGIC;
+  signal clk_aux_n_i_1 : STD_LOGIC;
+  signal clk_aux_p_i_1 : STD_LOGIC;
   signal dig_in1_i_1 : STD_LOGIC;
   signal dig_in2_i_1 : STD_LOGIC;
   signal dig_in3_n_i_1 : STD_LOGIC;
@@ -3635,8 +3619,8 @@ architecture STRUCTURE of system_design is
   signal fasec_hwtest_0_led_line_en_pl_o : STD_LOGIC;
   signal fasec_hwtest_0_led_line_pl_o : STD_LOGIC;
   signal fasec_hwtest_0_watchdog_pl_o : STD_LOGIC;
-  signal gtp_dedicated_clk_i_1_CLK_N : STD_LOGIC;
-  signal gtp_dedicated_clk_i_1_CLK_P : STD_LOGIC;
+  signal gtp_dedicated_clk_n_i_1 : STD_LOGIC;
+  signal gtp_dedicated_clk_p_i_1 : STD_LOGIC;
   signal osc100_clk_i_1 : STD_LOGIC;
   signal pb_gp_i_1 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
@@ -3853,6 +3837,8 @@ architecture STRUCTURE of system_design is
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal xlconstant_6_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_wb_i2c_master_1_i2c_scl_io_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_wb_i2c_master_1_i2c_sda_io_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP0_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP1_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP2_b_UNCONNECTED : STD_LOGIC;
@@ -3891,12 +3877,6 @@ architecture STRUCTURE of system_design is
   signal NLW_wrc_1p_kintex7_0_gtp0_link_led_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_gtp0_synced_led_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_gtp0_wrmode_led_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_cs_n_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_refsel_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_reset_n_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_sck_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_sdi_o_UNCONNECTED : STD_LOGIC;
-  signal NLW_wrc_1p_kintex7_0_pll_sync_n_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_pps_ctrl_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_pps_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_term_en_o_UNCONNECTED : STD_LOGIC;
@@ -3935,10 +3915,9 @@ begin
   Vaux9_1_V_P <= Vaux9_v_p;
   Vp_Vn_1_V_N <= Vp_Vn_v_n;
   Vp_Vn_1_V_P <= Vp_Vn_v_p;
-  clk_100mhz_i_1 <= clk_100mhz_i;
   clk_25m_vcxo_i_1 <= clk_25m_vcxo_i;
-  clk_aux_i_1_CLK_N <= clk_aux_i_clk_n;
-  clk_aux_i_1_CLK_P <= clk_aux_i_clk_p;
+  clk_aux_n_i_1 <= clk_aux_n_i;
+  clk_aux_p_i_1 <= clk_aux_p_i;
   dac_cs1_n_o <= wrc_1p_kintex7_0_dac_cs1_n_o;
   dac_cs2_n_o <= wrc_1p_kintex7_0_dac_cs2_n_o;
   dac_din_o <= wrc_1p_kintex7_0_dac_din_o;
@@ -3950,8 +3929,8 @@ begin
   dig_out5_n <= fasec_hwtest_0_dig_out5_n;
   dig_out6_n <= fasec_hwtest_0_dig_out6_n;
   dig_outs_i(3 downto 0) <= fasec_hwtest_0_dig_outs_i(3 downto 0);
-  gtp_dedicated_clk_i_1_CLK_N <= gtp_dedicated_clk_i_clk_n;
-  gtp_dedicated_clk_i_1_CLK_P <= gtp_dedicated_clk_i_clk_p;
+  gtp_dedicated_clk_n_i_1 <= gtp_dedicated_clk_n_i;
+  gtp_dedicated_clk_p_i_1 <= gtp_dedicated_clk_p_i;
   gtp_wr_tx_disable <= wrc_1p_kintex7_0_gtp_wr_TX_DISABLE;
   gtp_wr_txn <= wrc_1p_kintex7_0_gtp_wr_TXN;
   gtp_wr_txp <= wrc_1p_kintex7_0_gtp_wr_TXP;
@@ -4109,8 +4088,8 @@ axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
 axi_wb_i2c_master_1: component system_design_axi_wb_i2c_master_1_0
      port map (
       axi_int_o => axi_wb_i2c_master_1_axi_int_o,
-      i2c_scl_io => eeprom_scl,
-      i2c_sda_io => eeprom_sda,
+      i2c_scl_io => NLW_axi_wb_i2c_master_1_i2c_scl_io_UNCONNECTED,
+      i2c_sda_io => NLW_axi_wb_i2c_master_1_i2c_sda_io_UNCONNECTED,
       s00_axi_aclk => processing_system7_0_FCLK_CLK0,
       s00_axi_araddr(31 downto 0) => processing_system7_0_axi_periph_M01_AXI_ARADDR(31 downto 0),
       s00_axi_aresetn => rst_processing_system7_0_100M_peripheral_aresetn(0),
@@ -4524,17 +4503,16 @@ rst_processing_system7_0_100M: component system_design_rst_processing_system7_0_
 wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
      port map (
       button_rst_n_i => pb_gp_i_1,
-      clk_100mhz_i => clk_100mhz_i_1,
       clk_25m_vcxo_i => clk_25m_vcxo_i_1,
-      clk_aux_n_i => clk_aux_i_1_CLK_N,
-      clk_aux_p_i => clk_aux_i_1_CLK_P,
+      clk_aux_n_i => clk_aux_n_i_1,
+      clk_aux_p_i => clk_aux_p_i_1,
       dac_cs1_n_o => wrc_1p_kintex7_0_dac_cs1_n_o,
       dac_cs2_n_o => wrc_1p_kintex7_0_dac_cs2_n_o,
       dac_din_o => wrc_1p_kintex7_0_dac_din_o,
       dac_sclk_o => wrc_1p_kintex7_0_dac_sclk_o,
       ext_clk_i => '0',
-      fpga_scl_b => fpga_scl_b,
-      fpga_sda_b => fpga_sda_b,
+      fpga_scl_b => eeprom_scl,
+      fpga_sda_b => eeprom_sda,
       gtp0_activity_led_o => NLW_wrc_1p_kintex7_0_gtp0_activity_led_o_UNCONNECTED,
       gtp0_link_led_o => NLW_wrc_1p_kintex7_0_gtp0_link_led_o_UNCONNECTED,
       gtp0_los_i => wrc_1p_kintex7_0_gtp_wr_RX_LOS,
@@ -4550,17 +4528,8 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       gtp0_txn_o => wrc_1p_kintex7_0_gtp_wr_TXN,
       gtp0_txp_o => wrc_1p_kintex7_0_gtp_wr_TXP,
       gtp0_wrmode_led_o => NLW_wrc_1p_kintex7_0_gtp0_wrmode_led_o_UNCONNECTED,
-      gtp_dedicated_clk_n_i => gtp_dedicated_clk_i_1_CLK_N,
-      gtp_dedicated_clk_p_i => gtp_dedicated_clk_i_1_CLK_P,
-      pll_cs_n_o => NLW_wrc_1p_kintex7_0_pll_cs_n_o_UNCONNECTED,
-      pll_ld_i => '0',
-      pll_refsel_o => NLW_wrc_1p_kintex7_0_pll_refsel_o_UNCONNECTED,
-      pll_reset_n_o => NLW_wrc_1p_kintex7_0_pll_reset_n_o_UNCONNECTED,
-      pll_sck_o => NLW_wrc_1p_kintex7_0_pll_sck_o_UNCONNECTED,
-      pll_sdi_o => NLW_wrc_1p_kintex7_0_pll_sdi_o_UNCONNECTED,
-      pll_sdo_i => '0',
-      pll_status_i => '0',
-      pll_sync_n_o => NLW_wrc_1p_kintex7_0_pll_sync_n_o_UNCONNECTED,
+      gtp_dedicated_clk_n_i => gtp_dedicated_clk_n_i_1,
+      gtp_dedicated_clk_p_i => gtp_dedicated_clk_p_i_1,
       pps_ctrl_o => NLW_wrc_1p_kintex7_0_pps_ctrl_o_UNCONNECTED,
       pps_i => '0',
       pps_o => NLW_wrc_1p_kintex7_0_pps_o_UNCONNECTED,
