@@ -529,7 +529,7 @@
 -endlib
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/ip/system_design_axi_uartlite_0_0/sim/system_design_axi_uartlite_0_0.vhd" \
-  "../../../bd/system_design/hdl/system_design.vhd" \
+  "../../../bd/system_design/ip/system_design_xlconstant_6_0/sim/system_design_xlconstant_6_0.vhd" \
 -endlib
 -makelib ies/axi_protocol_converter_v2_1_9 \
   "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
@@ -555,6 +555,9 @@
 -makelib ies/xil_defaultlib \
   "../../../bd/system_design/ip/system_design_auto_pc_0/sim/system_design_auto_pc_0.v" \
   "../../../bd/system_design/ip/system_design_auto_pc_1/sim/system_design_auto_pc_1.v" \
+-endlib
+-makelib ies/xil_defaultlib \
+  "../../../bd/system_design/hdl/system_design.vhd" \
 -endlib
 -makelib ies/xil_defaultlib \
   glbl.v

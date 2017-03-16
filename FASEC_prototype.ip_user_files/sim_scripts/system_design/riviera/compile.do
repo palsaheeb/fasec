@@ -580,7 +580,7 @@ vcom -work axi_uartlite_v2_0_13 -93 \
 
 vcom -work xil_defaultlib -93 \
 "../../../bd/system_design/ip/system_design_axi_uartlite_0_0/sim/system_design_axi_uartlite_0_0.vhd" \
-"../../../bd/system_design/hdl/system_design.vhd" \
+"../../../bd/system_design/ip/system_design_xlconstant_6_0/sim/system_design_xlconstant_6_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
@@ -606,6 +606,9 @@ vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_in
 vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../bd/system_design/ip/system_design_auto_pc_0/sim/system_design_auto_pc_0.v" \
 "../../../bd/system_design/ip/system_design_auto_pc_1/sim/system_design_auto_pc_1.v" \
+
+vcom -work xil_defaultlib -93 \
+"../../../bd/system_design/hdl/system_design.vhd" \
 
 vlog -work xil_defaultlib "glbl.v"
 

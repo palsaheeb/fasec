@@ -323,6 +323,7 @@ vhdl axi_uartlite_v2_0_13 "../../../ipstatic/axi_uartlite_v2_0/hdl/src/vhdl/baud
 vhdl axi_uartlite_v2_0_13 "../../../ipstatic/axi_uartlite_v2_0/hdl/src/vhdl/uartlite_core.vhd" 
 vhdl axi_uartlite_v2_0_13 "../../../ipstatic/axi_uartlite_v2_0/hdl/src/vhdl/axi_uartlite.vhd" 
 vhdl xil_defaultlib "../../../bd/system_design/ip/system_design_axi_uartlite_0_0/sim/system_design_axi_uartlite_0_0.vhd" 
+vhdl xil_defaultlib "../../../bd/system_design/ip/system_design_xlconstant_6_0/sim/system_design_xlconstant_6_0.vhd" 
 vhdl xil_defaultlib "../../../bd/system_design/hdl/system_design.vhd" 
 
 nosort

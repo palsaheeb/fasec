@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Mar 15 14:41:07 2017
+--Date        : Thu Mar 16 09:25:58 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -3070,7 +3070,7 @@ entity system_design is
     watchdog_pl_o : out STD_LOGIC
   );
   attribute core_generation_info : string;
-  attribute core_generation_info of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=27,numReposBlks=15,numNonXlnxBlks=4,numHierBlks=12,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
+  attribute core_generation_info of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=28,numReposBlks=16,numNonXlnxBlks=4,numHierBlks=12,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
   attribute hw_handoff : string;
   attribute hw_handoff of system_design : entity is "system_design.hwdef";
 end system_design;
@@ -3162,7 +3162,6 @@ architecture STRUCTURE of system_design is
     IRQ_F2P : in STD_LOGIC_VECTOR ( 4 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
     FCLK_CLK1 : out STD_LOGIC;
-    FCLK_CLK2 : out STD_LOGIC;
     FCLK_RESET0_N : out STD_LOGIC;
     MIO : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     DDR_CAS_n : inout STD_LOGIC;
@@ -3532,6 +3531,11 @@ architecture STRUCTURE of system_design is
     pps_o : out STD_LOGIC
   );
   end component system_design_wrc_1p_kintex7_0_0;
+  component system_design_xlconstant_6_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component system_design_xlconstant_6_0;
   signal FMC1_CLK0M2C_N_i_1 : STD_LOGIC;
   signal FMC1_CLK0M2C_P_i_1 : STD_LOGIC;
   signal FMC1_PRSNTM2C_n_i_1 : STD_LOGIC;
@@ -3639,6 +3643,7 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_DDR_RESET_N : STD_LOGIC;
   signal processing_system7_0_DDR_WE_N : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
+  signal processing_system7_0_FCLK_CLK1 : STD_LOGIC;
   signal processing_system7_0_FCLK_RESET0_N : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRN : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRP : STD_LOGIC;
@@ -3836,6 +3841,7 @@ architecture STRUCTURE of system_design is
   signal xadc_wiz_0_ip2intc_irpt : STD_LOGIC;
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal xlconstant_6_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal xlconstant_7_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_1_i2c_scl_io_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_1_i2c_sda_io_UNCONNECTED : STD_LOGIC;
@@ -3847,8 +3853,6 @@ architecture STRUCTURE of system_design is
   signal NLW_fasec_hwtest_0_FMC2_GP1_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC2_GP2_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC2_GP3_b_UNCONNECTED : STD_LOGIC;
-  signal NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED : STD_LOGIC;
-  signal NLW_processing_system7_0_FCLK_CLK2_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_ARREADY_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_RLAST_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_RVALID_UNCONNECTED : STD_LOGIC;
@@ -4193,8 +4197,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       DDR_VRP => FIXED_IO_ddr_vrp,
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
-      FCLK_CLK1 => NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED,
-      FCLK_CLK2 => NLW_processing_system7_0_FCLK_CLK2_UNCONNECTED,
+      FCLK_CLK1 => processing_system7_0_FCLK_CLK1,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
       IRQ_F2P(4 downto 0) => xlconcat_0_dout(4 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
@@ -4510,7 +4513,7 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       dac_cs2_n_o => wrc_1p_kintex7_0_dac_cs2_n_o,
       dac_din_o => wrc_1p_kintex7_0_dac_din_o,
       dac_sclk_o => wrc_1p_kintex7_0_dac_sclk_o,
-      ext_clk_i => '0',
+      ext_clk_i => processing_system7_0_FCLK_CLK1,
       fpga_scl_b => eeprom_scl,
       fpga_sda_b => eeprom_sda,
       gtp0_activity_led_o => NLW_wrc_1p_kintex7_0_gtp0_activity_led_o_UNCONNECTED,
@@ -4531,7 +4534,7 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       gtp_dedicated_clk_n_i => gtp_dedicated_clk_n_i_1,
       gtp_dedicated_clk_p_i => gtp_dedicated_clk_p_i_1,
       pps_ctrl_o => NLW_wrc_1p_kintex7_0_pps_ctrl_o_UNCONNECTED,
-      pps_i => '0',
+      pps_i => xlconstant_7_dout(0),
       pps_o => NLW_wrc_1p_kintex7_0_pps_o_UNCONNECTED,
       term_en_o => NLW_wrc_1p_kintex7_0_term_en_o_UNCONNECTED,
       thermo_id => thermo_id,
@@ -4635,5 +4638,9 @@ xlconcat_0: component system_design_xlconcat_0_0
 xlconstant_6: component system_design_xlconstant_3_2
      port map (
       dout(15 downto 0) => xlconstant_6_dout(15 downto 0)
+    );
+xlconstant_7: component system_design_xlconstant_6_0
+     port map (
+      dout(0) => xlconstant_7_dout(0)
     );
 end STRUCTURE;
