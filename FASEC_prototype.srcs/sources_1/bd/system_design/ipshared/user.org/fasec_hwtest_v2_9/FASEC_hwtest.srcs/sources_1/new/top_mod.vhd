@@ -277,8 +277,8 @@ begin
   s_data(c_FASEC_BASE+1) <= resize(unsigned(s_ins), g_S00_AXI_DATA_WIDTH);
   s_data(c_FASEC_BASE+2) <= resize(unsigned(gem_status_vector_i), g_S00_AXI_DATA_WIDTH);
   -- s_data(c_FASEC_BASE+3).data used in p_fasec_dio
-  s_data(c_FASEC_BASE+6) <= x"58CA4E5E";  -- tcl-script will put unix build time
-  s_data(c_FASEC_BASE+7) <= x"98cb4228";  -- tcl-script will put git commit id
+  s_data(c_FASEC_BASE+6) <= x"58CA5ED1";  -- tcl-script will put unix build time
+  s_data(c_FASEC_BASE+7) <= x"26a516e4";  -- tcl-script will put git commit id
   -- copy in rw data, 'for generate' only possible with constants!
   gen_data_readwrite : for i in 0 to c_MEMMAX-1 generate
     gen_fasec : if c_FASECMEM(i).ro = '0' generate
