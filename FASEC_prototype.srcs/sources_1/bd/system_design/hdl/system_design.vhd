@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Mar 16 10:45:53 2017
+--Date        : Thu Mar 16 11:40:36 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -3078,8 +3078,6 @@ end system_design;
 architecture STRUCTURE of system_design is
   component system_design_processing_system7_0_0 is
   port (
-    UART0_TX : out STD_LOGIC;
-    UART0_RX : in STD_LOGIC;
     TTC0_WAVE0_OUT : out STD_LOGIC;
     TTC0_WAVE1_OUT : out STD_LOGIC;
     TTC0_WAVE2_OUT : out STD_LOGIC;
@@ -3604,6 +3602,7 @@ architecture STRUCTURE of system_design is
   signal axi_interconnect_0_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal axi_interconnect_0_M00_AXI_WVALID : STD_LOGIC;
   signal axi_uartlite_0_interrupt : STD_LOGIC;
+  signal axi_uartlite_0_tx : STD_LOGIC;
   signal axi_wb_i2c_master_0_axi_int_o : STD_LOGIC;
   signal axi_wb_i2c_master_1_axi_int_o : STD_LOGIC;
   signal clk_25m_vcxo_i_1 : STD_LOGIC;
@@ -3690,7 +3689,6 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_M_AXI_GP0_WREADY : STD_LOGIC;
   signal processing_system7_0_M_AXI_GP0_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal processing_system7_0_M_AXI_GP0_WVALID : STD_LOGIC;
-  signal processing_system7_0_UART0_TX : STD_LOGIC;
   signal processing_system7_0_axi_periph_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal processing_system7_0_axi_periph_M00_AXI_ARPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal processing_system7_0_axi_periph_M00_AXI_ARREADY : STD_LOGIC;
@@ -3845,7 +3843,6 @@ architecture STRUCTURE of system_design is
   signal xlconstant_6_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal xlconstant_7_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_axi_dma_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_axi_uartlite_0_tx_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_1_i2c_scl_io_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_wb_i2c_master_1_i2c_sda_io_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC1_GP0_b_UNCONNECTED : STD_LOGIC;
@@ -4043,7 +4040,7 @@ axi_interconnect_0: entity work.system_design_axi_interconnect_0_0
 axi_uartlite_0: component system_design_axi_uartlite_0_0
      port map (
       interrupt => axi_uartlite_0_interrupt,
-      rx => '0',
+      rx => wrc_1p_kintex7_0_uart_txd_o,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(3 downto 0) => processing_system7_0_axi_periph_M07_AXI_ARADDR(3 downto 0),
       s_axi_aresetn => rst_processing_system7_0_100M_peripheral_aresetn(0),
@@ -4063,7 +4060,7 @@ axi_uartlite_0: component system_design_axi_uartlite_0_0
       s_axi_wready => processing_system7_0_axi_periph_M07_AXI_WREADY,
       s_axi_wstrb(3 downto 0) => processing_system7_0_axi_periph_M07_AXI_WSTRB(3 downto 0),
       s_axi_wvalid => processing_system7_0_axi_periph_M07_AXI_WVALID,
-      tx => NLW_axi_uartlite_0_tx_UNCONNECTED
+      tx => axi_uartlite_0_tx
     );
 axi_wb_i2c_master_0: component system_design_axi_wb_i2c_master_0_0
      port map (
@@ -4287,9 +4284,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       S_AXI_GP0_WVALID => axi_interconnect_0_M00_AXI_WVALID,
       TTC0_WAVE0_OUT => NLW_processing_system7_0_TTC0_WAVE0_OUT_UNCONNECTED,
       TTC0_WAVE1_OUT => NLW_processing_system7_0_TTC0_WAVE1_OUT_UNCONNECTED,
-      TTC0_WAVE2_OUT => NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED,
-      UART0_RX => wrc_1p_kintex7_0_uart_txd_o,
-      UART0_TX => processing_system7_0_UART0_TX
+      TTC0_WAVE2_OUT => NLW_processing_system7_0_TTC0_WAVE2_OUT_UNCONNECTED
     );
 processing_system7_0_axi_periph: entity work.system_design_processing_system7_0_axi_periph_3
      port map (
@@ -4543,7 +4538,7 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       pps_o => NLW_wrc_1p_kintex7_0_pps_o_UNCONNECTED,
       term_en_o => NLW_wrc_1p_kintex7_0_term_en_o_UNCONNECTED,
       thermo_id => thermo_id,
-      uart_rxd_i => processing_system7_0_UART0_TX,
+      uart_rxd_i => axi_uartlite_0_tx,
       uart_txd_o => wrc_1p_kintex7_0_uart_txd_o
     );
 xadc_axis_fifo_adapter_0: component system_design_xadc_axis_fifo_adapter_0_0

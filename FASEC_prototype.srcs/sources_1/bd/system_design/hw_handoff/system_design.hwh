@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar 16 10:46:19 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar 16 11:41:03 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -2560,8 +2560,16 @@
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rx" SIGIS="undef"/>
-        <PORT DIR="O" NAME="tx" SIGIS="undef"/>
+        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_uart_txd_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="uart_txd_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="uart_rxd_i"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="processing_system7_0_axi_periph_M07_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
@@ -3604,7 +3612,7 @@
         <PARAMETER NAME="PCW_EN_EMIO_WP_SDIO1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_SPI0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_SPI1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_EMIO_UART0" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_EMIO_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_UART1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_MODEM_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_EMIO_MODEM_UART1" VALUE="0"/>
@@ -3705,7 +3713,7 @@
         <PARAMETER NAME="PCW_EN_SDIO1" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SPI0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_SPI1" VALUE="0"/>
-        <PARAMETER NAME="PCW_EN_UART0" VALUE="1"/>
+        <PARAMETER NAME="PCW_EN_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_UART1" VALUE="1"/>
         <PARAMETER NAME="PCW_EN_MODEM_UART0" VALUE="0"/>
         <PARAMETER NAME="PCW_EN_MODEM_UART1" VALUE="0"/>
@@ -3860,8 +3868,8 @@
         <PARAMETER NAME="PCW_SD1_GRP_WP_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_SD1_GRP_POW_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_SD1_GRP_POW_IO" VALUE="&lt;Select>"/>
-        <PARAMETER NAME="PCW_UART0_PERIPHERAL_ENABLE" VALUE="1"/>
-        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="EMIO"/>
+        <PARAMETER NAME="PCW_UART0_PERIPHERAL_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="PCW_UART0_UART0_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART0_GRP_FULL_ENABLE" VALUE="0"/>
         <PARAMETER NAME="PCW_UART0_GRP_FULL_IO" VALUE="&lt;Select>"/>
         <PARAMETER NAME="PCW_UART1_PERIPHERAL_ENABLE" VALUE="1"/>
@@ -4249,16 +4257,6 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0xFC01FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" NAME="UART0_TX" SIGIS="undef" SIGNAME="processing_system7_0_UART0_TX">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="uart_rxd_i"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="UART0_RX" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_uart_txd_o">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="uart_txd_o"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" NAME="TTC0_WAVE0_OUT" SIGIS="undef"/>
         <PORT DIR="O" NAME="TTC0_WAVE1_OUT" SIGIS="undef"/>
         <PORT DIR="O" NAME="TTC0_WAVE2_OUT" SIGIS="undef"/>
@@ -4762,12 +4760,6 @@
             <PORTMAP LOGICAL="PS_SRSTB" PHYSICAL="PS_SRSTB"/>
             <PORTMAP LOGICAL="PS_CLK" PHYSICAL="PS_CLK"/>
             <PORTMAP LOGICAL="PS_PORB" PHYSICAL="PS_PORB"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="UART_0" TYPE="INITIATOR" VLNV="xilinx.com:interface:uart:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TxD" PHYSICAL="UART0_TX"/>
-            <PORTMAP LOGICAL="RxD" PHYSICAL="UART0_RX"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="processing_system7_0_M_AXI_GP0" DATAWIDTH="32" NAME="M_AXI_GP0" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
@@ -6559,14 +6551,14 @@
         <PORT DIR="I" NAME="gtp0_tx_fault_i" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_tx_disable_o" SIGIS="undef"/>
         <PORT DIR="I" NAME="gtp0_los_i" SIGIS="undef"/>
-        <PORT DIR="I" NAME="uart_rxd_i" SIGIS="undef" SIGNAME="processing_system7_0_UART0_TX">
+        <PORT DIR="I" NAME="uart_rxd_i" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_TX"/>
+            <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_txd_o" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_uart_txd_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="UART0_RX"/>
+            <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ext_clk_i" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK1">

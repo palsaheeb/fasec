@@ -57,8 +57,6 @@ CHECK=0,C_USE_DEFAULT_ACP_USER_VAL=0,C_S_AXI_ACP_ARUSER_VAL=31,C_S_AXI_ACP_AWUSE
 ,C_M_AXI_GP1_THREAD_ID_WIDTH=12,C_NUM_F2P_INTR_INPUTS=5,C_IRQ_F2P_MODE=DIRECT,C_DQ_WIDTH=32,C_DQS_WIDTH=4,C_DM_WIDTH=4,C_MIO_PRIMITIVE=54,C_TRACE_INTERNAL_WIDTH=2,C_USE_AXI_NONSECURE=0,C_USE_M_AXI_GP0=1,C_USE_M_AXI_GP1=0,C_USE_S_AXI_GP0=0,C_USE_S_AXI_HP0=0,C_USE_S_AXI_HP1=0,C_USE_S_AXI_HP2=0,C_USE_S_AXI_HP3=0,C_USE_S_AXI_ACP=0,C_PS7_SI_REV=PRODUCTION,C_FCLK_CLK0_BUF=true,C_FCLK_CLK1_BUF=true,C_FCLK_CLK2_BUF=false,C_FCLK_CLK3_BUF=false,C_PACKAGE_NAME=ffg676}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_design_processing_system7_0_0 (
-  UART0_TX,
-  UART0_RX,
   TTC0_WAVE0_OUT,
   TTC0_WAVE1_OUT,
   TTC0_WAVE2_OUT,
@@ -167,10 +165,6 @@ module system_design_processing_system7_0_0 (
   PS_PORB
 );
 
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 TxD" *)
-output wire UART0_TX;
-(* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 UART_0 RxD" *)
-input wire UART0_RX;
 output wire TTC0_WAVE0_OUT;
 output wire TTC0_WAVE1_OUT;
 output wire TTC0_WAVE2_OUT;
@@ -565,12 +559,12 @@ inout wire PS_PORB;
     .SPI1_SS_T(),
     .UART0_DTRN(),
     .UART0_RTSN(),
-    .UART0_TX(UART0_TX),
+    .UART0_TX(),
     .UART0_CTSN(1'B0),
     .UART0_DCDN(1'B0),
     .UART0_DSRN(1'B0),
     .UART0_RIN(1'B0),
-    .UART0_RX(UART0_RX),
+    .UART0_RX(1'B1),
     .UART1_DTRN(),
     .UART1_RTSN(),
     .UART1_TX(),
