@@ -519,7 +519,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_SD0_GRP_WP_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_SD0_GRP_WP_IO">MIO 47</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_SD0_GRP_POW_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_UART0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_UART1_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_TTC0_PERIPHERAL_ENABLE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USB_RESET_ENABLE">0</spirit:configurableElementValue>
@@ -1030,16 +1030,6 @@
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="gem_status_vector_i"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>wrc_1p_kintex7_0_uart_txd_o</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="uart_txd_o"/>
-        <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="rx"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>axi_uartlite_0_tx</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="tx"/>
-        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="uart_rxd_i"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>axi_uartlite_0_interrupt</spirit:name>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="interrupt"/>
         <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In4"/>
@@ -1118,6 +1108,16 @@
         <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK1"/>
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="ext_clk_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_UART0_TX</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="UART0_TX"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="uart_rxd_i"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>wrc_1p_kintex7_0_uart_txd_o</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="uart_txd_o"/>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="UART0_RX"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
