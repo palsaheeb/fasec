@@ -1,6 +1,202 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Mar 21 09:57:14 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_2_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_2_0 from cern.ch:ip:axi_wb_i2c_master:3.0 (Rev. 2) to cern.ch:ip:axi_wb_i2c_master:3.1 (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Mar 21 09:57:14 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_1 from cern.ch:ip:axi_wb_i2c_master:3.0 (Rev. 2) to cern.ch:ip:axi_wb_i2c_master:3.1 (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Mar 21 09:48:44 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:2.0 (Rev. 9) to CERN:wrc:wrc_1p_kintex7:2.1 (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Mar 21 09:16:22 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:1.4.1 (Rev. 8) to CERN:wrc:wrc_1p_kintex7:2.0 (Rev. 9)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'system_design_wrc_1p_kintex7_0_0'.
+
+
+-Upgrade has added interface 's00_axi' (xilinx.com:interface:aximm:1.0)
+
+-Upgrade has added interface 's00_clk' (xilinx.com:signal:clock:1.0)
+
+-Upgrade has added interface 's00_resetn' (xilinx.com:signal:reset:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_wrc_1p_kintex7_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'clk_25m_vcxo_i'
+
+-Upgrade has added port 'axi_int_o'
+
+-Upgrade has added port 'clk_20m_vcxo_i'
+
+-Upgrade has added port 's00_axi_aclk_o'
+
+-Upgrade has added port 's00_axi_araddr'
+
+-Upgrade has added port 's00_axi_aresetn'
+
+-Upgrade has added port 's00_axi_arprot'
+
+-Upgrade has added port 's00_axi_arready'
+
+-Upgrade has added port 's00_axi_arvalid'
+
+-Upgrade has added port 's00_axi_awaddr'
+
+-Upgrade has added port 's00_axi_awprot'
+
+-Upgrade has added port 's00_axi_awready'
+
+-Upgrade has added port 's00_axi_awvalid'
+
+-Upgrade has added port 's00_axi_bready'
+
+-Upgrade has added port 's00_axi_bresp'
+
+-Upgrade has added port 's00_axi_bvalid'
+
+-Upgrade has added port 's00_axi_rdata'
+
+-Upgrade has added port 's00_axi_rready'
+
+-Upgrade has added port 's00_axi_rresp'
+
+-Upgrade has added port 's00_axi_rvalid'
+
+-Upgrade has added port 's00_axi_wdata'
+
+-Upgrade has added port 's00_axi_wready'
+
+-Upgrade has added port 's00_axi_wstrb'
+
+-Upgrade has added port 's00_axi_wvalid'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Tue Mar 21 09:16:22 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:2.9 (Rev. 23) to user.org:user:fasec_hwtest:3.0 (Rev. 24)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Fri Mar 17 16:22:53 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:1.4 (Rev. 7) to CERN:wrc:wrc_1p_kintex7:1.4.1 (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Wed Mar 15 14:40:57 2017
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip
