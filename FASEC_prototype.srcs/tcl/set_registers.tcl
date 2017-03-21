@@ -9,7 +9,8 @@
 # list_property [get_bd_cells fasec*]
 
 # FIXME: Vivado 'Generate Output Products' deletes the backup-file while the topfile is kept BUT without the DEADBEE. strings
-# possible solution: store the backupfile in the modules folder?
+# possible solution: store the backupfile in the modules folder? OK but:
+# FIXME: if IP changes, the old backup file will 'undo' the top_mod.vhd changes by copying in the backup file!
 
 # settings
 set filefilter *top_mod*
