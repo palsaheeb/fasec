@@ -414,11 +414,11 @@ begin
      CLKFBOUT_MULT_F      => 50.000,    -- 20 MHz -> 1 GHz
      CLKFBOUT_PHASE       => 0.000,
      CLKFBOUT_USE_FINE_PS => false,
-     CLKOUT0_DIVIDE_F     => 12.000,    -- 62.5 MHz
+     CLKOUT0_DIVIDE_F     => 16.000,    -- 1GHz/16 -> 62.5 MHz
      CLKOUT0_PHASE        => 0.000,
      CLKOUT0_DUTY_CYCLE   => 0.500,
      CLKOUT0_USE_FINE_PS  => false,
-     CLKOUT1_DIVIDE       => 12,        -- 62.5 MHz
+     CLKOUT1_DIVIDE       => 16,        -- 1GHz/16 -> 62.5 MHz
      CLKOUT1_PHASE        => 0.000,
      CLKOUT1_DUTY_CYCLE   => 0.500,
      CLKOUT1_USE_FINE_PS  => false,

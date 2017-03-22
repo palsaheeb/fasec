@@ -1458,7 +1458,7 @@ CONFIG.NUM_SI {1} \
   set rst_wrc_1p_kintex7_0_62M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_wrc_1p_kintex7_0_62M ]
 
   # Create instance: wrc_1p_kintex7_0, and set properties
-  set wrc_1p_kintex7_0 [ create_bd_cell -type ip -vlnv CERN:wrc:wrc_1p_kintex7:2.1 wrc_1p_kintex7_0 ]
+  set wrc_1p_kintex7_0 [ create_bd_cell -type ip -vlnv CERN:wrc:wrc_1p_kintex7:2.2 wrc_1p_kintex7_0 ]
 
   # Create instance: xadc_axis_fifo_adapter_0, and set properties
   set xadc_axis_fifo_adapter_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:xadc_axis_fifo_adapter:1.0 xadc_axis_fifo_adapter_0 ]
@@ -1789,8 +1789,8 @@ preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 720
 preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 8 380 340 760 790 1030 980 1300 880 1650 570 NJ 570 NJ 570 2780
 preplace netloc FMC2_CLK0M2C_P_i_1 1 0 9 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ
 preplace netloc wrc_1p_kintex7_0_dac_cs1_n_o 1 9 1 NJ
-preplace netloc S00_AXI_1 1 7 1 2430
 preplace netloc wrc_1p_kintex7_0_gtp_wr 1 9 1 NJ
+preplace netloc S00_AXI_1 1 7 1 2430
 preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2000
 preplace netloc xlconstant_7_dout 1 8 1 NJ
 preplace netloc axi_wb_i2c_master_0_axi_int_o 1 3 3 N 500 NJ 500 NJ

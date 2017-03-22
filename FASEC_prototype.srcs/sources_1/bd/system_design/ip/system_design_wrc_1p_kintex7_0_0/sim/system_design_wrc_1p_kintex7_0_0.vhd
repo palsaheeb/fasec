@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: CERN:wrc:wrc_1p_kintex7:2.1
--- IP Revision: 10
+-- IP VLNV: CERN:wrc:wrc_1p_kintex7:2.2
+-- IP Revision: 11
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
