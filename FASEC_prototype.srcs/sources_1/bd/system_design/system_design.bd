@@ -353,12 +353,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>dig_out6_n</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>dig_in1_i</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
@@ -458,6 +452,16 @@
           <spirit:name>gtp_dedicated_clk_n_i</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>dig_out6_n</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>0</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -697,15 +701,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>fasec_hwtest_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="fasec_hwtest" spirit:vendor="user.org" spirit:version="3.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_fasec_hwtest_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="g_FMC1">EDA-03287</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="g_FMC2">EDA-03287</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>rst_wrc_1p_kintex7_0_62M</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="proc_sys_reset" spirit:vendor="xilinx.com" spirit:version="5.0"/>
         <spirit:configurableElementValues>
@@ -723,21 +718,30 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>axi_wb_i2c_master_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_wb_i2c_master" spirit:vendor="cern.ch" spirit:version="3.1"/>
+        <spirit:componentRef spirit:library="ip" spirit:name="axi_wb_i2c_master" spirit:vendor="cern.ch" spirit:version="3.1.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_axi_wb_i2c_master_0_1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>axi_wb_i2c_master_2</spirit:instanceName>
-        <spirit:componentRef spirit:library="ip" spirit:name="axi_wb_i2c_master" spirit:vendor="cern.ch" spirit:version="3.1"/>
+        <spirit:componentRef spirit:library="ip" spirit:name="axi_wb_i2c_master" spirit:vendor="cern.ch" spirit:version="3.1.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_axi_wb_i2c_master_2_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>fasec_hwtest_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="fasec_hwtest" spirit:vendor="user.org" spirit:version="3.0.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_fasec_hwtest_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="g_FMC1">EDA-03287</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="g_FMC2">EDA-03287</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>wrc_1p_kintex7_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="2.2"/>
+        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="2.3.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_wrc_1p_kintex7_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -851,10 +855,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_0" spirit:portRef="m_axi_s2mm_aclk"/>
         <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="ps_clk_i"/>
-        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ACLK"/>
@@ -868,6 +868,10 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="ps_clk_i"/>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -883,9 +887,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_0" spirit:portRef="axi_resetn"/>
         <spirit:internalPortReference spirit:componentRef="xadc_axis_fifo_adapter_0" spirit:portRef="AXIS_RESET_N"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ARESETN"/>
@@ -898,6 +899,9 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>Net</spirit:name>
@@ -998,11 +1002,6 @@
         <spirit:name>fasec_hwtest_0_dig_out5_n</spirit:name>
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="dig_out5_n"/>
         <spirit:externalPortReference spirit:portRef="dig_out5_n"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>fasec_hwtest_0_dig_out6_n</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="dig_out6_n"/>
-        <spirit:externalPortReference spirit:portRef="dig_out6_n"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>dig_in1_i_1</spirit:name>
@@ -1169,6 +1168,11 @@
         <spirit:name>rst_wrc_1p_kintex7_0_62M_interconnect_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_wrc_1p_kintex7_0_62M" spirit:portRef="interconnect_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_1" spirit:portRef="ARESETN"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>fasec_hwtest_0_dig_out6_n</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="dig_out6_n"/>
+        <spirit:externalPortReference spirit:portRef="dig_out6_n"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -4957,24 +4961,6 @@
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>
-            <spirit:name>SEG_axi_wb_i2c_master_2_Reg</spirit:name>
-            <spirit:displayName>/axi_wb_i2c_master_2/s00_axi/Reg</spirit:displayName>
-            <spirit:addressOffset>0x43C00000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
-            <spirit:name>SEG_axi_wb_i2c_master_0_Reg</spirit:name>
-            <spirit:displayName>/axi_wb_i2c_master_0/s00_axi/Reg</spirit:displayName>
-            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
-            <spirit:name>SEG_fasec_hwtest_0_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/fasec_hwtest_0/S00_AXI/S00_AXI_reg</spirit:displayName>
-            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
-          </spirit:segment>
-          <spirit:segment>
             <spirit:name>SEG_xadc_axis_fifo_adapter_0_reg0</spirit:name>
             <spirit:displayName>/xadc_axis_fifo_adapter_0/S_AXI/reg0</spirit:displayName>
             <spirit:addressOffset>0x43C40000</spirit:addressOffset>
@@ -4990,6 +4976,24 @@
             <spirit:name>SEG_axi_dma_0_Reg</spirit:name>
             <spirit:displayName>/axi_dma_0/S_AXI_LITE/Reg</spirit:displayName>
             <spirit:addressOffset>0x40400000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_axi_wb_i2c_master_0_Reg</spirit:name>
+            <spirit:displayName>/axi_wb_i2c_master_0/s00_axi/Reg</spirit:displayName>
+            <spirit:addressOffset>0x43C10000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_axi_wb_i2c_master_2_Reg</spirit:name>
+            <spirit:displayName>/axi_wb_i2c_master_2/s00_axi/Reg</spirit:displayName>
+            <spirit:addressOffset>0x43C00000</spirit:addressOffset>
+            <spirit:range>64K</spirit:range>
+          </spirit:segment>
+          <spirit:segment>
+            <spirit:name>SEG_fasec_hwtest_0_S00_AXI_reg</spirit:name>
+            <spirit:displayName>/fasec_hwtest_0/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:addressOffset>0x43C30000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
           <spirit:segment>

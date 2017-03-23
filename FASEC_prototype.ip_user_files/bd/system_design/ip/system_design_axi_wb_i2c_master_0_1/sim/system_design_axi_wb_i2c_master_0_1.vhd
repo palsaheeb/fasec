@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: cern.ch:ip:axi_wb_i2c_master:3.1
--- IP Revision: 4
+-- IP VLNV: cern.ch:ip:axi_wb_i2c_master:3.1.1
+-- IP Revision: 5
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

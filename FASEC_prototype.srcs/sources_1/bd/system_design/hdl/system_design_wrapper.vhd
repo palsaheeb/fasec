@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Wed Mar 22 11:59:39 2017
+--Date        : Thu Mar 23 21:34:22 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -74,7 +74,7 @@ entity system_design_wrapper is
     dig_in3_n_i : in STD_LOGIC;
     dig_in4_n_i : in STD_LOGIC;
     dig_out5_n : out STD_LOGIC;
-    dig_out6_n : out STD_LOGIC;
+    dig_out6_n : out STD_LOGIC_VECTOR ( 0 to 0 );
     dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
     eeprom_scl : inout STD_LOGIC;
     eeprom_sda : inout STD_LOGIC;
@@ -175,7 +175,6 @@ architecture STRUCTURE of system_design_wrapper is
     watchdog_pl_o : out STD_LOGIC;
     dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
     dig_out5_n : out STD_LOGIC;
-    dig_out6_n : out STD_LOGIC;
     dig_in1_i : in STD_LOGIC;
     dig_in2_i : in STD_LOGIC;
     dig_in3_n_i : in STD_LOGIC;
@@ -192,7 +191,8 @@ architecture STRUCTURE of system_design_wrapper is
     clk_aux_p_i : in STD_LOGIC;
     clk_aux_n_i : in STD_LOGIC;
     gtp_dedicated_clk_p_i : in STD_LOGIC;
-    gtp_dedicated_clk_n_i : in STD_LOGIC
+    gtp_dedicated_clk_n_i : in STD_LOGIC;
+    dig_out6_n : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component system_design;
 begin
@@ -259,7 +259,7 @@ system_design_i: component system_design
       dig_in3_n_i => dig_in3_n_i,
       dig_in4_n_i => dig_in4_n_i,
       dig_out5_n => dig_out5_n,
-      dig_out6_n => dig_out6_n,
+      dig_out6_n(0) => dig_out6_n(0),
       dig_outs_i(3 downto 0) => dig_outs_i(3 downto 0),
       eeprom_scl => eeprom_scl,
       eeprom_sda => eeprom_sda,

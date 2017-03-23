@@ -344,7 +344,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 21 10:10:20 UTC 2017</spirit:value>
+            <spirit:value>Thu Mar 23 20:34:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -356,7 +356,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9d4452ad</spirit:value>
+            <spirit:value>342d0b43</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -375,7 +375,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 21 10:10:20 UTC 2017</spirit:value>
+            <spirit:value>Thu Mar 23 20:34:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -387,7 +387,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>9d4452ad</spirit:value>
+            <spirit:value>342d0b43</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -405,7 +405,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 21 10:10:20 UTC 2017</spirit:value>
+            <spirit:value>Thu Mar 23 20:34:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -417,7 +417,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>88577bd0</spirit:value>
+            <spirit:value>66f9670f</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -436,7 +436,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 21 10:10:20 UTC 2017</spirit:value>
+            <spirit:value>Thu Mar 23 20:34:25 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>boundaryCRC</spirit:name>
@@ -448,7 +448,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>88577bd0</spirit:value>
+            <spirit:value>66f9670f</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -867,68 +867,68 @@
         <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_bit_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_bit_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_byte_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_byte_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_top.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_top.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/main_pkg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>hdl_lib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/main_pkg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/axis_to_i2c_wbs.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/counterUpDown.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/axis_to_i2c_wbs.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/counterUpDown.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/shiftRegister.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/clockDivider.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/shiftRegister.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/clockDivider.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:logicalName>hdl_lib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
@@ -944,72 +944,72 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_bit_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_bit_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_byte_ctrl.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_byte_ctrl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/i2c_master_top.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/i2c_master_top.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/main_pkg.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:logicalName>hdl_lib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/main_pkg.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/modules/axis_to_i2c_wbs.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/sim/axis_to_i2c_wbs_tb.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/counterUpDown.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/modules/axis_to_i2c_wbs.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/sim/axis_to_i2c_wbs_tb.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/counterUpDown.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/shiftRegister.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/clockDivider.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/shiftRegister.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/clockDivider.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd</spirit:name>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:logicalName>hdl_lib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../ipshared/cern.ch/axi_wb_i2c_master_v3_1_1/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>hdl_lib</spirit:logicalName>
       </spirit:file>
@@ -1023,7 +1023,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>axi_wb_i2c_master_v3_1</spirit:description>
+  <spirit:description>axi_wb_i2c_master</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
@@ -1042,14 +1042,15 @@
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
-      <xilinx:displayName>axi_wb_i2c_master_v3_1</xilinx:displayName>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:displayName>axi_wb_i2c_master</xilinx:displayName>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="user.org:user:axi_wb_i2c_master:1.0_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
         <xilinx:tag xilinx:name="cern.ch:user:axi_wb_i2c_master:1.0_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
         <xilinx:tag xilinx:name="cern.ch:ip:axi_wb_i2c_master:1.0_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
         <xilinx:tag xilinx:name="cern.ch:ip:axi_wb_i2c_master:3.0_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
         <xilinx:tag xilinx:name="cern.ch:ip:axi_wb_i2c_master:3.1_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
+        <xilinx:tag xilinx:name="cern.ch:ip:axi_wb_i2c_master:3.1.1_ARCHIVE_LOCATION">/home/pieter/Development/projects/FIDS/cores/axi_wb_i2c_master</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="user"/>
@@ -1084,7 +1085,7 @@
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2016.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2951d2ef"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9d517932"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e9d260ec"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="1a573fc4"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="15a214e0"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="675c1650"/>

@@ -1,6 +1,111 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Mar 23 21:33:44 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:2.3 (Rev. 12) to CERN:wrc:wrc_1p_kintex7:2.3.1 (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Mar 23 21:33:30 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:3.0 (Rev. 24) to user.org:user:fasec_hwtest:3.0.1 (Rev. 25)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Mar 23 21:33:30 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_2_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_2_0 from cern.ch:ip:axi_wb_i2c_master:3.1 (Rev. 4) to cern.ch:ip:axi_wb_i2c_master:3.1.1 (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Mar 23 21:33:30 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_axi_wb_i2c_master_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_axi_wb_i2c_master_0_1 from cern.ch:ip:axi_wb_i2c_master:3.1 (Rev. 4) to cern.ch:ip:axi_wb_i2c_master:3.1.1 (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Thu Mar 23 19:43:50 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:2.2 (Rev. 11) to CERN:wrc:wrc_1p_kintex7:2.3 (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Wed Mar 22 11:59:22 2017
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 22 11:59:42 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar 23 21:34:26 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -170,11 +170,6 @@
         <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_out5_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="dig_out6_n" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out6_n">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_out6_n"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="dig_in1_i" SIGIS="undef" SIGNAME="External_Ports_dig_in1_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_in1_i"/>
@@ -258,6 +253,11 @@
     <PORT DIR="I" NAME="gtp_dedicated_clk_n_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_n_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="gtp_dedicated_clk_n_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="0" NAME="dig_out6_n" RIGHT="0" SIGIS="undef" SIGNAME="fasec_hwtest_0_dig_out6_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fasec_hwtest_0" PORT="dig_out6_n"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -3334,7 +3334,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="3.1" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="cern.ch:ip:axi_wb_i2c_master:3.1">
+    <MODULE FULLNAME="/axi_wb_i2c_master_0" HWVERSION="3.1.1" INSTANCE="axi_wb_i2c_master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="cern.ch:ip:axi_wb_i2c_master:3.1.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
@@ -3510,7 +3510,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="3.1" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="cern.ch:ip:axi_wb_i2c_master:3.1">
+    <MODULE FULLNAME="/axi_wb_i2c_master_2" HWVERSION="3.1.1" INSTANCE="axi_wb_i2c_master_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_wb_i2c_master" VLNV="cern.ch:ip:axi_wb_i2c_master:3.1.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
@@ -3694,7 +3694,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.0" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.0">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.0.1" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.0.1">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -5560,10 +5560,6 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axis_aclk"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ACLK"/>
@@ -5577,6 +5573,10 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_ACLK"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="10000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
@@ -7402,9 +7402,6 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="AXIS_RESET_N"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M05_ARESETN"/>
@@ -7417,6 +7414,9 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_ARESETN"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7473,7 +7473,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="2.2" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:2.2">
+    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="2.3.1" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:2.3.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="TAR_ADDR_WDTH" VALUE="13"/>
