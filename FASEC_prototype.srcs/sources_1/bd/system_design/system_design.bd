@@ -1045,6 +1045,7 @@
         <spirit:name>clk_25m_vcxo_i_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="clk_25m_vcxo_i"/>
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_20m_vcxo_i"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="ext_clk_i"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>wrc_1p_kintex7_0_dac_sclk_o</spirit:name>

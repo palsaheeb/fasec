@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Mon Mar 27 12:41:35 2017
+--Date        : Mon Mar 27 13:01:58 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -4349,7 +4349,6 @@ architecture STRUCTURE of system_design is
   signal processing_system7_0_DDR_RESET_N : STD_LOGIC;
   signal processing_system7_0_DDR_WE_N : STD_LOGIC;
   signal processing_system7_0_FCLK_CLK0 : STD_LOGIC;
-  signal processing_system7_0_FCLK_CLK1 : STD_LOGIC;
   signal processing_system7_0_FCLK_RESET0_N : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRN : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_DDR_VRP : STD_LOGIC;
@@ -4562,6 +4561,7 @@ architecture STRUCTURE of system_design is
   signal NLW_fasec_hwtest_0_FMC2_GP1_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC2_GP2_b_UNCONNECTED : STD_LOGIC;
   signal NLW_fasec_hwtest_0_FMC2_GP3_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_ARREADY_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_RLAST_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_S_AXI_GP0_RVALID_UNCONNECTED : STD_LOGIC;
@@ -4977,7 +4977,7 @@ processing_system7_0: component system_design_processing_system7_0_0
       DDR_VRP => FIXED_IO_ddr_vrp,
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
-      FCLK_CLK1 => processing_system7_0_FCLK_CLK1,
+      FCLK_CLK1 => NLW_processing_system7_0_FCLK_CLK1_UNCONNECTED,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
       IRQ_F2P(4 downto 0) => xlconcat_0_dout(4 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
@@ -5347,7 +5347,7 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       dac_cs2_n_o => wrc_1p_kintex7_0_dac_cs2_n_o,
       dac_din_o => wrc_1p_kintex7_0_dac_din_o,
       dac_sclk_o => wrc_1p_kintex7_0_dac_sclk_o,
-      ext_clk_i => processing_system7_0_FCLK_CLK1,
+      ext_clk_i => clk_25m_vcxo_i_1,
       fpga_scl_b => eeprom_scl,
       fpga_sda_b => eeprom_sda,
       gtp0_activity_led_o => NLW_wrc_1p_kintex7_0_gtp0_activity_led_o_UNCONNECTED,

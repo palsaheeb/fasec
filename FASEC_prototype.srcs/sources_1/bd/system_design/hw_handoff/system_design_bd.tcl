@@ -1575,14 +1575,17 @@ CONFIG.CONST_WIDTH {1} \
   connect_bd_net -net Net5 [get_bd_ports FMC2_LA_N_b] [get_bd_pins fasec_hwtest_0/FMC2_LA_N_b]
   connect_bd_net -net Net6 [get_bd_ports FMC1_LA_P_b] [get_bd_pins fasec_hwtest_0/FMC1_LA_P_b]
   connect_bd_net -net Net7 [get_bd_ports FMC1_LA_N_b] [get_bd_pins fasec_hwtest_0/FMC1_LA_N_b]
+  connect_bd_net -net Net8 [get_bd_pins fasec_hwtest_0/FMC1_GP0_b] [get_bd_pins wrc_1p_kintex7_0/clk_ref_b]
+  connect_bd_net -net Net9 [get_bd_pins fasec_hwtest_0/FMC1_GP1_b] [get_bd_pins wrc_1p_kintex7_0/clk_rx_rbclk_b]
   connect_bd_net -net Net10 [get_bd_ports thermo_id] [get_bd_pins wrc_1p_kintex7_0/thermo_id]
   connect_bd_net -net Net11 [get_bd_ports gtp0_rate_select_b] [get_bd_pins wrc_1p_kintex7_0/gtp0_rate_select_b]
+  connect_bd_net -net Net12 [get_bd_pins fasec_hwtest_0/FMC1_GP2_b] [get_bd_pins wrc_1p_kintex7_0/clk_dmtd_b]
   connect_bd_net -net axi_dma_0_s2mm_introut [get_bd_pins axi_dma_0/s2mm_introut] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net axi_uartlite_0_interrupt [get_bd_pins axi_uartlite_0/interrupt] [get_bd_pins xlconcat_0/In4]
   connect_bd_net -net axi_uartlite_0_tx [get_bd_pins axi_uartlite_0/tx] [get_bd_pins wrc_1p_kintex7_0/uart_rxd_i]
   connect_bd_net -net axi_wb_i2c_master_0_axi_int_o [get_bd_pins axi_wb_i2c_master_0/axi_int_o] [get_bd_pins xlconcat_0/In3]
   connect_bd_net -net axi_wb_i2c_master_2_axi_int_o [get_bd_pins axi_wb_i2c_master_2/axi_int_o] [get_bd_pins xlconcat_0/In2]
-  connect_bd_net -net clk_25m_vcxo_i_1 [get_bd_ports clk_25m_vcxo_i] [get_bd_pins wrc_1p_kintex7_0/clk_20m_vcxo_i]
+  connect_bd_net -net clk_25m_vcxo_i_1 [get_bd_ports clk_25m_vcxo_i] [get_bd_pins wrc_1p_kintex7_0/clk_20m_vcxo_i] [get_bd_pins wrc_1p_kintex7_0/ext_clk_i]
   connect_bd_net -net dig_in1_i_1 [get_bd_ports dig_in1_i] [get_bd_pins fasec_hwtest_0/dig_in1_i]
   connect_bd_net -net dig_in2_i_1 [get_bd_ports dig_in2_i] [get_bd_pins fasec_hwtest_0/dig_in2_i]
   connect_bd_net -net dig_in3_n_i_1 [get_bd_ports dig_in3_n_i] [get_bd_pins fasec_hwtest_0/dig_in3_n_i]
@@ -1603,7 +1606,6 @@ CONFIG.CONST_WIDTH {1} \
   connect_bd_net -net osc100_clk_i_1 [get_bd_ports osc100_clk_i] [get_bd_pins fasec_hwtest_0/osc100_clk_i]
   connect_bd_net -net pb_gp_i_1 [get_bd_ports pb_gp_i] [get_bd_pins fasec_hwtest_0/pb_gp_n_i] [get_bd_pins wrc_1p_kintex7_0/button_rst_n_i]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_dma_0/m_axi_s2mm_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins axi_wb_i2c_master_0/s00_axi_aclk] [get_bd_pins axi_wb_i2c_master_2/s00_axi_aclk] [get_bd_pins fasec_hwtest_0/ps_clk_i] [get_bd_pins fasec_hwtest_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/M01_ACLK] [get_bd_pins processing_system7_0_axi_periph/M02_ACLK] [get_bd_pins processing_system7_0_axi_periph/M03_ACLK] [get_bd_pins processing_system7_0_axi_periph/M04_ACLK] [get_bd_pins processing_system7_0_axi_periph/M05_ACLK] [get_bd_pins processing_system7_0_axi_periph/M06_ACLK] [get_bd_pins processing_system7_0_axi_periph/M07_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk] [get_bd_pins xadc_axis_fifo_adapter_0/M_AXIS_ACLK] [get_bd_pins xadc_axis_fifo_adapter_0/S_AXIS_ACLK] [get_bd_pins xadc_axis_fifo_adapter_0/S_AXI_ACLK] [get_bd_pins xadc_wiz_0/s_axi_aclk] [get_bd_pins xadc_wiz_0/s_axis_aclk]
-  connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins processing_system7_0/FCLK_CLK1] [get_bd_pins wrc_1p_kintex7_0/ext_clk_i]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_processing_system7_0_100M/ext_reset_in] [get_bd_pins rst_wrc_1p_kintex7_0_62M/ext_reset_in]
   connect_bd_net -net rst_processing_system7_0_100M_interconnect_aresetn [get_bd_pins processing_system7_0_axi_periph/ARESETN] [get_bd_pins rst_processing_system7_0_100M/interconnect_aresetn]
   connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins axi_wb_i2c_master_0/s00_axi_aresetn] [get_bd_pins axi_wb_i2c_master_2/s00_axi_aresetn] [get_bd_pins fasec_hwtest_0/s00_axi_aresetn] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M01_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M02_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M03_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M04_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M05_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M06_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M07_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn] [get_bd_pins xadc_axis_fifo_adapter_0/AXIS_RESET_N] [get_bd_pins xadc_axis_fifo_adapter_0/S_AXI_ARESETN] [get_bd_pins xadc_wiz_0/s_axi_aresetn]
@@ -1637,156 +1639,158 @@ CONFIG.CONST_WIDTH {1} \
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.12  2016-01-29 bk=1.3547 VDI=39 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
-preplace port FMC1_CLK0M2C_N_i -pg 1 -y 260 -defaultsOSRD
-preplace port led_line_en_pl_o -pg 1 -y 380 -defaultsOSRD
-preplace port DDR -pg 1 -y 720 -defaultsOSRD
-preplace port clk_25m_vcxo_i -pg 1 -y 1220 -defaultsOSRD
-preplace port dig_in3_n_i -pg 1 -y 1140 -defaultsOSRD
-preplace port dig_in1_i -pg 1 -y 1100 -defaultsOSRD
-preplace port led_line_pl_o -pg 1 -y 400 -defaultsOSRD
-preplace port Vp_Vn -pg 1 -y 890 -defaultsOSRD
-preplace port eeprom_sda -pg 1 -y 1350 -defaultsOSRD
-preplace port gtp_dedicated_clk_n_i -pg 1 -y 1300 -defaultsOSRD
-preplace port osc100_clk_i -pg 1 -y 1180 -defaultsOSRD
-preplace port fmcx_sda -pg 1 -y 580 -defaultsOSRD
-preplace port Vaux0 -pg 1 -y 910 -defaultsOSRD
-preplace port FMC1_CLK0M2C_P_i -pg 1 -y 240 -defaultsOSRD
-preplace port Vaux1 -pg 1 -y 930 -defaultsOSRD
-preplace port thermo_id -pg 1 -y 1370 -defaultsOSRD
-preplace port dac_cs2_n_o -pg 1 -y 1310 -defaultsOSRD
-preplace port FMC2_CLK0M2C_N_i -pg 1 -y 200 -defaultsOSRD
-preplace port Vaux2 -pg 1 -y 950 -defaultsOSRD
-preplace port FMC1_CLK0C2M_P_o -pg 1 -y 240 -defaultsOSRD
-preplace port FMC2_CLK0M2C_P_i -pg 1 -y 180 -defaultsOSRD
-preplace port FMC2_PRSNTM2C_n_i -pg 1 -y 160 -defaultsOSRD
-preplace port Vaux10 -pg 1 -y 1010 -defaultsOSRD
-preplace port dac_din_o -pg 1 -y 1270 -defaultsOSRD
-preplace port FMC1_PRSNTM2C_n_i -pg 1 -y 220 -defaultsOSRD
-preplace port gtp_wr -pg 1 -y 1150 -defaultsOSRD
-preplace port gtp0_rate_select_b -pg 1 -y 1390 -defaultsOSRD
-preplace port fmcx_scl -pg 1 -y 560 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 740 -defaultsOSRD
-preplace port eeprom_scl -pg 1 -y 1330 -defaultsOSRD
-preplace port dac_cs1_n_o -pg 1 -y 1290 -defaultsOSRD
-preplace port dig_in4_n_i -pg 1 -y 1160 -defaultsOSRD
-preplace port dig_in2_i -pg 1 -y 1120 -defaultsOSRD
-preplace port watchdog_pl_o -pg 1 -y 420 -defaultsOSRD
-preplace port gtp_dedicated_clk_p_i -pg 1 -y 1280 -defaultsOSRD
-preplace port FMC1_CLK0C2M_N_o -pg 1 -y 260 -defaultsOSRD
-preplace port pb_gp_i -pg 1 -y 1200 -defaultsOSRD
-preplace port dig_out5_n -pg 1 -y 460 -defaultsOSRD
-preplace port Vaux8 -pg 1 -y 970 -defaultsOSRD
-preplace port dac_sclk_o -pg 1 -y 1250 -defaultsOSRD
-preplace port FMC2_CLK0C2M_N_o -pg 1 -y 140 -defaultsOSRD
-preplace port FMC2_CLK0C2M_P_o -pg 1 -y 120 -defaultsOSRD
-preplace port Vaux9 -pg 1 -y 990 -defaultsOSRD
-preplace portBus FMC1_LA_P_b -pg 1 -y 80 -defaultsOSRD
-preplace portBus FMC2_LA_N_b -pg 1 -y 60 -defaultsOSRD
-preplace portBus dig_outs_i -pg 1 -y 440 -defaultsOSRD
-preplace portBus dig_out6_n -pg 1 -y 480 -defaultsOSRD
-preplace portBus FMC2_LA_P_b -pg 1 -y 40 -defaultsOSRD
-preplace portBus led_col_pl_o -pg 1 -y 360 -defaultsOSRD
-preplace portBus FMC1_LA_N_b -pg 1 -y 100 -defaultsOSRD
-preplace inst fasec_hwtest_0 -pg 1 -lvl 9 -y 260 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 5 -y 800 -defaultsOSRD
-preplace inst xadc_axis_fifo_adapter_0 -pg 1 -lvl 4 -y 870 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 540 -defaultsOSRD
-preplace inst wrc_1p_kintex7_0 -pg 1 -lvl 9 -y 1290 -defaultsOSRD
-preplace inst xadc_wiz_0 -pg 1 -lvl 3 -y 970 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 6 -y 660 -defaultsOSRD
-preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 3 -y 330 -defaultsOSRD
-preplace inst axi_wb_i2c_master_2 -pg 1 -lvl 9 -y 580 -defaultsOSRD
-preplace inst xlconstant_6 -pg 1 -lvl 8 -y 380 -defaultsOSRD
-preplace inst xlconstant_7 -pg 1 -lvl 8 -y 1350 -defaultsOSRD
-preplace inst axi_uartlite_0 -pg 1 -lvl 3 -y 680 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 6 -y 880 -defaultsOSRD
-preplace inst axi_interconnect_1 -pg 1 -lvl 8 -y 1000 -defaultsOSRD
-preplace inst rst_wrc_1p_kintex7_0_62M -pg 1 -lvl 7 -y 1040 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 630 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 7 -y 810 -defaultsOSRD
-preplace netloc osc100_clk_i_1 1 0 9 NJ 130 NJ 130 NJ 130 NJ 130 NJ 130 NJ 130 NJ 130 NJ 130 NJ
+preplace port FMC1_CLK0M2C_N_i -pg 1 -y 990 -defaultsOSRD
+preplace port led_line_en_pl_o -pg 1 -y 1110 -defaultsOSRD
+preplace port DDR -pg 1 -y 310 -defaultsOSRD
+preplace port clk_25m_vcxo_i -pg 1 -y 1510 -defaultsOSRD
+preplace port dig_in3_n_i -pg 1 -y 1070 -defaultsOSRD
+preplace port dig_in1_i -pg 1 -y 1030 -defaultsOSRD
+preplace port led_line_pl_o -pg 1 -y 1130 -defaultsOSRD
+preplace port Vp_Vn -pg 1 -y 550 -defaultsOSRD
+preplace port eeprom_sda -pg 1 -y 1650 -defaultsOSRD
+preplace port gtp_dedicated_clk_n_i -pg 1 -y 1550 -defaultsOSRD
+preplace port osc100_clk_i -pg 1 -y 870 -defaultsOSRD
+preplace port fmcx_sda -pg 1 -y 400 -defaultsOSRD
+preplace port Vaux0 -pg 1 -y 370 -defaultsOSRD
+preplace port FMC1_CLK0M2C_P_i -pg 1 -y 970 -defaultsOSRD
+preplace port Vaux1 -pg 1 -y 390 -defaultsOSRD
+preplace port thermo_id -pg 1 -y 1670 -defaultsOSRD
+preplace port dac_cs2_n_o -pg 1 -y 1610 -defaultsOSRD
+preplace port FMC2_CLK0M2C_N_i -pg 1 -y 930 -defaultsOSRD
+preplace port Vaux2 -pg 1 -y 570 -defaultsOSRD
+preplace port FMC1_CLK0C2M_P_o -pg 1 -y 970 -defaultsOSRD
+preplace port FMC2_CLK0M2C_P_i -pg 1 -y 910 -defaultsOSRD
+preplace port FMC2_PRSNTM2C_n_i -pg 1 -y 890 -defaultsOSRD
+preplace port Vaux10 -pg 1 -y 630 -defaultsOSRD
+preplace port dac_din_o -pg 1 -y 1570 -defaultsOSRD
+preplace port FMC1_PRSNTM2C_n_i -pg 1 -y 950 -defaultsOSRD
+preplace port gtp_wr -pg 1 -y 1390 -defaultsOSRD
+preplace port gtp0_rate_select_b -pg 1 -y 1690 -defaultsOSRD
+preplace port fmcx_scl -pg 1 -y 380 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 330 -defaultsOSRD
+preplace port eeprom_scl -pg 1 -y 1630 -defaultsOSRD
+preplace port dac_cs1_n_o -pg 1 -y 1590 -defaultsOSRD
+preplace port dig_in4_n_i -pg 1 -y 1090 -defaultsOSRD
+preplace port dig_in2_i -pg 1 -y 1050 -defaultsOSRD
+preplace port watchdog_pl_o -pg 1 -y 1150 -defaultsOSRD
+preplace port gtp_dedicated_clk_p_i -pg 1 -y 1530 -defaultsOSRD
+preplace port FMC1_CLK0C2M_N_o -pg 1 -y 990 -defaultsOSRD
+preplace port pb_gp_i -pg 1 -y 1010 -defaultsOSRD
+preplace port dig_out5_n -pg 1 -y 1190 -defaultsOSRD
+preplace port Vaux8 -pg 1 -y 590 -defaultsOSRD
+preplace port dac_sclk_o -pg 1 -y 1550 -defaultsOSRD
+preplace port FMC2_CLK0C2M_N_o -pg 1 -y 870 -defaultsOSRD
+preplace port FMC2_CLK0C2M_P_o -pg 1 -y 850 -defaultsOSRD
+preplace port Vaux9 -pg 1 -y 610 -defaultsOSRD
+preplace portBus FMC1_LA_P_b -pg 1 -y 810 -defaultsOSRD
+preplace portBus FMC2_LA_N_b -pg 1 -y 790 -defaultsOSRD
+preplace portBus dig_outs_i -pg 1 -y 1170 -defaultsOSRD
+preplace portBus dig_out6_n -pg 1 -y 1210 -defaultsOSRD
+preplace portBus FMC2_LA_P_b -pg 1 -y 770 -defaultsOSRD
+preplace portBus led_col_pl_o -pg 1 -y 1090 -defaultsOSRD
+preplace portBus FMC1_LA_N_b -pg 1 -y 830 -defaultsOSRD
+preplace inst fasec_hwtest_0 -pg 1 -lvl 9 -y 990 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 5 -y 370 -defaultsOSRD
+preplace inst xadc_axis_fifo_adapter_0 -pg 1 -lvl 4 -y 440 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 470 -defaultsOSRD
+preplace inst wrc_1p_kintex7_0 -pg 1 -lvl 9 -y 1560 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 3 -y 590 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 6 -y 450 -defaultsOSRD
+preplace inst axi_wb_i2c_master_0 -pg 1 -lvl 3 -y 160 -defaultsOSRD
+preplace inst axi_wb_i2c_master_2 -pg 1 -lvl 9 -y 400 -defaultsOSRD
+preplace inst xlconstant_6 -pg 1 -lvl 8 -y 1140 -defaultsOSRD
+preplace inst xlconstant_7 -pg 1 -lvl 8 -y 1600 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 3 -y 830 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 6 -y 110 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 8 -y 790 -defaultsOSRD
+preplace inst rst_wrc_1p_kintex7_0_62M -pg 1 -lvl 7 -y 750 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 280 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 7 -y 400 -defaultsOSRD
+preplace netloc osc100_clk_i_1 1 0 9 NJ 750 NJ 750 NJ 750 NJ 640 NJ 640 NJ 640 NJ 640 NJ 640 NJ
 preplace netloc fasec_hwtest_0_led_col_pl_o 1 9 1 NJ
-preplace netloc dig_in4_n_i_1 1 0 9 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 NJ 160 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 7 3 NJ 740 NJ 740 NJ
+preplace netloc dig_in4_n_i_1 1 0 9 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ 1090 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 7 3 NJ 330 NJ 330 NJ
 preplace netloc fasec_hwtest_0_dig_outs_i 1 9 1 NJ
-preplace netloc gtp_dedicated_clk_n_i_1 1 0 9 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
+preplace netloc gtp_dedicated_clk_n_i_1 1 0 9 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ
 preplace netloc wrc_1p_kintex7_0_dac_din_o 1 9 1 NJ
-preplace netloc gtp_dedicated_clk_p_i_1 1 0 9 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
-preplace netloc axi_uartlite_0_tx 1 3 7 1030 700 NJ 700 NJ 750 NJ 660 NJ 660 NJ 660 3180
-preplace netloc dig_in3_n_i_1 1 0 9 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ
-preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 9 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ
-preplace netloc dig_in1_i_1 1 0 9 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 NJ
-preplace netloc xlconcat_0_dout 1 6 1 1990
+preplace netloc gtp_dedicated_clk_p_i_1 1 0 9 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ
+preplace netloc axi_uartlite_0_tx 1 3 7 1040 630 NJ 630 NJ 630 NJ 630 NJ 630 NJ 630 3250
+preplace netloc dig_in3_n_i_1 1 0 9 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ
+preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 9 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ
+preplace netloc dig_in1_i_1 1 0 9 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ
+preplace netloc xlconcat_0_dout 1 6 1 2030
 preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 9 1 NJ
-preplace netloc pb_gp_i_1 1 0 9 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 NJ 1200 2810
+preplace netloc pb_gp_i_1 1 0 9 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 2860
 preplace netloc wrc_1p_kintex7_0_dac_sclk_o 1 9 1 NJ
 preplace netloc fasec_hwtest_0_led_line_pl_o 1 9 1 NJ
-preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 3 760 590 NJ 590 NJ
-preplace netloc axi_wb_i2c_master_2_axi_int_o 1 5 5 1690 560 NJ 560 NJ 560 NJ 650 3160
-preplace netloc processing_system7_0_DDR 1 7 3 NJ 720 NJ 720 NJ
-preplace netloc FMC1_CLK0M2C_N_i_1 1 0 9 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ 250 NJ
+preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 3 NJ 320 NJ 320 1280
+preplace netloc axi_wb_i2c_master_2_axi_int_o 1 5 5 1700 250 NJ 240 NJ 240 NJ 240 3260
+preplace netloc processing_system7_0_DDR 1 7 3 NJ 310 NJ 310 NJ
+preplace netloc FMC1_CLK0M2C_N_i_1 1 0 9 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ
 preplace netloc wrc_1p_kintex7_0_dac_cs2_n_o 1 9 1 NJ
-preplace netloc axi_interconnect_1_M00_AXI 1 8 1 2780
-preplace netloc FMC2_CLK0M2C_N_i_1 1 0 9 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ
-preplace netloc processing_system7_0_axi_periph_M05_AXI 1 2 2 720 600 NJ
+preplace netloc axi_interconnect_1_M00_AXI 1 8 1 2800
+preplace netloc FMC2_CLK0M2C_N_i_1 1 0 9 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ 930 NJ
+preplace netloc processing_system7_0_axi_periph_M05_AXI 1 2 2 NJ 310 1030
 preplace netloc fasec_hwtest_0_dig_out6_n 1 9 1 NJ
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 60 1120 NJ 1120 NJ 1120 NJ 1120 NJ 1120 NJ 1120 2000 1130 2400
-preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 9 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ
-preplace netloc rst_wrc_1p_kintex7_0_62M_interconnect_aresetn 1 7 1 2420
-preplace netloc xadc_wiz_0_M_AXIS 1 3 1 1060
-preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 7 710 100 NJ 100 NJ 100 NJ 100 NJ 100 NJ 100 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 20 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 290 2010 540 2430
+preplace netloc FMC2_PRSNTM2C_n_i_1 1 0 9 NJ 890 NJ 890 NJ 910 NJ 910 NJ 910 NJ 910 NJ 910 NJ 670 NJ
+preplace netloc rst_wrc_1p_kintex7_0_62M_interconnect_aresetn 1 7 1 N
+preplace netloc xadc_wiz_0_M_AXIS 1 3 1 1030
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 2 7 NJ 250 NJ 260 NJ 260 NJ 270 NJ 210 NJ 210 2860
 preplace netloc xadc_axis_fifo_adapter_0_M_AXIS 1 4 1 1280
-preplace netloc processing_system7_0_axi_periph_M07_AXI 1 2 1 730
+preplace netloc processing_system7_0_axi_periph_M07_AXI 1 2 1 700
 preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_N_o 1 9 1 NJ
-preplace netloc rst_wrc_1p_kintex7_0_62M_peripheral_aresetn 1 7 2 2430 1130 NJ
-preplace netloc clk_25m_vcxo_i_1 1 0 9 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ 1220 NJ
-preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 1650
+preplace netloc rst_wrc_1p_kintex7_0_62M_peripheral_aresetn 1 7 2 2470 910 NJ
+preplace netloc clk_25m_vcxo_i_1 1 0 9 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ
+preplace netloc axi_dma_0_M_AXI_S2MM 1 5 1 1640
 preplace netloc fasec_hwtest_0_FMC2_CLK0C2M_P_o 1 9 1 NJ
-preplace netloc Vaux2_1 1 0 3 NJ 950 NJ 950 NJ
-preplace netloc Vp_Vn_1 1 0 3 NJ 890 NJ 890 NJ
+preplace netloc Vaux2_1 1 0 3 NJ 570 NJ 570 NJ
+preplace netloc Vp_Vn_1 1 0 3 NJ 560 NJ 560 NJ
 preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_N_o 1 9 1 NJ
 preplace netloc fasec_hwtest_0_watchdog_pl_o 1 9 1 NJ
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 720
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 700
 preplace netloc fasec_hwtest_0_dig_out5_n 1 9 1 NJ
-preplace netloc FMC1_CLK0M2C_P_i_1 1 0 9 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ
-preplace netloc Vaux0_1 1 0 3 NJ 910 NJ 910 NJ
+preplace netloc FMC1_CLK0M2C_P_i_1 1 0 9 NJ 970 NJ 970 NJ 970 NJ 970 NJ 970 NJ 970 NJ 970 NJ 970 NJ
+preplace netloc Vaux0_1 1 0 3 NJ 370 NJ 540 NJ
 preplace netloc Net 1 9 1 NJ
 preplace netloc Net10 1 9 1 NJ
-preplace netloc wrc_1p_kintex7_0_uart_txd_o 1 3 7 N 670 NJ 670 NJ 760 NJ 670 NJ 670 NJ 670 3170
+preplace netloc wrc_1p_kintex7_0_uart_txd_o 1 3 7 1050 650 NJ 650 NJ 650 NJ 650 NJ 650 NJ 650 3240
 preplace netloc Net1 1 9 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 9 60 450 400 370 770 810 1040 980 1290 900 1630 1000 2010 950 2410 580 2760
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 9 30 350 360 600 720 290 1050 290 1290 280 1660 280 2040 250 2440 400 2870
 preplace netloc Net11 1 9 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK1 1 7 2 NJ 880 2760
 preplace netloc Net2 1 9 1 NJ
+preplace netloc Net12 1 9 1 3210
 preplace netloc Net3 1 9 1 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 390
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 7 N 560 NJ 560 NJ 560 NJ 570 NJ 570 NJ 570 NJ
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 370
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 7 NJ 90 NJ 90 NJ 90 NJ 260 NJ 260 NJ 260 2850
 preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 9 1 NJ
-preplace netloc wrc_1p_kintex7_0_s00_axi_aclk_o 1 6 4 2020 1140 2410 1120 NJ 1010 3160
+preplace netloc wrc_1p_kintex7_0_s00_axi_aclk_o 1 6 4 2050 660 2480 660 NJ 660 3260
 preplace netloc Net4 1 9 1 NJ
-preplace netloc Vaux8_1 1 0 3 NJ 970 NJ 970 NJ
+preplace netloc Vaux8_1 1 0 3 NJ 590 NJ 590 NJ
 preplace netloc Net5 1 9 1 NJ
-preplace netloc xadc_wiz_0_ip2intc_irpt 1 3 3 NJ 640 NJ 640 N
+preplace netloc xadc_wiz_0_ip2intc_irpt 1 3 3 NJ 250 NJ 250 1620
 preplace netloc Net6 1 9 1 NJ
 preplace netloc xlconstant_6_dout 1 8 1 NJ
 preplace netloc Net7 1 9 1 NJ
-preplace netloc dig_in2_i_1 1 0 9 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ
-preplace netloc axi_uartlite_0_interrupt 1 3 3 1040 690 NJ 690 NJ
-preplace netloc Vaux10_1 1 0 3 NJ 1010 NJ 1010 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 7 410 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 2400
-preplace netloc Vaux1_1 1 0 3 NJ 930 NJ 930 NJ
-preplace netloc Vaux9_1 1 0 3 NJ 990 NJ 990 NJ
-preplace netloc axi_dma_0_s2mm_introut 1 5 1 1640
-preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 750
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 8 380 350 740 820 1030 990 1300 890 1660 540 NJ 540 NJ 540 2820
-preplace netloc FMC2_CLK0M2C_P_i_1 1 0 9 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ 170 NJ
+preplace netloc Net8 1 9 1 3230
+preplace netloc dig_in2_i_1 1 0 9 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ
+preplace netloc Net9 1 9 1 3220
+preplace netloc axi_uartlite_0_interrupt 1 3 3 1020 550 NJ 490 NJ
+preplace netloc Vaux10_1 1 0 3 NJ 630 NJ 630 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 7 390 20 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 2430
+preplace netloc Vaux1_1 1 0 3 NJ 380 NJ 550 NJ
+preplace netloc Vaux9_1 1 0 3 NJ 610 NJ 610 NJ
+preplace netloc axi_dma_0_s2mm_introut 1 5 1 1610
+preplace netloc processing_system7_0_axi_periph_M04_AXI 1 2 1 710
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 8 390 580 730 330 1040 330 1270 240 1680 240 NJ 200 NJ 200 2840
+preplace netloc FMC2_CLK0M2C_P_i_1 1 0 9 NJ 740 NJ 740 NJ 740 NJ 610 NJ 610 NJ 610 NJ 610 NJ 610 NJ
 preplace netloc wrc_1p_kintex7_0_dac_cs1_n_o 1 9 1 NJ
 preplace netloc wrc_1p_kintex7_0_gtp_wr 1 9 1 NJ
-preplace netloc S00_AXI_1 1 7 1 2430
-preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2000
+preplace netloc S00_AXI_1 1 7 1 2450
+preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2030
 preplace netloc xlconstant_7_dout 1 8 1 NJ
-preplace netloc axi_wb_i2c_master_0_axi_int_o 1 3 3 N 350 NJ 350 NJ
-levelinfo -pg 1 -40 220 560 900 1170 1460 1840 2210 2580 2990 3260 -top 0 -bot 1570
+preplace netloc axi_wb_i2c_master_0_axi_int_o 1 3 3 NJ 180 NJ 180 1630
+levelinfo -pg 1 -10 190 540 880 1160 1450 1850 2240 2630 3040 3280 -top 0 -bot 1840
 ",
 }
 

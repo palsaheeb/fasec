@@ -76,17 +76,17 @@ preplace netloc fasec_hwtest_0_dig_outs_i 1 9 1 NJ
 preplace netloc gtp_dedicated_clk_n_i_1 1 0 9 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 NJ
 preplace netloc wrc_1p_kintex7_0_dac_din_o 1 9 1 NJ
 preplace netloc gtp_dedicated_clk_p_i_1 1 0 9 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ 1530 NJ
-preplace netloc axi_uartlite_0_tx 1 3 7 1040 630 NJ 630 NJ 630 NJ 630 NJ 630 NJ 630 3240
+preplace netloc axi_uartlite_0_tx 1 3 7 1040 630 NJ 630 NJ 630 NJ 630 NJ 630 NJ 630 3250
 preplace netloc dig_in3_n_i_1 1 0 9 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ 1070 NJ
 preplace netloc FMC1_PRSNTM2C_n_i_1 1 0 9 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 NJ
 preplace netloc dig_in1_i_1 1 0 9 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ 1030 NJ
 preplace netloc xlconcat_0_dout 1 6 1 2030
 preplace netloc fasec_hwtest_0_FMC1_CLK0C2M_P_o 1 9 1 NJ
-preplace netloc pb_gp_i_1 1 0 9 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 2820
+preplace netloc pb_gp_i_1 1 0 9 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 NJ 1010 2860
 preplace netloc wrc_1p_kintex7_0_dac_sclk_o 1 9 1 NJ
 preplace netloc fasec_hwtest_0_led_line_pl_o 1 9 1 NJ
 preplace netloc processing_system7_0_axi_periph_M06_AXI 1 2 3 NJ 320 NJ 320 1280
-preplace netloc axi_wb_i2c_master_2_axi_int_o 1 5 5 1700 250 NJ 240 NJ 240 NJ 240 3250
+preplace netloc axi_wb_i2c_master_2_axi_int_o 1 5 5 1700 250 NJ 240 NJ 240 NJ 240 3260
 preplace netloc processing_system7_0_DDR 1 7 3 NJ 310 NJ 310 NJ
 preplace netloc FMC1_CLK0M2C_N_i_1 1 0 9 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ 990 NJ
 preplace netloc wrc_1p_kintex7_0_dac_cs2_n_o 1 9 1 NJ
@@ -116,17 +116,17 @@ preplace netloc FMC1_CLK0M2C_P_i_1 1 0 9 NJ 970 NJ 970 NJ 970 NJ 970 NJ 970 NJ 9
 preplace netloc Vaux0_1 1 0 3 NJ 370 NJ 540 NJ
 preplace netloc Net 1 9 1 NJ
 preplace netloc Net10 1 9 1 NJ
-preplace netloc wrc_1p_kintex7_0_uart_txd_o 1 3 7 1050 650 NJ 650 NJ 650 NJ 650 NJ 650 NJ 650 3230
+preplace netloc wrc_1p_kintex7_0_uart_txd_o 1 3 7 1050 650 NJ 650 NJ 650 NJ 650 NJ 650 NJ 650 3240
 preplace netloc Net1 1 9 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 9 30 350 360 600 720 290 1050 290 1290 280 1660 280 2040 250 2440 400 2850
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 9 30 350 360 600 720 290 1050 290 1290 280 1660 280 2040 250 2440 400 2870
 preplace netloc Net11 1 9 1 NJ
 preplace netloc Net2 1 9 1 NJ
-preplace netloc Net12 1 9 1 3200
+preplace netloc Net12 1 9 1 3210
 preplace netloc Net3 1 9 1 NJ
 preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 370
 preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 7 NJ 90 NJ 90 NJ 90 NJ 260 NJ 260 NJ 260 2850
 preplace netloc fasec_hwtest_0_led_line_en_pl_o 1 9 1 NJ
-preplace netloc wrc_1p_kintex7_0_s00_axi_aclk_o 1 6 4 2050 660 2480 660 NJ 660 3250
+preplace netloc wrc_1p_kintex7_0_s00_axi_aclk_o 1 6 4 2050 660 2480 660 NJ 660 3260
 preplace netloc Net4 1 9 1 NJ
 preplace netloc Vaux8_1 1 0 3 NJ 590 NJ 590 NJ
 preplace netloc Net5 1 9 1 NJ
@@ -134,9 +134,9 @@ preplace netloc xadc_wiz_0_ip2intc_irpt 1 3 3 NJ 250 NJ 250 1620
 preplace netloc Net6 1 9 1 NJ
 preplace netloc xlconstant_6_dout 1 8 1 NJ
 preplace netloc Net7 1 9 1 NJ
-preplace netloc Net8 1 9 1 3220
+preplace netloc Net8 1 9 1 3230
 preplace netloc dig_in2_i_1 1 0 9 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ
-preplace netloc Net9 1 9 1 3210
+preplace netloc Net9 1 9 1 3220
 preplace netloc axi_uartlite_0_interrupt 1 3 3 1020 550 NJ 490 NJ
 preplace netloc Vaux10_1 1 0 3 NJ 630 NJ 630 NJ
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 7 390 20 NJ 230 NJ 230 NJ 230 NJ 230 NJ 230 2430
@@ -152,7 +152,7 @@ preplace netloc S00_AXI_1 1 7 1 2450
 preplace netloc axi_interconnect_0_M00_AXI 1 6 1 2030
 preplace netloc xlconstant_7_dout 1 8 1 NJ
 preplace netloc axi_wb_i2c_master_0_axi_int_o 1 3 3 NJ 180 NJ 180 1630
-levelinfo -pg 1 -10 190 540 880 1160 1450 1850 2240 2630 3030 3270 -top 0 -bot 1840
+levelinfo -pg 1 -10 190 540 880 1160 1450 1850 2240 2630 3040 3280 -top 0 -bot 1840
 ",
 }
 {
