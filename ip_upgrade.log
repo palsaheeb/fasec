@@ -1,6 +1,109 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Mar 27 12:41:27 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:3.0 (Rev. 14) to CERN:wrc:wrc_1p_kintex7:3.1.0 (Rev. 15)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_wrc_1p_kintex7_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'clk_dmtd_o'
+
+-Upgrade has removed port 'clk_ref_o'
+
+-Upgrade has removed port 'clk_rx_rbclk_o'
+
+-Upgrade has added port 'clk_dmtd_b'
+
+-Upgrade has added port 'clk_ref_b'
+
+-Upgrade has added port 'clk_rx_rbclk_b'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Mar 27 12:04:12 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_wrc_1p_kintex7_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_design_wrc_1p_kintex7_0_0 from CERN:wrc:wrc_1p_kintex7:2.3.1 (Rev. 13) to CERN:wrc:wrc_1p_kintex7:3.0 (Rev. 14)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_design_wrc_1p_kintex7_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'clk_aux_n_i'
+
+-Upgrade has removed port 'clk_aux_p_i'
+
+-Upgrade has added port 'clk_dmtd_o'
+
+-Upgrade has added port 'clk_ref_o'
+
+-Upgrade has added port 'clk_rx_rbclk_o'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+| Date         : Mon Mar 27 12:04:12 2017
+| Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_design_fasec_hwtest_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_design_fasec_hwtest_0_0 from user.org:user:fasec_hwtest:3.0.1 (Rev. 25) to user.org:user:fasec_hwtest:3.1.0 (Rev. 26)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
 | Date         : Thu Mar 23 21:33:44 2017
 | Host         : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 | Command      : upgrade_ip

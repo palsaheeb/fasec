@@ -431,18 +431,6 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>clk_aux_p_i</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>clk_aux_n_i</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>gtp_dedicated_clk_p_i</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
@@ -732,7 +720,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>fasec_hwtest_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="fasec_hwtest" spirit:vendor="user.org" spirit:version="3.0.1"/>
+        <spirit:componentRef spirit:library="user" spirit:name="fasec_hwtest" spirit:vendor="user.org" spirit:version="3.1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_fasec_hwtest_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="g_FMC1">EDA-03287</spirit:configurableElementValue>
@@ -741,7 +729,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>wrc_1p_kintex7_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="2.3.1"/>
+        <spirit:componentRef spirit:library="wrc" spirit:name="wrc_1p_kintex7" spirit:vendor="CERN" spirit:version="3.1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_design_wrc_1p_kintex7_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -855,6 +843,8 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_0" spirit:portRef="m_axi_s2mm_aclk"/>
         <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ACLK"/>
@@ -868,8 +858,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="ps_clk_i"/>
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
@@ -887,6 +875,8 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_0" spirit:portRef="axi_resetn"/>
         <spirit:internalPortReference spirit:componentRef="xadc_axis_fifo_adapter_0" spirit:portRef="AXIS_RESET_N"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M06_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M05_ARESETN"/>
@@ -899,8 +889,6 @@
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0_axi_periph" spirit:portRef="M07_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="axi_wb_i2c_master_2" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -1099,16 +1087,6 @@
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="fpga_sda_b"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>clk_aux_p_i_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="clk_aux_p_i"/>
-        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_aux_p_i"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>clk_aux_n_i_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="clk_aux_n_i"/>
-        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_aux_n_i"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>gtp_dedicated_clk_p_i_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="gtp_dedicated_clk_p_i"/>
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="gtp_dedicated_clk_p_i"/>
@@ -1122,11 +1100,6 @@
         <spirit:name>xlconstant_7_dout</spirit:name>
         <spirit:internalPortReference spirit:componentRef="xlconstant_7" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="pps_i"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>processing_system7_0_FCLK_CLK1</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK1"/>
-        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="ext_clk_i"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>axi_uartlite_0_tx</spirit:name>
@@ -1173,6 +1146,21 @@
         <spirit:name>fasec_hwtest_0_dig_out6_n</spirit:name>
         <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="dig_out6_n"/>
         <spirit:externalPortReference spirit:portRef="dig_out6_n"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Net8</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_ref_b"/>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="FMC1_GP0_b"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Net9</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="FMC1_GP1_b"/>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_rx_rbclk_b"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Net12</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="wrc_1p_kintex7_0" spirit:portRef="clk_dmtd_b"/>
+        <spirit:internalPortReference spirit:componentRef="fasec_hwtest_0" spirit:portRef="FMC1_GP2_b"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Mar 23 21:34:22 2017
+--Date        : Mon Mar 27 12:41:35 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -3608,8 +3608,6 @@ entity system_design is
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     clk_25m_vcxo_i : in STD_LOGIC;
-    clk_aux_n_i : in STD_LOGIC;
-    clk_aux_p_i : in STD_LOGIC;
     dac_cs1_n_o : out STD_LOGIC;
     dac_cs2_n_o : out STD_LOGIC;
     dac_din_o : out STD_LOGIC;
@@ -3646,10 +3644,10 @@ entity system_design is
     thermo_id : inout STD_LOGIC;
     watchdog_pl_o : out STD_LOGIC
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=32,numReposBlks=18,numNonXlnxBlks=4,numHierBlks=14,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=14,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of system_design : entity is "system_design.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of system_design : entity is "system_design,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system_design,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=32,numReposBlks=18,numNonXlnxBlks=4,numHierBlks=14,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=14,da_board_cnt=5,da_ps7_cnt=1,synth_mode=Global}";
 end system_design;
 
 architecture STRUCTURE of system_design is
@@ -4130,10 +4128,11 @@ architecture STRUCTURE of system_design is
   component system_design_wrc_1p_kintex7_0_0 is
   port (
     clk_20m_vcxo_i : in STD_LOGIC;
-    clk_aux_p_i : in STD_LOGIC;
-    clk_aux_n_i : in STD_LOGIC;
     gtp_dedicated_clk_p_i : in STD_LOGIC;
     gtp_dedicated_clk_n_i : in STD_LOGIC;
+    clk_dmtd_b : inout STD_LOGIC;
+    clk_ref_b : inout STD_LOGIC;
+    clk_rx_rbclk_b : inout STD_LOGIC;
     gtp0_activity_led_o : out STD_LOGIC;
     gtp0_synced_led_o : out STD_LOGIC;
     gtp0_link_led_o : out STD_LOGIC;
@@ -4315,8 +4314,6 @@ architecture STRUCTURE of system_design is
   signal axi_wb_i2c_master_0_axi_int_o : STD_LOGIC;
   signal axi_wb_i2c_master_2_axi_int_o : STD_LOGIC;
   signal clk_25m_vcxo_i_1 : STD_LOGIC;
-  signal clk_aux_n_i_1 : STD_LOGIC;
-  signal clk_aux_p_i_1 : STD_LOGIC;
   signal dig_in1_i_1 : STD_LOGIC;
   signal dig_in2_i_1 : STD_LOGIC;
   signal dig_in3_n_i_1 : STD_LOGIC;
@@ -4593,6 +4590,9 @@ architecture STRUCTURE of system_design is
   signal NLW_rst_wrc_1p_kintex7_0_62M_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_rst_wrc_1p_kintex7_0_62M_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_wrc_1p_kintex7_0_axi_int_o_UNCONNECTED : STD_LOGIC;
+  signal NLW_wrc_1p_kintex7_0_clk_dmtd_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_wrc_1p_kintex7_0_clk_ref_b_UNCONNECTED : STD_LOGIC;
+  signal NLW_wrc_1p_kintex7_0_clk_rx_rbclk_b_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_gtp0_activity_led_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_gtp0_link_led_o_UNCONNECTED : STD_LOGIC;
   signal NLW_wrc_1p_kintex7_0_gtp0_synced_led_o_UNCONNECTED : STD_LOGIC;
@@ -4636,8 +4636,6 @@ begin
   Vp_Vn_1_V_N <= Vp_Vn_v_n;
   Vp_Vn_1_V_P <= Vp_Vn_v_p;
   clk_25m_vcxo_i_1 <= clk_25m_vcxo_i;
-  clk_aux_n_i_1 <= clk_aux_n_i;
-  clk_aux_p_i_1 <= clk_aux_p_i;
   dac_cs1_n_o <= wrc_1p_kintex7_0_dac_cs1_n_o;
   dac_cs2_n_o <= wrc_1p_kintex7_0_dac_cs2_n_o;
   dac_din_o <= wrc_1p_kintex7_0_dac_din_o;
@@ -5342,8 +5340,9 @@ wrc_1p_kintex7_0: component system_design_wrc_1p_kintex7_0_0
       axi_int_o => NLW_wrc_1p_kintex7_0_axi_int_o_UNCONNECTED,
       button_rst_n_i => pb_gp_i_1,
       clk_20m_vcxo_i => clk_25m_vcxo_i_1,
-      clk_aux_n_i => clk_aux_n_i_1,
-      clk_aux_p_i => clk_aux_p_i_1,
+      clk_dmtd_b => NLW_wrc_1p_kintex7_0_clk_dmtd_b_UNCONNECTED,
+      clk_ref_b => NLW_wrc_1p_kintex7_0_clk_ref_b_UNCONNECTED,
+      clk_rx_rbclk_b => NLW_wrc_1p_kintex7_0_clk_rx_rbclk_b_UNCONNECTED,
       dac_cs1_n_o => wrc_1p_kintex7_0_dac_cs1_n_o,
       dac_cs2_n_o => wrc_1p_kintex7_0_dac_cs2_n_o,
       dac_din_o => wrc_1p_kintex7_0_dac_din_o,

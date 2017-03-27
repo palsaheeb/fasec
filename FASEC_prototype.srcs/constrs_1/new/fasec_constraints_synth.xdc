@@ -306,9 +306,6 @@ set_property IOSTANDARD LVCMOS18 [get_ports clk_25m_vcxo_i]
 set_property PACKAGE_PIN G14 [get_ports gtp0_rate_select_b]
 set_property IOSTANDARD LVCMOS18 [get_ports gtp0_rate_select_b]
 
-set_property PACKAGE_PIN G7 [get_ports clk_aux_p_i]
-set_property IOSTANDARD LVDS [get_ports clk_aux_p_i]
-set_property IOSTANDARD LVDS [get_ports clk_aux_n_i]
 set_property PACKAGE_PIN K7 [get_ports dac_cs1_n_o]
 set_property PACKAGE_PIN N7 [get_ports dac_cs2_n_o]
 set_property PACKAGE_PIN K8 [get_ports dac_din_o]
@@ -334,7 +331,6 @@ set_property IOSTANDARD LVCMOS18 [get_ports gtp_wr_tx_fault]
 set_property IOSTANDARD LVCMOS18 [get_ports gtp_wr_rx_los]
 set_property IOSTANDARD LVCMOS18 [get_ports gtp_wr_mod_abs]
 create_clock -period 50.000 -name wr_25m -waveform {0.000 25.000} [get_ports clk_25m_vcxo_i]
-create_clock -period 8.000 -name wr_125M_fpga -waveform {0.000 4.000} [get_ports clk_aux_p_i]
 create_clock -period 8.000 -name wr_125M_sfp -waveform {0.000 4.000} [get_ports gtp_dedicated_clk_p_i]
 
 

@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Mar 23 21:34:22 2017
+--Date        : Mon Mar 27 12:41:36 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design_wrapper.bd
 --Design      : system_design_wrapper
@@ -63,8 +63,6 @@ entity system_design_wrapper is
     Vp_Vn_v_n : in STD_LOGIC;
     Vp_Vn_v_p : in STD_LOGIC;
     clk_25m_vcxo_i : in STD_LOGIC;
-    clk_aux_n_i : in STD_LOGIC;
-    clk_aux_p_i : in STD_LOGIC;
     dac_cs1_n_o : out STD_LOGIC;
     dac_cs2_n_o : out STD_LOGIC;
     dac_din_o : out STD_LOGIC;
@@ -188,8 +186,6 @@ architecture STRUCTURE of system_design_wrapper is
     gtp0_rate_select_b : inout STD_LOGIC;
     eeprom_scl : inout STD_LOGIC;
     eeprom_sda : inout STD_LOGIC;
-    clk_aux_p_i : in STD_LOGIC;
-    clk_aux_n_i : in STD_LOGIC;
     gtp_dedicated_clk_p_i : in STD_LOGIC;
     gtp_dedicated_clk_n_i : in STD_LOGIC;
     dig_out6_n : out STD_LOGIC_VECTOR ( 0 to 0 )
@@ -248,8 +244,6 @@ system_design_i: component system_design
       Vp_Vn_v_n => Vp_Vn_v_n,
       Vp_Vn_v_p => Vp_Vn_v_p,
       clk_25m_vcxo_i => clk_25m_vcxo_i,
-      clk_aux_n_i => clk_aux_n_i,
-      clk_aux_p_i => clk_aux_p_i,
       dac_cs1_n_o => dac_cs1_n_o,
       dac_cs2_n_o => dac_cs2_n_o,
       dac_din_o => dac_din_o,

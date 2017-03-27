@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar 23 21:34:26 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 27 12:41:39 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -233,16 +233,6 @@
     <PORT DIR="IO" NAME="eeprom_sda" SIGIS="undef" SIGNAME="External_Ports_eeprom_sda">
       <CONNECTIONS>
         <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="fpga_sda_b"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="clk_aux_p_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_p_i">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_aux_p_i"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="clk_aux_n_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_n_i">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_aux_n_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="gtp_dedicated_clk_p_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_p_i">
@@ -3694,7 +3684,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.0.1" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.0.1">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.1.0" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
@@ -5560,6 +5550,8 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_s2mm_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axis_aclk"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ACLK"/>
@@ -5573,8 +5565,6 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_ACLK"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="ps_clk_i"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
@@ -7402,6 +7392,8 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="xadc_axis_fifo_adapter_0" PORT="AXIS_RESET_N"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M06_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M05_ARESETN"/>
@@ -7414,8 +7406,6 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="processing_system7_0_axi_periph" PORT="M07_ARESETN"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="axi_wb_i2c_master_2" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
@@ -7473,7 +7463,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="2.3.1" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:2.3.1">
+    <MODULE FULLNAME="/wrc_1p_kintex7_0" HWVERSION="3.1.0" INSTANCE="wrc_1p_kintex7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_1p_kintex7" VLNV="CERN:wrc:wrc_1p_kintex7:3.1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="TAR_ADDR_WDTH" VALUE="13"/>
@@ -7488,16 +7478,6 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_25m_vcxo_i"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="clk_aux_p_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_p_i">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_aux_p_i"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="clk_aux_n_i" SIGIS="undef" SIGNAME="External_Ports_clk_aux_n_i">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_aux_n_i"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="gtp_dedicated_clk_p_i" SIGIS="undef" SIGNAME="External_Ports_gtp_dedicated_clk_p_i">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="gtp_dedicated_clk_p_i"/>
@@ -7508,6 +7488,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="gtp_dedicated_clk_n_i"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="IO" NAME="clk_dmtd_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="clk_ref_b" SIGIS="undef"/>
+        <PORT DIR="IO" NAME="clk_rx_rbclk_b" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_activity_led_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_synced_led_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="gtp0_link_led_o" SIGIS="undef"/>
