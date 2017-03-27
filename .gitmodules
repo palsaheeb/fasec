@@ -1,3 +1,6 @@
 [submodule "ip_cores/wrc-1p-fasec"]
 	path = ip_cores/wrc-1p-fasec
 	url = git@bitbucket.org:vtpieter/wrc-1p-fasec.git
+[submodule "ip_cores/cores"]
+	path = ip_cores/cores
+	url = ssh://git@gitlab.cern.ch:7999/te-abt-ec/cores.git
