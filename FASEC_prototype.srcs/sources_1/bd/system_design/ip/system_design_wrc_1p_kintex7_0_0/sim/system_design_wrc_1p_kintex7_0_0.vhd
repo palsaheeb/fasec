@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: CERN:wrc:wrc_1p_kintex7:3.1.0
--- IP Revision: 15
+-- IP VLNV: CERN:wrc:wrc_1p_kintex7:3.2.0
+-- IP Revision: 16
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -58,9 +58,9 @@ ENTITY system_design_wrc_1p_kintex7_0_0 IS
     clk_20m_vcxo_i : IN STD_LOGIC;
     gtp_dedicated_clk_p_i : IN STD_LOGIC;
     gtp_dedicated_clk_n_i : IN STD_LOGIC;
-    clk_dmtd_b : INOUT STD_LOGIC;
-    clk_ref_b : INOUT STD_LOGIC;
-    clk_rx_rbclk_b : INOUT STD_LOGIC;
+    clk_dmtd_o : OUT STD_LOGIC;
+    clk_ref_o : OUT STD_LOGIC;
+    clk_rx_rbclk_o : OUT STD_LOGIC;
     gtp0_activity_led_o : OUT STD_LOGIC;
     gtp0_synced_led_o : OUT STD_LOGIC;
     gtp0_link_led_o : OUT STD_LOGIC;
@@ -127,9 +127,9 @@ ARCHITECTURE system_design_wrc_1p_kintex7_0_0_arch OF system_design_wrc_1p_kinte
       clk_20m_vcxo_i : IN STD_LOGIC;
       gtp_dedicated_clk_p_i : IN STD_LOGIC;
       gtp_dedicated_clk_n_i : IN STD_LOGIC;
-      clk_dmtd_b : INOUT STD_LOGIC;
-      clk_ref_b : INOUT STD_LOGIC;
-      clk_rx_rbclk_b : INOUT STD_LOGIC;
+      clk_dmtd_o : OUT STD_LOGIC;
+      clk_ref_o : OUT STD_LOGIC;
+      clk_rx_rbclk_o : OUT STD_LOGIC;
       gtp0_activity_led_o : OUT STD_LOGIC;
       gtp0_synced_led_o : OUT STD_LOGIC;
       gtp0_link_led_o : OUT STD_LOGIC;
@@ -227,9 +227,9 @@ BEGIN
       clk_20m_vcxo_i => clk_20m_vcxo_i,
       gtp_dedicated_clk_p_i => gtp_dedicated_clk_p_i,
       gtp_dedicated_clk_n_i => gtp_dedicated_clk_n_i,
-      clk_dmtd_b => clk_dmtd_b,
-      clk_ref_b => clk_ref_b,
-      clk_rx_rbclk_b => clk_rx_rbclk_b,
+      clk_dmtd_o => clk_dmtd_o,
+      clk_ref_o => clk_ref_o,
+      clk_rx_rbclk_o => clk_rx_rbclk_o,
       gtp0_activity_led_o => gtp0_activity_led_o,
       gtp0_synced_led_o => gtp0_synced_led_o,
       gtp0_link_led_o => gtp0_link_led_o,

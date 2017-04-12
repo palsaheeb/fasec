@@ -91,22 +91,22 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructur
 "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
 
 vcom -work hdl_lib -64 -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/main_pkg.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/main_pkg.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/pulseMeasure.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/FASEC_hwtest.srcs/sources_1/new/pulseMeasure.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
 
 vcom -work hdl_lib -64 -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_1_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
 "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -64 -93 \
@@ -348,206 +348,208 @@ vlog -work fifo_generator_v13_1_1 -64 -incr "+incdir+../../../ipstatic/axi_infra
 "../../../bd/system_design/ip/system_design_wrc_1p_kintex7_0_0/ip_cores/xilinx_ip/mux_buffering_fifo/sim/mux_buffering_fifo.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/genram_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/memory_loader_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wishbone_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/lm32_sw/wrc.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/fabric/wr_fabric_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram_sameclock.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram_dualclock.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/lm32_dpram_sameclock.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/endpoint_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_registers_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gencores_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/endpoint_private_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/inferred_sync_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/inferred_async_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_crc32_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_sync_detect.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_sync_detect_16bit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_crc_gen.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_extend_pulse.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_sync_ffs.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_pulse_synchronizer.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/gc_shiftreg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/generic/generic_async_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/generic/generic_sync_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/simple_uart_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/timing/dmtd_with_deglitcher.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_mini_nic/minic_wbgen2_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/spll_wbgen2_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_pcs_8bit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_pcs_16bit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_pcs_16bit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_autonegotiation.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_pcs_tbi_mdio_wb.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_wb_master.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_oob_insert.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_early_address_match.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_clock_alignment_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_packet_filter.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_vlan_unit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_ts_counter.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_status_reg_insert.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rtu_header_extract.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_buffer.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_pcs_8bit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_crc_size_check.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_header_processor.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_crc_inserter.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_inject_ctrl.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_packet_injection.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_vlan_unit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/generic_shiftreg_fifo.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/genrams/xilinx/generic_simple_dpram.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/genram_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/memory_loader_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wishbone_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/lm32_sw/wrc.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/fabric/wr_fabric_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram_sameclock.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram_dualclock.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/lm32_dpram_sameclock.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/endpoint_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_registers_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/generic_dpram.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gencores_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/endpoint_private_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/inferred_sync_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/inferred_async_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_crc32_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_sync_detect.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_sync_detect_16bit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_crc_gen.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_extend_pulse.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_sync_ffs.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_pulse_synchronizer.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/gc_shiftreg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/generic/generic_async_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/generic/generic_sync_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/simple_uart_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/timing/dmtd_with_deglitcher.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_mini_nic/minic_wbgen2_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/spll_wbgen2_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_pcs_8bit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_pcs_16bit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_pcs_16bit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_autonegotiation.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_pcs_tbi_mdio_wb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_wb_master.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_oob_insert.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_early_address_match.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_clock_alignment_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_packet_filter.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_vlan_unit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_ts_counter.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_status_reg_insert.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rtu_header_extract.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_buffer.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_pcs_8bit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_crc_size_check.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_header_processor.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_crc_inserter.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_inject_ctrl.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_packet_injection.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_vlan_unit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/generic_shiftreg_fifo.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/genrams/xilinx/generic_simple_dpram.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/sockit_owm.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/sockit_owm.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_async_rx.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_async_tx.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_baud_gen.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/simple_uart_wb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_async_rx.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_async_tx.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/uart_baud_gen.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/simple_uart_wb.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_addsub.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_addsub.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_slave_adapter/wb_slave_adapter.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_eic.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_fifo_sync.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_slave_adapter/wb_slave_adapter.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_eic.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wbgen2/wbgen2_fifo_sync.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/platform/artix7/jtag_tap.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/platform/artix7/jtag_tap.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core_2p/wrc_syscon_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_pulse_synchronizer2.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/timing/dmtd_phase_meas.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/softpll_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/spll_wb_slave.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_1000basex_pcs.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_rx_path.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_timestamping_unit.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_leds_controller.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_wishbone_controller.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_pps_gen/pps_gen_wb.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/ep_tx_path.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/wb_onewire_master.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/wb_simple_uart.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core_2p/wrc_syscon_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_pulse_synchronizer2.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/timing/dmtd_phase_meas.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/softpll_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/spll_wb_slave.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_1000basex_pcs.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_rx_path.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_timestamping_unit.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_leds_controller.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_wishbone_controller.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_pps_gen/pps_gen_wb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/ep_tx_path.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/wb_onewire_master.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/wb_simple_uart.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/jtag_cores.v" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_adder.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/jtag_cores.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_adder.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_dp_ram.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_dp_ram.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_logic_op.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_logic_op.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_ram.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_ram.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_shifter.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_shifter.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_mini_nic/minic_wb_slave.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_mini_nic/minic_wb_slave.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/platform/artix7/lm32_multiplier.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/platform/artix7/lm32_multiplier.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core_2p/wrc_syscon_wb.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/spll_aligner.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/common/gc_frequency_meter.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/gen7s-cores/modules/gen7s_cores_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/wr_softpll_ng.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/wr_endpoint.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_pps_gen/wr_pps_gen.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_mini_nic/wr_mini_nic.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/xwb_onewire_master.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_uart/xwb_simple_uart.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/sdb_rom.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/xwb_crossbar.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core_2p/xwr_syscon_wb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core_2p/wrc_syscon_wb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/spll_aligner.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/common/gc_frequency_meter.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/gen7s-cores/modules/gen7s_cores_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/wr_softpll_ng.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/wr_endpoint.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_pps_gen/wr_pps_gen.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_mini_nic/wr_mini_nic.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_onewire_master/xwb_onewire_master.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_uart/xwb_simple_uart.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/sdb_rom.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/xwb_crossbar.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core_2p/xwr_syscon_wb.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/generated/lm32_allprofiles.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/generated/lm32_allprofiles.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core_2p/wrcore_2p_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/fabric/xwrf_mux.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_mini_nic/xwr_mini_nic.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_softpll_ng/xwr_softpll_ng.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_endpoint/xwr_endpoint.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_pps_gen/xwr_pps_gen.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_dpram/xwb_dpram.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core_2p/wrcore_2p_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/fabric/xwrf_mux.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_mini_nic/xwr_mini_nic.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_softpll_ng/xwr_softpll_ng.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_endpoint/xwr_endpoint.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_pps_gen/xwr_pps_gen.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_dpram/xwb_dpram.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_clgen.v" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_shift.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_clgen.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_shift.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/xwb_sdb_crossbar.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/generated/xwb_lm32.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core_2p/wrc_periph.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/wr-cores/modules/wrc_core/wrcore_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_tbi_phy/disparity_gen_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_dacs/spec_serial_dac.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_crossbar/xwb_sdb_crossbar.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/generated/xwb_lm32.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core_2p/wrc_periph.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/wr-cores/modules/wrc_core/wrcore_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_tbi_phy/disparity_gen_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_dacs/spec_serial_dac.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_top.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_top.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/gen7s-cores/modules/pll_ad9516_spi/PLL_SPI_ctrl_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wrc_core/wr_core.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/whiterabbit_gtxe2_channel_wrapper_gt.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_dacs/spec_serial_dac_arb.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/wr_a7_gtps_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/gen7s-cores/modules/common/ext_pll_10_to_62_compensated.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/wr-cores/modules/wrc_core/xwr_core.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/wr_gtx_phy_kintex7.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/gen7s-cores/modules/pll_ad9516_spi/PLL_SPI_ctrl_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wrc_core/wr_core.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/whiterabbit_gtxe2_channel_wrapper_gt.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_dacs/spec_serial_dac_arb.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/wr_a7_gtps_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/gen7s-cores/modules/common/ext_pll_10_to_62_compensated.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/wr-cores/modules/wrc_core/xwr_core.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/wr_gtx_phy_kintex7.vhd" \
 
 vcom -work hdl_lib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/hdl_lib/modules/general/shiftRegister.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/general/doubleBuffer.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/general/doubleBufferVector.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/general/shiftRegister.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/main_pkg.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_defines.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_spi/spi_defines.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_si57x_interface/si570_if_wbgen2_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_eca/eca_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_si57x_interface/si570_if_wbgen2_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_eca/eca_pkg.vhd" \
 
 vcom -work hdl_lib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/hdl_lib/modules/axi4/axis_wbm_bridge.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_irq/wb_irq_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/modules/wr_tlu/wb_cores_pkg_gsi.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_simple_pwm/simple_pwm_wbgen2_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/platform/xilinx/wb_xilinx_fpga_loader/xloader_registers_pkg.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_sync_block.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_gtrxreset_seq.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtp2p_wizard_sync_pulse.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_channel_gt.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtp2p_wizard_tx_manual_phase_align.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/whiterabbit_gtpe_2pchannel_wrapper_gt.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/wr_gtp_phy_artix7.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_irq/wb_irq_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/modules/wr_tlu/wb_cores_pkg_gsi.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_simple_pwm/simple_pwm_wbgen2_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/platform/xilinx/wb_xilinx_fpga_loader/xloader_registers_pkg.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_sync_block.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_gtrxreset_seq.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtp2p_wizard_sync_pulse.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtpe_channel_gt.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/gtp2p_wizard_tx_manual_phase_align.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/whiterabbit_gtpe_2pchannel_wrapper_gt.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/platform/xilinx/wr_gtp_phy_artix7/gtp_serie7_wrapper/wr_gtp_phy_artix7.vhd" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_include.v" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/general-cores/modules/wishbone/wb_spi/timescale.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_lm32/src/lm32_include.v" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/general-cores/modules/wishbone/wb_spi/timescale.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/gtp_bitslide.vhd" \
-"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_1_0/top/wrc-1p-kintex7/wrc_1p_kintex7_top.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/ip_cores/wr-cores/platform/xilinx/wr_gtp_phy/gtp_bitslide.vhd" \
+"../../../bd/system_design/ipshared/cern/wrc_1p_kintex7_v3_2_0/top/wrc-1p-kintex7/wrc_1p_kintex7_top.vhd" \
 "../../../bd/system_design/ip/system_design_wrc_1p_kintex7_0_0/sim/system_design_wrc_1p_kintex7_0_0.vhd" \
 
 vcom -work axi_lite_ipif_v3_0_4 -64 -93 \

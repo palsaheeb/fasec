@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:3.1.0
--- IP Revision: 26
+-- IP VLNV: user.org:user:fasec_hwtest:3.2.0
+-- IP Revision: 27
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -66,18 +66,18 @@ ENTITY system_design_fasec_hwtest_0_0 IS
     FMC2_CLK0M2C_N_i : IN STD_LOGIC;
     FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
     FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
-    FMC2_GP0_b : INOUT STD_LOGIC;
-    FMC2_GP1_b : INOUT STD_LOGIC;
-    FMC2_GP2_b : INOUT STD_LOGIC;
+    FMC2_GP0_i : IN STD_LOGIC;
+    FMC2_GP1_i : IN STD_LOGIC;
+    FMC2_GP2_i : IN STD_LOGIC;
     FMC2_GP3_b : INOUT STD_LOGIC;
     FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
     FMC1_CLK0M2C_P_i : IN STD_LOGIC;
     FMC1_CLK0M2C_N_i : IN STD_LOGIC;
     FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
     FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
-    FMC1_GP0_b : INOUT STD_LOGIC;
-    FMC1_GP1_b : INOUT STD_LOGIC;
-    FMC1_GP2_b : INOUT STD_LOGIC;
+    FMC1_GP0_i : IN STD_LOGIC;
+    FMC1_GP1_i : IN STD_LOGIC;
+    FMC1_GP2_i : IN STD_LOGIC;
     FMC1_GP3_b : INOUT STD_LOGIC;
     pb_gp_n_i : IN STD_LOGIC;
     led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -92,6 +92,8 @@ ENTITY system_design_fasec_hwtest_0_0 IS
     dig_out5_n : OUT STD_LOGIC;
     dig_out6_n : OUT STD_LOGIC;
     gem_status_vector_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    intr_o : OUT STD_LOGIC;
+    intr_led_o : OUT STD_LOGIC;
     s00_axi_aclk : IN STD_LOGIC;
     s00_axi_aresetn : IN STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -139,18 +141,18 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
       FMC2_CLK0M2C_N_i : IN STD_LOGIC;
       FMC2_CLK0C2M_P_o : OUT STD_LOGIC;
       FMC2_CLK0C2M_N_o : OUT STD_LOGIC;
-      FMC2_GP0_b : INOUT STD_LOGIC;
-      FMC2_GP1_b : INOUT STD_LOGIC;
-      FMC2_GP2_b : INOUT STD_LOGIC;
+      FMC2_GP0_i : IN STD_LOGIC;
+      FMC2_GP1_i : IN STD_LOGIC;
+      FMC2_GP2_i : IN STD_LOGIC;
       FMC2_GP3_b : INOUT STD_LOGIC;
       FMC1_PRSNTM2C_n_i : IN STD_LOGIC;
       FMC1_CLK0M2C_P_i : IN STD_LOGIC;
       FMC1_CLK0M2C_N_i : IN STD_LOGIC;
       FMC1_CLK0C2M_P_o : OUT STD_LOGIC;
       FMC1_CLK0C2M_N_o : OUT STD_LOGIC;
-      FMC1_GP0_b : INOUT STD_LOGIC;
-      FMC1_GP1_b : INOUT STD_LOGIC;
-      FMC1_GP2_b : INOUT STD_LOGIC;
+      FMC1_GP0_i : IN STD_LOGIC;
+      FMC1_GP1_i : IN STD_LOGIC;
+      FMC1_GP2_i : IN STD_LOGIC;
       FMC1_GP3_b : INOUT STD_LOGIC;
       pb_gp_n_i : IN STD_LOGIC;
       led_col_pl_o : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -165,6 +167,8 @@ ARCHITECTURE system_design_fasec_hwtest_0_0_arch OF system_design_fasec_hwtest_0
       dig_out5_n : OUT STD_LOGIC;
       dig_out6_n : OUT STD_LOGIC;
       gem_status_vector_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      intr_o : OUT STD_LOGIC;
+      intr_led_o : OUT STD_LOGIC;
       s00_axi_aclk : IN STD_LOGIC;
       s00_axi_aresetn : IN STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -231,18 +235,18 @@ BEGIN
       FMC2_CLK0M2C_N_i => FMC2_CLK0M2C_N_i,
       FMC2_CLK0C2M_P_o => FMC2_CLK0C2M_P_o,
       FMC2_CLK0C2M_N_o => FMC2_CLK0C2M_N_o,
-      FMC2_GP0_b => FMC2_GP0_b,
-      FMC2_GP1_b => FMC2_GP1_b,
-      FMC2_GP2_b => FMC2_GP2_b,
+      FMC2_GP0_i => FMC2_GP0_i,
+      FMC2_GP1_i => FMC2_GP1_i,
+      FMC2_GP2_i => FMC2_GP2_i,
       FMC2_GP3_b => FMC2_GP3_b,
       FMC1_PRSNTM2C_n_i => FMC1_PRSNTM2C_n_i,
       FMC1_CLK0M2C_P_i => FMC1_CLK0M2C_P_i,
       FMC1_CLK0M2C_N_i => FMC1_CLK0M2C_N_i,
       FMC1_CLK0C2M_P_o => FMC1_CLK0C2M_P_o,
       FMC1_CLK0C2M_N_o => FMC1_CLK0C2M_N_o,
-      FMC1_GP0_b => FMC1_GP0_b,
-      FMC1_GP1_b => FMC1_GP1_b,
-      FMC1_GP2_b => FMC1_GP2_b,
+      FMC1_GP0_i => FMC1_GP0_i,
+      FMC1_GP1_i => FMC1_GP1_i,
+      FMC1_GP2_i => FMC1_GP2_i,
       FMC1_GP3_b => FMC1_GP3_b,
       pb_gp_n_i => pb_gp_n_i,
       led_col_pl_o => led_col_pl_o,
@@ -257,6 +261,8 @@ BEGIN
       dig_out5_n => dig_out5_n,
       dig_out6_n => dig_out6_n,
       gem_status_vector_i => gem_status_vector_i,
+      intr_o => intr_o,
+      intr_led_o => intr_led_o,
       s00_axi_aclk => s00_axi_aclk,
       s00_axi_aresetn => s00_axi_aresetn,
       s00_axi_awaddr => s00_axi_awaddr,
