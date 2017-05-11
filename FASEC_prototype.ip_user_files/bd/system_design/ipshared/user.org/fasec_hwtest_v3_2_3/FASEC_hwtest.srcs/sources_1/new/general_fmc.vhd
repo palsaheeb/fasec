@@ -94,15 +94,22 @@ architecture rtl of general_fmc is
   constant c_LEDCOUNTERWIDTH : positive := 32;
   -- memory mapping EDA-03287:
   constant c_ADDR_COMPIN     : positive := 16#00#;
+  constant c_ADDR_OUTFB      : positive := 16#01#;
+  constant c_ADDR_OUTREQ     : positive := 16#02#;
+  constant c_ADDR_FMCCNR     : positive := 16#03#;
+  constant c_BIT_USEIN0      : positive := 7;
   constant c_ADDR_COMPEXIN   : positive := 16#04#;
-  constant c_ADDR_OUTEXIN    : positive := 16#05#;
+  constant c_ADDR_OUTEX      : positive := 16#05#;
+  constant c_ADDR_OUT        : positive := 16#06#;
   -- 0x00 : General Purpose
   --  0x00 ro : bit19-0 comparator input status
   --  0x01 ro : bit3-0 output feedback status
   --  0x02 rw : bit7-0 output request
-  --  0x03 rw : DAC control (see dac7716_spi.vhd)
+  --  0x03 rw : FMC & DAC control (see also dac7716_spi.vhd), bit7: use ch0 for
+  --    all outs
   --  0x04 ro : bit19-0 extended input status for LEDs
   --  0x05 ro : bit7-0 extended output status for LEDs
+  --  0x06 ro : bit7-0 output status
   -- 0x08 rw : 20x channel write request
   -- 0x1C ro : 20x channel read values
   -- 0x30 ro : 20x pulse length counter (assserted pulse)
@@ -248,7 +255,7 @@ begin
         spi_sdi_o  => s_spi_mosi,
         spi_sdo_i  => s_spi_miso,
         spi_cs_n_o => s_spi_cs_n,
-        dac_cntr_i => data_rw_i(3),
+        dac_cntr_i => data_rw_i(c_ADDR_FMCCNR),
         dac_cntr_o => open,
         dac_ch_i   => data_rw_i(c_GPMEM to c_GPMEM+(c_NODAC*c_NOCHANNELS)-1),
         dac_ch_o   => data_o(c_GPMEM+(c_NODAC*c_NOCHANNELS) to c_GPMEM+2*(c_NODAC*c_NOCHANNELS)-1));
@@ -298,11 +305,16 @@ begin
   begin
     if g_FMC = "EDA-03287" and rising_edge(clk_i) then
       -- in/outputs
-      data_o(1)                                <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
+      data_o(c_ADDR_OUTFB)                     <= resize(unsigned(v_fbd(c_OUTFBD-1 downto 0)), data_o(1)'length);
+      data_o(c_ADDR_OUT)                     <= resize(unsigned(s_diffouts_o(c_DOUTS-1 downto 0)), data_o(0)'length);
       s_diffouts_o(c_DOUTS-1 downto c_DOUTSGP) <= v_dout(c_DOUTS-1 downto c_DOUTSGP);
       -- using the variables to clock-in/out data
-      v_dout(c_DOUTS-1 downto 0)               := std_logic_vector(data_rw_i(2)(c_DOUTS-1 downto 0));
-      v_fbd                                    := FMC_LA_P_b(31) & FMC_LA_N_b(31) & FMC_LA_P_b(32) & FMC_LA_N_b(32);
+      if (data_rw_i(c_ADDR_FMCCNR)(c_BIT_USEIN0) = '1') then
+        v_dout(c_DOUTS-1 downto 0) := std_logic_vector(data_rw_i(c_ADDR_OUTREQ)(c_DOUTS-1 downto 0));
+      else
+        v_dout(c_DOUTS-1 downto 0) := (others => s_cmp_pulse(0));
+      end if;
+      v_fbd := FMC_LA_P_b(31) & FMC_LA_N_b(31) & FMC_LA_P_b(32) & FMC_LA_N_b(32);
       -- interrupts generation by comparing with previous value
       if (v_cmp /= s_cmp_pulse) then
         intr_o <= '1';
@@ -315,16 +327,17 @@ begin
         intr_led_o <= '0';
       end if;
       -- clocking in data for above interrupt generation
-      -- leds combination from status and extended pulse
+      -- only on change of (extended) bitvectors there's an interrupt to reduce
+      -- interrupt rate
       v_cmp     := s_cmp_pulse(c_COMP-1 downto 0);
-      v_cmpled  := s_compleds(c_COMP-1 downto 0) or s_cmp_pulse(c_COMP-1 downto 0);
-      v_outleds := s_outleds(c_DOUTS-1 downto 0) or v_dout(c_DOUTS-1 downto 0);
+      v_cmpled  := s_compleds(c_COMP-1 downto 0);
+      v_outleds := s_outleds(c_DOUTS-1 downto 0);
     end if;
   end process p_fmc_03287_io;
   -- no additional clocking of comparators & LEDs
   data_o(c_ADDR_COMPIN)   <= resize(unsigned(s_cmp_pulse), data_o(0)'length);
   data_o(c_ADDR_COMPEXIN) <= resize(unsigned(s_compleds), data_o(0)'length);
-  data_o(c_ADDR_OUTEXIN)  <= resize(unsigned(s_outleds), data_o(0)'length);
+  data_o(c_ADDR_OUTEX)    <= resize(unsigned(s_outleds), data_o(0)'length);
   --=============================================================================
   -- EDA-02327: FMC user lines - clock in for AXI register read by Zynq PS
   --=============================================================================  

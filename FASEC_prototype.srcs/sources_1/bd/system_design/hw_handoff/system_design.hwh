@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 11 18:13:28 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 11 20:34:02 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -3685,7 +3685,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.2.2" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.2.2">
+    <MODULE FULLNAME="/fasec_hwtest_0" HWVERSION="3.2.3" INSTANCE="fasec_hwtest_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fasec_hwtest" VLNV="user.org:user:fasec_hwtest:3.2.3">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE=""/>
