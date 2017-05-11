@@ -65,9 +65,9 @@ entity general_fmc is
     FMC_CLK0C2M_P_o  : out   std_logic;
     FMC_CLK0C2M_N_o  : out   std_logic;
     -- FMC general purpose
-    FMC_GP0_i        : in std_logic;
-    FMC_GP1_i        : in std_logic;
-    FMC_GP2_i        : in std_logic;
+    FMC_GP0_i        : in    std_logic;
+    FMC_GP1_i        : in    std_logic;
+    FMC_GP2_i        : in    std_logic;
     FMC_GP3_b        : inout std_logic;
     -- generic registers for passing data to top module
     -- rw data, modified by master
@@ -93,12 +93,16 @@ architecture rtl of general_fmc is
   constant c_COUNTERWIDTH    : positive := 24;
   constant c_LEDCOUNTERWIDTH : positive := 32;
   -- memory mapping EDA-03287:
+  constant c_ADDR_COMPIN     : positive := 16#00#;
+  constant c_ADDR_COMPEXIN   : positive := 16#04#;
+  constant c_ADDR_OUTEXIN    : positive := 16#05#;
   -- 0x00 : General Purpose
   --  0x00 ro : bit19-0 comparator input status
   --  0x01 ro : bit3-0 output feedback status
   --  0x02 rw : bit7-0 output request
   --  0x03 rw : DAC control (see dac7716_spi.vhd)
   --  0x04 ro : bit19-0 extended input status for LEDs
+  --  0x05 ro : bit7-0 extended output status for LEDs
   -- 0x08 rw : 20x channel write request
   -- 0x1C ro : 20x channel read values
   -- 0x30 ro : 20x pulse length counter (assserted pulse)
@@ -112,7 +116,7 @@ architecture rtl of general_fmc is
   type t_cmplengths is array (0 to c_COMP-1) of std_logic_vector(c_COUNTERWIDTH-1 downto 0);
   signal s_cmp_lengths   : t_cmplengths;
   signal s_diffouts_o    : std_logic_vector(c_DOUTS-1 downto 0);
-  signal s_outleds	: std_logic_vector(c_DOUTS-1 downto 0);
+  signal s_outleds       : std_logic_vector(c_DOUTS-1 downto 0);
   signal s_outsfeedbak_i : std_logic_vector(c_OUTFBD-1 downto 0);
   signal s_spi_sclk      : std_logic;
   signal s_spi_mosi      : std_logic;
@@ -286,10 +290,10 @@ begin
   end generate gen_clkouts;
 
   p_fmc_03287_io : process(clk_i)
-    variable v_cmp    : std_logic_vector(c_COMP-1 downto 0);
-    variable v_cmpled : std_logic_vector(c_COMP-1 downto 0);
-    variable v_dout   : std_logic_vector(c_DOUTS-1 downto 0);
-    variable v_fbd    : std_logic_vector(c_OUTFBD-1 downto 0);
+    variable v_cmp     : std_logic_vector(c_COMP-1 downto 0);
+    variable v_cmpled  : std_logic_vector(c_COMP-1 downto 0);
+    variable v_dout    : std_logic_vector(c_DOUTS-1 downto 0);
+    variable v_fbd     : std_logic_vector(c_OUTFBD-1 downto 0);
     variable v_outleds : std_logic_vector(c_DOUTS-1 downto 0);
   begin
     if g_FMC = "EDA-03287" and rising_edge(clk_i) then
@@ -311,15 +315,16 @@ begin
         intr_led_o <= '0';
       end if;
       -- clocking in data for above interrupt generation
-      v_cmpled := s_compleds(c_COMP-1 downto 0);
-      v_cmp    := s_cmp_pulse(c_COMP-1 downto 0);
-      v_outleds := s_outleds(c_DOUTS-1 downto 0);
+      -- leds combination from status and extended pulse
+      v_cmp     := s_cmp_pulse(c_COMP-1 downto 0);
+      v_cmpled  := s_compleds(c_COMP-1 downto 0) or s_cmp_pulse(c_COMP-1 downto 0);
+      v_outleds := s_outleds(c_DOUTS-1 downto 0) or v_dout(c_DOUTS-1 downto 0);
     end if;
   end process p_fmc_03287_io;
   -- no additional clocking of comparators & LEDs
-  data_o(0) <= resize(unsigned(s_cmp_pulse), data_o(0)'length);
-  data_o(4) <= resize(unsigned(s_compleds), data_o(0)'length);
-
+  data_o(c_ADDR_COMPIN)   <= resize(unsigned(s_cmp_pulse), data_o(0)'length);
+  data_o(c_ADDR_COMPEXIN) <= resize(unsigned(s_compleds), data_o(0)'length);
+  data_o(c_ADDR_OUTEXIN)  <= resize(unsigned(s_outleds), data_o(0)'length);
   --=============================================================================
   -- EDA-02327: FMC user lines - clock in for AXI register read by Zynq PS
   --=============================================================================  

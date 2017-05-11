@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:fasec_hwtest:3.2.1
--- IP Revision: 29
+-- IP VLNV: user.org:user:fasec_hwtest:3.2.2
+-- IP Revision: 30
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
