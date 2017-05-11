@@ -53,5 +53,10 @@ puts $fw $cont
 close $fw
 close $fr
 
-puts "SUCCESS: done"
+puts "SUCCESS: file modifs done"
+
+# Vivado commands
+reset_run synth_1
+launch_runs synth_1 -force -jobs 4
+launch_runs impl_1 -to_step write_bitstream -jobs 4
 
