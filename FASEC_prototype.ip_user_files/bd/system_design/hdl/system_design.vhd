@@ -1,7 +1,7 @@
 --Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
---Date        : Thu Apr 13 09:57:53 2017
+--Date        : Thu May 11 16:53:06 2017
 --Host        : lapte24154 running 64-bit openSUSE Leap 42.1 (x86_64)
 --Command     : generate_target system_design.bd
 --Design      : system_design
@@ -4009,70 +4009,6 @@ architecture STRUCTURE of system_design is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component system_design_rst_wrc_1p_kintex7_0_62M_0;
-  component system_design_fasec_hwtest_0_0 is
-  port (
-    ps_clk_i : in STD_LOGIC;
-    osc100_clk_i : in STD_LOGIC;
-    FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
-    FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
-    FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
-    FMC1_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
-    FMC2_PRSNTM2C_n_i : in STD_LOGIC;
-    FMC2_CLK0M2C_P_i : in STD_LOGIC;
-    FMC2_CLK0M2C_N_i : in STD_LOGIC;
-    FMC2_CLK0C2M_P_o : out STD_LOGIC;
-    FMC2_CLK0C2M_N_o : out STD_LOGIC;
-    FMC2_GP0_i : in STD_LOGIC;
-    FMC2_GP1_i : in STD_LOGIC;
-    FMC2_GP2_i : in STD_LOGIC;
-    FMC2_GP3_b : inout STD_LOGIC;
-    FMC1_PRSNTM2C_n_i : in STD_LOGIC;
-    FMC1_CLK0M2C_P_i : in STD_LOGIC;
-    FMC1_CLK0M2C_N_i : in STD_LOGIC;
-    FMC1_CLK0C2M_P_o : out STD_LOGIC;
-    FMC1_CLK0C2M_N_o : out STD_LOGIC;
-    FMC1_GP0_i : in STD_LOGIC;
-    FMC1_GP1_i : in STD_LOGIC;
-    FMC1_GP2_i : in STD_LOGIC;
-    FMC1_GP3_b : inout STD_LOGIC;
-    pb_gp_n_i : in STD_LOGIC;
-    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    led_line_en_pl_o : out STD_LOGIC;
-    led_line_pl_o : out STD_LOGIC;
-    watchdog_pl_o : out STD_LOGIC;
-    dig_in1_i : in STD_LOGIC;
-    dig_in2_i : in STD_LOGIC;
-    dig_in3_n_i : in STD_LOGIC;
-    dig_in4_n_i : in STD_LOGIC;
-    dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    dig_out5_n : out STD_LOGIC;
-    dig_out6_n : out STD_LOGIC;
-    gem_status_vector_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    intr_o : out STD_LOGIC;
-    intr_led_o : out STD_LOGIC;
-    s00_axi_aclk : in STD_LOGIC;
-    s00_axi_aresetn : in STD_LOGIC;
-    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_awvalid : in STD_LOGIC;
-    s00_axi_awready : out STD_LOGIC;
-    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s00_axi_wvalid : in STD_LOGIC;
-    s00_axi_wready : out STD_LOGIC;
-    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_bvalid : out STD_LOGIC;
-    s00_axi_bready : in STD_LOGIC;
-    s00_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    s00_axi_arvalid : in STD_LOGIC;
-    s00_axi_arready : out STD_LOGIC;
-    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s00_axi_rvalid : out STD_LOGIC;
-    s00_axi_rready : in STD_LOGIC
-  );
-  end component system_design_fasec_hwtest_0_0;
   component system_design_axi_wb_i2c_master_0_1 is
   port (
     i2c_scl_io : inout STD_LOGIC;
@@ -4191,6 +4127,70 @@ architecture STRUCTURE of system_design is
     s00_axi_rready : in STD_LOGIC
   );
   end component system_design_wrc_1p_kintex7_0_0;
+  component system_design_fasec_hwtest_0_0 is
+  port (
+    ps_clk_i : in STD_LOGIC;
+    osc100_clk_i : in STD_LOGIC;
+    FMC2_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_LA_P_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC1_LA_N_b : inout STD_LOGIC_VECTOR ( 33 downto 0 );
+    FMC2_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC2_CLK0M2C_P_i : in STD_LOGIC;
+    FMC2_CLK0M2C_N_i : in STD_LOGIC;
+    FMC2_CLK0C2M_P_o : out STD_LOGIC;
+    FMC2_CLK0C2M_N_o : out STD_LOGIC;
+    FMC2_GP0_i : in STD_LOGIC;
+    FMC2_GP1_i : in STD_LOGIC;
+    FMC2_GP2_i : in STD_LOGIC;
+    FMC2_GP3_b : inout STD_LOGIC;
+    FMC1_PRSNTM2C_n_i : in STD_LOGIC;
+    FMC1_CLK0M2C_P_i : in STD_LOGIC;
+    FMC1_CLK0M2C_N_i : in STD_LOGIC;
+    FMC1_CLK0C2M_P_o : out STD_LOGIC;
+    FMC1_CLK0C2M_N_o : out STD_LOGIC;
+    FMC1_GP0_i : in STD_LOGIC;
+    FMC1_GP1_i : in STD_LOGIC;
+    FMC1_GP2_i : in STD_LOGIC;
+    FMC1_GP3_b : inout STD_LOGIC;
+    pb_gp_n_i : in STD_LOGIC;
+    led_col_pl_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    led_line_en_pl_o : out STD_LOGIC;
+    led_line_pl_o : out STD_LOGIC;
+    watchdog_pl_o : out STD_LOGIC;
+    dig_in1_i : in STD_LOGIC;
+    dig_in2_i : in STD_LOGIC;
+    dig_in3_n_i : in STD_LOGIC;
+    dig_in4_n_i : in STD_LOGIC;
+    dig_outs_i : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    dig_out5_n : out STD_LOGIC;
+    dig_out6_n : out STD_LOGIC;
+    gem_status_vector_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    intr_o : out STD_LOGIC;
+    intr_led_o : out STD_LOGIC;
+    s00_axi_aclk : in STD_LOGIC;
+    s00_axi_aresetn : in STD_LOGIC;
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_awvalid : in STD_LOGIC;
+    s00_axi_awready : out STD_LOGIC;
+    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_wvalid : in STD_LOGIC;
+    s00_axi_wready : out STD_LOGIC;
+    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_bvalid : out STD_LOGIC;
+    s00_axi_bready : in STD_LOGIC;
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_arvalid : in STD_LOGIC;
+    s00_axi_arready : out STD_LOGIC;
+    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_rvalid : out STD_LOGIC;
+    s00_axi_rready : in STD_LOGIC
+  );
+  end component system_design_fasec_hwtest_0_0;
   signal FMC1_CLK0M2C_N_i_1 : STD_LOGIC;
   signal FMC1_CLK0M2C_P_i_1 : STD_LOGIC;
   signal FMC1_PRSNTM2C_n_i_1 : STD_LOGIC;

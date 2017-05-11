@@ -6,7 +6,7 @@
 -- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
 -- Company    : CERN
 -- Created    : 2016-11-22
--- Last update: 2017-04-12
+-- Last update: 2017-05-11
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -112,6 +112,7 @@ architecture rtl of general_fmc is
   type t_cmplengths is array (0 to c_COMP-1) of std_logic_vector(c_COUNTERWIDTH-1 downto 0);
   signal s_cmp_lengths   : t_cmplengths;
   signal s_diffouts_o    : std_logic_vector(c_DOUTS-1 downto 0);
+  signal s_outleds	: std_logic_vector(c_DOUTS-1 downto 0);
   signal s_outsfeedbak_i : std_logic_vector(c_OUTFBD-1 downto 0);
   signal s_spi_sclk      : std_logic;
   signal s_spi_mosi      : std_logic;
@@ -201,6 +202,7 @@ begin
   -- outputs loop
   fmc_03287_obufds : for I in 0 to c_DOUTS-1 generate
     gen_outs : if g_FMC = "EDA-03287" generate
+      -- output LVDS buffers
       cmp_OBUFDS_fmc : OBUFDS
         generic map (
 --          IOSTANDARD => "LVDS_25",      -- Specify the output I/O standard
@@ -209,6 +211,24 @@ begin
           O  => FMC_LA_P_b(c_COMP+I),  -- Diff_p output (connect directly to top-level port)
           OB => FMC_LA_N_b(c_COMP+I),  -- Diff_n output (connect directly to top-level port)
           I  => s_diffouts_o(I));       -- Buffer input
+      -- pulse extenders for LEDs
+      cmp_outs_pulseMeasure : pulseMeasure
+        generic map (
+          g_COUNTERWIDTH    => c_COUNTERWIDTH,
+          g_LEDCOUNTERWIDTH => c_LEDCOUNTERWIDTH,
+          g_LEDWAIT         => 10000000,  -- 100ms when 10ns clock
+          g_MISSINGCDC      => false)
+        port map (
+          clk_dsp_i       => clk_i,     -- for now no clock domain crossing
+          reset_n_i       => s_reset_n,
+          pulse_i         => s_diffouts_o(I),
+          missingWindow_i => to_unsigned(0, c_LEDCOUNTERWIDTH),
+          pulse_o         => open,
+          edgeDetected_o  => open,
+          usrLed_o        => s_outleds(I),
+          window_o        => open,
+          pulseLength_o   => open,
+          LedCount_o      => open);
     end generate gen_outs;
   end generate fmc_03287_obufds;
   -- SPI DAC for comparator reference
@@ -270,6 +290,7 @@ begin
     variable v_cmpled : std_logic_vector(c_COMP-1 downto 0);
     variable v_dout   : std_logic_vector(c_DOUTS-1 downto 0);
     variable v_fbd    : std_logic_vector(c_OUTFBD-1 downto 0);
+    variable v_outleds : std_logic_vector(c_DOUTS-1 downto 0);
   begin
     if g_FMC = "EDA-03287" and rising_edge(clk_i) then
       -- in/outputs
@@ -284,7 +305,7 @@ begin
       else
         intr_o <= '0';
       end if;
-      if (v_cmpled /= s_compleds) then
+      if (v_cmpled /= s_compleds) or (v_outleds /= s_outleds) then
         intr_led_o <= '1';
       else
         intr_led_o <= '0';
@@ -292,6 +313,7 @@ begin
       -- clocking in data for above interrupt generation
       v_cmpled := s_compleds(c_COMP-1 downto 0);
       v_cmp    := s_cmp_pulse(c_COMP-1 downto 0);
+      v_outleds := s_outleds(c_DOUTS-1 downto 0);
     end if;
   end process p_fmc_03287_io;
   -- no additional clocking of comparators & LEDs

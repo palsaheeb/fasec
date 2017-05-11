@@ -91,22 +91,22 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
 
 vcom -work hdl_lib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/main_pkg.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/pulseMeasure.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/main_pkg.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/general/pulseMeasure.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
 
 vcom -work hdl_lib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_0/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_1/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
 "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -93 \
@@ -576,6 +576,7 @@ vcom -work xil_defaultlib -93 \
 "../../../bd/system_design/ip/system_design_axi_wb_i2c_master_2_0/sim/system_design_axi_wb_i2c_master_2_0.vhd" \
 "../../../bd/system_design/ip/system_design_axi_wb_i2c_master_0_1/sim/system_design_axi_wb_i2c_master_0_1.vhd" \
 "../../../bd/system_design/ip/system_design_rst_wrc_1p_kintex7_0_62M_0/sim/system_design_rst_wrc_1p_kintex7_0_62M_0.vhd" \
+"../../../bd/system_design/hdl/system_design.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_9 -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" "+incdir+../../../ipstatic/axi_infrastructure_v1_1/hdl/verilog" "+incdir+../../../ipstatic/processing_system7_bfm_v2_0/hdl" \
 "../../../ipstatic/axi_protocol_converter_v2_1/hdl/verilog/axi_protocol_converter_v2_1_a_axi3_conv.v" \
@@ -602,9 +603,6 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 "../../../bd/system_design/ip/system_design_auto_pc_0/sim/system_design_auto_pc_0.v" \
 "../../../bd/system_design/ip/system_design_auto_pc_1/sim/system_design_auto_pc_1.v" \
 "../../../bd/system_design/ip/system_design_auto_pc_2/sim/system_design_auto_pc_2.v" \
-
-vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/hdl/system_design.vhd" \
 
 vlog -work xil_defaultlib "glbl.v"
 
