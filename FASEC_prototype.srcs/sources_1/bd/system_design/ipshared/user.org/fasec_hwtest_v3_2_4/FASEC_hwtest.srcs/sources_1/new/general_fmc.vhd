@@ -6,7 +6,7 @@
 -- Author     : Pieter Van Trappen  <pvantrap@cern.ch>
 -- Company    : CERN
 -- Created    : 2016-11-22
--- Last update: 2017-05-11
+-- Last update: 2017-05-12
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -185,7 +185,7 @@ begin
         generic map (
           g_COUNTERWIDTH    => c_COUNTERWIDTH,
           g_LEDCOUNTERWIDTH => c_LEDCOUNTERWIDTH,
-          g_LEDWAIT         => 25000000,  -- 250ms when 10ns clock
+          g_LEDWAIT         => 10000000,  -- 100ms when 10ns clock
           g_MISSINGCDC      => false)
         port map (
           clk_dsp_i       => clk_i,     -- for now no clock domain crossing
@@ -292,7 +292,7 @@ begin
   end generate gen_spi;
 
   -- for white rabbit debugging, link some FMC outputs directly to GP inputs
-  gen_clkouts : if g_FMC = "EDA-03287" generate
+  gen_clkouts : if g_FMC = "EDA-03287" and c_DOUTSGP>0 generate
     s_diffouts_o(c_DOUTSGP-1 downto 0) <= FMC_GP3_b & FMC_GP2_i & FMC_GP1_i & FMC_GP0_i;
   end generate gen_clkouts;
 
@@ -309,7 +309,7 @@ begin
       data_o(c_ADDR_OUT)                     <= resize(unsigned(s_diffouts_o(c_DOUTS-1 downto 0)), data_o(0)'length);
       s_diffouts_o(c_DOUTS-1 downto c_DOUTSGP) <= v_dout(c_DOUTS-1 downto c_DOUTSGP);
       -- using the variables to clock-in/out data
-      if (data_rw_i(c_ADDR_FMCCNR)(c_BIT_USEIN0) = '1') then
+      if (data_rw_i(c_ADDR_FMCCNR)(c_BIT_USEIN0) = '0') then
         v_dout(c_DOUTS-1 downto 0) := std_logic_vector(data_rw_i(c_ADDR_OUTREQ)(c_DOUTS-1 downto 0));
       else
         v_dout(c_DOUTS-1 downto 0) := (others => s_cmp_pulse(0));

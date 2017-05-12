@@ -91,22 +91,22 @@ vlog -work xil_defaultlib -v2k5 "+incdir+../../../ipstatic/axi_infrastructure_v1
 "../../../bd/system_design/ip/system_design_processing_system7_0_0/sim/system_design_processing_system7_0_0.v" \
 
 vcom -work hdl_lib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/main_pkg.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/general/pulseMeasure.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/general/spi_transceiver.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/general/doubleBufferEdge.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/general/counterUpDown.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/main_pkg.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/general/pulseMeasure.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/FASEC_hwtest.srcs/sources_1/new/dac7716_spi.vhd" \
 
 vcom -work hdl_lib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/axi4/axi4lite_slave.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/ip_cores/hdl_lib/modules/general/clockDivider.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
-"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_3/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/FASEC_hwtest.srcs/sources_1/new/general_fmc.vhd" \
+"../../../bd/system_design/ipshared/user.org/fasec_hwtest_v3_2_4/FASEC_hwtest.srcs/sources_1/new/top_mod.vhd" \
 "../../../bd/system_design/ip/system_design_fasec_hwtest_0_0/sim/system_design_fasec_hwtest_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -93 \

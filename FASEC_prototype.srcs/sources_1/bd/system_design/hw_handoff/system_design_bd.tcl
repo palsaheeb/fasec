@@ -247,7 +247,7 @@ CONFIG.C_S_AXI_ACLK_FREQ_HZ.VALUE_SRC {DEFAULT} \
   set axi_wb_i2c_master_2 [ create_bd_cell -type ip -vlnv cern.ch:ip:axi_wb_i2c_master:3.1.1 axi_wb_i2c_master_2 ]
 
   # Create instance: fasec_hwtest_0, and set properties
-  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:3.2.3 fasec_hwtest_0 ]
+  set fasec_hwtest_0 [ create_bd_cell -type ip -vlnv user.org:user:fasec_hwtest:3.2.4 fasec_hwtest_0 ]
   set_property -dict [ list \
 CONFIG.g_FMC1 {EDA-03287} \
 CONFIG.g_FMC2 {EDA-03287} \
