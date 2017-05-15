@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May 12 15:46:41 2017" VIVADOVERSION="2016.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon May 15 15:45:10 2017" VIVADOVERSION="2016.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z030" NAME="system_design" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -3803,9 +3803,9 @@
             <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_ref_o"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="FMC1_GP1_i" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_clk_dmtd_o">
+        <PORT DIR="I" NAME="FMC1_GP1_i" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_pps_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="clk_dmtd_o"/>
+            <CONNECTION INSTANCE="wrc_1p_kintex7_0" PORT="pps_o"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="FMC1_GP2_i" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_clk_rx_rbclk_o">
@@ -7519,11 +7519,7 @@
             <CONNECTION INSTANCE="External_Ports" PORT="gtp_dedicated_clk_n_i"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="clk_dmtd_o" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_clk_dmtd_o">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="FMC1_GP1_i"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" NAME="clk_dmtd_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="clk_ref_o" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_clk_ref_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fasec_hwtest_0" PORT="FMC1_GP0_i"/>
@@ -7627,7 +7623,11 @@
         </PORT>
         <PORT DIR="O" NAME="pps_ctrl_o" SIGIS="undef"/>
         <PORT DIR="O" NAME="term_en_o" SIGIS="undef"/>
-        <PORT DIR="O" NAME="pps_o" SIGIS="undef"/>
+        <PORT DIR="O" NAME="pps_o" SIGIS="undef" SIGNAME="wrc_1p_kintex7_0_pps_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fasec_hwtest_0" PORT="FMC1_GP1_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="axi_int_o" SIGIS="undef"/>
         <PORT CLKFREQUENCY="62500000" DIR="O" NAME="s00_axi_aclk_o" SIGIS="clk" SIGNAME="wrc_1p_kintex7_0_s00_axi_aclk_o">
           <CONNECTIONS>
