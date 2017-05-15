@@ -2,7 +2,7 @@
 # in a VHDL file for use during synthesis
 # !! FIXME: first remove top if IP updated: $ rm modules/fasec_hwtest/top_mod.vhd.old 
 # start manually as follows:
-# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl; reset_run synth_1; launch_runs synth_1 -force -jobs 4; launch_runs impl_1 -to_step write_bitstream -jobs 4
+# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl
 
 # xilinc tcl info:
 # each class can have many properties, to list them:
