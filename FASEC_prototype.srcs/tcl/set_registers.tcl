@@ -2,7 +2,7 @@
 # in a VHDL file for use during synthesis
 # !! FIXME: first remove top if IP updated: $ rm modules/fasec_hwtest/top_mod.vhd.old 
 # start manually as follows:
-# cd /home/pieter/Development/projects/FIDS/FASEC_prototype; source FASEC_prototype.srcs/tcl/set_registers.tcl
+# > cd [get_property DIRECTORY [current_project]]; source FASEC_prototype.srcs/tcl/set_registers.tcl
 
 # xilinc tcl info:
 # each class can have many properties, to list them:
@@ -18,6 +18,7 @@ set filefilter *top_mod*
 set git {/usr/bin/git}
 set backupext .old
 set backupnm {modules/fasec_hwtest/top_mod.vhd.old}
+set backupnd {modules/fasec_hwtest}
 
 set projd [get_property DIRECTORY [current_project]]
 puts $projd
@@ -34,7 +35,9 @@ set dateCode [format %08X [clock seconds]]
 set gitCode [string range [exec $git log --format=%H -n 1] 0 7]
 
 # create backup file if it doesn't exist to preserve the DEADBEE. strings
+# file mkdir needed in case of fresh project creation after clone
 if [file exists $backupnm]==0 {
+    file mkdir $backupnd
     file copy -force $topfile $backupnm
 }
 
